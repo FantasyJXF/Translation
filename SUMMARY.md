@@ -4,7 +4,7 @@
 * [项目介绍](introductionmd.md)
 * [环境搭建](getting_startedmd.md)
 * [安装工具链](install_toolchainmd.md)
-   * [MACOS](macos.md)
+   * [MACOS](macosmd.md)
    * [Linux](linux.md)
        * [高端Linux](adcanced linux.md)
    * [Windows](windows.md)
