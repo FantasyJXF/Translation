@@ -46,34 +46,28 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
     - 找到入口：直接打开github中[网页端][8]进入要进行编辑的文件，如下图
 [8]:https://github.com/FantasyJXF/Translation
- ![github](1.png)
-
-	    
-
+ ![edit](1.png)
 	  
 
     - 开始编辑：进入编辑页面后，对文件进行修改，会出现如下图问题
 
-![fail](2.png)
+![doit](2.png)
 
 		按照提示，点击`Fork this repository and propose chanes`，进入即可编辑，如下图
-        
+ ![write](write.png)
 		
     - 提交贡献：首先提名文件更改，如下图
-
+![propose](propose.png)
     
     	检查是否与原有版本有冲突，如果有，解决冲突再提交，没有则提交，如下图
-
-    	
-        
+![pull](finish.png)
 
     	剩下来就是版主的事了，如果没有太大的问题，版主就可以合并分支了，到这你的对本文档的贡献就完成了。
 
 2. 本地编辑（git高级用户推荐）
 
 	相对于网页端编辑，本地编辑只是编辑在本地，后期的提交分支还是得在网页端进行，不过在此之前你得fork本项目到你的仓库。
-
-	![fork](15.png)
+![forksit](15.png)
 
 	然后进行如下操作
 	
