@@ -9,5 +9,5 @@
        * [高端Linux](Getting Started/adcanced_linux.md)
    * [Windows](Getting Started/windows.md)
 * [代码编译](Getting Started/building_the_code.md)
-* [合作开发](contributing.md)
+* [合作开发](Getting Started/contributing&dev_call.md)
 
