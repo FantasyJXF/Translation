@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [项目介绍](Getting Started/introduction.md)
-* [新手上路](Getting Started/gettingstarted1.md)
+* [新手上路](Getting Started/getting_started.md)
 * [安装工具链](install_toolchain.md)
    * [MACOS](macos.md)
    * [Linux](linux.md)
