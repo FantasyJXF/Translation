@@ -73,7 +73,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 	
 	```sh
 	#下载你的项目到本地
-	git clone https://github.com/your_github_username/direction-cosine-matrix-imu-theory.git
+	git clone https://github.com/FantasyJXF/Translation.git
 
 	#进入文件夹进行编辑即可，完成后如下操作
 
@@ -86,7 +86,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 	git commit -m "your comment"
 	#提交更改
 
-	git pull https://github.com/nephen/direction-cosine-matrix-imu-theory.git master
+	git pull https://github.com/FantasyJXF/Translation.git master
 	#检查是否与nephen云端产生冲突，如果有，解决冲突后重新git commit -m "your comment"
 
 	git push origin master
