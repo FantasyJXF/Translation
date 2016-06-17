@@ -36,7 +36,7 @@
    * [Pixracer](Hardware/hardware-pixracer.md)
 * [中间件及架构](middleware and architecture)
    * [uORB](Middleware/advanced-uorb.md)
-   * [定制MAVLink消息](custom-mavlink-message.md)
+   * [定制MAVLink消息](Middleware/custom-mavlink-message.md)
    * [守护进程](architecture-daemon.md)
    * [驱动框架](advanced-drivers.md)
 * [机型](airframe.md)
