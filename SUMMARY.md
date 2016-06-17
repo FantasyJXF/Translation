@@ -54,7 +54,7 @@
    * [船舶 潜水艇, 飞艇, Rovers](Airframe/airframes-experimental.md)
 * Companion Computers
    * [Pixhawk family companion](Companion Computer/pixhawk-companion-computer.md)
-* [使用DroneKit的机器人](robotics using dronekit.md)
+* [使用DroneKit的机器人](DroneKit/robotics_using_dronekit.md)
    * [DroneKit的使用](dronekit-example.md)
 * [使用ROS的机器人](robotics using ros.md)
    * [用Linux进行外部控制](offboard-control.md)
