@@ -93,8 +93,9 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 	#推送到个人云端
 	```
 	到这里为止，还只对你自己的仓库进行了修改，你需要`new pull request`提交分支到FantasyJXF的仓库，如下图，可以看出，如果只是少量的更改，建议使用网页端编辑。
-![mark](demo.png)
+![pullrequest](pull.png)
 	按照官网的格式，我已经将各部分创建了文件夹，需要汉化的小节有有相应的.md文件，建议大家使用使用[MarkdownPad][10]或者[Typora][11]软件进行编辑，并上传即可。
+    ![mark](demo.png)
 [11]:http://www.typora.io/
 [10]:http://markdownpad.com/
     
