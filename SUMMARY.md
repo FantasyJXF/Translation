@@ -69,7 +69,7 @@
        * [UAVCAN Bootloader](Sensors/uavcan-bootloader-installation.md)
        * [UAVCAN 固件升级](Sensors/uavcan-node-firmware.md)
        * [UAVCAN 配置](Sensors/uavcan-node-enumeration.md)
-   * [PWM / GPIO](pwm-gpio-intro.md)
+   * [PWM / GPIO](Sensors/pwm-gpio-intro.md)
    * [UART](uart-intro.md)
 * [调试以及高级主题](Debugging and Advanced Topics.md)
    * [FAQ](advanced-faq.md)
