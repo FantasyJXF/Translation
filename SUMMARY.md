@@ -40,7 +40,7 @@
    * [守护进程](Middleware/architecture-daemon.md)
    * [驱动框架](Middleware/advanced-drivers.md)
 * [机型](airframe.md)
-   * [统一的基础代码](airframes-architecture.md)
+   * [统一的基础代码](Airframe/airframes-architecture.md)
    * [添加一个新的机型](airframes-adding-a-new-frame.md)
    * [多旋翼](airframes-multicopter.md)
        * [电机映射](airframes-motor-map.md)
