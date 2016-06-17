@@ -5,7 +5,7 @@
 * [新手上路](Getting Started/getting_started.md)
 * [安装工具链](Getting Started/install_toolchain.md)
    * [MACOS](Getting Started/macos.md)
-   * [Linux](linux.md)
+   * [Linux](Getting Started/linux.md)
        * [高端Linux](adcanced_linux.md)
    * [Windows](windows.md)
 * [代码编译](building_the_code.md)
