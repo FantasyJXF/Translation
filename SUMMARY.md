@@ -64,7 +64,7 @@
    * [外部位置估计](ROS/external-position.md)
    * [Gazebo Octomap](ROS/simulation-gazebo-octomap.md)
 * [传感器和执行机构总线](Sensor and Actuator Buses)
-   * [I2C](i2c-intro.md)
+   * [I2C](Sensors/i2c-intro.md)
    * [UAVCAN](uavcan-intro.md)
        * [UAVCAN Bootloader](uavcan-bootloader-installation.md)
        * [UAVCAN 固件升级](uavcan-node-firmware.md)
