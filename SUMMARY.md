@@ -77,7 +77,7 @@
    * [系统启动](Debugging/advanced-system-startup.md)
    * [参数 & 配置](Debugging/advanced-configurations.md)
    * [仿真调试](Debugging/simulation-debugging.md)
-   * [发送调试的值](advanced-debug-values.md)
+   * [发送调试的值](Debugging/advanced-debug-values.md)
    * [室内 / 假 GPS](advanced-fake-gps.md)
    * [相机触发器](advanced-camera-trigger.md)
    * [EKF2的Log文件回放](ekf2_log_replay.md)
