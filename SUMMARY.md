@@ -46,7 +46,7 @@
        * [电机映射](Airframe/airframes-motor-map.md)
        * [QAV 250 Racer](Airframe/airframes-multicopter-qav250.md)
        * [Matrice 100](Airframe/airframes-multicopter-matrice100.md)
-   * [直升机](airframes-plane.md)
+   * [直升机](Airframe/airframes-planemd.md)
        * [Wing Wing Z-84](airframes-plane-wing-z-84.md)
    * [垂直起降](airframes-vtol.md)
        * [垂直起降测试](airframes-vtol-testing.md)
