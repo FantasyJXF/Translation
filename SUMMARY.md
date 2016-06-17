@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [项目介绍](introductionmd.md)
-* [环境搭建](getting started.md)
+* [环境搭建](getting_startedmd.md)
 * [安装工具链](install toolchain.md)
    * [MACOS](macos.md)
    * [Linux](linux.md)
