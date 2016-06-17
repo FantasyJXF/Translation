@@ -88,7 +88,7 @@
    * [设置万向节控制](advanced-gimbal-control.md)
    * [切换状态估计器](advanced-switching_state_estimators.md)
    * [Docker 容器](advanced-docker.md)
-   * [Jenkins Continuous Integration](advanced-jenkins-ci.md)
-   * [ULog File Format](advanced-ulog-file-format.md)
+   * [Jenkins持续集成环境](advanced-jenkins-ci.md)
+   * [ULog文件模式](advanced-ulog-file-format.md)
    * [Licenses](advanced-licenses.md)
 
