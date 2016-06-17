@@ -24,7 +24,7 @@
    * [Optical flow and LIDAR-Lite](Tutorial/optical_flow&lidar.md)
    * [Integration Testing](Tutorial/tutorial-integration-testing.md)
 * [Simulation](Simulation)
-   * [Basic Simulation](simulation-sitl.md)
+   * [Basic Simulation](Simulation/simulation-sitlmd.md)
    * [Gazebo Simulation](simulation-gazebo.md)
    * [HITL Simulation](simulation-hitl.md)
    * [Interfacing to ROS](simulation-ros-interface.md)
