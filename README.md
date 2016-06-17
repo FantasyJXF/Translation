@@ -1,5 +1,7 @@
 # PX4中文维基
 
+**敬启者：**
+
 PX4开发者中文官网，翻译自http://dev.px4.io/
 
 欢迎志同道合的伙伴共同努力。
@@ -28,9 +30,11 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
 
 最后还是诚邀志同道合的同志加入PX4中文维基的汉化组。
-联系方式：<font face="Vijaya" size 8>qq: 931026752</font> 
+联系方式：<font face="Vijaya" size 10>qq: 931026752</font> 
 
 
 
-<font face="Segoe Script" size 9>By Fantasy</font> 
+&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <font face="Segoe Script" size 12>From Fantasy</font> 
+
+ 
 
