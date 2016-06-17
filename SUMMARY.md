@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [项目介绍](introductionmd.md)
+* [项目介绍](introduction.md)
 * [新手上路](getting_startedmd.md)
 * [安装工具链](install_toolchainmd.md)
    * [MACOS](macosmd.md)
