@@ -61,7 +61,7 @@
    * [在树莓派Pi 2上安装ROS](ROS/ros-raspberrypi-installation.md)
    * [MAVROS (ROS上的MAVLink)](ROS/ros-mavros-installation.md)
    * [MAVROS外部控制例程](ROS/ros-mavros-offboard.md)
-   * [外部位置估计](external-position.md)
+   * [外部位置估计](ROS/external-position.md)
    * [Gazebo Octomap](simulation-gazebo-octomap.md)
 * [传感器和执行机构总线](Sensor and Actuator Buses)
    * [I2C](i2c-intro.md)
