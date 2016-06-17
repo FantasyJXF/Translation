@@ -17,7 +17,7 @@
    * [中间件](Concepts/middleware.md)
    * [混控输出](Concepts/mixing_and_actuatorsmd.md)
    * [PWM限制状态机](Concepts/pwm_limit_state_machine.md)
-* [教程](tutorials.md)
+* [教程](Tutorial/tutorials.md)
    * [地面站](ground control station.md)
    * [编写应用程序](writing an application.md)
 
