@@ -39,7 +39,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <font face="Segoe Script" size 12>From Fantasy</font> 
 
- 
+ ---
 ####参与维护
 
 1. **网页端编辑**（推荐方法：非常简单，只需三步就可以完成你的贡献）
