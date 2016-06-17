@@ -58,7 +58,6 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
 		按照提示，点击`Fork this repository and propose chanes`，进入即可编辑，如下图
         
-![writing](12.png)
 		
     - 提交贡献：首先提名文件更改，如下图
 
