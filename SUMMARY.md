@@ -44,7 +44,7 @@
    * [添加一个新的机型](Airframe/airframes-adding-a-new-frame.md)
    * [多旋翼](Airframe/airframes-multicoptermd.md)
        * [电机映射](Airframe/airframes-motor-map.md)
-       * [QAV 250 Racer](airframes-multicopter-qav250.md)
+       * [QAV 250 Racer](Airframe/airframes-multicopter-qav250.md)
        * [Matrice 100](airframes-multicopter-matrice100.md)
            * [直升机](airframes-plane.md)
        * [Wing Wing Z-84](airframes-plane-wing-z-84.md)
