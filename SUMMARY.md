@@ -33,7 +33,7 @@
    * [树莓派Pi 2](Hardware/hardware-pi2.md)
    * [Pixhawk](Hardware/hardware-pixhawk.md)
    * [Pixfalcon](Hardware/hardware-pixfalcon.md)
-   * [Pixracer](hardware-pixracer.md)
+   * [Pixracer](Hardware/hardware-pixracer.md)
 * [中间件及架构](middleware and architecture)
    * [uORB](advanced-uorb.md)
    * [定制MAVLink消息](custom-mavlink-message.md)
