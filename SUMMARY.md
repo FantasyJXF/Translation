@@ -73,7 +73,7 @@
    * [UART](Sensors/uart-intro.md)
 * [调试以及高级主题](Debugging and Advanced Topics.md)
    * [FAQ](Debugging/advanced-faq.md)
-   * [系统控制台](advanced-system-console.md)
+   * [系统控制台](Debugging/advanced-system-console.md)
    * [系统启动](advanced-system-startup.md)
    * [参数 & 配置](advanced-configurations.md)
    * [仿真调试](simulation-debugging.md)
