@@ -53,7 +53,7 @@
        * [TBS Caipiroshka](Airframe/airframes-vtol-caipiroshka.md)
    * [船舶 潜水艇, 飞艇, Rovers](Airframe/airframes-experimental.md)
 * Companion Computers
-   * [Pixhawk family companion](pixhawk-companion-computer.md)
+   * [Pixhawk family companion](Companion Computer/pixhawk-companion-computer.md)
 * [使用DroneKit的机器人](robotics using dronekit.md)
    * [DroneKit的使用](dronekit-example.md)
 * [使用ROS的机器人](robotics using ros.md)
