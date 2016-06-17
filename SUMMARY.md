@@ -32,7 +32,7 @@
    * [骁龙](Hardware/hardware-snapdragon.md)
    * [树莓派Pi 2](Hardware/hardware-pi2.md)
    * [Pixhawk](Hardware/hardware-pixhawk.md)
-   * [Pixfalcon](hardware-pixfalcon.md)
+   * [Pixfalcon](Hardware/hardware-pixfalcon.md)
    * [Pixracer](hardware-pixracer.md)
 * [中间件及架构](middleware and architecture)
    * [uORB](advanced-uorb.md)
