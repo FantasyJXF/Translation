@@ -80,7 +80,7 @@
    * [发送调试的值](Debugging/advanced-debug-values.md)
    * [室内 / 假 GPS](Debugging/advanced-fake-gps.md)
    * [相机触发器](Debugging/advanced-camera-trigger.md)
-   * [EKF2的Log文件回放](ekf2_log_replay.md)
+   * [EKF2的Log文件回放](Debugging/ekf2_log_replay.md)
    * [Snapdragon Advanced](advanced-snapdragon.md)
        * [获取I/O数据](advanced-accessing-io-data.md)
        * [相机和光流](advanced-snapdragon_camera.md)
