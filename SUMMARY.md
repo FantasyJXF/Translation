@@ -90,5 +90,5 @@
    * [Docker 容器](Debugging/advanced-docker.md)
    * [Jenkins持续集成环境](Debugging/advanced-jenkins-ci.md)
    * [ULog文件模式](Debugging/advanced-ulog-file-format.md)
-   * [Licenses](advanced-licenses.md)
+   * [Licenses](Debugging/advanced-licenses.md)
 
