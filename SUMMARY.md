@@ -30,7 +30,7 @@
    * [连接到ROS](simulation-ros-interface.md)
 * [自驾仪的硬件](autopilot hardware.md)
    * [骁龙](Hardware/hardware-snapdragon.md)
-   * [树莓派Pi 2](Hardware/hardware-pi2md.md)
+   * [树莓派Pi 2](Hardware/hardware-pi2.md)
    * [Pixhawk](Hardware/hardware-pixhawk.md)
    * [Pixfalcon](hardware-pixfalcon.md)
    * [Pixracer](hardware-pixracer.md)
