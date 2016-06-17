@@ -66,7 +66,7 @@
 * [传感器和执行机构总线](Sensor and Actuator Buses)
    * [I2C](Sensors/i2c-intro.md)
    * [UAVCAN](Sensors/uavcan-intro.md)
-       * [UAVCAN Bootloader](uavcan-bootloader-installation.md)
+       * [UAVCAN Bootloader](Sensors/uavcan-bootloader-installation.md)
        * [UAVCAN 固件升级](uavcan-node-firmware.md)
        * [UAVCAN 配置](uavcan-node-enumeration.md)
    * [PWM / GPIO](pwm-gpio-intro.md)
