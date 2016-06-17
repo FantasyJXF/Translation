@@ -74,7 +74,7 @@
 * [调试以及高级主题](Debugging and Advanced Topics.md)
    * [FAQ](Debugging/advanced-faq.md)
    * [系统控制台](Debugging/advanced-system-console.md)
-   * [系统启动](advanced-system-startup.md)
+   * [系统启动](Debugging/advanced-system-startup.md)
    * [参数 & 配置](advanced-configurations.md)
    * [仿真调试](simulation-debugging.md)
    * [发送调试的值](advanced-debug-values.md)
