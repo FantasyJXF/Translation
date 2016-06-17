@@ -29,7 +29,7 @@
    * [硬件在环仿真](simulation-hitl.md)
    * [连接到ROS](simulation-ros-interface.md)
 * [自驾仪的硬件](autopilot hardware.md)
-   * [骁龙](Hardware/hardware-snapdragonmd.md)
+   * [骁龙](Hardware/hardware-snapdragon.md)
    * [树莓派Pi 2](hardware-pi2.md)
    * [Pixhawk](hardware-pixhawk.md)
    * [Pixfalcon](hardware-pixfalcon.md)
