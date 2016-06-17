@@ -71,7 +71,7 @@
        * [UAVCAN 配置](uavcan-node-enumeration.md)
    * [PWM / GPIO](pwm-gpio-intro.md)
    * [UART](uart-intro.md)
-* Debugging and Advanced Topics
+* [调试以及高级主题](Debugging and Advanced Topics.md)
    * [FAQ](advanced-faq.md)
    * [System Console](advanced-system-console.md)
    * [System Boot](advanced-system-startup.md)
