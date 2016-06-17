@@ -24,6 +24,9 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
 
 最后还是诚邀志同道合的同志加入PX4中文维基的汉化组。
-联系方式：<font face="黑体">qq</font> 931026752
+联系方式：<font face="Vijaya" size 8>qq: 931026752</font> 
 
+
+
+<font face="Segoe Script" size 9>By Fantasy</font> 
 
