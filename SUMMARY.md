@@ -57,7 +57,7 @@
 * [使用DroneKit的机器人](DroneKit/robotics_using_dronekit.md)
    * [DroneKit的使用](DroneKit/dronekit-example.md)
 * [使用ROS的机器人](robotics using ros.md)
-   * [用Linux进行外部控制](offboard-control.md)
+   * [用Linux进行外部控制](ROS/offboard-control.md)
    * [在树莓派Pi 2上安装ROS](ros-raspberrypi-installation.md)
    * [MAVROS (ROS上的MAVLink)](ros-mavros-installation.md)
    * [MAVROS外部控制例程](ros-mavros-offboard.md)
