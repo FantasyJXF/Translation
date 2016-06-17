@@ -11,8 +11,8 @@ PX4开发者中文官网，翻译自http://dev.px4.io/
 ---
 * GitBook
 与官网的方式相同，我们也是将网站以GitBook的方式呈现给大家。
-Gitbook是一个命令行工具，可以把你的Markdown文件汇集成电子书，并提供PDF等多种格式输出。你可以把Gitbook生成的HTML发布出来，就形成了一个简单的静态网站，就像限制你所看到的。
-用MSDN博客的相信大家都不会陌生Markdown这个工具。
+Gitbook是一个命令行工具，可以把你的Markdown文件汇集成电子书，并提供PDF等多种格式输出。你可以把Gitbook生成的HTML发布出来，就形成了一个简单的静态网站，就像现在你所看到的。
+用CSDN博客的相信大家都不会陌生Markdown这个工具。
 不多说，[点进来][1]你就知道怎么使用了。
 [1]:http://www.jianshu.com/p/21d355525bdf/comments/79044
 
