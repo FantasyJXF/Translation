@@ -15,7 +15,7 @@
    * [结构框架](Concepts/architctural_overview.md)
    * [飞行栈](Concepts/flight_stack.md)
    * [中间件](Concepts/middleware.md)
-   * [混控输出](Concepts/mixing_and_actuatorsmd.md)
+   * [混控输出](Concepts/mixing_and_actuators.md)
    * [PWM限制状态机](Concepts/pwm_limit_state_machine.md)
 * [教程](Tutorial/tutorials.md)
    * [地面站](ground control station.md)
