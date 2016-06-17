@@ -1,3 +1,3 @@
 # PX4中文维基
 
-Let's do something.
+没错，你看到的就是PX4开发者中文官网，翻译自http://dev.px4.io/
