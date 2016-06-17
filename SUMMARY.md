@@ -50,7 +50,7 @@
        * [Wing Wing Z-84](Airframe/airframes-plane-wing-z-84.md)
    * [垂直起降](Airframe/airframes-vtol.md)
        * [垂直起降测试](Airframe/airframes-vtol-testing.md)
-       * [TBS Caipiroshka](airframes-vtol-caipiroshka.md)
+       * [TBS Caipiroshka](Airframe/airframes-vtol-caipiroshka.md)
        * [船舶 潜水艇, 飞艇, Rovers](airframes-experimental.md)
 * Companion Computers
    * [Pixhawk family companion](pixhawk-companion-computer.md)
