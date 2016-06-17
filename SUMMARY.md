@@ -8,6 +8,6 @@
    * [Linux](linux.md)
        * [高端Linux](adcanced_linux.md)
    * [Windows](windows.md)
-* [代码编译](building the code.md)
+* [代码编译](building_the_code.md)
 * [合作开发](contributing.md)
 
