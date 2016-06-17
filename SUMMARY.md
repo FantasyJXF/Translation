@@ -31,7 +31,7 @@
 * [自驾仪的硬件](autopilot hardware.md)
    * [骁龙](Hardware/hardware-snapdragon.md)
    * [树莓派Pi 2](Hardware/hardware-pi2md.md)
-   * [Pixhawk](hardware-pixhawk.md)
+   * [Pixhawk](Hardware/hardware-pixhawk.md)
    * [Pixfalcon](hardware-pixfalcon.md)
    * [Pixracer](hardware-pixracer.md)
 * [中间件及架构](middleware and architecture)
