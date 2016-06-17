@@ -22,7 +22,7 @@
    * [编写应用程序](Tutorial/writing_an_applicationmd.md)
    * [QGC的视频流](Tutorial/video_streaming_qgc.md)
    * [Optical flow and LIDAR-Lite](Tutorial/optical_flow&lidar.md)
-   * [Integration Testing](tutorial-integration-testing.md)
+   * [Integration Testing](Tutorial/tutorial-integration-testing.md)
 * [Simulation](Simulation)
    * [Basic Simulation](simulation-sitl.md)
    * [Gazebo Simulation](simulation-gazebo.md)
