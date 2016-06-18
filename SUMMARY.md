@@ -5,7 +5,7 @@
 * [新手上路](Getting Started/getting_started.md)
    * [初始设置](1_Getting Started/initial_configurationmd.md)
    * [安装工具链](1_Getting Started/install_toolchain.md)
-       * [MAC OS](Getting Started/macos.md)
+       * [MAC OS](1_Getting Started/macos.md)
        * [Linux](Getting Started/linux.md)
            * [高级Linux](Getting Started/adcanced_linux.md)
        * [Windows](Getting Started/windows.md)
