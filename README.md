@@ -86,7 +86,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
    #提交更改
 
    git pull https://github.com/FantasyJXF/Translation.git master
-   #检查是否与nephen云端产生冲突，如果有，解决冲突后重新git commit -m "your comment"
+   #检查是否与Fantasy云端产生冲突，如果有，解决冲突后重新git commit -m "your comment"
 
    git push origin master
    #推送到个人云端
