@@ -40,32 +40,38 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
  ---
 ####参与维护
 
-1.  **网页端编辑**（<font color=#DC143C size=72>**强烈推荐**</font>：非常简单，只需三步就可以完成你的贡献）
+1.   **网页端编辑**（<font color=#DC143C size=72>**强烈推荐**</font>：非常简单，只需三步就可以完成你的贡献）
 
-    - 找到入口：直接打开github中[网页端][8]进入要进行编辑的文件，如下图
+     * 在浏览在线页面时进行编辑本页，这样，只要你看到不妥的地方立马可以修改，具体如下图
+
+       ![edithere](pictures/introducing\online.png)
+
+     - 或者也可以直接打开github中[网页端][8]进入要进行编辑的文件，如下图
 [8]: https://github.com/FantasyJXF/Translation
-  ![edit](pictures\edit.png)
+  ![edit](pictures/introducing\edit.png)
 ​	  
 
     - 开始编辑：进入编辑页面后，对文件进行修改，会出现如下图问题
 
-![doit](pictures/start.png)
+![doit](pictures/introducing/start.png)
 
 		按照提示，点击`Fork this repository and propose chanes`，进入即可编辑，如下图
- ![write](pictures/write.png)
+ ![write](pictures/introducing/write.png)
 ​		
+
     - 提交贡献：首先提名文件更改，如下图
-![propose](pictures/propose.png)
+![propose](pictures/introducing/propose.png)
 ​    
+
     	检查是否与原有版本有冲突，如果有，解决冲突再提交，没有则提交，如下图
-![pull](pictures/finish.png)
+![pull](pictures/introducing/finish.png)
 
     	剩下来就是版主的事了，如果没有太大的问题，版主就可以合并分支了，到这你的对本文档的贡献就完成了。
 
 1. 本地编辑（git高级用户推荐）
 
    相对于网页端编辑，本地编辑只是编辑在本地，后期的提交分支还是得在网页端进行，不过在此之前你得fork本项目到你的仓库。
-   ![forksit](pictures/fork.png)
+   ![forksit](pictures/introducing/fork.png)
 
    然后进行如下操作
 
@@ -91,9 +97,9 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
    #推送到个人云端
    ```
    到这里为止，还只对你自己的仓库进行了修改，你需要`new pull request`提交分支到FantasyJXF的仓库，如下图，可以看出，如果只是少量的更改，建议使用网页端编辑。
-   ![pullrequest](pictures/pull.png)
+   ![pullrequest](pictures/introducing/pull.png)
    按照官网的格式，我已经将各部分创建了文件夹，需要汉化的小节有有相应的.md文件，建议大家使用使用[MarkdownPad][10]或者[Typora][11]软件进行编辑，并上传即可。
-    ![mark](pictures/demo.png)
+    ![mark](pictures/introducing/demo.png)
 [11]: http://www.typora.io/
 [10]: http://markdownpad.com/
 
