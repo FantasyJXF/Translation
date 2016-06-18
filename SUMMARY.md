@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [项目介绍](Getting Started/introduction.md)
+* [项目介绍](1_Getting Started/introduction.md)
 * [概念解读](2_Concepts/concepts.md)
    * [飞行模式/操作](2_Concepts/flight_modes_&_opeartion.md)
    * [结构框架](2_Concepts/architctural_overview.md)
