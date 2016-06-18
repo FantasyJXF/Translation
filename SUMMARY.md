@@ -51,7 +51,7 @@
    * [直升机](7_Airframe/airframes-planemd.md)
        * [Wing Wing Z-84](7_Airframe/airframes-plane-wing-z-84.md)
    * [垂直起降](7_Airframe/airframes-vtol.md)
-       * [垂直起降测试](Airframe/airframes-vtol-testing.md)
+       * [垂直起降测试](7_Airframe/airframes-vtol-testing.md)
        * [TBS Caipiroshka](Airframe/airframes-vtol-caipiroshka.md)
    * [船舶 潜水艇, 飞艇, Rovers](Airframe/airframes-experimental.md)
 * Companion Computers
