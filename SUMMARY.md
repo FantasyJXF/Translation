@@ -25,7 +25,7 @@
    * [光流和LiDAR-Lite](Tutorial/optical_flow&lidar.md)
    * [综合测试](Tutorial/tutorial-integration-testing.md)
 * [仿真](Simulation)
-   * [基本仿真](Simulation/simulation-sitlmd.md)
+   * [基本仿真](Simulation/simulation-sitl.md)
    * [Gazebo仿真](simulation-gazebo.md)
    * [硬件在环仿真](simulation-hitl.md)
    * [连接到ROS](simulation-ros-interface.md)
