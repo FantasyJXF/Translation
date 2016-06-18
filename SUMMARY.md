@@ -33,7 +33,7 @@
    * [骁龙](5_Autopilot Hardware/snapdragon_flight.md)
    * [树莓派Pi 2](5_Autopilot Hardware/raspeberry_pi2.md)
    * [Pixhawk](5_Autopilot Hardware/pixhawk.md)
-   * [Pixfalcon](Hardware/hardware-pixfalcon.md)
+   * [Pixfalcon](5_Autopilot Hardware/hardware-pixfalcon.md)
    * [Pixracer](Hardware/hardware-pixracer.md)
 * [中间件及架构](middleware and architecture)
    * [uORB](Middleware/advanced-uorb.md)
