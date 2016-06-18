@@ -10,7 +10,7 @@
            * [高级Linux](1_Getting Started/adcanced_linux.md)
        * [Windows](1_Getting Started/windows.md)
    * [代码编译](1_Getting Started/building_the_code.md)
-   * [合作开发](Getting Started/contributing&dev_call.md)
+   * [合作开发](1_Getting Started/contributing&dev_call.md)
 * [概念解读](2_Concepts/concepts.md)
    * [飞行模式/操作](Concepts/flight_modes_&_opeartion.md)
    * [结构框架](Concepts/architctural_overview.md)
