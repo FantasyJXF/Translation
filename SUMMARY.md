@@ -20,7 +20,7 @@
    * [PWM限制状态机](3_Concepts/pwm_limit_state_machine.md)
 * [教程](3_Tutorial/tutorials.md)
    * [地面站](3_Tutorial/ground_control_station.md)
-   * [编写应用程序](Tutorial/writing_an_applicationmd.md)
+   * [编写应用程序](3_Tutorial/writing_an_application.md)
    * [QGC的视频流](Tutorial/video_streaming_qgc.md)
    * [光流和LiDAR-Lite](Tutorial/optical_flow&lidar.md)
    * [综合测试](Tutorial/tutorial-integration-testing.md)
