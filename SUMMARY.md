@@ -49,7 +49,7 @@
        * [QAV 250 Racer](7_Airframe/airframes-multicopter-qav250.md)
        * [Matrice 100](7_Airframe/airframes-multicopter-matrice100.md)
    * [直升机](7_Airframe/airframes-planemd.md)
-       * [Wing Wing Z-84](Airframe/airframes-plane-wing-z-84.md)
+       * [Wing Wing Z-84](7_Airframe/airframes-plane-wing-z-84.md)
    * [垂直起降](Airframe/airframes-vtol.md)
        * [垂直起降测试](Airframe/airframes-vtol-testing.md)
        * [TBS Caipiroshka](Airframe/airframes-vtol-caipiroshka.md)
