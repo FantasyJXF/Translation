@@ -77,7 +77,7 @@
    * [FAQ](12_Debugging and Advanced Topics/advanced-faq.md)
    * [系统控制台](12_Debugging and Advanced Topics/advanced-system-console.md)
    * [系统启动](12_Debugging and Advanced Topics/advanced-system-startup.md)
-   * [参数 & 配置](Debugging/advanced-configurations.md)
+   * [参数 & 配置](12_Debugging and Advanced Topics/advanced-configurations.md)
    * [仿真调试](Debugging/simulation-debugging.md)
    * [发送调试的值](Debugging/advanced-debug-values.md)
    * [室内 / 假 GPS](Debugging/advanced-fake-gps.md)
