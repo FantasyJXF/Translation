@@ -27,7 +27,7 @@
 * [仿真](Simulation)
    * [基本仿真](4_Simulation/basic_simulation.md)
    * [Gazebo仿真](4_Simulation/gazebo_simulation.md)
-   * [硬件在环仿真](Simulation/hitl_simulation.md)
+   * [硬件在环仿真](4_Simulation/hitl_simulation.md)
    * [连接到ROS](Simulation/interfacing_to_ros.md)
 * [自驾仪的硬件](autopilot hardware.md)
    * [骁龙](Hardware/hardware-snapdragon.md)
