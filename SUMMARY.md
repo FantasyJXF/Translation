@@ -23,7 +23,7 @@
    * [编写应用程序](3_Tutorial/writing_an_application.md)
    * [QGC的视频流](3_Tutorial/video_streaming_qgc.md)
    * [光流和LiDAR-Lite](3_Tutorial/optical_flow&lidar.md)
-   * [综合测试](3_Tutorial/tutorial-integration-testing.md)
+   * [综合测试](3_Tutorial/tutorial-integration_testing.md)
 * [仿真](4_Simulation)
    * [基本仿真](4_Simulation/basic_simulation.md)
    * [Gazebo仿真](4_Simulation/gazebo_simulation.md)
