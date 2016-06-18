@@ -26,7 +26,7 @@
    * [综合测试](Tutorial/tutorial-integration-testing.md)
 * [仿真](Simulation)
    * [基本仿真](4_Simulation/basic_simulation.md)
-   * [Gazebo仿真](Simulation/gazebo_simulation.md)
+   * [Gazebo仿真](4_Simulation/gazebo_simulation.md)
    * [硬件在环仿真](Simulation/hitl_simulation.md)
    * [连接到ROS](Simulation/interfacing_to_ros.md)
 * [自驾仪的硬件](autopilot hardware.md)
