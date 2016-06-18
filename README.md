@@ -5,8 +5,7 @@
 PX4开发者中文官网，翻译自http://dev.px4.io/
 
 欢迎志同道合的伙伴共同努力。
-
-全凭兴趣。
+Just Enjoy it !
 
 ---
 ---
@@ -45,7 +44,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
     - 找到入口：直接打开github中[网页端][8]进入要进行编辑的文件，如下图
 [8]: https://github.com/FantasyJXF/Translation
-  ![1](pictures\edit.png)
+  ![edit](pictures\edit.png)
 ​	  
 
     - 开始编辑：进入编辑页面后，对文件进行修改，会出现如下图问题
