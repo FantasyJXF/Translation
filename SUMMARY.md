@@ -17,7 +17,7 @@
    * [飞行栈](2_Concepts/flight_stack.md)
    * [中间件](2_Concepts/middleware.md)
    * [混控输出](2_Concepts/mixingand_actuators.md)
-   * [PWM限制状态机](3_Concepts/pwm_limit_state_machine.md)
+   * [PWM限制状态机](2_Concepts/pwm_limit_state_machine.md)
 * [教程](3_Tutorial/tutorials.md)
    * [地面站](3_Tutorial/ground_control_station.md)
    * [编写应用程序](3_Tutorial/writing_an_application.md)
