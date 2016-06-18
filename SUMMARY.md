@@ -21,7 +21,7 @@
 * [教程](3_Tutorial/tutorials.md)
    * [地面站](3_Tutorial/ground_control_station.md)
    * [编写应用程序](3_Tutorial/writing_an_application.md)
-   * [QGC的视频流](Tutorial/video_streaming_qgc.md)
+   * [QGC的视频流](3_Tutorial/video_streaming_qgc.md)
    * [光流和LiDAR-Lite](Tutorial/optical_flow&lidar.md)
    * [综合测试](Tutorial/tutorial-integration-testing.md)
 * [仿真](Simulation)
