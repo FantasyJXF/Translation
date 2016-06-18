@@ -45,7 +45,7 @@
    * [统一的基础代码](7_Airframe/airframes-architecture.md)
    * [添加一个新的机型](7_Airframe/airframes-adding-a-new-frame.md)
    * [多旋翼](7_Airframe/airframes-multicoptermd.md)
-       * [电机映射](Airframe/airframes-motor-map.md)
+       * [电机映射](7_Airframe/airframes-motor-map.md)
        * [QAV 250 Racer](Airframe/airframes-multicopter-qav250.md)
        * [Matrice 100](Airframe/airframes-multicopter-matrice100.md)
    * [直升机](Airframe/airframes-planemd.md)
