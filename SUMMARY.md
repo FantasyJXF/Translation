@@ -19,7 +19,7 @@
    * [混控输出](3_Concepts/mixingand_actuators.md)
    * [PWM限制状态机](3_Concepts/pwm_limit_state_machine.md)
 * [教程](3_Tutorial/tutorials.md)
-   * [地面站](Tutorial/ground_control_stationmd.md)
+   * [地面站](3_Tutorial/ground_control_station.md)
    * [编写应用程序](Tutorial/writing_an_applicationmd.md)
    * [QGC的视频流](Tutorial/video_streaming_qgc.md)
    * [光流和LiDAR-Lite](Tutorial/optical_flow&lidar.md)
