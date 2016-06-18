@@ -72,7 +72,7 @@
        * [UAVCAN 固件升级](11_Sensors and actuator Buses/uavcan-node-firmware.md)
        * [UAVCAN 配置](11_Sensors and actuator Buses/uavcan-node-enumeration.md)
    * [PWM / GPIO](11_Sensors and actuator Buses/pwm-gpio-intro.md)
-   * [UART](Sensors/uart-intro.md)
+   * [UART](11_Sensors and actuator Buses/uart-intro.md)
 * [调试以及高级主题](Debugging and Advanced Topics.md)
    * [FAQ](Debugging/advanced-faq.md)
    * [系统控制台](Debugging/advanced-system-console.md)
