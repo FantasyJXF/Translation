@@ -14,7 +14,7 @@
 * [概念解读](2_Concepts/concepts.md)
    * [飞行模式/操作](2_Concepts/flight_modes_&_opeartion.md)
    * [结构框架](2_Concepts/architctural_overview.md)
-   * [飞行栈](3_Concepts/flight_stack.md)
+   * [飞行栈](2_Concepts/flight_stack.md)
    * [中间件](3_Concepts/middleware.md)
    * [混控输出](3_Concepts/mixingand_actuators.md)
    * [PWM限制状态机](3_Concepts/pwm_limit_state_machine.md)
