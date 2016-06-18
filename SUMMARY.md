@@ -74,7 +74,7 @@
    * [PWM / GPIO](11_Sensors and actuator Buses/pwm-gpio-intro.md)
    * [UART](11_Sensors and actuator Buses/uart-intro.md)
 * [调试以及高级主题](Debugging and Advanced Topics.md)
-   * [FAQ](Debugging/advanced-faq.md)
+   * [FAQ](12_Debugging and Advanced Topics/advanced-faq.md)
    * [系统控制台](Debugging/advanced-system-console.md)
    * [系统启动](Debugging/advanced-system-startup.md)
    * [参数 & 配置](Debugging/advanced-configurations.md)
