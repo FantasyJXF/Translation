@@ -33,7 +33,7 @@
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
         "duoshuo": {
-            "short_name": "nephen",
+            "short_name": "PX4wiki",
             "theme": "default"
         }
     }
