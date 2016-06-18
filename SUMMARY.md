@@ -39,7 +39,7 @@
 * [中间件及架构](Middleware and Architecture)
    * [uORB](6_Middleware/uorb_messaging.md)
    * [定制MAVLink消息](6_Middleware and Architecture/custom-mavlink-message.md)
-   * [守护进程](Middleware/architecture-daemon.md)
+   * [守护进程](6_Middleware and Architecture/daemon.md)
    * [驱动框架](Middleware/advanced-drivers.md)
 * [机型](airframe.md)
    * [统一的基础代码](Airframe/airframes-architecture.md)
