@@ -34,7 +34,7 @@
    * [树莓派Pi 2](5_Autopilot Hardware/raspeberry_pi2.md)
    * [Pixhawk](5_Autopilot Hardware/pixhawk.md)
    * [Pixfalcon](5_Autopilot Hardware/pixfalcon.md)
-   * [Pixracer](Hardware/hardware-pixracer.md)
+   * [Pixracer](5_Autopilot Hardware/pixracer.md)
 * [中间件及架构](middleware and architecture)
    * [uORB](Middleware/advanced-uorb.md)
    * [定制MAVLink消息](Middleware/custom-mavlink-message.md)
