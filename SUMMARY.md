@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [项目介绍](1_Getting Started/introduction.md)
 * [新手上路](Getting Started/getting_started.md)
    * [初始设置](1_Getting Started/initial_configurationmd.md)
    * [安装工具链](1_Getting Started/install_toolchain.md)
@@ -10,7 +11,6 @@
        * [Windows](1_Getting Started/windows.md)
    * [代码编译](1_Getting Started/building_the_code.md)
    * [合作开发](1_Getting Started/contributing&dev_call.md)
-* [项目介绍](1_Getting Started/introduction.md)
 * [概念解读](2_Concepts/concepts.md)
    * [飞行模式/操作](2_Concepts/flight_modes_&_opeartion.md)
    * [结构框架](2_Concepts/architctural_overview.md)
