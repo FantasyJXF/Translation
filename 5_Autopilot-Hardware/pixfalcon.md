@@ -2,7 +2,7 @@
 
 # Pixfalcon Hardware
 
-Pixfalcon is binary-compatible derivative of the [Pixhawk](hardware-pixhawk.md) design optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size. For drones requiring high processing performance or a camera interface the [Snapdragon Flight](hardware-snapdragon.md) might be a more optimal fit.
+Pixfalcon is binary-compatible derivative of the [Pixhawk](../5_Autopilot-Hardware/pixhawk.md) design optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size. For drones requiring high processing performance or a camera interface the [Snapdragon Flight](../5_Autopilot-Hardware/snapdragon_flight.md) might be a more optimal fit.
 
 ![pixfalcon](../pictures/hardware/hardware-pixfalcon.png)
 
