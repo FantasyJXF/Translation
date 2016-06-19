@@ -11,7 +11,7 @@ QGroundControl is an app to configure and fly a PX4 based autopilot. It is cross
 
 To plan a new mission, switch to the planning tab, click on the + icon in the top left and click on the map to create waypoints. A context menu will open on the side to adjust the waypoints. Click on the highlight transmission icon to send them to the vehicle.
 
- ![planning-mission](F:\Git\Translation\pictures\gcs\planning-mission.png)
+ ![planning-mission](F:\Git\Translation\pictures\gcs\planning-mission.png)![mission](pictures/gcs/planning-mission.png)
 
 ## Flying Missions
 
