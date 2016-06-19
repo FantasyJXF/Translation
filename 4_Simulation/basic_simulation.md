@@ -12,7 +12,7 @@ graph LR;
 
 ## Running SITL
 
-After ensuring that the [simulation prerequisites](starting-installing.md) are installed on the system, just launch: The convenience make target will compile the POSIX host build and run the simulation.
+After ensuring that the [simulation prerequisites](../1_Getting-Started/install_toolchain.md) are installed on the system, just launch: The convenience make target will compile the POSIX host build and run the simulation.
 
 <div class="host-code"></div>
 
@@ -82,4 +82,4 @@ The build system enforces the correct submodule to be checked out for all depend
 
 ## Interfacing to ROS
 
-The simulation can be [interfaced to ROS](simulation-ros-interface.md) the same way as onboard a real vehicle.
+The simulation can be [interfaced to ROS](../4_Simulation/interfacingto_ros.md) the same way as onboard a real vehicle.
