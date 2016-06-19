@@ -88,7 +88,7 @@
        * [相机和光流](12_Debugging-and-Advanced-Topics/advanced-snapdragon_camera.md)
    * [安装Intel RealSense R200的驱动](12_Debugging-and-Advanced-Topics/advanced-realsense_intel.md)
    * [设置万向节控制](12_Debugging-and-Advanced-Topics/advanced-gimbal-control.md)
-   * [切换状态估计器](12_Debugging and Advanced Topics/advanced-switching_state_estimators.md)
+   * [切换状态估计器](12_Debugging-and-Advanced-Topics/advanced-switching_state_estimators.md)
    * [Docker 容器](12_Debugging and Advanced Topics/advanced-docker.md)
    * [Jenkins持续集成环境](12_Debugging and Advanced Topics/advanced-jenkins-ci.md)
    * [ULog文件模式](12_Debugging and Advanced Topics/advanced-ulog-file-format.md)
