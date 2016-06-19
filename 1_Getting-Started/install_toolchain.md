@@ -1,15 +1,14 @@
-# Installing Files and Code
+# 安装文件和代码
+PX4代码可以在 [Mac OS](../1_Getting-Started/macos.md), [Linux](../1_Getting-Started/linux.md) 或者 [Windows](../1_Getting-Started/windows.md)上进行开发，建议在Mac OS和Linux上进行开发，因为图像处理和高级导航在windows上不容易开发。如果不确定，新的开发者应默认用Linux和当前Ubuntu长期支持版本（[Ubuntu LTS edition](https://wiki.ubuntu.com/LTS)）。
 
-The PX4 code can be developed on [Mac OS](../1_Getting-Started/macos.md), [Linux](../1_Getting-Started/linux.md) or [Windows](../1_Getting-Started/windows.md). Mac OS and Linux are recommended since image processing and advanced navigation cannot be easily developed on Windows. If unsure, new developers should default to Linux and the current [Ubuntu LTS edition](https://wiki.ubuntu.com/LTS).
+## 开发环境
 
-## Development Environment
-
-The installation of the development environment is covered below:
+开发环境安装涉及到下面几种：
 
 - [Mac OS](../1_Getting-Started/macos.md)
 - [Linux](../1_Getting-Started/linux.md)
 - [Windows](1_Getting-Started/windows.md)
 
-If you're familiar with Docker you can also use one of the prepared containers: [Docker Containers](../12_Debugging-and-Advanced-Topics/advanced-docker.md)
+如果你对Docker熟悉，你可以使用其中一个容器： [Docker Containers](../12_Debugging-and-Advanced-Topics/advanced-docker.md)
 
-Once finished, continue to the [build instructions](../1_Getting-Started/building_the_code.md).
+一旦开发环境安装完成，可以接着去 [编译程序](../1_Getting-Started/building_the_code.md).
