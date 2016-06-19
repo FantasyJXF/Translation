@@ -24,8 +24,8 @@ sudo usermod -a -G dialout $USER
 
 - NuttX based hardware: [Pixhawk](../5_Autopilot-Hardware/pixhawk.md), [Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)
 - Snapdragon Flight hardware: [Snapdragon](../5_Autopilot-Hardware/snapgragon_flight.md)
-  - Raspberry Pi hardware: [Raspberry Pi 2](../5_Autopilot-Hardware/raspeberry_pi2.md)
-  - Host simulation: [jMAVSim SITL](../4_Simulation/basic_simulation.md) and [Gazebo SITL](../4_Simulation/gazebo_simulation.md)
+- Raspberry Pi hardware: [Raspberry Pi 2](../5_Autopilot-Hardware/raspeberry_pi2.md)
+- Host simulation: [jMAVSim SITL](../4_Simulation/basic_simulation.md) and [Gazebo SITL](../4_Simulation/gazebo_simulation.md)
 
 <aside class="note">
 注意：安装 [Ninja Build System](../1_Getting-Started/adcanced_linux.md#ninja-build-system)可以比make更快进行编译。如果安装了它就会自动选择使用它进行编译。
