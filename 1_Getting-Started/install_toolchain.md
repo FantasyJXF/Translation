@@ -1,6 +1,6 @@
 # Installing Files and Code
 
-The PX4 code can be developed on [Mac OS](../1_Getting Started/macos.md), [Linux](../1_Getting Started/linux.md) or [Windows](../1_Getting Started/windows.md). Mac OS and Linux are recommended since image processing and advanced navigation cannot be easily developed on Windows. If unsure, new developers should default to Linux and the current [Ubuntu LTS edition](https://wiki.ubuntu.com/LTS).
+The PX4 code can be developed on [Mac OS](../1_Getting-Started/macos.md), [Linux](../1_Getting-Started/linux.md) or [Windows](../1_Getting Started/windows.md). Mac OS and Linux are recommended since image processing and advanced navigation cannot be easily developed on Windows. If unsure, new developers should default to Linux and the current [Ubuntu LTS edition](https://wiki.ubuntu.com/LTS).
 
 ## Development Environment
 
