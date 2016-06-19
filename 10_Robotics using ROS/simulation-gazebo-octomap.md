@@ -85,5 +85,5 @@ Now you should see a part of the floor.
 
 In the Gazebo window, insert a cube in front of the red rotors and you should see it in Rviz.
 
-![](images/sim/octomap.png)
+![octo](../pictures/sim/octomap.png)
 

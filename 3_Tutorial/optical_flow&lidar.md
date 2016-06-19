@@ -7,8 +7,8 @@ This page shows you how to set up the PX4Flow and a LIDAR-Lite for position esti
 - [indoor](https://www.youtube.com/watch?v=MtmWYCEEmS8) 
 - [outdoor](https://www.youtube.com/watch?v=4MEEeTQiWrQ)
 
- ![px4flow](F:\Git\Translation\pictures\hardware\px4flow.png)
- ![lidarlite](F:\Git\Translation\pictures\hardware\lidarlite.png)
+ ![px4flow](../pictures/hardware\px4flow.png)
+ ![lidarlite](../pictures/hardware\lidarlite.png)
 
 ## Hardware
 
@@ -16,7 +16,7 @@ The PX4Flow has to point towards the ground and can be connected using the I2C p
 For the connection of the LIDAR-Lite please refer to [this](https://pixhawk.org/peripherals/rangefinder?s[]=lidar) page.
 For best performance make sure the PX4Flow is attached at a good position and is not exposed to vibration. (preferably on the down side of the quad-rotor).
 
- ![flow_lidar_attached](F:\Git\Translation\pictures\hardware\flow_lidar_attached.jpg)
+ ![flow_lidar_attached](../pictures/hardware\flow_lidar_attached.jpg)
 
 ## Parameters
 
@@ -24,13 +24,19 @@ All the parameters can be changed in QGroundControl
 
 - SENS_EN_LL40LS
   Set to 1 to enable lidar-lite distance measurements
+
 - INAV_LIDAR_EST
   Set to 1 to enable altitude estimation based on distance measurements
+
 - INAV_FLOW_DIST_X and INAV_FLOW_DIST_Y
   These two values (in meters) are used for yaw compensation.
   The offset has to be measured according to the following figure:
-   ![px4flow_offset](F:\Git\Translation\pictures\hardware\px4flow_offset.png)
+   ![flowing](../pictures/hardware\px4flow_offset.png)
+
+- ​
+
   In the above example the offset of the PX4Flow (red dot) would have a negative X offset and a negative Y offset.
+
 - INAV_LIDAR_OFF
   Set a calibration offset for the lidar-lite in meters. The value will be added to the measured distance.
 

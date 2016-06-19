@@ -25,4 +25,4 @@
 
 ## State Transition Diagram
 
- ![pwm_limit_state_diagram](F:\Git\Translation\pictures\diagrams\pwm_limit_state_diagram.png)
+ ![pwm_limit_state_diagram](../pictures/diagrams\pwm_limit_state_diagram.png)

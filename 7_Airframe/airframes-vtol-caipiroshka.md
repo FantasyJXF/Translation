@@ -8,26 +8,26 @@ The Caipiroshka VTOL is a slightly modified TBS Caipirinha.
 
 ## Parts List
 
-- TBS Caipirinha Wing ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19638&Kategorie_ID=110923))
-- Left and right 3D-printed motor mount ([design files](parts/motor_mounts.zip))
-  - CW 8045 propeller ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19532&Kategorie_ID=288))
-  - CCW 8045 propeller ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19533&Kategorie_ID=288))
-  - 2x 1800 kV 120-180W motors
-    - [Quanum MT2208 1800 kV](http://www.hobbyking.com/hobbyking/store/__67014__Quanum_MT_Series_2208_1800KV_Brushless_Multirotor_Motor_Built_by_DYS.html)
-  - [ePower 2208](http://www.eflight.ch/pi/ePower-X-22081.html)
-- 2x 20-30S ESC
-  - [Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19713&Kategorie_ID=36077)
-- BEC (3A, 5-5.3V) (only needed if you are using ESCs which cannot act as a 5V power supply for the output rail)
-  - 3S 2200 mA LiPo battery
-    - Team Orion 3S 11.1V 50 C ([Brack store](https://www.brack.ch/team-orion-2200mah-11-1v-50c-308340))
-- [Pixracer autopilot board + power module](hardware-pixracer.md)
-  - [Digital airspeed sensor](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
+-     TBS Caipirinha Wing ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19638&Kategorie_ID=110923))
+-     Left and right 3D-printed motor mount ([design files](parts/motor_mounts.zip))
+      - CW 8045 propeller ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19532&Kategorie_ID=288))
+      - CCW 8045 propeller ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19533&Kategorie_ID=288))
+      - 2x 1800 kV 120-180W motors
+        - [Quanum MT2208 1800 kV](http://www.hobbyking.com/hobbyking/store/__67014__Quanum_MT_Series_2208_1800KV_Brushless_Multirotor_Motor_Built_by_DYS.html)
+-     [ePower 2208](http://www.eflight.ch/pi/ePower-X-22081.html)
+-     2x 20-30S ESC
+      - [Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19713&Kategorie_ID=36077)
+-     BEC (3A, 5-5.3V) (only needed if you are using ESCs which cannot act as a 5V power supply for the output rail)
+      - 3S 2200 mA LiPo battery
+        - Team Orion 3S 11.1V 50 C ([Brack store](https://www.brack.ch/team-orion-2200mah-11-1v-50c-308340))
+-     [Pixracer autopilot board + power module](hardware-pixracer.md)
+      - [Digital airspeed sensor](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
 
 ## Assembly
 
 The picture below shows an example of how a fully assembled Caipiroshka could look like.
 
-![Caipiroshka](images/airframes/vtol/caipiroshka/caipiroshka.jpg)
+![Caipiroshka](../pictures/airframes/vtol/caipiroshka/caipiroshka.jpg)
 
 In the following some general tips on how to build the vehicle will be given.
 
@@ -78,7 +78,7 @@ in the build manual for the TBS Caipirinha. Depending on the additional componen
 
 Switch to the configuration section in [QGroundControl](qgroundcontrol-intro.md) and select the airframe tab. Scroll down the list to find the VTOL Duorotor Tailsitter icon. Select the ```Duorotor Tailsitter``` from the drop-down list.
 
-![](images/gcs/qgc_caipiroshka.jpg)
+![caip](../pictures/gcs/qgc_caipiroshka.jpg)
 
 ## Servo Connections
 

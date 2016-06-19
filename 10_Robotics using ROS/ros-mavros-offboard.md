@@ -11,7 +11,7 @@ The following tutorial will run through the basics of offboard control through m
 <video width="100%" autoplay="true" controls="true">
 
 ```
-<source src="images/sim/gazebo_offboard.webm" type="video/webm">
+<source src="../pictures/sim/gazebo_offboard.webm" type="video/webm">
 ```
 
 </video>

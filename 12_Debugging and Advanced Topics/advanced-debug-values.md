@@ -46,4 +46,4 @@ Multiple debug messages must have enough time between their respective publishin
 
 The result in QGroundControl then looks like this on the real-time plot:
 
-![](images/gcs/qgc-debugval-plot.jpg)
+![plot](../pictures/gcs/qgc-debugval-plot.jpg)

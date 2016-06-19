@@ -2,7 +2,7 @@
 
 # Architectural Overview
 
-PX4 consists of two main layers: The [PX4 flight stack](concept-flight-stack.md), an autopilot software solution and the [PX4 middleware](concept-middleware.md), a general robotics middleware which can support any type of autonomous robot.
+PX4 consists of two main layers: The [PX4 flight stack](../2_Concepts/flight_stack.md), an autopilot software solution and the [PX4 middleware](../2_Concepts/middleware.md), a general robotics middleware which can support any type of autonomous robot.
 
 All [airframes](airframes-architecture.md), and in fact all robotic systems including boats, share a single codebase. The complete system design is [reactive](http://www.reactivemanifesto.org), which means that:
 
@@ -14,7 +14,7 @@ In addition to these runtime considerations, its modularity maximizes [reusabili
 
 ## High Level Software Architecture
 
-Each of the blocks below is a separate module, which is self-contained in terms of code, dependencies and even at runtime. Each arrow is a connection through publish/subscribe calls through [uORB](advanced-uorb.md).
+Each of the blocks below is a separate module, which is self-contained in terms of code, dependencies and even at runtime. Each arrow is a connection through publish/subscribe calls through [uORB](../6_Middleware and Architecture/uorb_messaging.md).
 
 <aside class="tip">
 The architecture of PX4 allows to exchange every single of these blocks very rapidly and conveniently, even at runtime.

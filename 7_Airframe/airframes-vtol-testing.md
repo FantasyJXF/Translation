@@ -119,7 +119,7 @@ The mission should contain at least (also see screenshots below):
   - (7) transition waypoint (to hover mode)
   - (8) position waypoint near takeoff location
 
-![Mission, showing transition WP to plane](images/vtol/qgc_mission_example_a.png)
+![Mission, showing transition WP to plane](../pictures/vtol/qgc_mission_example_a.png)
 
-![Mission, showing transition WP to hover](images/vtol/qgc_mission_example_b.png)
+![Mission, showing transition WP to hover](../pictures/vtol/qgc_mission_example_b.png)
 

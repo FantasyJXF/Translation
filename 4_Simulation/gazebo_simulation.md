@@ -112,7 +112,7 @@ Right-clicking the quadrotor model allows to enable follow mode from the context
 
 ## Taking it to the Sky
 
- ![gazebo](F:\Git\Translation\pictures\sim\gazebo.png)
+ ![gazebo](../pictures/sim\gazebo.png)
 
 The system will print the home position once it finished intializing (`telem> home: 55.7533950, 37.6254270, -0.00`). You can bring it into the air by typing:
 

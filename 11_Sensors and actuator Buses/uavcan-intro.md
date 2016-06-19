@@ -1,8 +1,6 @@
-# UAVCAN
+# #UAVCAN Introduction
 
-# UAVCAN Introduction
-
-![](images/uavcan-logo-transparent.png)
+![uavcan](../pictures/logos/uavcan-logo-transparent.png)
 
 [UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics. It supports hardware like:
 
