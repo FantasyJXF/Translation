@@ -1,6 +1,6 @@
 # 飞行模式/操作
 #Flight Mode 飞行模式
-**飞行模式**定义了系统在任何给定时间的状态。用户使用远程遥控器或者QGroundControl地面站来进行飞行模式切换。
+**飞行模式**定义了系统在任何给定时间的状态。用户使用远程遥控器或者[QGroundControl](../3_Tutorial/ground_control_station.md)地面站来进行飞行模式切换。
 ## 飞行模式的简要说明
 ![main mode](http://i.imgur.com/cHlbdy9.png)
  PIXHAWK 支持6 种飞行模式具体看图![flight mode](http://i.imgur.com/ktKrAAN.png)
