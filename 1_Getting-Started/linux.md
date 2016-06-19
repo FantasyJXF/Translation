@@ -1,6 +1,6 @@
 # Development Environment on Linux
 
-We have standardized on Debian / Ubuntu LTS as the supported Linux distribution, but [boutique distribution instructions](starting-installing-linux-boutique.md) are available for Cent OS and Arch Linux.
+We have standardized on Debian / Ubuntu LTS as the supported Linux distribution, but [boutique distribution instructions](../1_Getting-Started/adcanced_linux.md) are available for Cent OS and Arch Linux.
 
 ## Permission Setup
 
@@ -22,9 +22,9 @@ And then you have to logout and login again, as this is only changed after a new
 
 Update the package list and install the following dependencies for all PX4 build targets. PX4 supports four main families:
 
-- NuttX based hardware: [Pixhawk](hardware-pixhawk.md), [Pixfalcon](hardware-pixfalcon.md)
-- Snapdragon Flight hardware: [Snapdragon](hardware-snapdragon.md)
-  - Raspberry Pi hardware: [Raspberry Pi 2](hardware-pi2.md)
+- NuttX based hardware: [Pixhawk](../5_Autopilot-Hardware/pixhawk.md), [Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)
+- Snapdragon Flight hardware: [Snapdragon](../5_Autopilot-Hardware/snapgragon_flight.md)
+  - Raspberry Pi hardware: [Raspberry Pi 2](../5_Autopilot-Hardware/raspeberry_pi2.md)
   - Host simulation: [jMAVSim SITL](simulation-sitl.md) and [Gazebo SITL](simulation-gazebo.md)
 
 <aside class="note">
