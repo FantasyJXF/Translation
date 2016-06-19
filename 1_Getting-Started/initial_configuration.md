@@ -4,7 +4,7 @@
 
 
 <aside class="tip">
-[下载每日更新的QGroundControl](http://qgroundcontrol.org/downloads) 并按照下面的说明来设置你的飞行器。参考 See the [QGroundControl 教程](../3_Tutorial/ground_control_station.md) 来了解任务规划，放飞和和参数设置的具体细节。
+[下载每日更新的QGroundControl](http://qgroundcontrol.org/downloads) 并按照下面的说明来设置你的飞行器。参考  [QGroundControl 教程](../3_Tutorial/ground_control_station.md) 来了解任务规划，放飞和和参数设置的具体细节。
  
 </aside>
 
@@ -26,5 +26,5 @@ PX4飞行栈并不强制要求无线控制系统。它也不要求使用单独�
 Move these instructions here.
 </aside>
 
-在这种模式下，该系统接受一个单一的通道作为模式开关，而不是使用多个开关，这在 [legacy wiki]有解释.(https://pixhawk.org/peripherals/radio-control/opentx/single_channel_mode_switch).
+在这种模式下，该系统接受一个单一的通道作为模式开关，而不是使用多个开关，这在 [legacy wiki](https://pixhawk.org/peripherals/radio-control/opentx/single_channel_mode_switch)有解释。
 
