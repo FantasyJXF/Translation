@@ -28,7 +28,7 @@ Update the package list and install the following dependencies for all PX4 build
   - Host simulation: [jMAVSim SITL](../4_Simulation/basic_simulation.md) and [Gazebo SITL](../4_Simulation/gazebo_simulation.md)
 
 <aside class="note">
-Install the [Ninja Build System](1_Getting-Started/adcanced_linux.md#ninja-build-system) for faster build times than with Make. It will be automatically selected if installed.
+Install the [Ninja Build System](../1_Getting-Started/adcanced_linux.md#ninja-build-system) for faster build times than with Make. It will be automatically selected if installed.
 </aside>
 
 <div class="host-code"></div>
@@ -65,7 +65,7 @@ sudo apt-get install python-serial openocd \
     python-empy gcc-arm-none-eabi -y
 ```
 
-If the resulting `gcc-arm-none-eabi` version produces build errors for PX4/Firmware master, please refer to [the bare metal installation instructions](http://dev.px4.io/starting-installing-linux-boutique.html#toolchain-installation) to install version 4.8 manually.
+If the resulting `gcc-arm-none-eabi` version produces build errors for PX4/Firmware master, please refer to [the bare metal installation instructions](../1_Getting-Started/adcanced_linux.md#toolchain-installation) to install version 4.8 manually.
 
 ### Snapdragon Flight
 
