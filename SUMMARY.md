@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [项目介绍](1_Getting Started/introduction.md)
 * [新手上路](Getting Started/getting_started.md)
-   * [初始设置](1_Getting Started/initial_configurationmd.md)
+   * [初始设置](1_Getting-Started/initial_configurationmd.md)
    * [安装工具链](1_Getting Started/install_toolchain.md)
        * [MAC OS](1_Getting Started/macos.md)
        * [Linux](1_Getting Started/linux.md)
