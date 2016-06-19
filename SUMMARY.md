@@ -90,7 +90,7 @@
    * [设置万向节控制](12_Debugging-and-Advanced-Topics/advanced-gimbal-control.md)
    * [切换状态估计器](12_Debugging-and-Advanced-Topics/advanced-switching_state_estimators.md)
    * [Docker 容器](12_Debugging-and-Advanced-Topics/advanced-docker.md)
-   * [Jenkins持续集成环境](12_Debugging and Advanced Topics/advanced-jenkins-ci.md)
+   * [Jenkins持续集成环境](12_Debugging-and-Advanced-Topics/advanced-jenkins-ci.md)
    * [ULog文件模式](12_Debugging and Advanced Topics/advanced-ulog-file-format.md)
    * [Licenses](12_Debugging and Advanced Topics/advanced-licenses.md)
 
