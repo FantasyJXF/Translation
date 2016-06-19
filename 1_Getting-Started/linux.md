@@ -142,7 +142,7 @@ source ~/.bashrc
 
 #### Update ADSP firmware
 
-Before building, flashing and running code, you'll need to update the [ADSP firmware](advanced-snapdragon.html#updating-the-adsp-firmware).
+Before building, flashing and running code, you'll need to update the [ADSP firmware](../12_Debugging-and-Advanced-Topics/advanced-snapdragon.md#updating-the-adsp-firmware).
 
 #### References
 
