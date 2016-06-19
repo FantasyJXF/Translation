@@ -4,7 +4,7 @@
 
 
 <aside class="tip">
-[下载每日更新的QGroundControl](http://qgroundcontrol.org/downloads) 并按照下面的说明来设置你的飞行器。参考  [QGroundControl 教程](../3_Tutorial/ground_control_station.md) 来了解任务规划，放飞和和参数设置的具体细节。
+[下载每日更新的QGroundControl](http://qgroundcontrol.org/downloads)并按照下面的说明来设置你的飞行器。参考[QGroundControl 教程](../3_Tutorial/ground_control_station.md)来了解任务规划，放飞和和参数设置的具体细节。
  
 </aside>
 
