@@ -7,7 +7,7 @@ This tutorial explains in detail how to create a new onboard application and how
 ## Prerequisites
 
 - Pixhawk or Snapdragon compatible autopilot
-- PX4 Toolchain [installed](starting-installing.md)
+- PX4 Toolchain [installed](../1_Getting-Started/install_toolchain.md)
   - Github Account ([sign up for free](https://github.com/signup/free))
 
 ## Step 1: File Setup
@@ -144,7 +144,7 @@ Rebooting.
 
 ### Connect the console
 
-Now connect to the [system console](advanced-system-console.md) either via serial or USB. Hitting ENTER will bring up the shell prompt:
+Now connect to the [system console](../12_Debugging-and-Advanced-Topics/advanced-system-console.md) either via serial or USB. Hitting ENTER will bring up the shell prompt:
 
 ```sh
   nsh>
@@ -187,7 +187,7 @@ The application is now correctly registered with the system and can be extended 
 
 To to something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands). Note that the *true* hardware abstraction of the PX4 platform comes into play here -- no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
 
-Individual message channels between applications are called *topics* in PX4. For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/topics/sensor_combined.h) [topic](advanced-uorb.md), which holds the synchronized sensor data of the complete system.
+Individual message channels between applications are called *topics* in PX4. For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/topics/sensor_combined.h) [topic](../6_Middleware-and-Architecture/uorb_messaging.md), which holds the synchronized sensor data of the complete system.
 
 Subscribing to a topic is swift and clean:
 
