@@ -79,7 +79,7 @@ make posix_rpi2_release # for cross-compiler build
 ```
 
 The "mainapp" executable file is in the directory build_posix_rpi2_release/src/firmware/posix.
-Copy it over to the RPi (replace YOUR_PI with the IP or hostname of your RPi, [instructions how to access your RPi](hardware-pi2.md#developer-quick-start))
+Copy it over to the RPi (replace YOUR_PI with the IP or hostname of your RPi, [instructions how to access your RPi](../5_Autopilot-Hardware/raspeberry_pi2.md#developer-quick-start))
 
 ```sh
 scp build_posix_rpi2_release/src/firmware/posix/mainapp pi@YOUR_PI:/home/pi/
