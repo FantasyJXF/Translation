@@ -132,7 +132,7 @@ pxh>
 
 #### Build it
 
-The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](advanced-uorb.md).
+The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](../6_Middleware-and-Architecture/uorb_messaging.md).
 
 <div class="host-code"></div>
 
