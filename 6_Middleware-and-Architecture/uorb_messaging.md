@@ -5,7 +5,7 @@
 The uORB is an asynchronous publish() / subcribe() messaging API used for
 inter-thread/inter-process communication.
 
-Look at the [tutorial](tutorial-hello-sky.md) to learn how to use it in C++.
+Look at the [tutorial](../3_Tutorial/writing_an_application.md) to learn how to use it in C++.
 
 uORB is automatically started early on bootup as many applications depend on it.
 It is started with `uorb start`. Unit tests can be started with `uorb test`.
