@@ -33,7 +33,7 @@
    * [骁龙](5_Autopilot-Hardware/snapdragon_flight.md)
        * [光流](5_Autopilot-Hardware/optical_flow.md)
    * [树莓派Pi 2](5_Autopilot-Hardware/raspeberry_pi2.md)
-   * [Pixhawk](5_Autopilot Hardware/pixhawk.md)
+   * [Pixhawk](5_Autopilot-Hardware/pixhawk.md)
    * [Pixfalcon](5_Autopilot Hardware/pixfalcon.md)
    * [Pixracer](5_Autopilot Hardware/pixracer.md)
 * [中间件及架构](Middleware and Architecture)
