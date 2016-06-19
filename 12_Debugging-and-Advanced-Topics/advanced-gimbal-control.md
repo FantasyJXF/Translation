@@ -1,4 +1,4 @@
-# 设置万向节控制
+# 设置云台控制
 
 # Gimbal Control Setup
 
