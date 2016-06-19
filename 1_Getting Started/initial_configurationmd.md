@@ -2,10 +2,10 @@
 
 # Initial Configuration
 
-Before starting to develop on PX4, the system should be configured initially with a default configuration to ensure the hardware is set up properly and is tested. The video below explains the setup process with [Pixhawk hardware](hardware-pixhawk.md) and [QGroundControl](qgroundcontrol-intro.md). A list of supported reference airfames is [here](airframes-architecture.md).
+Before starting to develop on PX4, the system should be configured initially with a default configuration to ensure the hardware is set up properly and is tested. The video below explains the setup process with [Pixhawk hardware](hardware-pixhawk.md) and [QGroundControl](qgroundcontrol-intro.md). A list of supported reference airfames is [here](../7_AriFrame/airframes-architecture.md).
 
 <aside class="tip">
-[Download the DAILY BUILD of QGroundControl](http://qgroundcontrol.org/downloads) and follow the video instructions below to set up your vehicle. See the [QGroundControl Tutorial](http://dev.px4.io/qgroundcontrol-intro.html) for details on mission planning, flying and parameter setting. 
+[Download the DAILY BUILD of QGroundControl](http://qgroundcontrol.org/downloads) and follow the video instructions below to set up your vehicle. See the [QGroundControl Tutorial](3_Tutorial/ground_control_station.md) for details on mission planning, flying and parameter setting. 
 </aside>
 
 A list of setup options is below the video.

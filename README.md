@@ -5,7 +5,10 @@
 PX4开发者中文官网，翻译自http://dev.px4.io/
 
 欢迎志同道合的伙伴共同努力。
-Just Enjoy it !
+
+---
+
+**与官网唯一的不同就是，我们是中文。**
 
 ---
 ---
@@ -35,18 +38,18 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
 
 
-&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <font face="Segoe Script" size 12>From Fantasy</font> 
+                                      <font face="Segoe Script" size 12>From Fantasy</font> 
 
  ---
 ####参与维护
 
-1.   **网页端编辑**（<font color=#DC143C size=72>**强烈推荐**</font>：非常简单，只需三步就可以完成你的贡献）
+1.         **网页端编辑**（<font color=#DC143C size=72>**强烈推荐**</font>：非常简单，只需三步就可以完成你的贡献）
 
-     * 在浏览在线页面时进行编辑本页，这样，只要你看到不妥的地方立马可以修改，具体如下图
+               * 在浏览在线页面时进行编辑本页，这样，只要你看到不妥的地方立马可以修改，具体如下图
 
-       ![edithere](pictures/introducing\online.png)
+             ![edithere](pictures/introducing\online.png)
 
-     - 或者也可以直接打开github中[网页端][8]进入要进行编辑的文件，如下图
+           - 或者也可以直接打开github中[网页端][8]进入要进行编辑的文件，如下图
 [8]: https://github.com/FantasyJXF/Translation
   ![edit](pictures/introducing\edit.png)
 ​	  
@@ -96,10 +99,33 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
    git push origin master
    #推送到个人云端
    ```
-   到这里为止，还只对你自己的仓库进行了修改，你需要`new pull request`提交分支到FantasyJXF的仓库，如下图，可以看出，如果只是少量的更改，建议使用网页端编辑。
+
+2. 到这里为止，还只对你自己的仓库进行了修改，你需要`new pull request`提交分支到FantasyJXF的仓库，如下图，可以看出，如果只是少量的更改，建议使用网页端编辑。
    ![pullrequest](pictures/introducing/pull.png)
-   按照官网的格式，我已经将各部分创建了文件夹，需要汉化的小节有有相应的.md文件，建议大家使用使用[MarkdownPad][10]或者[Typora][11]软件进行编辑，并上传即可。
-    ![mark](pictures/introducing/demo.png)
+   ​
+
+   ### 注意看这里
+
+   <font color=DC143C size=72>
+
+   为了方便大家能够更好的参与进维护工作，现做了一些准备工作。</font>
+
+   1. **分类**。文件对应到各自的文件夹。图片集中存放。
+
+      ![demo](pictures/introducing/demo.png)
+
+   2. **格式**。当大家打开需要翻译的文件的时候，格式已经与官网一致了！关于图片、视频、.md文件的链接、引用的超链接以及代码段已经设置完毕了，大家不用再去修改。只需要将相应部分的原文进行替换即可，保证大家<font color=#DC143C size=72>到手即翻</font>，什么基础都不需要就能够轻松完成贡献。
+
+   3. **不足之处1**。不愿意将就，源于官网，异于官网。关于流程图格式的添加还未能掌握，还只能以截图形式展现，后期将会做处理，请大家将相应的图片存放于下图位置。
+
+      ![diagram](pictures/introducing/diagram.png)
+
+      添加方式为![desc](pictures/introducing/desc.png)
+
+      其中[括号内]的“diagram”是你对文件的描述，可为空。(括号内)表示文件所在的位置。这里我的README.md的位置在../pictures/introducing。可能大家可以找到别的方法添加，也可以。
+
+   4. **不足之处2**。目前的PX4中文维基GitBook虽说大体与官网一致，但是字体之类感官上还有一点不同，这个不是主要矛盾，将在以后进行优化。
+
 [11]: http://www.typora.io/
 [10]: http://markdownpad.com/
 
@@ -108,3 +134,9 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 1. 关于gitbook，可查看[www.gitbook.com](https://www.gitbook.com)。
 
 2. gitbook的官方使用，可查看[https://help.gitbook.com](https://help.gitbook.com/)。
+
+
+
+**在此感谢大家辛勤的劳动！**
+
+![haha](pictures/introducing/baozou.jpg)
