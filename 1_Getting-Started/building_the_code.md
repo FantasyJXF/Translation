@@ -1,16 +1,13 @@
-# 代码编译
+# 编译px４软件
 
-# Building PX4 Software
+PX4可以在控制台或者图形界面/IDE开发
 
-PX4 can be built on the console or in a graphical development environment / IDE.
-
-## Compiling on the Console
-
-Before moving on to a graphical editor or IDE, it is important to validate the system setup. Do so by bringing up the terminal. On OS X, hit ⌘-space and search for 'terminal'. On Ubuntu, click the launch bar and search for 'terminal'. On Windows, find the PX4 folder in the start menu and click on 'PX4 Console'.
+## 在控制台编译
+在去到图形界面或者IDE前，验证系统设置的正确性非常重要，因此打开控制台。在 OS X, 敲击 ⌘-space ，并搜索'terminal'。在Ubuntu，单击启动栏，搜索“terminal”（或者trl+alt+T）。在windows平台，在开始菜菜单找到px4文件夹，单击'PX4 Console'
 
 ![building](../pictures/toolchain/terminal.png)
 
-The terminal starts in the home directory. We default to '~/src/Firmware' and clone the upstream repository. Experienced developers might clone [their fork](https://help.github.com/articles/fork-a-repo/) instead.
+终端在家目录启动，我们默认去到'~/src/Firmware' 然后，克隆顶层资源库。有经验的开发者可以克隆自己的复制的[资源库](https://help.github.com/articles/fork-a-repo/) 
 
 <div class="host-code"></div>
 
@@ -23,9 +20,10 @@ git submodule update --init --recursive
 cd ..
 ```
 
-Now its time to build the binaries by compiling the source code. But before going straight to the hardware, a [simulation run](../4_Simulation/basic_simulation.md) is recommended as the next step. Users preferring to work in a graphical development environment should continue with the next section.
+现在可以由源代码编译二进制代码了。但在直接使用硬件前，推荐先[进行仿真](../4_Simulation/basic_simulation.md)。喜欢在图形界面开发环境工作的用户也应该继续完成下面部分。
 
-### NuttX / Pixhawk based boards
+
+###基于NuttX / Pixhawk的硬件板
 
 <div class="host-code"></div>
 
@@ -34,7 +32,9 @@ cd Firmware
 make px4fmu-v2_default
 ```
 
-Note the syntax: 'make' is the build tool, 'px4fmu-v2' is the hardware / autopilot version and 'default' is the default configuration. All PX4 build targets follow this logic. A successful run will end with this output:
+注意到“make”是一个字符命令编译工具，“px4fmu-v2”是硬件/ardupilot版本，“default”是默认配置，所有的PX4编译目标遵循这个规则。 
+
+成功编译的最后输出是这样的：
 
 <div class="host-code"></div>
 
@@ -46,7 +46,7 @@ Scanning dependencies of target build_firmware_px4fmu-v2
 [100%] Built target build_firmware_px4fmu-v2
 ```
 
-By appending 'upload' to these commands the compiled binary will be uploaded via USB to the autopilot hardware:
+通过在命令后面添加‘upload’，编译的二进制程序就会通过USB上传到飞控硬件:
 
 <div class="host-code"></div>
 
