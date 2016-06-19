@@ -23,7 +23,7 @@ git submodule update --init --recursive
 cd ..
 ```
 
-Now its time to build the binaries by compiling the source code. But before going straight to the hardware, a [simulation run](simulation-sitl.md) is recommended as the next step. Users preferring to work in a graphical development environment should continue with the next section.
+Now its time to build the binaries by compiling the source code. But before going straight to the hardware, a [simulation run](../4_Simulation/basic_simulation.md) is recommended as the next step. Users preferring to work in a graphical development environment should continue with the next section.
 
 ### NuttX / Pixhawk based boards
 
