@@ -14,7 +14,7 @@ In addition to these runtime considerations, its modularity maximizes [reusabili
 
 ## High Level Software Architecture
 
-Each of the blocks below is a separate module, which is self-contained in terms of code, dependencies and even at runtime. Each arrow is a connection through publish/subscribe calls through [uORB](../6_Middleware and Architecture/uorb_messaging.md).
+Each of the blocks below is a separate module, which is self-contained in terms of code, dependencies and even at runtime. Each arrow is a connection through publish/subscribe calls through [uORB](../6_Middleware-and-Architecture/uorb_messaging.md).
 
 <aside class="tip">
 The architecture of PX4 allows to exchange every single of these blocks very rapidly and conveniently, even at runtime.
