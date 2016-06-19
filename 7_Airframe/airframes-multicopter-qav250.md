@@ -4,8 +4,8 @@
 
 ## Parts List
 
-- [Pixracer kit](hardware-pixracer.md) or [Pixfalcon kit](hardware-pixfalcon.md) (including GPS and power module)
-- [Mini telemetry set](hardware-pixfalcon.md) for HKPilot32
+- [Pixracer kit](../5_Autopilot-Hardware/pixracer.md) or [Pixfalcon kit](../5_Autopilot-Hardware/pixfalcon.md) (including GPS and power module)
+- [Mini telemetry set](../5_Autopilot-Hardware/pixfalcon.md) for HKPilot32
 
 ## Motor Connections
 
