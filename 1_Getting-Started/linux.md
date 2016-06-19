@@ -176,4 +176,4 @@ You can pass a different path to the installer script if you wouldn't like to in
 
 ## Finishing Up
 
-Now continue to run the [first build](starting-building.md)!
+Now continue to run the [first build](../1_Getting-Started/building_the_code.md)!
