@@ -10,7 +10,7 @@ Legacy drivers for NuttX are based on the [Device](https://github.com/PX4/Firmwa
 
 ## Core Architecture
 
-PX4 is a [reactive system](concept-architecture.md) and uses pub/sub to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
+PX4 is a [reactive system](../3_Tutorial/writing_an_application.md) and uses pub/sub to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
 
 - The publish / subscribe system which has a file, network or shared memory backend depending on the system PX4 runs on
 - The global device registry, which allows to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system.
