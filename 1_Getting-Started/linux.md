@@ -1,14 +1,14 @@
-# Development Environment on Linux
+# Linux开发环境
 
-We have standardized on Debian / Ubuntu LTS as the supported Linux distribution, but [boutique distribution instructions](../1_Getting-Started/adcanced_linux.md) are available for Cent OS and Arch Linux.
+我们使用Debian / Ubuntu LTS 作为Linux的标准支持版本，但是但是也支持[Cent OS 和 Arch Linux的发行版本](../1_Getting-Started/adcanced_linux.md)
 
-## Permission Setup
+## 权限设置
 
 <aside class="note">
-Never ever fix permission problems by using 'sudo'. It will create more permission problems in the process and require a system reinstallation to fix them.
+注意：永远不要使用｀sudo｀来修复权限问题，否则会带来更多的权限问题，需要重装系统来解决。
 </aside>
 
-The user needs to be added to the group "dialout":
+把用户添加到用户组　"dialout":
 
 <div class="host-code"></div>
 
@@ -16,11 +16,11 @@ The user needs to be added to the group "dialout":
 sudo usermod -a -G dialout $USER
 ```
 
-And then you have to logout and login again, as this is only changed after a new login.
+然后注销后，重新登录，因为重新登录后所做的改变才会有效。
 
-## Installation
+## 安装
 
-Update the package list and install the following dependencies for all PX4 build targets. PX4 supports four main families:
+更新包列表，安装下面编译PX4的依赖包。PX4主要支持的家族：
 
 - NuttX based hardware: [Pixhawk](../5_Autopilot-Hardware/pixhawk.md), [Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)
 - Snapdragon Flight hardware: [Snapdragon](../5_Autopilot-Hardware/snapgragon_flight.md)
@@ -28,7 +28,7 @@ Update the package list and install the following dependencies for all PX4 build
   - Host simulation: [jMAVSim SITL](../4_Simulation/basic_simulation.md) and [Gazebo SITL](../4_Simulation/gazebo_simulation.md)
 
 <aside class="note">
-Install the [Ninja Build System](../1_Getting-Started/adcanced_linux.md#ninja-build-system) for faster build times than with Make. It will be automatically selected if installed.
+注意：安装 [Ninja Build System](../1_Getting-Started/adcanced_linux.md#ninja-build-system)可以比make更快进行编译。如果安装了它就会自动选择使用它进行编译。
 </aside>
 
 <div class="host-code"></div>
@@ -42,9 +42,9 @@ sudo apt-get install python-argparse git-core wget zip \
 sudo apt-get install ant protobuf-compiler libeigen3-dev libopencv-dev openjdk-7-jdk openjdk-7-jre clang-3.5 lldb-3.5 -y
 ```
 
-### NuttX based hardware
+### NuttX的基本硬件
 
-Ubuntu comes with a serial modem manager which interferes heavily with any robotics related use of a serial port (or USB serial). It can deinstalled without side effects:
+Ubuntu配备了一系列代理管理，这会严重干扰任何机器人相关的串口（或usb串口），卸载掉它也不会有什么影响:
 
 <div class="host-code"></div>
 
@@ -52,7 +52,7 @@ Ubuntu comes with a serial modem manager which interferes heavily with any robot
 sudo apt-get remove modemmanager
 ```
 
-Update the package list and install the following dependencies. Packages with specified versions should be installed with this particular package version.
+更新包列表和安装下面的依赖包。务必安装指定的版本的包
 
 <div class="host-code"></div>
 
@@ -65,7 +65,7 @@ sudo apt-get install python-serial openocd \
     python-empy gcc-arm-none-eabi -y
 ```
 
-If the resulting `gcc-arm-none-eabi` version produces build errors for PX4/Firmware master, please refer to [the bare metal installation instructions](../1_Getting-Started/adcanced_linux.md#toolchain-installation) to install version 4.8 manually.
+如果`gcc-arm-none-eabi`版本导致PX4/Firmware编译错误，请参考   [the bare metal installation instructions](../1_Getting-Started/adcanced_linux.md#toolchain-installation) 手动安装4.8版本。
 
 ### Snapdragon Flight
 
