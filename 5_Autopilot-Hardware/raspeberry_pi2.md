@@ -173,5 +173,5 @@ chmod +x install_native.sh
 
 ### Building the code
 
-Continue with our [standard build system installation](starting-installing-linux.md).
+Continue with our [standard build system installation](../1_Getting-Started/linux.md).
 
