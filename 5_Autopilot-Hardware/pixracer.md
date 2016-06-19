@@ -1,6 +1,6 @@
 # Pixracer
 
-The Pixhawk XRacer board family is optimized for small racing quads and planes. In contrast to [Pixfalcon](hardware-pixfalcon.md) and [Pixhawk](hardware-pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
+The Pixhawk XRacer board family is optimized for small racing quads and planes. In contrast to [Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md) and [Pixhawk](../5_Autopilot-Hardware/pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
 
 ![pixracer](../pictures/hardware/hardware-pixracer.jpg)
 
