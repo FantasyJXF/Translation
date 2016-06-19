@@ -12,6 +12,17 @@ graph LR;
   Plugin-->MAVLink;
   MAVLink-->SITL;
 ```
+st=>start: Start 
+
+e=>end: SITL 
+
+op1=>operation: Plugin 
+
+op2=>operation: MAVLink 
+
+
+st->op1->op2->e 
+
 
 ## Installation
 
