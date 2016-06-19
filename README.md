@@ -124,11 +124,11 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
       其中[括号内]的“diagram”是你对文件的描述，可为空。(括号内)表示文件所在的位置。这里我的README.md的位置在../pictures/introducing。可能大家可以找到别的方法添加，也可以。
 
-   4. **不足之处2**。目前的PX4中文维基GitBook虽说大体与官网一致，但是字体之类感官上还有一点不同，这个不是主要矛盾，将在以后进行优化。GitBook上的视频都是Youtube上的，翻墙就能看到。关于翻墙工具，推荐Chrome浏览器 + 氪星人插件
+   4. **不足之处2**。目前的PX4中文维基GitBook虽说大体与官网一致，但是字体之类感官上还有一点不同，这个不是主要矛盾，将在以后进行优化。GitBook上的视频都是Youtube上的，翻墙就能看到。关于翻墙工具，推荐Chrome浏览器 + [氪星人插件][12]
 
 [11]: http://www.typora.io/
 [10]: http://markdownpad.com/
-
+[12]: http://pan.baidu.com/s/1dFx5O3n
 ####参考资料
 
 1. 关于gitbook，可查看[www.gitbook.com](https://www.gitbook.com)。
