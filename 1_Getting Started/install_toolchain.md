@@ -8,7 +8,7 @@ The installation of the development environment is covered below:
 
 - [Mac OS](../1_Getting Started/macos.md)
 - [Linux](../1_Getting Started/linux.md)
-  - [Windows](1_Getting Started/windows.md)
+- [Windows](1_Getting Started/windows.md)
 
 If you're familiar with Docker you can also use one of the prepared containers: [Docker Containers](../12_Debugging and Advanced Topics/advanced-docker.md)
 
