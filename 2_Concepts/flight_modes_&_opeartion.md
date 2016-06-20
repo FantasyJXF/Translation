@@ -1,5 +1,4 @@
 # 飞行模式/操作
-#Flight Mode 飞行模式
 **飞行模式**定义了系统在任何给定时间的状态。用户使用远程遥控器或者[QGroundControl](../3_Tutorial/ground_control_station.md)地面站来进行飞行模式切换。
 ## 飞行模式的简要说明
 ![main mode](http://i.imgur.com/cHlbdy9.png)
@@ -29,4 +28,4 @@
 * 外部控制 **OFFBOARD**
   在这个模式下，飞机的位置，速度或者姿态的参考/目标/设定值由另一台通过串行线路与MAVLink连接的电脑提供。这些外部的设定值可以由MAVROS或者Dronekit这种应用程序接口提供。
 ## 飞行模式评估图
-![commander_flow_diagram](../pictures/diagrams\commander_flow_diagram.png)![flightmode](commander_flow_diagram.png)
+![commander_flow_diagram](../pictures/diagrams\commander_flow_diagram.png)
