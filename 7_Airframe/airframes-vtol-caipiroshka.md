@@ -76,7 +76,7 @@ in the build manual for the TBS Caipirinha. Depending on the additional componen
 
 ## Airframe configuration
 
-Switch to the configuration section in [QGroundControl](qgroundcontrol-intro.md) and select the airframe tab. Scroll down the list to find the VTOL Duorotor Tailsitter icon. Select the ```Duorotor Tailsitter``` from the drop-down list.
+Switch to the configuration section in [QGroundControl](../3_Tutorial/ground_control_station.md) and select the airframe tab. Scroll down the list to find the VTOL Duorotor Tailsitter icon. Select the ```Duorotor Tailsitter``` from the drop-down list.
 
 ![caip](../pictures/gcs/qgc_caipiroshka.jpg)
 
