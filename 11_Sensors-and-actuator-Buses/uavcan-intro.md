@@ -16,11 +16,11 @@ In contrast to hobby-grade devices it uses rugged, differential signalling and s
 
 ## Upgrading Node Firmware
 
-The PX4 middleware will automatically upgrade firmware on UAVCAN nodes if the matching firmware is supplied. The process and requirements are described on the [UAVCAN Firmware](uavcan-node-firmware.md) page.
+The PX4 middleware will automatically upgrade firmware on UAVCAN nodes if the matching firmware is supplied. The process and requirements are described on the [UAVCAN Firmware](../11_Sensors-and-actuator-Buses/uavcan-node-firmware.md) page.
 
 ## Enumerating and Configuring Motor Controllers
 
-The ID and rotational direction of each motor controller can be assigned after installation in a simple setup routine: [UAVCAN Node Enumeration](uavcan-node-enumeration.md). The routine can be started by the user through QGroundControl.
+The ID and rotational direction of each motor controller can be assigned after installation in a simple setup routine: [UAVCAN Node Enumeration](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md). The routine can be started by the user through QGroundControl.
 
 ## Useful links
 
