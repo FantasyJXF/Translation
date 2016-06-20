@@ -158,7 +158,7 @@ The APIs to set up and use the UART are described in [dspal](https://github.com/
 
 <aside class="todo">These are notes for advanced developers.</aside>
 
-Connect to the Linux shell (see [console instructions](advanced-system-console.html#snapdragon-flight-wiring-the-console)).
+Connect to the Linux shell (see [console instructions](../12_Debugging-and-Advanced-Topics/advanced-system-console.md#snapdragon-flight-wiring-the-console)).
 
 ### Access point mode
 
