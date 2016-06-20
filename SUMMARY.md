@@ -82,7 +82,7 @@
    * [发送调试的值](12_Debugging-and-Advanced-Topics/advanced-debug-valuesmd.md)
    * [室内 / 假 GPS](12_Debugging-and-Advanced-Topics/advanced-fake-gps.md)
    * [相机触发器](12_Debugging-and-Advanced-Topics/advanced-camera-trigger.md)
-   * [EKF2的Log文件回放](12_Debugging and Advanced Topics/ekf2_log_replay.md)
+   * [EKF2的Log文件回放](12_Debugging-and-Advanced-Topics/ekf2_log_replay.md)
    * [Snapdragon Advanced](12_Debugging-and-Advanced-Topics/advanced-snapdragon.md)
        * [获取I/O数据](12_Debugging-and-Advanced-Topics/advanced-accessing-io-data.md)
        * [相机和光流](12_Debugging-and-Advanced-Topics/advanced-snapdragon_camera.md)
