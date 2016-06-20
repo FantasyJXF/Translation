@@ -23,19 +23,7 @@ Each of the blocks below is a separate module, which is self-contained in terms 
 
 The controllers / mixers are specific to a particular airframe (e.g. a multicopter, VTOL or plane), but the higher-level mission management blocks like the `commander` and `navigator` are shared between platforms.
 
-{% mermaid %}graph TD;
-  commander-->navigator;
-  用户-->commander;
-  用户-->stickmapper;
-  stickmapper-->navigator;
-  navigator-->位置位置;
-  位置控制-->姿态控制;
-  姿态控制-->混控;
- 位置估计-->位置控制;
-  位置估计-->navigator;
-  位置估计-->姿态估计;
-  姿态估计-->姿态控制;
-  混控-->电机驱动;{% endmermaid %}
+![arch](../pictures/diagrams/arch.png)
 
 ## Communication Architecture with the GCS
 
