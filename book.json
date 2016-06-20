@@ -10,7 +10,10 @@
         "github",
         "tbfed-pagefooter",
         "duoshuo",
-        "-search"
+        "-search",
+        "anchor",
+        "splitter",
+        "mermaid"
     ],
     "pluginsConfig": {
         "mathjax": {
