@@ -54,7 +54,7 @@
        * [垂直起降测试](7_Airframe/airframes-vtol-testing.md)
        * [TBS Caipiroshka](7_Airframe/airframes-vtol-caipiroshka.md)
    * [船舶 潜水艇, 飞艇, Rovers](7_Airframe/airframes-experimental.md)
-* Companion Computers
+* [Companion Computers](8_Companion-Computer/companion_computers.md)
    * [Pixhawk family companion](8_Companion-Computer/pixhawk-companion-computer.md)
 * [使用DroneKit的机器人](DroneKit/robotics_using_dronekit.md)
    * [DroneKit的使用](9_Robotics-using-DroneKit/dronekit-example.md)
