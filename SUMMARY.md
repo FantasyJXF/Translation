@@ -73,7 +73,7 @@
        * [UAVCAN 配置](11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md)
    * [PWM / GPIO](11_Sensors-and-actuator-Buses/pwm-gpio-intro.md)
    * [UART](11_Sensors-and-actuator-Buses/uart-intro.md)
-* [调试以及高级主题](Debugging and Advanced Topics.md)
+* [调试以及高级主题](12_Debugging-and-Advanced-Topics/debugging_and_advanced_topicsmd.md)
    * [FAQ](12_Debugging-and-Advanced-Topics/advanced-faq.md)
    * [系统控制台](12_Debugging-and-Advanced-Topics/advanced-system-console.md)
    * [系统启动](12_Debugging-and-Advanced-Topics/advanced-system-startup.md)
