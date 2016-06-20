@@ -6,19 +6,7 @@
 
 {% youtube %}https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720{% endyoutube %}
 
-```mermaid
-graph LR;
-  Gazebo-->Plugin;
-  Plugin-->MAVLink;
-  MAVLink-->SITL;
-```
-'''sh
-st=>start: Start 
-e=>end: SITL 
-op1=>operation: Plugin 
-op2=>operation: MAVLink 
-st->op1->op2->e 
-...
+![gazebo](../pictures/diagrams/gazebo.png)
 
 
 ## Installation

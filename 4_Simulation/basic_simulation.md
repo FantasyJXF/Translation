@@ -4,11 +4,7 @@
 
 Software in the Loop Simulation runs the complete system on the host machine and simulates the autopilot. It connects via local network to the simulator. The setup looks like this:
 
-```mermaid
-graph LR;
-  Simulator-->MAVLink;
-  MAVLink-->SITL;
-```
+![sitl](../pictures/diagrams/SITL.png)
 
 ## Running SITL
 
@@ -56,9 +52,10 @@ The system will print the home position once it finished intializing (`telem> ho
 pxh> commander takeoff
 ```
 
-<aside class="tip">
-Joystick or thumb-joystick support is available through QGroundControl (QGC). To use manual input, put the system in a manual flight mode (e.g. POSCTL, position control). Enable the thumb joystick from the QGC preferences menu.
-</aside>
+> <aside class="tip">
+> Joystick or thumb-joystick support is available through QGroundControl (QGC). To use manual input, put the system in a manual flight mode (e.g. POSCTL, position control). Enable the thumb joystick from the QGC preferences menu.
+> </aside>
+>
 
 ## Simulating a Wifi Drone
 
