@@ -65,7 +65,7 @@
    * [MAVROS外部控制例程](10_Robotics-using-ROS/ros-mavros-offboard.md)
    * [外部位置估计](10_Robotics-using-ROS/external-position.md)
    * [Gazebo Octomap](10_Robotics-using-ROS/simulation-gazebo-octomap.md)
-* [传感器和执行机构总线](Sensor and Actuator Buses)
+* [传感器和执行机构总线](11_Sensors-and-actuator-Buses/sensor_and_actuator_buses.md)
    * [I2C](11_Sensors-and-actuator-Buses/i2c-intro.md)
    * [UAVCAN](11_Sensors-and-actuator-Buses/uavcan-intro.md)
        * [UAVCAN Bootloader](11_Sensors-and-actuator-Buses/uavcan-bootloader-installation.md)
