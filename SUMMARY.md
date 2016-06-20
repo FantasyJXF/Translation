@@ -36,7 +36,7 @@
    * [Pixhawk](5_Autopilot-Hardware/pixhawk.md)
    * [Pixfalcon](5_Autopilot-Hardware/pixfalcon.md)
    * [Pixracer](5_Autopilot-Hardware/pixracer.md)
-* [中间件及架构](Middleware and Architecture)
+* [中间件及架构](6_Middleware-and-Architecture/middleware_and_architecture.md)
    * [uORB](6_Middleware-and-Architecture/uorb_messaging.md)
    * [定制MAVLink消息](6_Middleware-and-Architecture/custom-mavlink-message.md)
    * [守护进程](6_Middleware-and-Architecture/daemon.md)
