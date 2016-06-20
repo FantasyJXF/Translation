@@ -41,7 +41,7 @@
    * [定制MAVLink消息](6_Middleware-and-Architecture/custom-mavlink-message.md)
    * [守护进程](6_Middleware-and-Architecture/daemon.md)
    * [驱动框架](6_Middleware-and-Architecture/drivers_framework.md)
-* [机型](6_Middleware-and-Architecture/airframe.md)
+* [机型](7_Airframe/airframe.md)
    * [统一的基础代码](7_Airframe/airframes-architecture.md)
    * [添加一个新的机型](7_Airframe/airframes-adding-a-new-frame.md)
    * [多旋翼](7_Airframe/airframes-multicoptermd.md)
