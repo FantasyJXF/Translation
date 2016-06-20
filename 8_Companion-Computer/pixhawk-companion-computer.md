@@ -19,7 +19,7 @@ Changing this parameter requires an autopilot reboot to become active.
 
 In order to receive MAVLink, the companion computer needs to run some software talking to the serial port. The most common options are:
 
-- [MAVROS](ros-mavros-installation.md) to communicate to ROS nodes
+- [MAVROS](../10_Robotics-using-ROS/ros-mavros-installation.md) to communicate to ROS nodes
 - [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) to connect custom code
   - [MAVProxy](http://mavproxy.org) to route MAVLink between serial and UDP
 
