@@ -2,7 +2,7 @@
 
 # Create Custom MAVLink Messages
 
-This tutorial assumes you have a [custom uORB](advanced-uorb.md) `ca_trajectory`
+This tutorial assumes you have a [custom uORB](../6_Middleware-and-Architecture/uorb_messaging.md) `ca_trajectory`
 message in `msg/ca_trajectory.msg` and a custom mavlink
 `ca_trajectory` message in
 `mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h` (see
