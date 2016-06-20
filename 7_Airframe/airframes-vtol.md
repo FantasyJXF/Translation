@@ -2,7 +2,7 @@
 
 # VTOL Airframes
 
-The [PX4 Flight Stack](concept-flight-stack.md) supports virtually all VTOL configurations:
+The [PX4 Flight Stack](../2_Concepts/flight_stack.md) supports virtually all VTOL configurations:
 
 - Tailsitters (duo and quadrotors in X and plus configuration)
 - Tiltrotors (Firefly Y6)
@@ -23,7 +23,7 @@ These configuration parameters have to be set correctly when creating a new airf
 
 ## Tailsitter
 
-The [build log](airframes-vtol-caipiroshka.md) contains further detail.
+The [build log](../7_Airframe/airframes-vtol-caipiroshka.md) contains further detail.
 
 {% youtube %}https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720{% endyoutube %}
 
