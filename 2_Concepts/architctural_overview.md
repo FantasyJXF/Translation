@@ -35,7 +35,7 @@ The controllers / mixers are specific to a particular airframe (e.g. a multicopt
   位置估计-->navigator;
   位置估计-->姿态估计;
   姿态估计-->姿态控制;
-  混控-->电机驱动;{% mermaid %}
+  混控-->电机驱动;{% endmermaid %}
 
 ## Communication Architecture with the GCS
 
