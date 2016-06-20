@@ -1,5 +1,10 @@
 {
-    "language": "zh",
+    "title" : "Fantasy's GitBook",
+    "description" : "px4wiki",
+    "author" : "FantasyJXF",
+    "generator": "site",
+    "language" : "zh-hans",
+    "gitbook" : "2.6.4",
     "plugins": [
         "mathjax",
         "scrollablecode",
@@ -13,7 +18,8 @@
         "-search",
         "anchors",
         "splitter",
-        "mermaid"
+        "mermaid",
+        "advanced-emoji"
     ],
     "pluginsConfig": {
         "mathjax": {
