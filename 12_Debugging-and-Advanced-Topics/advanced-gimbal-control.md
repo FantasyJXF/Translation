@@ -20,7 +20,7 @@ Use [COMMAND_LONG](https://pixhawk.ethz.ch/mavlink/#COMMAND_LONG) with the follo
 
 ## Setup
 
-The setup requires knowledge about how to configure the [system startup](advanced-system-startup.html#customizing-the-system-startup).
+The setup requires knowledge about how to configure the [system startup](../12_Debugging-and-Advanced-Topics/advanced-system-startup.md#customizing-the-system-startup).
 
 ### Start gimbal app
 
