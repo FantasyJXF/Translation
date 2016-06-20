@@ -4,11 +4,11 @@
 
 The PX4 platform uses the param subsystem (a flat table of float and int32_t values) and text files (for mixers and startup scripts) to store its configuration.
 
-The [system startup](advanced-system-startup.md) and how [airframe configurations](airframes-adding-a-new-frame.md) work are detailed on other pages. This section discusses the param subsystem in detail
+The [system startup](../12_Debugging-and-Advanced-Topics/advanced-system-startup.md) and how [airframe configurations](../7_Airframe/airframes-adding-a-new-frame.md) work are detailed on other pages. This section discusses the param subsystem in detail
 
 ## Commandline usage
 
-The PX4 [system console](advanced-system-console.md) offers the ```param``` tool, which allows to set parameters, read their value, save them and export and restore to and from files.
+The PX4 [system console](../12_Debugging-and-Advanced-Topics/advanced-system-console.md) offers the ```param``` tool, which allows to set parameters, read their value, save them and export and restore to and from files.
 
 ### Getting and Setting Parameters
 
