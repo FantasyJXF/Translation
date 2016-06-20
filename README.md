@@ -116,7 +116,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
    2. **格式**。当大家打开需要翻译的文件的时候，格式已经与官网一致了！关于图片、视频、.md文件的链接、引用的超链接以及代码段已经设置完毕了，大家不用再去修改。只需要将相应部分的原文进行替换即可，保证大家<font color=#DC143C size=72>到手即翻</font>，什么基础都不需要就能够轻松完成贡献。
 
-   3. **不足之处1**。不愿意将就，源于官网，异于官网。关于流程图格式的添加还未能掌握，还只能以截图形式展现，后期将会做处理，请大家将相应的图片存放于下图位置。
+   3. **不足之处**。不愿意将就，源于官网，异于官网。关于流程图格式的添加还未能掌握，还只能以截图形式展现，后期将会做处理，请大家将相应的图片存放于下图位置。GitBook上的视频都是Youtube上的，翻墙就能看到。关于翻墙工具，推荐Chrome浏览器 + [氪星人插件][12]
 
       ![diagram](pictures/introducing/diagram.png)
 
@@ -124,7 +124,6 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
       其中[括号内]的“diagram”是你对文件的描述，可为空。(括号内)表示文件所在的位置。这里我的README.md的位置在../pictures/introducing。可能大家可以找到别的方法添加，也可以。
 
-   4. **不足之处2**。目前的PX4中文维基GitBook虽说大体与官网一致，但是字体之类感官上还有一点不同，这个不是主要矛盾，将在以后进行优化。GitBook上的视频都是Youtube上的，翻墙就能看到。关于翻墙工具，推荐Chrome浏览器 + [氪星人插件][12]
 
 [11]: http://www.typora.io/
 [10]: http://markdownpad.com/
@@ -134,6 +133,9 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 1. 关于gitbook，可查看[www.gitbook.com](https://www.gitbook.com)。
 
 2. gitbook的官方使用，可查看[https://help.gitbook.com](https://help.gitbook.com/)。
+
+3. 这是一个令人感动的GitBook教程[http://gitbook.zhangjikai.com/index.html](http://gitbook.zhangjikai.com/index.html)
+
 
 
 
