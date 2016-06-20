@@ -18,12 +18,7 @@ For a simple plane control 0 (roll) is connected straight to output 0 (elevator)
 
 Since there are multiple control groups (like flight controls, payload, etc.) and multiple output groups (first 8 PWM outpus, UAVCAN, etc.), one control group can send command to multiple output groups.
 
-```mermaid
-graph TD;
-  actuator_group_0-->output_group_0
-  actuator_group_0-->output_group_1
-  actuator_group_1-->output_group_0
-```
+![mapping](../pictures/diagrams/mapping.png)
 
 ## PX4 mixer definitions
 
