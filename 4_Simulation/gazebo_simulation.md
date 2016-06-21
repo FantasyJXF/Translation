@@ -6,7 +6,12 @@
 
 {% youtube %}https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720{% endyoutube %}
 
-![gazebo](../pictures/diagrams/gazebo.png)
+{% mermaid %}
+graph LR;
+  Gazebo-->Plugin;
+  Plugin-->MAVLink;
+  MAVLink-->SITL;
+{% endmermaid %}
 
 
 ## Installation
