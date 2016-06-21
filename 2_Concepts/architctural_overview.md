@@ -23,10 +23,31 @@ Each of the blocks below is a separate module, which is self-contained in terms 
 
 The controllers / mixers are specific to a particular airframe (e.g. a multicopter, VTOL or plane), but the higher-level mission management blocks like the `commander` and `navigator` are shared between platforms.
 
-![arch](../pictures/diagrams/arch.png)
+{% mermaid %}
+graph TD;
+  commander-->navigator;
+  user-->commander;
+  user-->stickmapper;
+  stickmapper-->navigator;
+  navigator-->pos_ctrl
+  pos_ctrl-->att_ctrl;
+  att_ctrl-->mixer;
+  position_estimator-->pos_ctrl;
+  position_estimator-->navigator;
+  position_estimator-->attitude_estimator;
+  attitude_estimator-->att_ctrl;
+  mixer-->motor_driver;
+{% endmermaid %}
 
 ## Communication Architecture with the GCS
 
 The interaction with the ground control station (GCS) is handled through the "business logic" applications including the commander (general command & control, e.g. arming), the navigator (accepts missions and turns them into lower-level navigation primitives) and the mavlink application, which accepts MAVLink packets and converts them into the onboard uORB data structures. This isolation has been architected explicitely to avoid having a MAVLink dependency deep in the system. The MAVLink application also consumes a lot of sensor data and state estimates and sends them to the ground control station.
 
-![mavlink](../pictures/diagrams/mavlink.png)
+{% mermaid %}
+graph TD;
+  mavlink---commander;
+  mavlink---navigator;
+  position_estimator-->mavlink;
+  attitude_estimator-->mavlink;
+  mixer-->mavlink;
+{% endmermaid %}
