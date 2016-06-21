@@ -1,15 +1,16 @@
 # uORB Messaging
-
+# uORB消息机制
 ## Introduction
+## 简介
 
 The uORB is an asynchronous publish() / subcribe() messaging API used for
 inter-thread/inter-process communication.
-
+uORB是一种用于进程间进行异步发布和订阅的消息机制API。
 Look at the [tutorial](tutorial-hello-sky.md) to learn how to use it in C++.
-
+在[tutorial](tutorial-hello-sky.md)中可以学习通过C++如何使用uORB。
 uORB is automatically started early on bootup as many applications depend on it.
 It is started with `uorb start`. Unit tests can be started with `uorb test`.
-
+uORB在bootup之前自动运行，很多应用基于uORB。（我认为是在系统启动前执行uorb并注册各自应用这个bootup应该是指的nuttx系统启动，彩虹小羊注）
 ## Adding a new topic
 
 To add a new topic, you need to create a new `.msg` file in the `msg/`
