@@ -106,7 +106,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
    ### 注意看这里
 
-   <font color=DC143C size=72>
+   <font color=DC143C>
 
    为了方便大家能够更好的参与进维护工作，现做了一些准备工作。</font>
 
@@ -129,7 +129,6 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 2. gitbook的官方使用，可查看[https://help.gitbook.com](https://help.gitbook.com/)。
 
 3. 这是一个令人感动的GitBook教程[http://gitbook.zhangjikai.com/index.html](http://gitbook.zhangjikai.com/index.html)
-
 
 
 
@@ -163,7 +162,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4-教程                      |    - _ -    |           Tutorials           |
 | 4.1-地面站                   |     范新强    |                            |
 | 4.2-编写应用程序                |   summer    |                               |
-| 4.3-QGC的视频流               |             |                               |
+| 4.3-QGC的视频流               |  积土为山  |                               |
 | 4.4-光流和LiDAR-Lite         |   summer    |                               |
 | 4.5-综合测试                  |             |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
