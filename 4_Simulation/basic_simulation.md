@@ -4,8 +4,11 @@
 
 Software in the Loop Simulation runs the complete system on the host machine and simulates the autopilot. It connects via local network to the simulator. The setup looks like this:
 
-![sitl](../pictures/diagrams/SITL.png)
-
+{% mermaid %}
+graph LR;
+  Simulator-->MAVLink;
+  MAVLink-->SITL;
+{% endmermaid %}
 ## Running SITL
 
 After ensuring that the [simulation prerequisites](../1_Getting-Started/install_toolchain.md) are installed on the system, just launch: The convenience make target will compile the POSIX host build and run the simulation.
