@@ -17,9 +17,12 @@ For a simple plane control 0 (roll) is connected straight to output 0 (elevator)
 ## Mapping
 
 Since there are multiple control groups (like flight controls, payload, etc.) and multiple output groups (first 8 PWM outpus, UAVCAN, etc.), one control group can send command to multiple output groups.
-
-![mapping](../pictures/diagrams/mapping.png)
-
+{% mermaid %}
+graph TD;
+  actuator_group_0-->output_group_0
+  actuator_group_0-->output_group_1
+  actuator_group_1-->output_group_0
+{% endmermaid %}
 ## PX4 mixer definitions
 
 Files in ROMFS/px4fmu_common/mixers implement mixers are used for predefined airframes. They can be used as a basis
