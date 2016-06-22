@@ -1,29 +1,25 @@
 # PWM限制状态机
 
+[PWM限制状态机]根据解锁前和解锁后的输入控制PWM输出，并提供'armed'置1和解锁信号生效之间的延迟来延缓油门上升。
 
-**[PWM_限制状态机] 控制PWM解锁前的输出以及解锁后的输入。**
-*提供一个“解锁”及延迟*
-Controls PWM outputs as a function of pre-armed and armed inputs. Provides a delay between assertion of "armed" and a ramp-up of throttle on assertion of the armed signal.
-~~解锁信号~~
-## Quick Summary
+## 快速概要
 
-**Inputs**
+**输入**
 
-- armed: asserted to enable dangerous behaviors such as spinning propellers
-- pre-armed: asserted to enable benign behaviors such as moving control surfaces
-  - this input overrides the current state
-  - assertion of pre-armed immediately forces behavior of state ON, regardless of current state
-    ** deassertion of pre-armed reverts behavior to current state
+- armed: 置1使能诸如旋转螺旋桨的危险行为。
+- pre-armed: 置1使能诸如移动控制面的良性行为。
+  - 这个输入覆盖当前状态。
+  - pre-aremd置1无视当前状态，立即强制转移到状态ON，值0则回复到当前状态。
 
-**States**
+**状态**
 
-- INIT and OFF
-  - pwm outputs set to disarmed values.
+- INIT和OFF
+  - pwm输出值设定为未解锁值。
 - RAMP
-  - pwm ouputs ramp from disarmed values to min values.
+  - pwm输出值从未解锁值上升到最小值。
 - ON
-  - pwm outputs set according to control values.
+  - pwm输出值根据控制量设定。
 
-## State Transition Diagram
+## 状态转移图
 
- ![pwm_limit_state_diagram](../pictures/diagrams\pwm_limit_state_diagram.png)
+ ![pwm_limit_state_diagram](../pictures/diagrams/pwm_limit_state_diagram.png)
