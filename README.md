@@ -1,5 +1,6 @@
 # # PX4中文维基
 
+
 **敬启者：**
 
 PX4开发者中文官网，翻译自http://dev.px4.io/
@@ -43,13 +44,11 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
  ---
 ####参与维护
 
-1.                                                                                                                                                                                                                                                                                 **网页端编辑**（<font color=#DC143C size=72>**强烈推荐**</font>：非常简单，只需三步就可以完成你的贡献）
+1. **网页端编辑**（<font color=#DC143C size=72>**强烈推荐**</font>：非常简单，只需三步就可以完成你的贡献）
+   - 在浏览在线页面时进行编辑本页，这样，只要你看到不妥的地方立马可以修改，具体如下图
+ ![edithere](pictures/introducing\online.png)
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                           - 在浏览在线页面时进行编辑本页，这样，只要你看到不妥的地方立马可以修改，具体如下图
-
-                     ![edithere](pictures/introducing\online.png)
-
-                   - 或者也可以直接打开github中[网页端][8]进入要进行编辑的文件，如下图
+   - 或者也可以直接打开github中[网页端][8]进入要进行编辑的文件，如下图
 [8]: https://github.com/FantasyJXF/Translation
   ![edit](pictures/introducing\edit.png)
 ​	  
@@ -58,7 +57,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
 ![doit](pictures/introducing/start.png)
 
-		按照提示，点击`Fork this repository and propose chanes`，进入即可编辑，如下图
+	- 按照提示，点击`Fork this repository and propose chanes`，进入即可编辑，如下图
  ![write](pictures/introducing/write.png)
 ​		
 
