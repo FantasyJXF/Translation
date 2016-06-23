@@ -183,18 +183,18 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 7.3-守护进程                  |    彩虹小羊     |                               |
 | 7.4-驱动框架                  |    彩虹小羊     |                               |
 | 8-机型                      |    - _ -    |           Airframes           |
-| 8.1-统一的基础代码               |             |                               |
-| 8.2-添加一个新的机型              |             |                               |
-| 8.3-多旋翼                   |             |                               |
-| 8.3.1-电机映射                |             |                               |
-| 8.3.2-QAV 250 Racer       |             |                               |
-| 8.3.3-Matrice 100         |             |                               |
-| 8.4-直升机                   |             |                               |
-| 8.4.1-Wing Wing Z-84      |             |                               |
-| 8.5-垂直起降飞行器               |             |                               |
-| 8.5.1-垂直起降测试              |             |                               |
-| 8.5.2-TBS Caipiroshka     |             |                               |
-| 8.6-船舶，潜水艇，飞艇，racer       |             |                               |
+| 8.1-统一的基础代码               |  Innoecho  |                               |
+| 8.2-添加一个新的机型              | Innoecho  |                               |
+| 8.3-多旋翼                   |  Innoecho |                               |
+| 8.3.1-电机映射                | Innoecho  |                               |
+| 8.3.2-QAV 250 Racer       |  Innoecho  |                               |
+| 8.3.3-Matrice 100         |  Innoecho  |                               |
+| 8.4-直升机                   | Innoecho  |                               |
+| 8.4.1-Wing Wing Z-84      |  Innoecho  |                               |
+| 8.5-垂直起降飞行器               | Innoecho  |                               |
+| 8.5.1-垂直起降测试              |  Innoecho  |                               |
+| 8.5.2-TBS Caipiroshka     |  Innoecho   |                               |
+| 8.6-船舶，潜水艇，飞艇，racer       | Innoecho  |                               |
 | 9-Companion Computer      |    - _ -    |      Companion Computers      |
 | 9.1-Pixhawk family        |             |                               |
 | 10-使用DroneKit的机器人         |             |    Robotics using DroneKit    |
