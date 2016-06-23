@@ -1,12 +1,10 @@
-# 连接到ROS
+# ROS仿真接口
 
-# Interfacing the Simulation to ROS
+模拟自驾仪会在端口14557开放第二个MAVLink接口。将MAVROS连接到这个端口将会接收到实际飞行中发出的所有数据。
 
-The simulated autopilot starts a second MAVLink interface on port 14557. Connecting MAVROS to this port allows to receive all data the vehicle would expose if in real flight.
+## 启动MAVROS
 
-## Launching MAVROS
-
-If an interface to ROS is wanted, the already running secondary MAVLink instance can be connected to ROS via [mavros](../10_Robotics-using-ROS/ros-mavros-offboard.md). To connect to a specific IP (`fcu_url` is the IP / port of SITL), use a URL in this form:
+如果需要ROS接口，那么已经在运行的次要MAVLink实例可以通过[mavros](../10_Robotics-using-ROS/ros-mavros-offboard.md)连接到ROS。使用如下的URL连接到指定IP（`fcu_url`即SITL的地址和端口）：
 
 <div class="host-code"></div>
 
@@ -14,7 +12,7 @@ If an interface to ROS is wanted, the already running secondary MAVLink instance
 roslaunch mavros px4.launch fcu_url:="udp://:14540@192.168.1.36:14557"
 ```
 
-To connect to localhost, use this URL:
+使用这个URL连接到本地：
 
 <div class="host-code"></div>
 
@@ -22,30 +20,30 @@ To connect to localhost, use this URL:
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
-## Installing Gazebo for ROS
+## 为ROS安装Gazebo
 
-The Gazebo ROS SITL simulation is known to work with Gazebo6 (Gazebo7 did NOT work) which can be installed via:
+Gazebo ROS SITL仿真可以在Gazebo6正常运行（Gazebo7不能正常运行），使用如下命令安装Gazebo6：
 
 ```sh
 sudo apt-get install ros-indigo-gazebo6-ros
 ```
 
-If other sensor models such as lasers are desired, the Gazebo plugins will also be needed:
+如果需要使用其它传感器模型（例如激光），那么还需要安装Gazebo插件：
 
 ```sh
 sudo apt-get install ros-indigo-gazebo6-plugins
 ```
 
-## Launching Gazebo with ROS wrappers
+## 启动ROS包装过的Gazebo
 
-In case you would like to modify the Gazebo simulation to integrate sensors publishing directly to ROS topics e.g. the Gazebo ROS laser plugin, Gazebo must be launched with the appropriate ROS wrappers.
+如果想要修改Gazebo仿真，使其能够将额外的传感器信息直接发布到ROS主题，例如Gazebo ROS激光传感器信息，那么必须通过适当的ROS包装器来启动Gazebo。
 
-There are ROS launch scripts available to run the simulation wrapped in ROS:
+下面是一些可用的ROS启动脚本，这些脚本可以在ROS中运行包装过的仿真。
 
-- [posix_sitl.launch](https://github.com/PX4/Firmware/blob/master/launch/posix_sitl.launch): plain SITL launch
-- [mavros_posix_sitl.launch](https://github.com/PX4/Firmware/blob/master/launch/mavros_posix_sitl.launch): SITL and MAVROS
+- [posix_sitl.launch](https://github.com/PX4/Firmware/blob/master/launch/posix_sitl.launch): 简单SITL
+- [mavros_posix_sitl.launch](https://github.com/PX4/Firmware/blob/master/launch/mavros_posix_sitl.launch): SITL和MAVROS
 
-To run SITL wrapped in ROS the ROS environment needs to be updated, then launch as usual:
+为了在ROS中运行包装过的SITL，需要升级ROS环境，然后正常启动：
 
 ```sh
 cd <Firmware_clone>
@@ -53,17 +51,17 @@ source integrationtests/setup_gazebo_ros.bash $(pwd)
 roslaunch px4 posix_sitl.launch
 ```
 
-Include one of the above mentioned launch files in your own launch file to run your ROS application in the simulation.
+在自己的启动文件中包含上面提到的启动文件中的任意一个就可以在仿真中运行自己的ROS应用。
 
-### What's happening behind the scenes
+### 背后的细节
 
-(or how to run it manually)
+(或者如何手动运行)
 
 ```sh
 no_sim=1 make posix_sitl_default gazebo
 ```
 
-This should start the simulator and the console will look like this
+这将启动仿真器，控制台看上去是这样的：
 
 ```sh
 [init] shell id: 46979166467136
@@ -88,14 +86,14 @@ INFO  Not using /dev/ttyACM0 for radio control input. Assuming joystick input vi
 INFO  Waiting for initial data on UDP. Please start the flight simulator to proceed..
 ```
 
-Now in a new terminal make sure you will be able to insert the Iris model through the Gazebo menus, to do this set your environment variables to include the appropriate `sitl_gazebo` folders.
+现在，在一个新的终端中确保你可以通过Gazebo菜单插入Iris模型，这需要设置环境变量，在其中包含适当的`sitl_gazebo`文件夹。
 
 ```sh
 cd <Firmware_clone>
 source integrationtests/setup_gazebo_ros.bash $(pwd)
 ```
 
-Now start Gazebo like you would when working with ROS and insert the Iris quadcopter model. Once the Iris is loaded it will automatically connect to the px4 app.
+现在，就像在ROS中做过的那样启动Gazebo，并在其中插入Iris四旋翼模型。一旦Iris模型载入，它将会自动连接到px4应用。
 
 ```sh
 roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/sitl_gazebo/worlds/iris.world
