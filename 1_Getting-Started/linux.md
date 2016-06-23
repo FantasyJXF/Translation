@@ -1,6 +1,6 @@
 # Linux开发环境
 
-我们使用Debian / Ubuntu LTS 作为Linux的标准支持版本，但是但是也支持[Cent OS 和 Arch Linux的发行版本](../1_Getting-Started/adcanced_linux.md)
+我们使用Debian / Ubuntu LTS 作为Linux的标准支持版本，但是也支持[Cent OS 和 Arch Linux的发行版本](../1_Getting-Started/adcanced_linux.md)
 
 ## 权限设置
 
@@ -67,11 +67,11 @@ sudo apt-get install python-serial openocd \
 
 如果`gcc-arm-none-eabi`版本导致PX4/Firmware编译错误，请参考   [the bare metal installation instructions](../1_Getting-Started/adcanced_linux.md#toolchain-installation) 手动安装4.8版本。
 
-### Snapdragon Flight
+### 骁龙
 
-#### Toolchain installation
+#### 工具链安装
 
-First add the official Ubuntu tablet team repository, then install ADB and the arm cross toolchain.
+首先添加Ubuntu官方平板团队的仓库，然后安装ADB和ARM交叉编译工具链。
 
 <div class="host-code"></div>
 
@@ -85,13 +85,13 @@ sudo add-apt-repository ppa:phablet-team/tools && sudo apt-get update -y
 sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf android-tools-adb android-tools-fastboot fakechroot fakeroot -y
 ```
 
-The installation guide will come up, leave everything at default by just continuing to press enter.
+安装向导将会启动，使用默认设置，一路回车即可。
 
 <aside class="tip">
-Developers working on Snapdragon Flight should request the Hexagon 7.2.10 Linux toolchain and the Hexagon 2.0 SDK for Linux from [here](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tool-request).
+骁龙的开发者应该在[这里](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tool-request)申请Hexagon 7.2.10 Linux工具链和Hexagon 2.0 SDK for Linux。
 </aside>
 
-After downloading the Hexagon SDK and Hexagon Toolchain through the process above, clone this repository:
+下载好Hexagon SDK和Hexagon工具链后，clone这个仓库：
 
 <div class="host-code"></div>
 
@@ -99,7 +99,7 @@ After downloading the Hexagon SDK and Hexagon Toolchain through the process abov
 git clone https://github.com/ATLFlight/cross_toolchain.git
 ```
 
-Now move the following files in the download folder of the cross toolchain as follows:
+按照下面命令，把相关文件移动到cross_toolchain/downloads中：
 
 <div class="host-code"></div>
 
@@ -110,7 +110,7 @@ cd cross_toolchain/downloads
 tar -xf Hexagon.LNX.7.2\ Installer-07210.1.tar
 ```
 
-Install the toolchain and SDK like this:
+执行下列命令安装SDK和工具链：
 
 <div class="host-code"></div>
 
@@ -119,9 +119,9 @@ cd ../
 ./install.sh
 ```
 
-Follow the instructions to set up the development environment. If you accept all the install defaults you can at any time re-run the following to get the env setup. It will only install missing components.
+按照说明配置开发环境。如果使用默认安装设置，那么可以在任何时候重新运行命令配置开发环境。此种情况将只安装缺少的组件。
 
-After this the tools and SDK will have been installed to "$HOME/Qualcomm/...". Append the following to your ~/.bashrc:
+交叉编译工具链和SDK会被安装到"$HOME/Qualcomm/..."，在"~/.bashrc"中添加：
 
 <div class="host-code"></div>
 
@@ -132,7 +132,7 @@ export HEXAGON_ARM_SYSROOT="${HOME}/Qualcomm/Hexagon_SDK/2.0/sysroot"
 export PATH="${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH"
 ```
 
-Load the new configuration:
+载入新的配置：
 
 <div class="host-code"></div>
 
@@ -140,17 +140,15 @@ Load the new configuration:
 source ~/.bashrc
 ```
 
-#### Update ADSP firmware
+#### 升级ADSP固件
 
-Before building, flashing and running code, you'll need to update the [ADSP firmware](../12_Debugging-and-Advanced-Topics/advanced-snapdragon.md#updating-the-adsp-firmware).
+在构建，烧写以及运行代码之前，还需要升级[ADSP固件](../12_Debugging-and-Advanced-Topics/advanced-snapdragon.md#updating-the-adsp-firmware)。
 
-#### References
+#### 参考
 
-There is a an external guide for installing the toolchain at
-[GettingStarted](https://github.com/ATLFlight/ATLFlightDocs/blob/master/GettingStarted.md). The
-[HelloWorld](https://github.com/ATLFlight/HelloWorld) and [DSPAL tests](https://github.com/ATLFlight/dspal/tree/master/test/dspal_tester) can be used to validate your tools installation and DSP image.
+[GettingStarted](https://github.com/ATLFlight/ATLFlightDocs/blob/master/GettingStarted.md)是另外一个工具链安装向导。[HelloWorld](https://github.com/ATLFlight/HelloWorld)和[DSPAL tests](https://github.com/ATLFlight/dspal/tree/master/test/dspal_tester)可以用来验证工具链安装和DSP镜像。
 
-Messages from the DSP can be viewed using mini-dm.
+DSP的信息可以通过mini-dm查看。
 
 <div class="host-code"></div>
 
@@ -158,9 +156,9 @@ Messages from the DSP can be viewed using mini-dm.
 $HOME/Qualcomm/Hexagon_SDK/2.0/tools/mini-dm/Linux_Debug/mini-dm
 ```
 
-### Raspberry Pi hardware
+### 树莓派
 
-Developers working on Raspberry Pi hardware should download the RPi Linux toolchain from below. The installation script will automatically install the cross-compiler toolchain. If you are looking for the *native* Raspberry Pi toolchain to compile directly on the Pi, see [here](../5_Autopilot-Hardware/raspeberry_pi2.md#native-builds-optional)
+树莓派开发者应该从下面地址下载树莓派Linux工具链。安装脚本会自动安装交叉编译工具链。如果想要用原生树莓派工具链在树莓派上直接编译，参见[这里](../5_Autopilot-Hardware/raspeberry_pi2.md#native-builds-optional)。
 
 <div class="host-code"></div>
 
@@ -170,10 +168,10 @@ cd rpi_toolchain
 ./install_cross.sh
 ```
 
-You will be required to enter your password for toolchain installation to complete successfully.
+在工具链安装过程中需要输入密码。
 
-You can pass a different path to the installer script if you wouldn't like to install the toolchain to the default location of ```/opt/rpi_toolchain```. Run ``` ./install_cross.sh <PATH>```. The installer will automatically configure required environment variables as well.
+如果不想把工具链安装在默认位置```/opt/rpi_toolchain```，可以执行``` ./install_cross.sh <PATH>```向安装脚本传入其它地址。安装脚本会自动配置需要的环境变量。
 
-## Finishing Up
+## 完成
 
-Now continue to run the [first build](../1_Getting-Started/building_the_code.md)!
+继续，进行[第一次构建](../1_Getting-Started/building_the_code.md)!

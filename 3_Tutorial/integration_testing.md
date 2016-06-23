@@ -1,20 +1,18 @@
-# 综合测试
+# 集成测试
 
-# Integration Testing
+这是集成测试，测试会自动执行([Jenkins CI](advanced-jenkins-ci.md))。
 
-This is about end to end integration testing. Tests are executed automatically ([Jenkins CI](advanced-jenkins-ci.md))
+## ROS / MAVROS测试
 
-## ROS / MAVROS Tests
+前提:
 
-Prerequisites:
-
-- [SITL Simulation](simulation-sitl.md)
+- [SITL仿真](simulation-sitl.md)
 - [Gazebo](simulation-gazebo.md)
   - [ROS and MAVROS](simulation-ros-interface.md)
 
-### Execute Tests
+### 执行测试
 
-To run the complete MAVROS test suite:
+运行完整的MAVROS测试套件：
 
 ```sh
 cd <Firmware_clone>
@@ -22,23 +20,23 @@ source integrationtests/setup_gazebo_ros.bash $(pwd)
 rostest px4 mavros_posix_tests_iris.launch
 ```
 
-Or with GUI to see what's happening:
+或者使用GUI查看：
 
 ```sh
 rostest px4 mavros_posix_tests_iris.launch gui:=true headless:=false
 ```
 
-### Write a new MAVROS test (Python)
+### 编写新的MAVROS测试 (Python)
 
 <aside class="note">
-Currently in early stages, more streamlined support for testing (helper classes/methods etc.) to come.
+目前处于早期阶段，采用了很多简化测试(helper classes/methods etc.)。
 </aside>
 
-#### 1.) Create a new test script
+#### 1.) 创建新的测试脚本
 
-Test scripts are located in `integrationtests/python_src/px4_it/mavros/`. See other existing scripts for examples. Also please consult the official ROS documentation on how to use [unittest](http://wiki.ros.org/unittest).
+测试脚本位于`integrationtests/python_src/px4_it/mavros/`，可以参考这些脚本文件。或者查阅ROS官方文档学习如何使用unittest](http://wiki.ros.org/unittest)。
 
-Empty test skeleton:
+空的测试框架:
 
 ```python
 #!/usr/bin/env python
@@ -91,7 +89,7 @@ if __name__ == '__main__':
     rostest.rosrun(PKG, 'mavros_new_test', MavrosNewTest)
 ```
 
-#### 2.) Run the new test only
+#### 2.) 只运行新的测试
 
 ```sh
 # Start simulation
@@ -105,9 +103,9 @@ source integrationtests/setup_gazebo_ros.bash $(pwd)
 rosrun px4 mavros_new_test.py
 ```
 
-#### 3.) Add new test node to launch file
+#### 3.) 添加新的测试结点到launch文件
 
-In `launch/mavros_posix_tests_irisl.launch` add new entry in test group:
+在`launch/mavros_posix_tests_irisl.launch`中的测试组中添加新的条目：
 
 ```xml
 	<group ns="$(arg ns)">
@@ -116,5 +114,5 @@ In `launch/mavros_posix_tests_irisl.launch` add new entry in test group:
     </group>
 ```
 
-Run the comlpete test suite as described above.Integration Testing
+按照前文所述方法运行完整测试套件。
 
