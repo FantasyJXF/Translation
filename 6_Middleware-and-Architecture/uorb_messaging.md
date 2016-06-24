@@ -22,7 +22,7 @@ be used nested in other messages.
 可以先看看现有的'msg'文件了解下都支持那些类型。一个消息也可以嵌套在其他消息当中。
 To each generated C/C++ struct, a field `uint64_t timestamp` will be added. This
 is used for the logger, so make sure to fill it in when logging the message.
-
+每一个生成的C/C++结构体中，一个field `uint64_t timestamp` 会被增加。这个变量用于将消息记录到日志当中
 To use the topic in the code, include the header:
 
 ```
