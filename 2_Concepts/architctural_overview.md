@@ -1,53 +1,35 @@
+
 # 结构预览
 
-# Architectural Overview
+PX4由两个层次组成：一是[飞行控制栈](../2_Concepts/flight_stack.md)，即自驾仪的软件解决方案，二是[中间件](../2_Concepts/middleware.md)，一种可以支持任意类型自主机器人的通用机器人中间件。
 
-PX4 consists of two main layers: The [PX4 flight stack](../2_Concepts/flight_stack.md), an autopilot software solution and the [PX4 middleware](../2_Concepts/middleware.md), a general robotics middleware which can support any type of autonomous robot.
+所有的[无人机机型](airframes-architecture.md)，事实上所有的机器人系统包括船舶，都具有同一代码库。整个系统设计是[反应式](http://www.reactivemanifesto.org)的，这意味着：
 
-All [airframes](airframes-architecture.md), and in fact all robotic systems including boats, share a single codebase. The complete system design is [reactive](http://www.reactivemanifesto.org), which means that:
+- 所有的功能被划分为可替换部件
+- 通过异步消息传递进行通信
+- 该系统可以应对不同的工作负载
 
-- All functionality is divided into exchangable components
-- Communication is done by asynchronous message passing 
-- The system can deal with varying workload
+除了这些运行时的考虑外，还需要使系统各模块最大程度地可重用。
 
-In addition to these runtime considerations, its modularity maximizes [reusability](https://en.wikipedia.org/wiki/Reusability).
+## 高层软件结构
 
-## High Level Software Architecture
-
-Each of the blocks below is a separate module, which is self-contained in terms of code, dependencies and even at runtime. Each arrow is a connection through publish/subscribe calls through [uORB](../6_Middleware-and-Architecture/uorb_messaging.md).
+下面每一块都是单独的模块，不论是在代码，依赖性甚至是在运行时都是独立的。每个箭头是一种通过[uORB](../6_Middleware-and-Architecture/uorb_messaging.md)进行发布/订阅调用的连接。
 
 > <aside class="tip">
-> The architecture of PX4 allows to exchange every single of these blocks very rapidly and conveniently, even at runtime.
+> PX4结构允许其即使是在运行时，也可以快速方便地交换各个单独的模块。
 > </aside>
->
 
-The controllers / mixers are specific to a particular airframe (e.g. a multicopter, VTOL or plane), but the higher-level mission management blocks like the `commander` and `navigator` are shared between platforms.
+控制器/混控器是针对于特定机型的（如多旋翼，垂直起降或其他飞机），但是高层任务管理模块如控制模块，导航模块是可以在不同平台共享的。
 
-{% mermaid %}
-graph TD;
-  commander-->navigator;
-  user-->commander;
-  user-->stickmapper;
-  stickmapper-->navigator;
-  navigator-->pos_ctrl
-  pos_ctrl-->att_ctrl;
-  att_ctrl-->mixer;
-  position_estimator-->pos_ctrl;
-  position_estimator-->navigator;
-  position_estimator-->attitude_estimator;
-  attitude_estimator-->att_ctrl;
-  mixer-->motor_driver;
-{% endmermaid %}
+![结构](../pictures/diagrams/arch.png)
 
-## Communication Architecture with the GCS
+## 地面站通讯架构
 
-The interaction with the ground control station (GCS) is handled through the "business logic" applications including the commander (general command & control, e.g. arming), the navigator (accepts missions and turns them into lower-level navigation primitives) and the mavlink application, which accepts MAVLink packets and converts them into the onboard uORB data structures. This isolation has been architected explicitely to avoid having a MAVLink dependency deep in the system. The MAVLink application also consumes a lot of sensor data and state estimates and sends them to the ground control station.
+与地面站（GCS）之间的交互是通过“商业逻辑”应用如指令应用（一般命令与控制，例如武装），导航应用（接受任务并将其转为底层导航的原始数据）和mavlink应用，mavlink该应用用于接受MAVLINK数据包并将其转为板级uORB数据结构。这种隔离方式使架构更为清晰，可以避免MAVLink对系统的深度依赖。MAVLink应用也获取了大量的传感器数据和状态估计值，并将其发送到地面站。
 
-{% mermaid %}
-graph TD;
-  mavlink---commander;
-  mavlink---navigator;
-  position_estimator-->mavlink;
-  attitude_estimator-->mavlink;
-  mixer-->mavlink;
-{% endmermaid %}
+![mavlink](../pictures/diagrams/mavlink.png)
+
+
+
+
+
