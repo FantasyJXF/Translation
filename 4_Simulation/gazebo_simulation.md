@@ -4,7 +4,16 @@
 
 [Gazebo](http://gazebosim.org) is a 3D simulation environment for autonomous robots. It can be used with ROS as complete robotics simulation suite or standalone, and this guide covers the simpler to set up standalone operation.
 
-{% youtube %}https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720{% endyoutube %}
+{% raw %}
+<video id="my-video" class="video-js" controls preload="auto" width="100%" 
+poster="../pictures/diagrams/PX4-Flight.JPG" data-setup='{"aspectRatio":"16:9"}'>
+  <source src="http://7xvob5.com1.z0.glb.clouddn.com/2-PX4%20Flight%20Stack%20ROS%203D%20Software%20in%20the%20Loop%20Simulation%20(SITL).mp4" type='video/mp4' >
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that
+    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
+</video>
+{% endraw %}
 
 {% mermaid %}
 graph LR;
