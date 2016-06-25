@@ -19,7 +19,9 @@
         "anchors",
         "splitter",
         "mermaid",
-        "advanced-emoji"
+        "advanced-emoji",
+        "-sharing",
+        "local-video"
     ],
     "pluginsConfig": {
         "mathjax": {
