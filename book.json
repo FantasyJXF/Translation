@@ -21,7 +21,8 @@
         "mermaid",
         "advanced-emoji",
         "-sharing",
-        "local-video"
+        "local-video",
+        "donate"
     ],
     "pluginsConfig": {
         "mathjax": {
@@ -46,6 +47,12 @@
         "duoshuo": {
             "short_name": "fantasydepx4",
             "theme": "default"
+        },
+        "donate": {
+            "wechat": "../pictures/diagrams/saosao.jpg",
+            "title": "",
+            "button": "QQ群",
+            "wechatText": "加入我们吧！"
         }
     }
 }
