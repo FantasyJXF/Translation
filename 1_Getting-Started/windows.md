@@ -1,7 +1,7 @@
 # Windows安装指南
 
 <aside class="caution">
-虽然Windows上的工具链是可用的，但官方并不支持，而我们却鼓励使用。Windows上固件编译的过程十分缓慢，且不支持新的板子，比如Snapdragon Flight，它也不能运行标准机器人软件包，许多开发人员使用原型计算机视觉和导航。开始在Windows上开发之前，可以考虑安装一个双启动环境[Ubuntu](http://ubuntu.com)。
+虽然Windows上的工具链是可用的，但官方并不支持，我们不推荐使用Windows。Windows上固件编译的过程十分缓慢，且不支持新的板子，比如骁龙（Snapdragon Flight），它也不能运行标准机器人软件包，许多开发人员使用原型计算机视觉和导航。开始在Windows上开发之前，可以考虑安装一个双启动环境[Ubuntu](http://ubuntu.com)。
 </aside>
 
 ## 开发环境安装
