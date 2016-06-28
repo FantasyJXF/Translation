@@ -8,7 +8,7 @@ This tutorial explains in detail how to create a new onboard application and how
 
 - Pixhawk or Snapdragon compatible autopilot
 - PX4 Toolchain [installed](../1_Getting-Started/install_toolchain.md)
-  - Github Account ([sign up for free](https://github.com/signup/free))
+- Github Account ([sign up for free](https://github.com/signup/free))
 
 ## Step 1: File Setup
 
@@ -16,9 +16,9 @@ To conveniently manage your custom code and pull in updates from the main reposi
 
 - [Sign up](https://github.com/signup/free) for Github
 - Go to the [Firmware repository website](https://github.com/px4/Firmware/) and click **FORK** on the upper right part.
-  - If you are not already there, open the website of your fork and copy the private repository URL in the center.
-  - Clone the repository to your hard drive, e.g. on the command line via `git clone https://github.com/<youraccountname>/Firmware.git`. Windows users please [refer to the Github help](https://help.github.com/articles/set-up-git#platform-windows) and e.g. fork / clone with their Github for Windows app.
-  - Update the git submodules: Run in your shell (on Windows in the PX4 console). 
+- If you are not already there, open the website of your fork and copy the private repository URL in the center.
+- Clone the repository to your hard drive, e.g. on the command line via `git clone https://github.com/<youraccountname>/Firmware.git`. Windows users please [refer to the Github help](https://help.github.com/articles/set-up-git#platform-windows) and e.g. fork / clone with their Github for Windows app.
+- Update the git submodules: Run in your shell (on Windows in the PX4 console). 
 
 <div class="host-code"></div>
 
