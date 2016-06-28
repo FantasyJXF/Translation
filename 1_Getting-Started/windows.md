@@ -10,7 +10,7 @@
 
 - [Qt Creator IDE](http://www.qt.io/download-open-source/#section-6)
 - [PX4 Toolchain Installer v14 for Windows Download](http://firmware.diydrones.com/Tools/PX4-tools/px4_toolchain_installer_v14_win.exe) (32/64 bit systems, complete build system, drivers)
-  - [PX4 USB Drivers](http://pixhawk.org/static/px4driver.msi) (32/64 bit systems)
+- [PX4 USB Drivers](http://pixhawk.org/static/px4driver.msi) (32/64 bit systems)
 
 现在继续运行： [first build](../1_Getting-Started/building_the_code.md)!
 
