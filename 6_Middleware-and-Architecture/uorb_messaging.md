@@ -16,22 +16,23 @@ uORB在bootup之前自动运行，很多应用基于uORB。（我认为是在系
 To add a new topic, you need to create a new `.msg` file in the `msg/`
 directory and add the file name to the `msg/CMakeLists.txt` list. From this,
 there will automatically be C/C++ code generated.
-要想增加新的topic，你需要在‘msg/’目录下创建一个新的‘.msg’ 文件并在`msg/CMakeLists.txt`下添加该文件。这样C/C++编译器自动在程序中添相应的代码。
 Have a look at the existing `msg` files for supported types. A message can also
 be used nested in other messages.
-可以先看看现有的'msg'文件了解下都支持那些类型。一个消息也可以嵌套在其他消息当中。
+
 To each generated C/C++ struct, a field `uint64_t timestamp` will be added. This
 is used for the logger, so make sure to fill it in when logging the message.
-每一个生成的C/C++结构体中，一个field `uint64_t timestamp` 会被增加。这个变量用于将消息记录到日志当中
 To use the topic in the code, include the header:
-
+要想增加新的topic，你需要在‘msg/’目录下创建一个新的‘.msg’ 文件并在`msg/CMakeLists.txt`下添加该文件。这样C/C++编译器自动在程序中添相应的代码。
+可以先看看现有的'msg'文件了解下都支持那些类型。一个消息也可以嵌套在其他消息当中。
+每一个生成的C/C++结构体中，一个field `uint64_t timestamp` 会被增加。这个变量用于将消息记录到日志当中
+为了在代码中使用"topic"需要添加头文件:
 ```
 #include <uORB/topics/topic_name.h>
 ```
 
 By adding a line like the following in the `.msg` file, a single message
 definition can be used for multiple independent topic instances:
-
+通过在".msg"文件中添加像下面这行代码，一个消息就可以在多个独立的topic中使用了。
 ```
 # TOPICS mission offboard_mission onboard_mission
 ```
