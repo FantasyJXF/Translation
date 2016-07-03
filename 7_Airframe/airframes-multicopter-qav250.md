@@ -2,9 +2,9 @@
 
 # QAV 250
 
-## Parts List
+## 部件列表
 
-- [Pixracer kit](../5_Autopilot-Hardware/pixracer.md) or [Pixfalcon kit](../5_Autopilot-Hardware/pixfalcon.md) (including GPS and power module)
+- [Pixracer组件](../5_Autopilot-Hardware/pixracer.md)或者[Pixfalcon组件](../5_Autopilot-Hardware/pixfalcon.md) (包括GPS和电源模块)
 - [Mini telemetry set](../5_Autopilot-Hardware/pixfalcon.md) for HKPilot32
 
 ## Motor Connections

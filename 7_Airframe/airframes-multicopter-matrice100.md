@@ -6,11 +6,11 @@
 
 ![Matrice 100](../pictures/airframes/multicopter/matrice100/Matrice100.jpg)
 
-## Parts List
+## 部件列表
 
-- [DJI Matrice 100](http://store.dji.com/product/matrice-100) Just ESC''s motors, and frame.
+- [DJI Matrice 100](http://store.dji.com/product/matrice-100) 仅包含电调，电机和机架。
 
-## Motor Connections
+## 电机连接
 
 ![Connections](../pictures/airframes/multicopter/matrice100/Wiring Diagram.jpg)
 
@@ -36,10 +36,10 @@
 | AUX2   | 50 Hz  | RC AUX2          |
 | AUX3   | 50 Hz  | RC AUX3          |
 
-## Parameters
+## 参数
 
-- At high throttle the inner loop causes oscillations with default x quad gains. At low throttle, higher gains give a better response, this suggests that some gain scheduling based on the throttle may improve the overall response and this could be implemented in mc_att_control. For now we will just tune it so that there are no oscillations at low or high throttle, and take the bandwidth hit at low throttle.
+- 如果使用默认的四旋翼X型布局的增益，那么在高油门的时候，将会发生姿态震荡。在低油门的时候，较高的增益会获得比较好的响应。这说明，采用基于油门的增益调度可能会提高全油门的响应性能，这可以在mc_att_control中实现。目前，我们仅仅调整增益使得在低油门和高油门的时候不会出现震荡，在低油门的时候达到带宽要求。
   - MC_PITCHRATE_P: 0.05
   - MC_PITCHRATE_D: 0.001
-- The battery has 6 cells instead of the default 3
+- 电池有6个单元，而不是默认的3个
   - BAT_N_CELLS: 6
