@@ -9,6 +9,9 @@ message in `msg/ca_trajectory.msg` and a custom mavlink
 [here](http://qgroundcontrol.org/mavlink/create_new_mavlink_message) how to
 create a custom mavlink message and header).
 
+这篇教程是假设你已经在`msg/ca_trajectory.msg`有了一个自定义[uORB](../6_Middleware-and-Architecture/uorb_messaging.md)`ca_trajectory`消息并且在`mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h` (see
+[here](http://qgroundcontrol.org/mavlink/create_new_mavlink_message)也建立了`ca_trajectory`消息。
+
 # Sending Custom MAVLink Messages
 
 This section explains how to use a custom uORB message and send it as a mavlink
