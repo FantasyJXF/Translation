@@ -1,5 +1,3 @@
-# 船舶 潜水艇, 飞艇, Rovers
+# 船舶，潜水艇，飞艇，车辆
 
-# Experimental Aircraft and General Robots
-
-{% youtube %}https://www.youtube.com/watch?v=Og63S3G3uKU&vq=hd720{% endyoutube %}
+# 实验飞行器和通用机器人

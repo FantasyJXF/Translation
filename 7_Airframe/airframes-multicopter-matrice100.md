@@ -2,7 +2,7 @@
 
 # Matrice 100
 
-{% youtube %}https://www.youtube.com/watch?v=3OGs0ONemGc{% endyoutube %}
+[视频：Matrice 100 pixhawk px4](http://7xw24i.com1.z0.glb.clouddn.com/Matrice%20100%20pixhawk%20px4.mp4)
 
 ![Matrice 100](../pictures/airframes/multicopter/matrice100/Matrice100.jpg)
 

@@ -2,7 +2,7 @@
 
 由TBS Caipirinha稍作修改得到垂直起降型Caipiroshka。
 
-{% youtube %}https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720{% endyoutube %}
+[视频：PX4 VTOL - Call for Testpilots](http://7xw24i.com1.z0.glb.clouddn.com/PX4%20VTOL%20-%20Call%20for%20Testpilots.mp4)
 
 ## 部件列表
 
