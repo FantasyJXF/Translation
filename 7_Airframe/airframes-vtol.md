@@ -1,41 +1,39 @@
 # 垂直起降
 
-# VTOL Airframes
+事实上，[PX4飞控系统](../2_Concepts/flight_stack.md)支持所有的垂直起降机型配置：
+ 
+- 尾座式 (X/+型布局的双/四旋翼)
+- 倾转式 (Firefly Y6)
+- 复合式 (飞机+四旋翼)
 
-The [PX4 Flight Stack](../2_Concepts/flight_stack.md) supports virtually all VTOL configurations:
-
-- Tailsitters (duo and quadrotors in X and plus configuration)
-- Tiltrotors (Firefly Y6)
-  - Standard plane VTOL (plane plus quad)
-
-The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
+垂直起降飞行器与其它种类的飞行器共享代码库，所不同的仅仅是增加了额外的控制逻辑，特别是转换阶段。
 
 <aside class="note">
-All these VTOL configurations have been actively test-flown and are ready to use. Ensure to have an airspeed sensor attached to the system as its used by the autopilot when its safe to perform the transition.
+所有的这些垂直起降飞行器都经过了积极地试飞，并且已经准备好以供使用了。确保为飞行器添加了空速传感器，系统需要根据空速信息决定是否可以安全地进行转换。
 </aside>
 
-## Key Configuration Parameters
+## 关键配置参数
 
-These configuration parameters have to be set correctly when creating a new airframe configuration.
+创建新的垂直起降飞行器的配置时，需要正确设置下面这些参数。
 
-- `VT_FW_PERM_STAB` the system always uses attitude stabilization in hover mode. If this parameter is set to 1, the plane mode also defaults to attitude stabilization. If it is set to 0, it defaults to pure manual flight.
-- `VT_ARSP_TRANS` is the airspeed in m/s at which the plane transitions into forward flight. Setting it too low can cause a stall during the transition.
+- `VT_FW_PERM_STAB` 系统在悬停模式下使用姿态增稳。如果这个参数设置为1，那么在飞机模式下也会使用姿态增稳；如果这个参数设置为0，那么飞机模式下将会使用纯手动飞行。
+- `VT_ARSP_TRANS`参数决定飞行器悬停状态转换到前飞状态的空速阈值，这个值设置过小会导致转换阶段的失速现象。 
 
-## Tailsitter
+## 尾座式
 
-The [build log](../7_Airframe/airframes-vtol-caipiroshka.md) contains further detail.
+[构建日志](../7_Airframe/airframes-vtol-caipiroshka.md)包括更加详细的信息。
 
 {% youtube %}https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720{% endyoutube %}
 
-## Tiltrotor
+## 倾转式
 
-The [build log](https://pixhawk.org/platforms/vtol/birdseyeview_firefly) contains all settings and instructions to get one of these up and running.
+[构建日志](https://pixhawk.org/platforms/vtol/birdseyeview_firefly)包括所有的设置以及操作指南，这些会指导整个系统顺利运行。
 
 {% youtube %}https://www.youtube.com/watch?v=Vsgh5XnF44Y&vq=hd720{% endyoutube %}
 
-## Standard Plane VTOL
+## 复合式
 
-The [build log](https://pixhawk.org/platforms/vtol/fun_cub_quad_vtol) contains further instructions how to build and reproduce the results below.
+[构建日志](https://pixhawk.org/platforms/vtol/fun_cub_quad_vtol)包括详细的指南指导如何构建以及复现线面的结果。
 
 {% youtube %}https://www.youtube.com/watch?v=4K8yaa6A0ks&vq=hd720{% endyoutube %}
 

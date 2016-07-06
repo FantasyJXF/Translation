@@ -26,12 +26,12 @@
 
 ![No Top Deck](../pictures/airframes/multicopter/matrice100/NoTopDeck.jpg)
 
-| Output | Rate   | Actuator         |
+| 输出    | 频率   | 作动器            |
 | ------ | ------ | ---------------- |
-| MAIN1  | 400 Hz | Front right, CCW |
-| MAIN2  | 400 Hz | Back left, CCW   |
-| MAIN3  | 400 Hz | Front left, CW   |
-| MAIN4  | 400 Hz | Back right, CW   |
+| MAIN1  | 400 Hz | 右前方，逆时针     |
+| MAIN2  | 400 Hz | 左后方，逆时针     |
+| MAIN3  | 400 Hz | 左前方，顺时针     |
+| MAIN4  | 400 Hz | 右后方，顺时针     |
 | AUX1   | 50 Hz  | RC AUX1          |
 | AUX2   | 50 Hz  | RC AUX2          |
 | AUX3   | 50 Hz  | RC AUX3          |
