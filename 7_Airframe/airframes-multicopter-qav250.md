@@ -1,20 +1,18 @@
-# QAV 250 Racer
-
 # QAV 250
 
-## Parts List
+## 部件列表
 
-- [Pixracer kit](../5_Autopilot-Hardware/pixracer.md) or [Pixfalcon kit](../5_Autopilot-Hardware/pixfalcon.md) (including GPS and power module)
+- [Pixracer组件](../5_Autopilot-Hardware/pixracer.md)或者[Pixfalcon组件](../5_Autopilot-Hardware/pixfalcon.md) (包括GPS和电源模块)
 - [Mini telemetry set](../5_Autopilot-Hardware/pixfalcon.md) for HKPilot32
 
-## Motor Connections
+## 电机连接
 
-| Output | Rate   | Actuator         |
+| 输出    | 频率   | 作动器            |
 | ------ | ------ | ---------------- |
-| MAIN1  | 400 Hz | Front right, CCW |
-| MAIN2  | 400 Hz | Back left, CCW   |
-| MAIN3  | 400 Hz | Front left, CW   |
-| MAIN4  | 400 Hz | Back right, CW   |
+| MAIN1  | 400 Hz | 右前方，逆时针     |
+| MAIN2  | 400 Hz | 左后方，逆时针     |
+| MAIN3  | 400 Hz | 左前方，顺时针     |
+| MAIN4  | 400 Hz | 右后方，顺时针     |
 | AUX1   | 50 Hz  | RC AUX1          |
 | AUX2   | 50 Hz  | RC AUX2          |
 | AUX3   | 50 Hz  | RC AUX3          |
