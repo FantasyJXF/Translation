@@ -1,14 +1,12 @@
-# Gazebo Octomap
-
 # OctoMap
 
-[The OctoMap library](http://octomap.github.io/) implements a 3D occupancy grid mapping approach. This guide covers the how to use it with [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator).
+[OctoMap库](http://octomap.github.io/)实现了一个三维占据栅格模型。本文档说明如何在[旋翼仿真](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator)中使用它。
 
-## Installation
+## 安装
 
-The installation requires to install ROS, Gazebo and the Rotors Simulator plugin. Follow the [instructions](https://github.com/ethz-asl/rotors_simulator) on Rotors Simulator to install.
+需要预先安装ROS，Gazebo和Rotors Simulator插件，按照Rotors Simulator中的[指南](https://github.com/ethz-asl/rotors_simulator)安装这些。
 
-Next, install The OctoMap library 
+接着，安装OctoMap库
 <div class="host-code"></div>
 
 ```sh
@@ -17,7 +15,7 @@ Next, install The OctoMap library
 	rosmake octomap_mapping
 ```
 
-Now, open ~/catkin_ws/src/rotors_simulator/rotors_gazebo/CMakeLists.txt	and add the following lines to the bottom of the file
+现在，打开`~/catkin_ws/src/rotors_simulator/rotors_gazebo/CMakeLists.txt`并在文件底部添加下面内容：
 <div class="host-code"></div>
 
 ```sh
@@ -26,7 +24,7 @@ Now, open ~/catkin_ws/src/rotors_simulator/rotors_gazebo/CMakeLists.txt	and add 
 	link_libraries(${OCTOMAP_LIBRARIES})
 ```
 
-Open ~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml and add the following lines	
+打开`~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml`添加下面内容：
 <div class="host-code"></div>
 
 ```sh
@@ -34,9 +32,9 @@ Open ~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml and add the foll
 	<run_depend>octomap</run_depend>
 ```
 
-Run the following two lines. 
+执行下面两行
 <aside class="note">
-The first line changes your default shell editor (which is vim by default) to gedit. This is recommended for users who have little experience with vim, but can otherwise be omitted.
+第一行将默认的shell编辑器（vim）修改为gedit。推荐不熟悉vim的用户使用，如果熟悉的话，可以忽略。
 </aside>
 
 <div class="host-code"></div>
@@ -46,7 +44,7 @@ The first line changes your default shell editor (which is vim by default) to ge
 	rosed octomap_server octomap_tracking_server.launch
 ```
 
-and change the two following lines
+将下面两行
 <div class="host-code"></div>
 
 ```sh
@@ -56,7 +54,7 @@ and change the two following lines
 ```
 
 <div class="host-code"></div>
-to
+修改为
 
 ```sh
 	<param name="frame_id" type="string" value="world" />	
@@ -66,9 +64,9 @@ to
 
 
 
-## Running the Simulation
+## 运行仿真
 
-Now run the three following lines, in three separate terminal windows. This opens up Gazebo, Rviz and an octomap server.
+现在，在三个不同的终端窗口中执行下面三行。这将打开Gazebo，Rviz和octomap服务器。
 
 <div class="host-code"></div>
 
@@ -78,12 +76,11 @@ Now run the three following lines, in three separate terminal windows. This open
 	roslaunch octomap_server octomap_tracking_server.launch
 ```
 
-In Rviz, change the field 'Fixed Frame' from 'map' to 'world' in the top left of the window.
-Now click the add button in the bottom left and select MarkerArray. Then double click the MarkerArray and change 'Marker Topic' from '/free_cells_vis_array' to '/occupied_cells_vis_array'
+在Rviz窗口的左上方，修改域'Fixed Frame'，将'map'改为'world'，然后在窗口左下方单击add按钮并选择MarkerArray，最后双击MarkerArray，并将'Marker Topic'从'/free_cells_vis_array'修改为'/occupied_cells_vis_array'。
 
-Now you should see a part of the floor. 
+现在，你应该看到地面的一部分。
 
-In the Gazebo window, insert a cube in front of the red rotors and you should see it in Rviz.
+在Gazebo窗口的红色旋翼前方插入一个立方体，此时你应该可以在Rviz中看到它。
 
 ![octo](../pictures/sim/octomap.png)
 

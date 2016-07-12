@@ -23,18 +23,52 @@
 
 [构建日志](../7_Airframe/airframes-vtol-caipiroshka.md)包括更加详细的信息。
 
-[视频：PX4 VTOL - Call for Testpilots](http://7xw24i.com1.z0.glb.clouddn.com/PX4%20VTOL%20-%20Call%20for%20Testpilots.mp4)
+{% raw %}
+<video id="my-video" class="video-js" controls preload="auto" width="100%" 
+poster="http://image84.360doc.com/DownloadImg/2015/04/1617/52474470_2.jpg" data-setup='{"aspectRatio":"16:9"}'>
+  <source src="http://7xw24i.com1.z0.glb.clouddn.com/PX4%20VTOL%20-%20Call%20for%20Testpilots.mp4" type='video/mp4' >
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+  </p >
+</video>
+{% endraw %}
 
 ## 倾转式
 
 [构建日志](https://pixhawk.org/platforms/vtol/birdseyeview_firefly)包括所有的设置以及操作指南，这些会指导整个系统顺利运行。
 
-[视频：PX4 Flight Core controlling FireFly Y6 VTOL in forward and back transition](http://7xw24i.com1.z0.glb.clouddn.com/PX4%20Flight%20Core%20controlling%20FireFly%20Y6%20VTOL%20in%20forward%20and%20back%20transition.mp4)
+{% raw %}
+<video id="my-video" class="video-js" controls preload="auto" width="100%" 
+poster="http://image84.360doc.com/DownloadImg/2015/04/1617/52474470_2.jpg" data-setup='{"aspectRatio":"16:9"}'>
+  <source src="http://7xw24i.com1.z0.glb.clouddn.com/PX4%20Flight%20Core%20controlling%20FireFly%20Y6%20VTOL%20in%20forward%20and%20back%20transition.mp4" type='video/mp4' >
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+  </p >
+</video>
+{% endraw %}
+
 ## 复合式
 
 [构建日志](https://pixhawk.org/platforms/vtol/fun_cub_quad_vtol)包括详细的指南指导如何构建以及复现线面的结果。
 
-[视频：Fun Cub PX4 VTOL Maiden](http://7xw24i.com1.z0.glb.clouddn.com/Fun%20Cub%20PX4%20VTOL%20Maiden.mp4)
+{% raw %}
+<video id="my-video" class="video-js" controls preload="auto" width="100%" 
+poster="http://image84.360doc.com/DownloadImg/2015/04/1617/52474470_2.jpg" data-setup='{"aspectRatio":"16:9"}'>
+  <source src="http://7xw24i.com1.z0.glb.clouddn.com/Fun%20Cub%20PX4%20VTOL%20Maiden.mp4" type='video/mp4' >
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+  </p >
+</video>
+{% endraw %}
 
-[视频：-PX4 Autopilot- - Experimental -VTOL- with -Pixhawk- and -U-Blox M8N GPS-](http://7xw24i.com1.z0.glb.clouddn.com/-PX4%20Autopilot-%20-%20Experimental%20-VTOL-%20with%20-Pixhawk-%20and%20-U-Blox%20M8N%20GPS-.mp4)
+{% raw %}
+<video id="my-video" class="video-js" controls preload="auto" width="100%" 
+poster="http://image84.360doc.com/DownloadImg/2015/04/1617/52474470_2.jpg" data-setup='{"aspectRatio":"16:9"}'>
+  <source src="http://7xw24i.com1.z0.glb.clouddn.com/-PX4%20Autopilot-%20-%20Experimental%20-VTOL-%20with%20-Pixhawk-%20and%20-U-Blox%20M8N%20GPS-.mp4" type='video/mp4' >
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+  </p >
+</video>
+{% endraw %}
+
 
