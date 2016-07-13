@@ -13,13 +13,14 @@ create a custom mavlink message and header).
 [here](http://qgroundcontrol.org/mavlink/create_new_mavlink_message)也建立了`ca_trajectory`消息。
 
 # Sending Custom MAVLink Messages
-
+#发送自定义MAVLink消息
 This section explains how to use a custom uORB message and send it as a mavlink
 message.
+这段介绍如何使用一个自定义uORB消息并且作为mavlink消息。
 
 Add the headers of the mavlink and uorb messages to
 [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
-
+添加头文件mavlink和uorb到[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
 ```C
 #include <uORB/topics/ca_trajectory.h>
 #include <v1.0/custom_messages/mavlink_msg_ca_trajectory.h>
