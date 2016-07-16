@@ -32,6 +32,15 @@
 </aside>
 安全的做法是使用FTDI（USB转串口适配器），并按照下面说明连接它。这大多数时候都管用并且很容易设置。
 
+| TELEM2 |         | FTDI    |        |
+--- | --- | ---
+|1         | +5V (red)|         | DO NOT CONNECT!   |
+|2         | Tx  (out)| 5       | FTDI RX (yellow) (in)   |
+|3         | Rx  (in) | 4       | FTDI TX (orange) (out)  |
+|4         | CTS (in) |6       | FTDI RTS (green) (out) |
+|5         | RTS (out)|2       | FTDI CTS (brown) (in) |
+|6         | GND     | 1       | FTDI GND (black)   |
+
 | TELEM2   |          | FTDI    |                         |
 --- | --- | ---
 |1         | +5V (red)|         | DO NOT CONNECT!         |
