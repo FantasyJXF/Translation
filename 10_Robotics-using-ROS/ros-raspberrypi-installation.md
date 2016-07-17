@@ -1,24 +1,21 @@
-# 在树莓派Pi 2上安装ROS
+# 在Raspberry Pi（树莓派）上安装ROS
 
-# Raspberry Pi - ROS installation
+这是一个如何在用做Pixhawk协同计算机的树莓派2上安装ROS-indigo的指南。
 
-This is a guide on how to install ROS-indigo on a Raspberry Pi 2 serving as a companion computer for Pixhawk.
+## 准备
 
-## Prerequisites
+- 一个可以工作的树莓派，配有监视器、键盘或者配置好的SSH连接。
+- 这份指南假定你已经在树莓派上安装好了Raspbian "JESSIE"，如果没有，[安装它](https://www.raspberrypi.org/downloads/raspbian/)或者[升级](http://raspberrypi.stackexchange.com/questions/27858/upgrade-to-raspbian-jessie)Raspbian Wheezy到Jessie。
 
-- A working Raspberry Pi with monitor, keyboard, or configured SSH connection
-- This guide assumes that you have Raspbian "JESSIE" installed on your RPi. If not: [install it](https://www.raspberrypi.org/downloads/raspbian/) or [upgrade](http://raspberrypi.stackexchange.com/questions/27858/upgrade-to-raspbian-jessie) your Raspbian Wheezy to Jessie.
+## 安装
 
-## Installation
+参照[指南](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi)安装ROS Indigo。注意：安装"ROS-Comm"版本，"Desktop"版本太过庞大。
 
-Follow [this guide](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi) for the actual installation of ROS Indigo. Note: Install the "ROS-Comm" variant. The Desktop variant is too heavyweight.
+### 安装可能遇到的错误
 
-### Errors when installing packages
+如果下载包（例如`sudo apt-get install ros-indigo-ros-tutorials`）时遇到错误"unable to locate package ros-indigo-ros-tutorials"，那么按照下面方法操作：
 
-If you want to download packages (e.g. `sudo apt-get install ros-indigo-ros-tutorials`), you might get an error saying: "unable to locate package ros-indigo-ros-tutorials". 
-
-If so, proceed as follows:
-Go to your catkin workspace (e.g. ~/ros_catkin_ws) and change the name of the packages.
+进入你的catkin工作空间（例如~/ros_catkin_ws），并修改包的名字
 
 ```sh
 $ cd ~/ros_catkin_ws
@@ -26,7 +23,7 @@ $ cd ~/ros_catkin_ws
 $ rosinstall_generator ros_tutorials --rosdistro indigo --deps --wet-only --exclude roslisp --tar > indigo-custom_ros.rosinstall
 ```
 
-Next, update your workspace with wstool.
+接着，用wstool升级你的工作空间
 
 ```sh
 $ wstool merge -t src indigo-custom_ros.rosinstall
@@ -34,7 +31,7 @@ $ wstool merge -t src indigo-custom_ros.rosinstall
 $ wstool update -t src
 ```
 
-Next (still in your workspace folder), source and make your files.
+最后 (仍然在工作空间文件夹), source并构建你的文件。
 
 ```sh
 $ source /opt/ros/indigo/setup.bash
