@@ -1,14 +1,12 @@
-# DroneKit的使用
+# 使用DroneKit与PX4通讯
 
-# Using DroneKit to communicate with PX4
+[DroneKit](http://dronekit.io)可以帮助创建强大的无人机应用。这些应用运行在无人机的协同计算机上，通过执行计算密集但又需要低延迟的任务（计算机视觉）来增强飞控计算机。
 
-[DroneKit](http://dronekit.io) helps you create powerful apps for UAVs. These apps run on a UAV’s Companion Computer, and augment the autopilot by performing tasks that are both computationally intensive and require a low-latency link (e.g. computer vision).
+DroneKit和PX4目前致力于获得完全兼容。截止DroneKit-python 2.2.0，仅提供任务处理和状态监控这样的基本支持。
 
-DroneKit and PX4 are currently working on getting full compatibility. As of DroneKit-python 2.2.0 there is basic support for mission handling and vehicle monitoring.
+## 配置DroneKit
 
-## Setting up DroneKit with PX4
-
-Start by installing DroneKit-python from the current master.
+首先，从当前主分支安装DroneKit-python
 
 ```sh
 git clone https://github.com/dronekit/dronekit-python.git
@@ -17,27 +15,27 @@ sudo python setup.py build
 sudo python setup.py install
 ```
 
-Create a new python file and import DroneKit, pymavlink and basic modules
+创建一个新的python文件并导入DroneKit, pymavlink和基本模块
 
-```C
+```python
 # Import DroneKit-Python
 from dronekit import connect, Command, LocationGlobal
 from pymavlink import mavutil
 import time, sys, argparse, math
 ```
 
-Connect to a Mavlink port of your drone or simulation
+连接到无人机或模拟器的MAVLink端口
 
-```C
+```python
 # Connect to the Vehicle
 print "Connecting"
 connection_string = '127.0.0.1:14540'
 vehicle = connect(connection_string, wait_ready=True)
 ```
 
-Display some basic status information
+显示一些基本的状态信息
 
-```C
+```python
 # Display basic vehicle state
 print " Type: %s" % vehicle._vehicle_type
 print " Armed: %s" % vehicle.armed
@@ -46,11 +44,11 @@ print " GPS: %s" % vehicle.gps_0
 print " Alt: %s" % vehicle.location.global_relative_frame.alt
 ```
 
-## Full mission example
+## 完整的任务范例
 
-The following python script shows a full mission example using DroneKit and PX4. Mode switching is not yet fully supported from DroneKit, we therefor send our own custom mode switching commands.
+下面的python脚本文件给出了使用DroneKit和PX4的完整任务范例。目前还不完全支持模式切换，因此我们发送自定义的模式切换指令。
 
-```C
+```python
 ################################################################################################
 # @File DroneKitPX4.py
 # Example usage of DroneKit with PX4

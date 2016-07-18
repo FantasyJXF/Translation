@@ -1,25 +1,23 @@
-# 外部位置估计
+# 使用视觉或运动捕捉系统
 
-# Using Vision or Motion Capture systems
+本页目的在于构建基于PX4的，使用除了GPS之外的位置数据系统，例如像VICON、Optitrack之类的运动捕捉系统和像[ROVIO](https://github.com/ethz-asl/rovio)、[SVO](https://github.com/uzh-rpg/rpg_svo)或者[PTAM](https://github.com/ethz-asl/ethzasl_ptam)之类的基于视觉的估计系统。
 
-This page aims at getting a PX4 based system using position data from sources other than GPS (such as motion capture systems like VICON and Optitrack and vision based estimation systems like [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) or [PTAM](https://github.com/ethz-asl/ethzasl_ptam) )
+位置估计既可以来源于板载计算机，也可以来源于外部系统（例如：VICON）。这些数据用于更新机体相对于本地坐标系的位置估计。来自于视觉或者运动捕捉系统的朝向信息也可以被适当整合进姿态估计器中。
 
-Position estimates can be sent both from an onboard computer as well as from offboard (example : VICON).  This data is used to update its local position estimate relative to the local origin. Heading from the vision/motion capture system can also be optionally integrated by the attitude estimator. 
+现在，这个系统被用来进行室内位置控制或者基于视觉的路径点导航。
 
-The system can then be used for applications such as position hold indoors or waypoint navigation based on vision.
+对于视觉，用来发送位姿数据的MAVLink消息是[VISION_POSITION_ESTIMATE](http://mavlink.org/messages/common#VISION_POSITION_ESTIMATE)。对于运动捕捉系统，相应的则为[ATT_POS_MOCAP](http://mavlink.org/messages/common#ATT_POS_MOCAP)。
 
-For vision, the mavlink message used to send the pose data is [VISION_POSITION_ESTIMATE](http://mavlink.org/messages/common#VISION_POSITION_ESTIMATE) and the message for all motion capture systems is [ATT_POS_MOCAP](http://mavlink.org/messages/common#ATT_POS_MOCAP) messages. 
+默认发送这些消息的应用是ROS-Mavlink接口MAVROS，当然，也可以直接使用纯C/C++代码或者MAVLink()库来发送它们。
 
-The mavros ROS-Mavlink interface has default implementations to send these messages. They can also be sent using pure C/C++ code and direct use of the MAVLink() library.
+## 使能外部位姿输入
 
-## Enabling external pose input
-
-You need to set 2 parameters (from QGroundControl or the NSH shell) to enable or disable vision/mocap usage in the system.
+需要设置两个参数（从QGroundControl或者NSH shell）来使能或者禁用视觉/运动捕捉。
 
 <aside class="note">
-Set the system parameter ```CBRK_NO_VISION``` to 0 to enable vision position integration. 
+设置系统参数```CBRK_NO_VISION```为0来使能视觉位置估计。 
 </aside>
 
 <aside class="note">
-Set the system parameter ```ATT_EXT_HDG_M``` to 1 or 2 to enable external heading integration. Setting it to 1 will cause vision to be used, while 2 enables mocap heading use.
+设置系统参数```ATT_EXT_HDG_M```为1或者2来使能外部朝向估计。设置为1使用视觉，设置为2使用运动捕捉。
 </aside>
