@@ -30,7 +30,7 @@ Add the headers of the mavlink and uorb messages to
 ```
 
 Create a new class in [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp#L2193)
-
+在[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp#L2193)中创建一个新的类
 ```C
 class MavlinkStreamCaTrajectory : public MavlinkStream
 {
@@ -91,7 +91,7 @@ protected:
 
 Finally append the stream class to the `streams_list` at the bottom of
 [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
-
+最后附加流类“streams_list”的到[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)底部
 ```C
 StreamListItem *streams_list[] = {
 ...
