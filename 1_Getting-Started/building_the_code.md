@@ -1,4 +1,5 @@
 # 编译px４软件
+官网英文原文地址：http://dev.px4.io/starting-building.html
 
 PX4可以在控制台或者图形界面/IDE开发
 
