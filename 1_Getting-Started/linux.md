@@ -1,4 +1,5 @@
 # Linux开发环境
+官网英文原文地址：http://dev.px4.io/starting-installing-linux.html
 
 我们使用Debian / Ubuntu LTS 作为Linux的标准支持版本，但是也支持[Cent OS 和 Arch Linux的发行版本](../1_Getting-Started/adcanced_linux.md)
 
