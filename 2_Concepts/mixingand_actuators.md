@@ -1,5 +1,5 @@
 # 混控和执行器
-英文原文地址：http://dev.px4.io/concept-mixing.html
+官网英文原文地址：http://dev.px4.io/concept-mixing.html
 
 PX4架构保证了核心控制器中不需要针对机身布局做特别处理。
  
