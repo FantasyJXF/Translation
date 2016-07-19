@@ -1,6 +1,5 @@
 # 综合测试
-
-# Integration Testing
+官网英文原文地址：http://dev.px4.io/tutorial-integration-testing.html
 
 This is about end to end integration testing. Tests are executed automatically ([Jenkins CI](advanced-jenkins-ci.md))
 
