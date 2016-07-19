@@ -62,7 +62,16 @@ LPE is an Extended Kalman Filter based estimator for position and velocity state
 ### **Flight Video Outdoor**
 http://7xvob5.com1.z0.glb.clouddn.com/Px4flow%20lpe%20estimator%20auto%20mission.mp4
 Below is a plot of the autonomous mission from the outdoor flight video above using optical flow. GPS is not used to estimate the vehicle position but is plotted for a ground truth comparison. The offset between the GPS and flow data is due to the initialization of the estimator from user error on where it was placed. The initial placement is assumed to be at LPE\_LAT and LPE\_LON \(described below\).
-
+{% raw %}
+<video id="my-video" class="video-js" controls preload="auto" width="100%" 
+poster="../pictures/diagrams/opticsflow.png" data-setup='{"aspectRatio":"16:9"}'>
+  <source src="http://7xvob5.com1.z0.glb.clouddn.com/1-PX4%20Autopilot%20Setup%20Tutorial%20Preview.mp4" type='video/mp4' >
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that
+    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
+</video>
+{% endraw %}
 _Figure 4: LPE based autonomous mission with optical flow and sonar_
 
 ### **Parameters**
