@@ -1,6 +1,5 @@
-# 编写应用程序
-
 # First App Tutorial (Hello Sky)
+官网英文原文地址：http://dev.px4.io/tutorial-hello-sky.html
 
 This tutorial explains in detail how to create a new onboard application and how to run it.
 
