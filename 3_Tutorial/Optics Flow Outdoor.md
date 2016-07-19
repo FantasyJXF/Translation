@@ -18,7 +18,11 @@ Use the `SYS_MC_EST_GROUP = 1` parameter to select the estimator and then reboot
 
 ---
 
-_Figure 1: Mounting Coordinate Frame \(relevant to parameters below\)_
+![flow](../pictures/px4flow/px4flow_offset.png)
+
+Figure 1: Mounting Coordinate Frame \(relevant to parameters below\)_
+
+![px4flow](../pictures/px4flow/px4flow.png)
 
 _Figure 2: PX4Flow optical flow sensor \(camera and sonar\)_
 
@@ -26,13 +30,21 @@ The PX4Flow has to point towards the ground and can be connected using the I2C p
 
 **Note: The default orientation is that the PX4Flow sonar side \(+Y on flow\) be pointed toward +X on the vehicle \(forward\). If it is not, you will need to set SENS\_FLOW\_ROT accordingly.**
 
+![lidar](../pictures/px4flow/lidarlite.png)
+
 _Figure 3: Lidar Lite_
 
 Several LIDAR options exist including the Lidar-Lite \(not currently manufacutured\) and the sf10a: [sf10a](http://www.lightware.co.za/shop/en/drone-altimeters/33-sf10a.html). For the connection of the LIDAR-Lite please refer to [this](https://pixhawk.org/peripherals/rangefinder?s[]=lidar) page. The sf10a can be connected using a serial cable.
 
+![attached](../pictures/px4flow/flow_lidar_attached.jpg)
+
 _Figure: PX4Flow\/ Lidar-Lite mounting DJI F450_
 
+![iris](../pictures/px4flow/flow_mounting_iris.png)
+
 _Figure: This Iris+ has a PX4Flow attached without a LIDAR, this works with the LPE estimator._
+
+![iris2](../pictures/px4flow/flow_mounting_iris_2.png)
 
 _Figure: A weather-proof case was constructed for this flow unit. Foam is also used to surround the sonar to reduce prop noise read by the sonar and help protect the camera lens from crashes._
 
@@ -42,7 +54,11 @@ In order to ensure good optical flow quality, it is important to focus the camer
 
 **Note: If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.**
 
+![focus](../pictures/px4flow/flow_focus_book.png)
+
 _Figure: Use a text book to focus the flow camera at the height you want to fly, typically 1-3 meters. Above 3 meters the camera should be focused at infinity and work for all higher altitudes._
+
+![focusing](../pictures/px4flow/flow_focusing.png)
 
 _Figure: The px4flow interface in QGroundControl that can be used for focusing the camera_
 
@@ -60,18 +76,20 @@ All the parameters can be changed in QGroundControl
 LPE is an Extended Kalman Filter based estimator for position and velocity states. It uses inertial navigation and is similar to the INAV estimator below but it dynamically calculates the Kalman gain based on the state covariance. It also is capable of detecting faults, which is beneficial for sensors like sonar which can return invalid reads over soft surfaces.
 
 ### **Flight Video Outdoor**
-http://7xvob5.com1.z0.glb.clouddn.com/Px4flow%20lpe%20estimator%20auto%20mission.mp4
+
 Below is a plot of the autonomous mission from the outdoor flight video above using optical flow. GPS is not used to estimate the vehicle position but is plotted for a ground truth comparison. The offset between the GPS and flow data is due to the initialization of the estimator from user error on where it was placed. The initial placement is assumed to be at LPE\_LAT and LPE\_LON \(described below\).
 {% raw %}
 <video id="my-video" class="video-js" controls preload="auto" width="100%" 
 poster="../pictures/diagrams/opticsflow.png" data-setup='{"aspectRatio":"16:9"}'>
-  <source src="http://7xvob5.com1.z0.glb.clouddn.com/1-PX4%20Autopilot%20Setup%20Tutorial%20Preview.mp4" type='video/mp4' >
+ <source src="http://7xvob5.com1.z0.glb.clouddn.com/1-PX4%20Autopilot%20Setup%20Tutorial%20Preview.mp4" type='video/mp4' >
   <p class="vjs-no-js">
     To view this video please enable JavaScript, and consider upgrading to a web browser that
     <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
   </p>
 </video>
 {% endraw %}
+
+![gps](../pictures/px4flow/lpe_flow_vs_gps.png)
 _Figure 4: LPE based autonomous mission with optical flow and sonar_
 
 ### **Parameters**
