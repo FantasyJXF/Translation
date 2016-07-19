@@ -1,11 +1,7 @@
 
 # QAV-R
-
-
-
-
-
-
+---
+![a](../pictures/airframes/multicopter/qav-r.png)
 
 ## Parts List
 
