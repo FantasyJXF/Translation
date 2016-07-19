@@ -1,4 +1,5 @@
 # Installing Files and Code
+官网英文原文地址：http://dev.px4.io/starting-installing-mac.html
 
 Usage of the [Homebrew package manager](http://mxcl.github.com/homebrew/) for Mac OS X is recommended. The installation of Homebrew is quick and easy: [installation instructions](http://mxcl.github.com/homebrew/).
 
