@@ -1,6 +1,6 @@
-# 集成测试
+# 综合测试
 
-这是集成测试，测试会自动执行([Jenkins CI](advanced-jenkins-ci.md))。
+这是综合测试，测试会自动执行([Jenkins CI](advanced-jenkins-ci.md))。
 
 ## ROS / MAVROS测试
 
