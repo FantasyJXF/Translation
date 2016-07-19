@@ -1,5 +1,5 @@
-
 # 结构预览
+官网英文原文地址：http://dev.px4.io/concept-flight-modes.html
 
 PX4由两个层次组成：一是[飞行控制栈](../2_Concepts/flight_stack.md)，即自驾仪的软件解决方案，二是[中间件](../2_Concepts/middleware.md)，一种可以支持任意类型自主机器人的通用机器人中间件。
 
