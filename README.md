@@ -196,15 +196,15 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 8.5.2-TBS Caipiroshka     |  Innoecho   |                               |
 | 8.6-船舶，潜水艇，飞艇，racer       | Innoecho  |                               |
 | 9-Companion Computer      |    - _ -    |      Companion Computers      |
-| 9.1-Pixhawk family        |             |                               |
-| 10-使用DroneKit的机器人         |             |    Robotics using DroneKit    |
-| 10.1-DroneKit的使用          |             |                               |
+| 9.1-Pixhawk family        | Innoecho  |                               |
+| 10-使用DroneKit的机器人         |  Innoecho |    Robotics using DroneKit    |
+| 10.1-DroneKit的使用          |  Innoecho  |                               |
 | 11-使用ROS的机器人              |    - _ -    |      Robotics using ROS       |
-| 11.1-用Linux进行外部控制         |             |                               |
-| 11.2-在树莓派Pi2上安装ROS        |             |                               |
-| 11.3-MAVROS               |             |                               |
-| 11.4-MAVROS外部控制例程         |             |                               |
-| 11.5-外部位置估计               |             |                               |
+| 11.1-用Linux进行外部控制         | Innoecho  |                               |
+| 11.2-在树莓派Pi2上安装ROS        |  Innoecho  |                               |
+| 11.3-MAVROS               |  Innoecho  |                               |
+| 11.4-MAVROS外部控制例程         |  Innoecho  |                               |
+| 11.5-外部位置估计               |  Innoecho   |                               |
 | 11.6-Gazebo Octomap       |  luoshi006  |                               |
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
 | 12.1-I2C                  |             |                               |
@@ -215,7 +215,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 12.3-PWM / GPIO           |             |                               |
 | 12.4-UART                 |             |                               |
 | 13-调试以及高级主题               |    - _ -    | Debugging and Advanced Topics |
-| 13.1-FAQ                  |             |                               |
+| 13.1-FAQ                  | 如果你永无畏惧  |                               |
 | 13.2-系统控制台                |             |                               |
 | 13.3-系统启动                 |             |                               |
 | 13.4-参数 & 配置              |             |                               |
