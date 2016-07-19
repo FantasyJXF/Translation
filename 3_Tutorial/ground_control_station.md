@@ -1,6 +1,5 @@
-# QGC地面站
-
 # QGroundControl
+官网英文原文地址：http://dev.px4.io/qgroundcontrol-intro.html
 
 QGroundControl是一个基于PX4自动驾驶仪配置和飞行的应用程序。 并且跨平台支持所有的主流操作系统：
 
