@@ -8,7 +8,7 @@
 
 - [SITL仿真](simulation-sitl.md)
 - [Gazebo](simulation-gazebo.md)
-  - [ROS and MAVROS](simulation-ros-interface.md)
+- [ROS and MAVROS](simulation-ros-interface.md)
 
 ### 执行测试
 
