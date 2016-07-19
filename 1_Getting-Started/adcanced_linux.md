@@ -1,4 +1,5 @@
 # Arch及CentOS工具链安装指南
+官网英文原文地址：http://dev.px4.io/starting-installing-linux-boutique.html
 
 ## USB设备配置
 
