@@ -68,17 +68,3 @@ graph TD;
 ### 3. 机载计算机和到ROS的WIFI连接（***推荐***）
 
 一个挂载在飞行器上的小型计算机，通过串口转USB适配器连接到飞控板，同时提供到运行ROS的地面站的WIFI连接。可以是上一部分的任意一个机载计算机，同时再加一个WIFI适配器。例如：Intel NUC D34010WYB有一个PCI Express Half-Mini接口，可以连接一个[Intel Wifi Link 5000](http://www.intel.com/products/wireless/adapters/5000/)适配器。
-
-{% mermaid %}
- graph TD
-	subgraph Ground  Station
-		gnd[ROS Enabled Computer] --- qgc[qGroundControl]
-	end
-	gnd --MAVLink/UDP--> w[WiFi];
-	qgc --MAVLink--> w;
-	subgraph Vehicle
-		comp[Companion Computer] --MAVLink--> uart[UART Adapter]
-	uart --- Autopilot
-	end
-	w --- comp
-{% endmermaid %}
