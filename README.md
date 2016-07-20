@@ -166,7 +166,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4.4-光流和LiDAR-Lite         |   summer    |                               |
 | 4.5-综合测试                  |   Innoecho   |                               |
 | 4.6-外部光流                  |             |                               |
-| 4.5-sdlog2                  |             |                               |
+| 4.7-sdlog2                  |             |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
 | 5.1-基本仿真                  |      冰      |                               |
 | 5.2-Gazebo仿真              |      冰      |                               |
@@ -191,6 +191,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 8.3.1-电机映射                | Innoecho  |                               |
 | 8.3.2-QAV 250 Racer       |  Innoecho  |                               |
 | 8.3.3-Matrice 100         |  Innoecho  |                               |
+| 8.3.4-QAV-R               |            |                               |
 | 8.4-直升机                   | Innoecho  |                               |
 | 8.4.1-Wing Wing Z-84      |  Innoecho  |                               |
 | 8.5-垂直起降飞行器               | Innoecho  |                               |
