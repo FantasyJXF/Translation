@@ -1,6 +1,8 @@
 # 外部光流
-官网英文原文地址：http://dev.px4.io/optical-flow-outdoors.html
+
 ---
+官网英文原文地址：http://dev.px4.io/optical-flow-outdoors.html
+
 This page shows you how to set up the PX4Flow for position estimation and autonomous flight outdoors. Using a LIDAR device is not necessary, but LIDAR does improve performance.
 
 
@@ -13,26 +15,29 @@ Use the `SYS_MC_EST_GROUP = 1` parameter to select the estimator and then reboot
 
 ## Hardware
 ---
----
 ![flow](../pictures/px4flow/px4flow_offset.png)
 *Figure 1: Mounting Coordinate Frame (relevant to parameters below)*_
 
-![flow](../pictures/px4flow/px4flow_offset.png)
+![flow](../pictures/px4flow/px4flow.png)
+
+
 *Figure 2: PX4Flow optical flow sensor (camera and sonar)*
 
 The PX4Flow has to point towards the ground and can be connected using the I2C port on the pixhawk. For best performance make sure the PX4Flow is attached at a good position and is not exposed to vibration. (preferably on the down side of the quad-rotor).
 
-Note: The default orientation is that the PX4Flow sonar side (+Y on flow) be pointed toward +X on the vehicle (forward). If it is not, you will need to set SENS_FLOW_ROT accordingly.
+**Note: The default orientation is that the PX4Flow sonar side (+Y on flow) be pointed toward +X on the vehicle (forward). If it is not, you will need to set SENS_FLOW_ROT accordingly.**
 
-![flow](../pictures/px4flow/px4flow_offset.png)
+![flow](../pictures/px4flow/lidarlite.png)
+
 *Figure 3: Lidar Lite*
 
 Several LIDAR options exist including the Lidar-Lite (not currently manufacutured) and the sf10a: [sf10a](http://www.lightware.co.za/shop/en/drone-altimeters/33-sf10a.html). For the connection of the LIDAR-Lite please refer to [this](https://pixhawk.org/peripherals/rangefinder?s[]=lidar) page. The sf10a can be connected using a serial cable.
 
 ![attached](../pictures/px4flow/flow_lidar_attached.jpg)
-*Figure: PX4Flow\/ Lidar-Lite mounting DJI F450*
+*Figure: PX4Flow/ Lidar-Lite mounting DJI F450*
 
-![attached](../pictures/px4flow/flow_lidar_attached.jpg)
+![iris](../pictures/px4flow/flow_mounting_iris.png)
+
 *Figure: This Iris+ has a PX4Flow attached without a LIDAR, this works with the LPE estimator.*
 
 ![iris2](../pictures/px4flow/flow_mounting_iris_2.png)
@@ -41,16 +46,15 @@ Several LIDAR options exist including the Lidar-Lite (not currently manufacuture
 
 ## Focusing Camera
 ---
----
 
 In order to ensure good optical flow quality, it is important to focus the camera on the PX4Flow to the desired height of flight. To focus the camera, put an object with text on (e. g. a book) and plug in the PX4Flow into usb and run QGroundControl. Under the settings menu, select the PX4Flow and you should see a camera image. Focus the lens by unscrewing the set screw and loosening and tightening the lens to find where it is in focus.
 
 **Note: If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.**
 
-![iris2](../pictures/px4flow/flow_mounting_iris_2.png)
+![focus](../pictures/px4flow/flow_focus_book.png)
 *Figure: Use a text book to focus the flow camera at the height you want to fly, typically 1-3 meters. Above 3 meters the camera should be focused at infinity and work for all higher altitudes.*
 
-![iris2](../pictures/px4flow/flow_mounting_iris_2.png)
+![focusings](../pictures/px4flow/flow_focusing.png)
 *Figure: The px4flow interface in QGroundControl that can be used for focusing the camera*
 
 
@@ -92,7 +96,9 @@ poster="../pictures/diagrams/opticsflow.png" data-setup='{"aspectRatio":"16:9"}'
 
 {% endraw %}
 
+
 ![gps](../pictures/px4flow/lpe_flow_vs_gps.png)
+
 *Figure 4: LPE based autonomous mission with optical flow and sonar*
 
 
