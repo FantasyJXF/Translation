@@ -64,7 +64,7 @@
 * [使用ROS的机器人](10_Robotics-using-ROS/robotics_using_ros.md)
    * [用Linux进行外部控制](10_Robotics-using-ROS/offboard-control.md)
    * [在树莓派Pi2上安装ROS](10_Robotics-using-ROS/ros-raspberrypi-installation.md)
-   * [MAVROS \(ROS上的MAVLink\)](10_Robotics-using-ROS/ros-mavros-installation.md)
+   * [MAVROS(ROS上的MAVLink)](10_Robotics-using-ROS/ros-mavros-installation.md)
    * [MAVROS外部控制例程](10_Robotics-using-ROS/ros-mavros-offboard.md)
    * [外部位置估计](10_Robotics-using-ROS/external-position.md)
    * [Gazebo Octomap](10_Robotics-using-ROS/simulation-gazebo-octomap.md)
@@ -96,4 +96,4 @@
    * [Jenkins持续集成环境](12_Debugging-and-Advanced-Topics/advanced-jenkins-ci.md)
    * [ULog文件模式](12_Debugging-and-Advanced-Topics/advanced-ulog-file-format.md)
    * [Licenses](12_Debugging-and-Advanced-Topics/advanced-licenses.md)
-
+* [软件更新](13_Software_update.md)
