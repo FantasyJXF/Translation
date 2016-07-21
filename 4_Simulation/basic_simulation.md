@@ -1,5 +1,6 @@
 # 基本仿真
-
+---
+官网英文原文地址：http://dev.px4.io/simulation-sitl.html
 # Software in the Loop (SITL) Simulation
 
 Software in the Loop Simulation runs the complete system on the host machine and simulates the autopilot. It connects via local network to the simulator. The setup looks like this:
