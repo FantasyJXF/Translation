@@ -1,5 +1,6 @@
 # Gazebo仿真
-
+---
+官网英文原文地址：http://dev.px4.io/simulation-gazebo.html
 # Gazebo Simulation
 
 [Gazebo](http://gazebosim.org) is a 3D simulation environment for autonomous robots. It can be used with ROS as complete robotics simulation suite or standalone, and this guide covers the simpler to set up standalone operation.
