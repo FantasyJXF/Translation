@@ -1,6 +1,6 @@
 # PX4 Middleware
 
-官网英文原文地址：http:\/\/dev.px4.io\/concept-middleware.html
+官网英文原文地址：http://dev.px4.io/concept-middleware.html
 
 PX4中间件主要由内置传感器的驱动和基于发布-订阅（publish-subscribe）的中间件组成，其中发布-订阅中间件用于将这些传感器与[飞行控制](../2_Concepts/flight_stack.md)运行的应用程序进行通讯连接。
 
