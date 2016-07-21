@@ -16,7 +16,8 @@ Use the `SYS_MC_EST_GROUP = 1` parameter to select the estimator and then reboot
 ## Hardware
 ---
 ![flow](../pictures/px4flow/px4flow_offset.png)
-*Figure 1: Mounting Coordinate Frame (relevant to parameters below)*_
+
+*Figure 1: Mounting Coordinate Frame (relevant to parameters below)*
 
 ![flow](../pictures/px4flow/px4flow.png)
 
