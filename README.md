@@ -165,6 +165,8 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4.3-QGC的视频流               |  积土为山  |                               |
 | 4.4-光流和LiDAR-Lite         |   summer    |                               |
 | 4.5-综合测试                  |   Innoecho   |                               |
+| 4.6-外部光流                  |             |                               |
+| 4.7-sdlog2                  |             |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
 | 5.1-基本仿真                  |      冰      |                               |
 | 5.2-Gazebo仿真              |      冰      |                               |
@@ -189,6 +191,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 8.3.1-电机映射                | Innoecho  |                               |
 | 8.3.2-QAV 250 Racer       |  Innoecho  |                               |
 | 8.3.3-Matrice 100         |  Innoecho  |                               |
+| 8.3.4-QAV-R               |            |                               |
 | 8.4-直升机                   | Innoecho  |                               |
 | 8.4.1-Wing Wing Z-84      |  Innoecho  |                               |
 | 8.5-垂直起降飞行器               | Innoecho  |                               |
@@ -202,9 +205,9 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 11-使用ROS的机器人              |    - _ -    |      Robotics using ROS       |
 | 11.1-用Linux进行外部控制         | Innoecho  |                               |
 | 11.2-在树莓派Pi2上安装ROS        |  Innoecho  |                               |
-| 11.3-MAVROS               |  Innoecho  |                               |
-| 11.4-MAVROS外部控制例程         |  Innoecho  |                               |
-| 11.5-外部位置估计               |  Innoecho   |                               |
+| 11.3-MAVROS                     |  Innoecho  |                               |
+| 11.4-MAVROS外部控制例程          |  Innoecho  |                               |
+| 11.5-外部位置估计                |  Innoecho  |                               |
 | 11.6-Gazebo Octomap       |  luoshi006  |                               |
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
 | 12.1-I2C                  |             |                               |
