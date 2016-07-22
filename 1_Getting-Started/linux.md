@@ -29,7 +29,7 @@ sudo usermod -a -G dialout $USER
 - Host simulation: [jMAVSim SITL](../4_Simulation/basic_simulation.md) and [Gazebo SITL](../4_Simulation/gazebo_simulation.md)
 
 <aside class="note">
-注意：安装[Ninja Build System](https://fantasyjxf.gitbooks.io/px4-wiki/content/1_Getting-Started/adcanced_linux.html#ninja-build-system)可以比make更快进行编译。如果安装了它就会自动选择使用它进行编译。
+注意：安装[Ninja Build System](https://fantasyjxf.gitbooks.io/px4-wiki/content/1_Getting-Started/adcanced_linux.html#Ninja构建系统)可以比make更快进行编译。如果安装了它就会自动选择使用它进行编译。
 </aside>
 
 <div class="host-code"></div>
