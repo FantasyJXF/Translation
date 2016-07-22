@@ -1,8 +1,8 @@
 # sdlog2 
 
-The `sdlog2` app serves the purpose to log flight data onto the SD card on the FMU. The log file format is compatible with the APM binary log, but ''sdlog2'' uses the mandatory message ''TIME'' to write timestamps.
+ `sdlog2` 这个应用程序是用来将FMU的飞行数据记录到SD卡中作为日志文件。该日志文件的格式与APM的二进制日志格式兼容，但是''sdlog2'' 使用强制消息''TIME'' 来写时间戳。
 
-## Usage 
+## 使用
 
 Everytime `sdlog2` starts logging, it creates a new directory in the `log` folder of the SD card. The folder name is based on the current date if the option `-t` is set and a GPS timestamp is available (e.g. `log/2014-01-19`). Otherwise, it is called ''sessXXX'' where `XXX` represents a sequential number.The file name is created in a similar manner by using the current time (e.g. `log/2014-01-19/19_37_52.bin`) if possible and enabled using the ''-t'' options, otherwise the file is called `log.XXX.bin`, again using a sequential number.
 
