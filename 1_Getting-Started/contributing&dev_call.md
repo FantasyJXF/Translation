@@ -1,6 +1,6 @@
 # 贡献代码
 
-官网英文原文地址：http:\/\/dev.px4.io\/starting-contributing.html
+官网英文原文地址：http://dev.px4.io/starting-contributing.html
 
 核心开发团队和社区的联系信息可以在下面找到。PX4项目使用了三个分支Git branching model:
 
