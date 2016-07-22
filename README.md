@@ -166,7 +166,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4.4-光流和LiDAR-Lite         |   summer    |                               |
 | 4.5-综合测试                  |   Innoecho   |                               |
 | 4.6-外部光流                  |             |                               |
-| 4.7-sdlog2                  |             |                               |
+| 4.7-sdlog2                  |  Fantasy   |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
 | 5.1-基本仿真                  |      冰      |                               |
 | 5.2-Gazebo仿真              |      冰      |                               |
