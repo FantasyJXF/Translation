@@ -4,7 +4,7 @@
 
 ## 使用
 
-Everytime `sdlog2` starts logging, it creates a new directory in the `log` folder of the SD card. The folder name is based on the current date if the option `-t` is set and a GPS timestamp is available (e.g. `log/2014-01-19`). Otherwise, it is called ''sessXXX'' where `XXX` represents a sequential number.The file name is created in a similar manner by using the current time (e.g. `log/2014-01-19/19_37_52.bin`) if possible and enabled using the ''-t'' options, otherwise the file is called `log.XXX.bin`, again using a sequential number.
+每当 `sdlog2` 开始记录时， 会在 SD卡的 `log` 文件夹中创建一个新的目录。 如果设置了选项`-t` 同时有一个GPS的时间戳可用的话，文件夹的命名是基于当前的日期的(例如， `log/2014-01-19`)。否则，文件夹就会被称为''sessXXX''，这里`XXX`代表一个序列号。如果可能并且可以使用`t`选项的话，文件名的创建与使用当前时间命名的方式相似(例如，`log/2014-01-19/19_37_52.bin`) 否则这个文件就命名为 `log.XXX.bin` ，再次使用序列号。
 
 Logging starts depending on the given options, either when the app is started, the system is armed, or via mavlink command.
 
