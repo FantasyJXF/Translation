@@ -6,8 +6,8 @@
 
 每当 `sdlog2` 开始记录时， 会在 SD卡的 `log` 文件夹中创建一个新的目录。 如果设置了选项`-t` 同时有一个GPS的时间戳可用的话，文件夹的命名是基于当前的日期的(例如， `log/2014-01-19`)。否则，文件夹就会被命名为 ''sessXXX''，这里`XXX`代表一个序列号。如果可能并且可以使用`t`选项的话，文件名的创建与使用当前时间命名的方式相似(例如，`log/2014-01-19/19_37_52.bin`) 否则这个文件就命名为 `log.XXX.bin` ，再次使用序列号。
 
-Logging starts depending on the given options, either when the app is started, the system is armed, or via mavlink command.
-日志文件的记录会根据给定的选项开始，要么当 `sdlog2` 应用程序启动，要么当系统解锁，或者通过mavlink命令。
+
+根据给定的选项开始记录日志，要么当 `sdlog2` 应用程序启动，要么当系统解锁，或者通过mavlink命令。
 
     usage: sdlog2 {start|stop|status} [-r <log rate>] [-b <buffer size>] -e -a
             -r      Log rate in Hz, 0 means unlimited rate
@@ -16,9 +16,9 @@ Logging starts depending on the given options, either when the app is started, t
             -a      Log only when armed (can be still overriden by command)
             -t      Use GPS timestamps to create folder and file names
 
-<note important>
-The logging performance depends on the speed of the used microSD card. Use a high-quality card to avoid skipped data. Running ''sdlog2'' at full rate (i.e. without ''-r'' option) can cause significant CPU load, without influencing the flight performance negatively though. However, the desired full rate might not be met and the logger will start to skip messages.
-</note>
+
+>The logging performance depends on the speed of the used microSD card. Use a high-quality card to avoid skipped data. Running ''sdlog2'' at full rate (i.e. without ''-r'' option) can cause significant CPU load, without influencing the flight performance negatively though. However, the desired full rate might not be met and the logger will start to skip messages.该日志记录的性能取决于所使用的microSD卡。建议使用高质量的SD卡以避免遗漏数据。全速运行"sdlog2"应用程序（即不加`-l`选项）可能会导致极大的CPU负载，在不影响飞行性能的情况下。然而，所需的全速可能无法得到满足，记录记录将会跳过一些消息。
+
 
 # Logging Start 
 
