@@ -46,15 +46,15 @@ sdlog2 stop
 
 ## FlightPlot
 
-要查看已经分析日志，可以使用GUI工具 [FlightPlot](https://pixhawk.org/dev/flightplot) 。它可以无需转换地读取 `sdlog2`生成的日志文件.。
+要查看以及分析日志，可以使用GUI工具 [FlightPlot](https://pixhawk.org/dev/flightplot) 。它可以无需转换地读取 `sdlog2`生成的日志文件.。
 
 ## Pymavlink
 
-You can also use the mavgraph tool contained in [PyMAVLink](https://pixhawk.org/dev/pymavlink) to generate plots.
+你也可以使用包含在 [PyMAVLink](https://pixhawk.org/dev/pymavlink) 中的mavgraph工具来生成绘图。
 
 ## CSV \/ Matlab: Converting Logs to CSV
 
-To read the binary file and convert it to CSV, the python tool [sdlog2\_dump.py](https://github.com/PX4/Firmware/tree/master/Tools/sdlog2) can be used. The same directory contains a Matlab script which runs the converter and plots a number of core messages.
+要读取二进制文件并将其转换为CSV，可以使用Python工具[sdlog2\_dump.py](https://github.com/PX4/Firmware/tree/master/Tools/sdlog2)。同样的目录中包含着运行转换器和绘制大量核心信息的MATLAB脚本。
 
 E.g. to read `TIME` and `IMU` messages, `BaroAlt` and `BaroTemp` fields from `SENS` message use the following command:
 
