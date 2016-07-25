@@ -1,10 +1,9 @@
 # 初始设置
 官网英文原文地址： http://dev.px4.io/starting-initial-config.html
+
 在开始开发PX4之前，系统需要按照默认配置进行初始配置，以保证硬件设置合适，被检测到。下面的一个视频介绍[Pixhawk硬件](../5_Autopilot-Hardware/pixhawk.md)和[地面站](../5_Autopilot-Hardware/pixhawk.md)设置过程，[下面](../7_Airframe/airframes-architecture.md)是支持的参考机架类型的列表。
 
-
-
-[下载每日更新的QGroundControl](http://qgroundcontrol.org/downloads)并按照下面的说明来设置你的飞行器。参考[QGroundControl 教程](../3_Tutorial/ground_control_station.md)来了解任务规划，放飞和和参数设置的具体细节。
+>[下载每日更新的QGroundControl](http://qgroundcontrol.org/downloads)并按照下面的说明来设置你的飞行器。参考[QGroundControl 教程](../3_Tutorial/ground_control_station.md)来了解任务规划，放飞和和参数设置的具体细节。
  
 
 下面的视频介绍一系列的设置选项
