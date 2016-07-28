@@ -3,30 +3,30 @@
 ---
 官网英文原文地址：http://dev.px4.io/optical-flow-outdoors.html
 
-This page shows you how to set up the PX4Flow for position estimation and autonomous flight outdoors. Using a LIDAR device is not necessary, but LIDAR does improve performance.本页面向您介绍了如何设置PX4Flow用于位置估计以及自主户外飞行。
+本页面向您介绍如何设置PX4Flow用于位置估计以及户外自主飞行。LIDAR(激光雷达)的使用并非必要，但其的确会提升性能。
 
 
-## Selecting LPE Estimator
+## 选择LPE（Local Position Estimator）估计器
 ---
 
-The only estimator that is tested to work with optical flow based autonmous flight outdoors is, LPE.
+唯一被测试的可以与基于户外自主飞行的光流共同作用的估计器就是LPE。
 
-Use the `SYS_MC_EST_GROUP = 1` parameter to select the estimator and then reboot.
+使用 `SYS_MC_EST_GROUP = 1` 参数来选择估计器然后重启飞控板。
 
-## Hardware
+## 硬件
 ---
 ![flow](../pictures/px4flow/px4flow_offset.png)
 
-*Figure 1: Mounting Coordinate Frame (relevant to parameters below)*
+*Figure 1: 装配坐标系（相对于下面的参数）*
 
 ![flow](../pictures/px4flow/px4flow.png)
 
 
-*Figure 2: PX4Flow optical flow sensor (camera and sonar)*
+*Figure 2: PX4FLOW光流传感器（相机以及声呐）*
 
-The PX4Flow has to point towards the ground and can be connected using the I2C port on the pixhawk. For best performance make sure the PX4Flow is attached at a good position and is not exposed to vibration. (preferably on the down side of the quad-rotor).
+PX4Flow必须指向地面，可以使用Pixhawk上的I2C接口进行连接。为了使PX4Flow获得最好的性能，确保将其放置在一个好的位置，同时不要暴露在强烈震动环境下。（最好是将其放置在四轴飞行器的底部）
 
-**Note: The default orientation is that the PX4Flow sonar side (+Y on flow) be pointed toward +X on the vehicle (forward). If it is not, you will need to set SENS_FLOW_ROT accordingly.**
+>**注意： PX4Flow放置的默认的方位是其声呐侧（光流上的+Y）指向飞行器的+X(前面)。如果不是，则需要相应的设置` SENS_FLOW_ROT `**
 
 ![flow](../pictures/px4flow/lidarlite.png)
 
