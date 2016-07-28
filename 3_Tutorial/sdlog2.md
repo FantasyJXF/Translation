@@ -2,7 +2,7 @@
 
 ---
 
-官网英文原文地址：https:\/\/pixhawk.org\/firmware\/apps\/sdlog2
+官网英文原文地址：https://pixhawk.org//firmware//apps//sdlog2
 
 `sdlog2` 这个应用程序是用来将FMU的飞行数据记录到SD卡中作为日志文件。该日志文件的格式与APM的二进制日志格式兼容，但是''sdlog2'' 使用强制消息''TIME'' 来写时间戳。
 
