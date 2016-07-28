@@ -1,165 +1,90 @@
-# 定制MAVLink消息
+# uORB消息收发
 
-# Create Custom MAVLink Messages
+## 介绍
 
-This tutorial assumes you have a [custom uORB](advanced-uorb.md) `ca_trajectory`
-message in `msg/ca_trajectory.msg` and a custom mavlink
-`ca_trajectory` message in
-`mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h` (see
-[here](http://qgroundcontrol.org/mavlink/create_new_mavlink_message) how to
-create a custom mavlink message and header).
+uORB是一个异步的，用于线程间或者进程间通信的消息发布/订阅接口.
 
-# Sending Custom MAVLink Messages
+查看 [教程](../3_Tutorial/writing_an_application.md),学习如何在C++中使用它.
 
-This section explains how to use a custom uORB message and send it as a mavlink
-message.
 
-Add the headers of the mavlink and uorb messages to
-[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
+uORB会在系统启动的早期自动运行，因为很多应用程序依赖于它. 运行的命令是 `uorb start`.
+单元测试可以运行 `uorb test`.
 
-```C
-#include <uORB/topics/ca_trajectory.h>
-#include <v1.0/custom_messages/mavlink_msg_ca_trajectory.h>
+## 添加一个新主题
+
+要添加一个新主题, 你需要在`msg/`目录创建新一个文件`.msg`,然后添加该文件名到
+`msg/CMakeLists.txt`列表. 这样,关于主题的C/C++代码就会被自动生成.
+
+查看已有的`msg`文件中可以看到支持的消息类型. 一个消息也可以嵌套在另外的消息中.
+在每一个被生成的C/C++结构中，字段`uint64_t timestamp`都会被添加. 该字段是用于日志记录的，
+所以当记录消息的时候请确保对它有赋值.
+
+要在代码中使用主题，首先添加头文件:
+
+```
+#include <uORB/topics/topic_name.h>
 ```
 
-Create a new class in [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp#L2193)
+在文件`.msg`中，通过添加类似如下的一行代码,一个消息定义就可以用于多个独立的主题.
 
-```C
-class MavlinkStreamCaTrajectory : public MavlinkStream
-{
-public:
-    const char *get_name() const
-	{
-		return MavlinkStreamCaTrajectory::get_name_static();
-	}
-	static const char *get_name_static()
-	{
-		return "CA_TRAJECTORY";
-	}
-	uint8_t get_id()
-	{
-		return MAVLINK_MSG_ID_CA_TRAJECTORY;
-	}
-	static MavlinkStream *new_instance(Mavlink *mavlink)
-	{
-		return new MavlinkStreamCaTrajectory(mavlink);
-	}
-	unsigned get_size()
-	{
-		return MAVLINK_MSG_ID_CA_TRAJECTORY_LEN + MAVLINK_NUM_NON_PAYLOAD_BYTES;
-	}
-	
-private:
-	MavlinkOrbSubscription *_sub;
-	uint64_t _ca_traj_time;
-
-	/* do not allow top copying this class */
-	MavlinkStreamCaTrajectory(MavlinkStreamCaTrajectory &);
-	MavlinkStreamCaTrajectory& operator = (const MavlinkStreamCaTrajectory &);
-
-protected:
-	explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink),
-		_sub(_mavlink->add_orb_subscription(ORB_ID(ca_trajectory))),  // make sure you enter the name of your uorb topic here
-		_ca_traj_time(0)
-	{}
-
-	void send(const hrt_abstime t)
-	{
-		struct ca_traj_struct_s _ca_trajectory;    //make sure ca_traj_struct_s is the definition of your uorb topic
-
-		if (_sub->update(&_ca_traj_time, &_ca_trajectory)) {
-			mavlink_ca_trajectory_t _msg_ca_trajectory;  //make sure mavlink_ca_trajectory_t is the definition of your custom mavlink message 
-			
-			_msg_ca_trajectory.timestamp = _ca_trajectory.timestamp;
-			_msg_ca_trajectory.time_start_usec = _ca_trajectory.time_start_usec;
-			_msg_ca_trajectory.time_stop_usec  = _ca_trajectory.time_stop_usec;
-			_msg_ca_trajectory.coefficients =_ca_trajectory.coefficients;
-			_msg_ca_trajectory.seq_id = _ca_trajectory.seq_id;
-		
-			_mavlink->send_message(MAVLINK_MSG_ID_CA_TRAJECTORY, &_msg_ca_trajectory);
-		}
-	}
-};
+```
+# TOPICS mission offboard_mission onboard_mission
 ```
 
-Finally append the stream class to the `streams_list` at the bottom of
-[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
+然后再代码中, 把它们作为主题id使用:`ORB_ID(offboard_mission)`.
 
-```C
-StreamListItem *streams_list[] = {
-...
-new StreamListItem(&MavlinkStreamCaTrajectory::new_instance, &MavlinkStreamCaTrajectory::get_name_static),
-nullptr
-};
+## 发布主题
+
+在系统的任何地方都可以发布一个主题, 包括在中断上下文中(被`hrt_call`接口调用的函数). 但是, 广播一个主题仅限于在中断上下文之外.
+一个主题只能由同一个进程进行广播, 并作为其之后的发布.
+
+## 列出所有主题并进行监听
+
+<aside class="note">
+The 'listener' command is only available on Pixracer (FMUv4) and Linux / OS X.
+</aside>
+
+要列出所有主题, 先列出文件句柄:
+
+```sh
+ls /obj
 ```
 
-# Receiving Custom MAVLink Messages
+要列出一个主题中的5个消息, 执行以下监听命令:
 
-This section explains how to receive a message over mavlink and publish it to
-uORB.
-
-Add a function that handles the incoming mavlink message in
-[mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L77)
-
-```C
-#include <uORB/topics/ca_trajectory.h>
-#include <v1.0/custom_messages/mavlink_msg_ca_trajectory.h>
+```sh
+listener sensor_accel 5
 ```
 
-Add a function that handles the incoming mavlink message in the
-`MavlinkReceiver` class in
-[mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L140)
+得到的输出就是关于该主题的n次内容:
 
-```C
-void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
-```
+```sh
+TOPIC: sensor_accel #3
+timestamp: 84978861
+integral_dt: 4044
+error_count: 0
+x: -1
+y: 2
+z: 100
+x_integral: -0
+y_integral: 0
+z_integral: 0
+temperature: 46
+range_m_s2: 78
+scaling: 0
 
-Add an uORB publisher in the `MavlinkReceiver` class in
-[mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)
-
-```C
-orb_advert_t _ca_traj_msg_pub;
-```
-
-Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp) 
-
-```C
-void
-MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
-{
-	mavlink_ca_trajectory_t traj;
-	mavlink_msg_ca_trajectory_decode(msg, &traj);
-
-	struct ca_traj_struct_s f;
-	memset(&f, 0, sizeof(f));
-
-	f.timestamp = hrt_absolute_time();
-	f.seq_id = traj.seq_id;
-	f.time_start_usec = traj.time_start_usec;
-	f.time_stop_usec = traj.time_stop_usec;
-	for(int i=0;i<28;i++)
-		f.coefficients[i] = traj.coefficients[i];
-
-	if (_ca_traj_msg_pub == nullptr) {
-		_ca_traj_msg_pub = orb_advertise(ORB_ID(ca_trajectory), &f);
-
-	} else {
-		orb_publish(ORB_ID(ca_trajectory), _ca_traj_msg_pub, &f);
-	}
-}
-```
-
-and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp#L228)
-
-```C
-MavlinkReceiver::handle_message(mavlink_message_t *msg)
- {
- 	switch (msg->msgid) {
-        ...
-	case MAVLINK_MSG_ID_CA_TRAJECTORY:
-		handle_message_ca_trajectory_msg(msg);
-		break;
-		...
- 	}
+TOPIC: sensor_accel #4
+timestamp: 85010833
+integral_dt: 3980
+error_count: 0
+x: -1
+y: 2
+z: 100
+x_integral: -0
+y_integral: 0
+z_integral: 0
+temperature: 46
+range_m_s2: 78
+scaling: 0
 ```
 
