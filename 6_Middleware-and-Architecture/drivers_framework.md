@@ -3,9 +3,13 @@
 # Driver Development
 
 The PX4 codebase uses a lightweight, unified driver abstraction layer: [DriverFramework](https://github.com/px4/DriverFramework). New drivers for POSIX and [QuRT](https://en.wikipedia.org/wiki/Qualcomm_Hexagon) are written against this framework.
-
+PX4的代码库使用一个轻量级的，统一的驱动抽象层：[DriverFramework](https://github.com/px4/DriverFramework). 
+POSIX和 [QuRT](https://en.wikipedia.org/wiki/Qualcomm_Hexagon)的驱动写入这个驱动框架当中。
 <aside class="todo">
 Legacy drivers for NuttX are based on the [Device](https://github.com/PX4/Firmware/tree/master/src/drivers/device) framework and will be ported to DriverFramework.
+</aside>
+<aside class="todo">
+旧的NuttX驱动是基于[Device](https://github.com/PX4/Firmware/tree/master/src/drivers/device) framework架构将移植到DriverFramework之中。
 </aside>
 
 ## Core Architecture
