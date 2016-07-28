@@ -17,12 +17,12 @@
 ---
 ![flow](../pictures/px4flow/px4flow_offset.png)
 
-*Figure 1: 装配坐标系（相对于下面的参数）*
+*图 1: 装配坐标系（相对于下面的参数）*
 
 ![flow](../pictures/px4flow/px4flow.png)
 
 
-*Figure 2: PX4FLOW光流传感器（相机以及声呐）*
+*图 2: PX4FLOW光流传感器（相机以及声呐）*
 
 PX4Flow必须指向地面，可以使用Pixhawk上的I2C接口进行连接。为了使PX4Flow获得最好的性能，确保将其放置在一个好的位置，同时不要暴露在强烈震动环境下。（最好是将其放置在四轴飞行器的底部）
 
@@ -30,19 +30,19 @@ PX4Flow必须指向地面，可以使用Pixhawk上的I2C接口进行连接。为
 
 ![flow](../pictures/px4flow/lidarlite.png)
 
-*Figure 3: Lidar Lite*
+*图 3: Lidar Lite*
 
-Several LIDAR options exist including the Lidar-Lite (not currently manufacutured) and the sf10a: [sf10a](http://www.lightware.co.za/shop/en/drone-altimeters/33-sf10a.html). For the connection of the LIDAR-Lite please refer to [this](https://pixhawk.org/peripherals/rangefinder?s[]=lidar) page. The sf10a can be connected using a serial cable.
+存在包括Lidar-Lite（目前已经不生产）和 [sf10a](http://www.lightware.co.za/shop/en/drone-altimeters/33-sf10a.html) 在内的一些LIDAR设备可供选择。有关LIDAR-Lite的连接请参考[这里](https://pixhawk.org/peripherals/rangefinder?s[]=lidar)，其中sf10a可以通过串行总线与Pixhawk相连。
 
 ![attached](../pictures/px4flow/flow_lidar_attached.jpg)
-*Figure: PX4Flow/ Lidar-Lite mounting DJI F450*
+*图4: 装有PX4Flow/ Lidar-Lite的DJI F450*
 
 ![iris](../pictures/px4flow/flow_mounting_iris.png)
 
-*Figure: This Iris+ has a PX4Flow attached without a LIDAR, this works with the LPE estimator.*
+*图5: 这个Iris+上装有一个不带LIDAR的PX4Flow，其同样可以对LPE估计器起作用*
 
 ![iris2](../pictures/px4flow/flow_mounting_iris_2.png)
-*Figure: A weather-proof case was constructed for this flow unit. Foam is also used to surround the sonar to reduce prop noise read by the sonar and help protect the camera lens from crashes.*
+*图6: 为PX4Flow搭建了一个天气保护盒子。用泡沫包裹着盒子一是可以降低声呐读取的螺旋桨噪声，同时还可以保护相机免受碰撞。*
 
 
 ## Focusing Camera
