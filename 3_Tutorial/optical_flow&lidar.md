@@ -1,6 +1,6 @@
 # Optical flow and LIDAR-Lite
 
-官网英文原文地址：http:\/\/dev.px4.io\/flow\_lidar\_setup.html
+官网英文原文地址：http://dev.px4.io/flow_lidar_setup.html
 
 This page shows you how to set up the PX4Flow and a LIDAR-Lite for position estimation in the INAV position estimator. A short video demonstrating a position hold can be seen here:
 
