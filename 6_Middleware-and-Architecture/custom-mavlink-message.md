@@ -2,28 +2,17 @@
 
 官网英文原文地址：http://dev.px4.io/custom-mavlink-message.html
 
-This tutorial assumes you have a [custom uORB](../6_Middleware-and-Architecture/uorb_messaging.md) `ca_trajectory`
-message in `msg/ca_trajectory.msg` and a custom mavlink
-`ca_trajectory` message in
-`mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h` (see
-[here](http://qgroundcontrol.org/mavlink/create_new_mavlink_message) how to
-create a custom mavlink message and header).
-
-这篇教程是假设你已经在`msg/ca_trajectory.msg`有了一个自定义[uORB](../6_Middleware-and-Architecture/uorb_messaging.md)`ca_trajectory`消息并且在`mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h` (see
-[here](http://qgroundcontrol.org/mavlink/create_new_mavlink_message)也建立了`ca_trajectory`消息。
-
-# Sending Custom MAVLink Messages
-
-This section explains how to use a custom uORB message and send it as a mavlink
-message.
+这篇教程是假设你已经在 `msg/ca_trajectory.msg` 有了一个[自定义uORB](../6_Middleware-and-Architecture/uorb_messaging.md) `ca_trajectory`
+消息，并且在 `mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h` 有了一个自定义mavlink
+`ca_trajectory` 消息（点击[此处](http://qgroundcontrol.org/mavlink/create_new_mavlink_message)查看如何建立一个自定义mavlink消息以及头文件）。
 
 
-Add the headers of the mavlink and uorb messages to
-[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
 
-#发送自定义MAVLink消息
-这段介绍如何使用一个自定义uORB消息并且作为mavlink消息。
-添加头文件mavlink和uorb到[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
+# 发送自定义MAVLink消息
+
+
+这部分介绍如何使用一个自定义uORB消息并且作为mavlink消息发送。
+添加`mavlink`的头文件和uorb消息到[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
 ```C
 #include <uORB/topics/ca_trajectory.h>
 #include <v1.0/custom_messages/mavlink_msg_ca_trajectory.h>
@@ -90,10 +79,7 @@ protected:
 };
 ```
 
-Finally append the stream class to the `streams_list` at the bottom of
-[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
-
-最后附加流类“streams_list”的到[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)底部
+最后附加流类`streams_list`的到[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)底部
 ```C
 StreamListItem *streams_list[] = {
 ...
@@ -102,17 +88,10 @@ nullptr
 };
 ```
 
-# Receiving Custom MAVLink Messages
+# 接收自定义MAVLink消
 
-# 接收客户MAVLink消息
-This section explains how to receive a message over mavlink and publish it to
-uORB.
+这部分解释如何通过mavlink接收消息并将其发布到uORB。
 
-这段解释如何通过mavlink接收和发布uORB。
-
-
-Add a function that handles the incoming mavlink message in
-[mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L77)
 
 在[mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L77)中增加一个用来处理接收信息得函数
 
@@ -121,31 +100,24 @@ Add a function that handles the incoming mavlink message in
 #include <v1.0/custom_messages/mavlink_msg_ca_trajectory.h>
 ```
 
-Add a function that handles the incoming mavlink message in the
 
-在`MavlinkReceiver` 类中增加处理传入消息函数
+在 [mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L140)中增加一个处理类`MavlinkReceiver` 中的输入mavlink消息的函数
 
-`MavlinkReceiver` class in
-[mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L140)
+
 
 ```C
 void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
 ```
 
-Add an uORB publisher in the `MavlinkReceiver` class in
+在 [mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)中加入一个类`MavlinkReceiver`中的uORB消息发布者
 
-在类`MavlinkReceiver`中加入uORB消息发布[mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)。
-[mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)
 
 ```C
 orb_advert_t _ca_traj_msg_pub;
 ```
 
-Implement the `handle_message_ca_trajectory_msg` function in
-[mavlink_receiver.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp) 
-
-在[mavlink_receiver.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp) 增加函数实体。
-
+在[mavlink_receiver.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp)中实现`
+handle_message_ca_trajectory_msg`功能
 ```C
 void
 MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
@@ -171,8 +143,6 @@ MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
 	}
 }
 ```
-
-and finally make sure it is called in
 
 最后确定函数被调用
 [MavlinkReceiver::handle_message()](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp#L228)
