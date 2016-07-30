@@ -18,8 +18,6 @@
 #include <v1.0/custom_messages/mavlink_msg_ca_trajectory.h>
 ```
 
-Create a new class in [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp#L2193)
-
 在[mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp#L2193)中创建一个新的类
 ```C
 class MavlinkStreamCaTrajectory : public MavlinkStream
@@ -88,7 +86,7 @@ nullptr
 };
 ```
 
-# 接收自定义MAVLink消
+# 接收自定义MAVLink消息
 
 这部分解释如何通过mavlink接收消息并将其发布到uORB。
 
@@ -104,7 +102,6 @@ nullptr
 在 [mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L140)中增加一个处理类`MavlinkReceiver` 中的输入mavlink消息的函数
 
 
-
 ```C
 void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
 ```
@@ -116,8 +113,7 @@ void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
 orb_advert_t _ca_traj_msg_pub;
 ```
 
-在[mavlink_receiver.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp)中实现`
-handle_message_ca_trajectory_msg`功能
+在[mavlink_receiver.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp)中实现`handle_message_ca_trajectory_msg`功能
 ```C
 void
 MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
@@ -144,8 +140,7 @@ MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
 }
 ```
 
-最后确定函数被调用
-[MavlinkReceiver::handle_message()](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp#L228)
+最后确定函数在[MavlinkReceiver::handle_message()](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp#L228)中被调用
 
 ```C
 MavlinkReceiver::handle_message(mavlink_message_t *msg)
