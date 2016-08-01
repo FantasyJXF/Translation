@@ -211,10 +211,10 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 11.6-Gazebo Octomap       |   Innoecho   |                               |
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
 | 12.1-I2C                  |             |                               |
-| 12.2-UAVCAN               |             |                               |
-| 12.2.1-UAVCAN Bootloader  |             |                               |
-| 12.2.2-UAVCAN 固件升级        |             |                               |
-| 12.2.3-UAVCAN 配置          |             |                               |
+| 12.2-UAVCAN               |  老四       |                               |
+| 12.2.1-UAVCAN Bootloader  |   老四       |                               |
+| 12.2.2-UAVCAN 固件升级        |   老四     |                               |
+| 12.2.3-UAVCAN 配置          |   老四     |                               |
 | 12.3-PWM / GPIO           |             |                               |
 | 12.4-UART                 |             |                               |
 | 13-调试以及高级主题               |    - _ -    | Debugging and Advanced Topics |
