@@ -1,15 +1,15 @@
 # First App Tutorial (Hello Sky)
 官网英文原文地址：http://dev.px4.io/tutorial-hello-sky.html
 
-This tutorial explains in detail how to create a new onboard application and how to run it.
+本教程详细解释了如何创建一个新的板载应用程序，以及如何运行它。
 
-## Prerequisites
+##前提条件
 
-- Pixhawk or Snapdragon compatible autopilot
-- PX4 Toolchain [installed](../1_Getting-Started/install_toolchain.md)
-- Github Account ([sign up for free](https://github.com/signup/free))
+- Pixhawk 或者 Snapdragonhuozhehuozhe兼容的飞控
+- PX4 工具链 [installed](../1_Getting-Started/install_toolchain.md)
+- Github 账号  ([sign up for free](https://github.com/signup/free))
 
-## Step 1: File Setup
+## 第一步：文件设置 
 
 To conveniently manage your custom code and pull in updates from the main repository, it is recommended to fork the Firmware repository with the GIT version control system:
 
