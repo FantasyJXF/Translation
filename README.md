@@ -168,8 +168,8 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4.6-户外光流                  |    Fantasy   |                               |
 | 4.7-sdlog2                  |  Fantasy   |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
-| 5.1-基本仿真                  |      冰      |                               |
-| 5.2-Gazebo仿真              |      冰      |                               |
+| 5.1-基本仿真                  |            |                               |
+| 5.2-Gazebo仿真              |            |                               |
 | 5.3-硬件在环仿真                |   Innoecho   |                               |
 | 5.4-连接ROS                 |    Innoecho |                               |
 | 6-自驾仪的硬件                  |    - _ -    |      Autopilot Hardware       |
@@ -208,7 +208,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 11.3-MAVROS                     |  Innoecho  |                               |
 | 11.4-MAVROS外部控制例程          |  Innoecho  |                               |
 | 11.5-外部位置估计                |  Innoecho  |                               |
-| 11.6-Gazebo Octomap       |  luoshi006  |                               |
+| 11.6-Gazebo Octomap       |   Innoecho   |                               |
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
 | 12.1-I2C                  |             |                               |
 | 12.2-UAVCAN               |             |                               |
