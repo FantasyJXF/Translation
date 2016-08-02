@@ -25,7 +25,7 @@
    * [光流和LiDAR-Lite](3_Tutorial/optical_flow&lidar.md)
    * [综合测试](3_Tutorial/integration_testing.md)
    * [户外光流](3_Tutorial/optics_flow_outdoors.md)
-   * [多旋翼PID调参](3_Tutorial/多旋翼pid调参.md)
+   * [多旋翼PID调参](3_Tutorial/multicopter-PID-tuning.md)
    * [sdlog2](3_Tutorial/sdlog2.md)
 * [仿真](4_Simulation/simulation.md)
    * [基本仿真](4_Simulation/basic_simulation.md)
