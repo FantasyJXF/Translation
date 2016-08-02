@@ -1,5 +1,6 @@
-MULTICOPTER PID TUNING GUIDE
-Advanced Configuration » Multicopter PID Tuning Guide
+# MULTICOPTER PID TUNING GUIDE 
+---
+
 Multicopter Flight Controller Tuning Guide
 This guide is for advanced users / experts only. If you don’t understand what a PID tuning is you might crash your aircraft.
 NEVER do multirotor tuning with carbon fiber or carbon fiber reinforced blades. NEVER use damaged blades.
