@@ -4,27 +4,27 @@
 
 Pixfalcon 是衍生于 Pixhawk 的设计，优化在空间受限的应用，如 FPV 。它有较少的IO，以便尺寸的减少。对于无人机性能要求较高或带有照相机，高通晓龙可能是一个会更加合适。
 
-![pixfalcon](../pictures/hardware/hardware-pixfalcon.png)
+
 
 ## 快速摘要
 
--  主片上系统: [STM32F437](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+-  主片上系统: STM32F437
     - CPU: 180 MHz，ARM Cortex M3内核，单精度FPU
     - RAM: 256 KB SRAM 
 -   失效保护片上系统: STM32F100
     - CPU: 24 MHz ARM Cortex M3
     - RAM: 8 KB SRAM
 -   GPS: U-Blox M8 (捆绑)
-    - 光流: [PX4 Flow unit](http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html)
-    - Availability: [Hobbyking Store](http://www.hobbyking.com/hobbyking/store/__86437__PixFalcon_Micro_PX4_Autopilot_plus_Micro_M8N_GPS_and_Mega_PBD_Power_Module.html)
-    - [数字空速传感器](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
+    - 光流: PX4 Flow unit
+    - Availability: Hobbyking Store
+    - 数字空速传感器
     -集成测量显示在屏幕上:
-      - [Hobbyking OSD + US Telemetry (915 MHz)](http://www.hobbyking.com/hobbyking/store/__74651__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_915MHz_.html)
--   [Hobbyking OSD + EU Telemetry (433 MHz)](http://www.hobbyking.com/hobbyking/store/__74650__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_433MHz_.html)
+      - Hobbyking OSD + US Telemetry (915 MHz)
+-   Hobbyking OSD + EU Telemetry (433 MHz)
 -   纯测量方案:
-    - [Hobbyking Wifi Telemetry](http://www.hobbyking.com/hobbyking/store/__87841__APM_Pixhawk_Wireless_Wifi_Radio_Module.html)
-    - [Hobbyking EU Micro Telemetry (433 MHz)](http://www.hobbyking.com/hobbyking/store/__74647__Micro_HKPilot_Telemetry_radio_Set_With_Integrated_PCB_Antenna_433Mhz.html)
-    - [Hobbyking US Micro Telemetry (915 MHz)](http://www.hobbyking.com/hobbyking/store/__74648__Micro_HKPilot_Telemetry_radio_Set_With_Integrated_PCB_Antenna_915Mhz.html)
+    - Hobbyking Wifi Telemetry
+    - Hobbyking EU Micro Telemetry (433 MHz)
+    - [Hobbyking US Micro Telemetry (915 MHz)
 
 ## 接口
 
