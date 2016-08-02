@@ -2,7 +2,7 @@
 
 # Pixfalcon硬件
 
-Pixfalcon 是衍生于 Pixhawk 的设计，优化在空间受限的应用，如 FPV 。它有较少的IO，以便尺寸的减少。对于无人机性能要求较高或带有照相机，高通晓龙可能是一个会更加合适。
+ Pixfalcon 是衍生于 Pixhawk 的设计，优化在空间受限的应用，如 FPV 。它有较少的IO，以便尺寸的减少。对于无人机性能要求较高或带有照相机，高通晓龙可能会更加合适。
 
 
 
@@ -15,16 +15,16 @@ Pixfalcon 是衍生于 Pixhawk 的设计，优化在空间受限的应用，如 
     - CPU: 24 MHz ARM Cortex M3
     - RAM: 8 KB SRAM
 -   GPS: U-Blox M8 (捆绑)
-    - 光流: PX4 Flow unit
+    - 光流: PX4 的光流模块
     - Availability: Hobbyking Store
     - 数字空速传感器
     -集成测量显示在屏幕上:
-      - Hobbyking OSD + US Telemetry (915 MHz)
--   Hobbyking OSD + EU Telemetry (433 MHz)
+      - Hobbyking OSD + US数传 (915 MHz)
+-   Hobbyking OSD + EU数传 (433 MHz)
 -   纯测量方案:
-    - Hobbyking Wifi Telemetry
-    - Hobbyking EU Micro Telemetry (433 MHz)
-    - [Hobbyking US Micro Telemetry (915 MHz)
+    - Hobbyking Wifi 数传
+    - Hobbyking EU 迷你数传 (433 MHz)
+    - Hobbyking US 迷你数传 (915 MHz)
 
 ## 接口
 
