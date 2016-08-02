@@ -9,7 +9,7 @@
 ## 快速摘要
 
 -  主片上系统: STM32F437
-    - CPU: 180 MHz，ARM Cortex M3内核，单精度FPU
+    - CPU: 180 MHz，ARM Cortex M4内核，单精度FPU
     - RAM: 256 KB SRAM 
 -   失效保护片上系统: STM32F100
     - CPU: 24 MHz ARM Cortex M3
