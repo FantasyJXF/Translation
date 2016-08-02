@@ -16,7 +16,7 @@
     - RAM: 8 KB SRAM
 -   GPS: U-Blox M8 (捆绑)
     - 光流: PX4 的光流模块
-    - Availability: Hobbyking Store
+    - 可购买: Hobbyking 仓
     - 数字空速传感器
     -集成测量显示在屏幕上:
       - Hobbyking OSD + US数传 (915 MHz)
