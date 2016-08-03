@@ -46,5 +46,5 @@ Pixracer有专门设计的单独航空电子设备的电源。这是必要的，
 </aside>
 
 - ESP8266文档和Flash说明
-- 自定义 ESP8266 MAVLink firmwarePixracer
+-  自定义 ESP8266 MAVLink firmwarePixracer
 
