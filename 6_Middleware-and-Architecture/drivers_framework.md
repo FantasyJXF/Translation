@@ -1,41 +1,32 @@
 # 驱动框架
 
-# Driver Development
-
-The PX4 codebase uses a lightweight, unified driver abstraction layer: [DriverFramework](https://github.com/px4/DriverFramework). New drivers for POSIX and [QuRT](https://en.wikipedia.org/wiki/Qualcomm_Hexagon) are written against this framework.
 PX4的代码库使用一个轻量级的，统一的驱动抽象层：[DriverFramework](https://github.com/px4/DriverFramework). 
 POSIX和 [QuRT](https://en.wikipedia.org/wiki/Qualcomm_Hexagon)的驱动写入这个驱动框架当中。
-<aside class="todo">
-Legacy drivers for NuttX are based on the [Device](https://github.com/PX4/Firmware/tree/master/src/drivers/device) framework and will be ported to DriverFramework.
-</aside>
+
 <aside class="todo">
 旧的NuttX驱动是基于[Device](https://github.com/PX4/Firmware/tree/master/src/drivers/device) framework架构将移植到DriverFramework之中。
 </aside>
 
-## Core Architecture
+## 核心架构
+PX4 is 反应式系统[reactive system](concept-architecture.md) 使用订阅/发布来传递消息.文件句柄是不被操作系统的核心所需要或者使用。两个主要API被使用：
 
-PX4 is a [reactive system](concept-architecture.md) and uses pub/sub to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
+- 发布/订阅系统，该系统拥有一个文件，网络或者共享内存，其依靠于PX4后台运行。
+- 全局驱动注册器，它允许枚举设备和获取/设置这些设备参数。这个可以很简单的作为一个链表或者文件系统地图。
 
-- The publish / subscribe system which has a file, network or shared memory backend depending on the system PX4 runs on
-- The global device registry, which allows to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system.
-
-## Bringing up a new Platform
-
+## 一个新的平台
 ### NuttX
-
-- The start script is located in [ROMFS/px4fmu_common](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common)
-- The OS configuration is located in [nuttx-configs](https://github.com/PX4/Firmware/tree/master/nuttx-configs). The OS gets loaded as part of the application build.
-  - The PX4 middleware configuration is located in [src/drivers/boards](https://github.com/PX4/Firmware/tree/master/src/drivers/boards). It contains bus and GPIO mappings and the board initialization code.
-  - Drivers are located in [src/drivers](https://github.com/PX4/Firmware/tree/master/src/drivers)
-  - Reference config: Running 'make px4fmu-v4_default' builds the FMUv4 config, which is the current NuttX reference configuration
+- 启动脚本位于[ROMFS/px4fmu_common](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common)
+- 系统配置文件位于[nuttx-configs](https://github.com/PX4/Firmware/tree/master/nuttx-configs). 作为应用的一部分被构建并被操作系统加载。
+  -PX4中间件配置位于[src/drivers/boards](https://github.com/PX4/Firmware/tree/master/src/drivers/boards).其中包括总线和GPIO映射还有硬件平台初始化代码。
+  -驱动位于[src/drivers](https://github.com/PX4/Firmware/tree/master/src/drivers)
+  - 参考配置:运行使px4fmu-v4_default构建FMUv4配置,这是当前NuttX参考配置。
 
 ### QuRT / Hexagon
-
-- The start script is located in [posix-configs/](https://github.com/PX4/Firmware/tree/master/posix-configs)
-- The OS configuration is part of the default Linux image (TODO: Provide location of LINUX IMAGE and flash instructions)
-  - The PX4 middleware configuration is located in [src/drivers/boards](https://github.com/PX4/Firmware/tree/master/src/drivers/boards). TODO: ADD BUS CONFIG
-  - Drivers are located in [DriverFramework](https://github.com/px4/DriverFramework)
-  - Reference config: Running 'make qurt_eagle_release' builds the Snapdragon Flight reference config
+- 启动脚本位于 [posix-configs/](https://github.com/PX4/Firmware/tree/master/posix-configs)
+- 系统配置文件模式作为Linux映射的一部分（备注：提供 本地的LINUX IMAGE和flash指令）
+  - PX4中间件配置位于[src/drivers/boards](https://github.com/PX4/Firmware/tree/master/src/drivers/boards)。备注：增加总线配置。
+  - 驱动位于[DriverFramework](https://github.com/px4/DriverFramework)
+  - 参考配置：运行'make qurt_eagle_release'构建Snapdragon飞行参考配置。
 
 ## Device IDs
 
