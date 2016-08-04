@@ -14,14 +14,14 @@ Pixfalcon 是衍生于[Pixhawk](../5_Autopilot-Hardware/pixhawk.md)的设计，�
 -   失效保护片上系统: STM32F100
     - CPU: 24 MHz ARM Cortex M3
     - RAM: 8 KB SRAM
--   GPS: U-Blox M8 (捆绑)
-    - 光流: [PX4光流模块](http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html)
-    - 可购买:  [Hobbyking商店](http://www.hobbyking.com/hobbyking/store/__86437__PixFalcon_Micro_PX4_Autopilot_plus_Micro_M8N_GPS_and_Mega_PBD_Power_Module.html)
-    - [数字空速传感器](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
-    -集成测量显示在屏幕上:
-      - [Hobbyking OSD + US 数传 (915 MHz)](http://www.hobbyking.com/hobbyking/store/__74651__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_915MHz_.html)
--   [Hobbyking OSD + EU 数传 (433 MHz)](http://www.hobbyking.com/hobbyking/store/__74650__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_433MHz_.html)
--   纯测量方案:
+-  GPS: U-Blox M8 (捆绑)
+- 光流: [PX4光流模块](http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html)
+- 可购买:  [Hobbyking商店](http://www.hobbyking.com/hobbyking/store/__86437__PixFalcon_Micro_PX4_Autopilot_plus_Micro_M8N_GPS_and_Mega_PBD_Power_Module.html)
+- [数字空速传感器](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
+-集成测量显示在屏幕上:
+ - [Hobbyking OSD + US 数传 (915 MHz)](http://www.hobbyking.com/hobbyking/store/__74651__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_915MHz_.html)
+ - [Hobbyking OSD + EU 数传 (433 MHz)](http://www.hobbyking.com/hobbyking/store/__74650__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_433MHz_.html)
+- 纯测量方案:
     - [Hobbyking Wifi 数传](http://www.hobbyking.com/hobbyking/store/__87841__APM_Pixhawk_Wireless_Wifi_Radio_Module.html)
     - [Hobbyking EU 迷你数传(433 MHz)](http://www.hobbyking.com/hobbyking/store/__74647__Micro_HKPilot_Telemetry_radio_Set_With_Integrated_PCB_Antenna_433Mhz.html)
     - [Hobbyking US 迷你数传 (915 MHz)](http://www.hobbyking.com/hobbyking/store/__74648__Micro_HKPilot_Telemetry_radio_Set_With_Integrated_PCB_Antenna_915Mhz.html)
