@@ -1,14 +1,14 @@
 # 骁龙自动驾驶仪
 
-金鱼草飞行平台是高端的自动驾驶仪 / 机载计算机， 它的DSP 上 有QuRT 实时操作系统来运行 PX4 ，使用[DSPAL API](https://github.com/ATLFlight/dspal)兼容与 POSIX   。  与  [Pixhawk](../5_Autopilot-Hardware/pixhawk.md) 相比它添加了一个摄像头和 WiFi 及其高端的处理能力和不同的 IO 接口。
+骁龙Snapdragon Flight平台是高端的自动驾驶仪 / 机载计算机， 它的DSP 上 有QuRT 实时操作系统来运行 PX4 ，使用[DSPAL API](https://github.com/ATLFlight/dspal)兼容与 POSIX   。  与  [Pixhawk](../5_Autopilot-Hardware/pixhawk.md) 相比它添加了一个摄像头和 WiFi 及其高端的处理能力和不同的 IO 接口。
 
-有关的晓龙平台飞行的更多信息在[Snapdragon-Flight-Details](https://www.intrinsyc.com/qualcomm-snapdragon-flight-details/)
+有关的骁龙平台飞行的更多信息在[Snapdragon-Flight-Details](https://www.intrinsyc.com/qualcomm-snapdragon-flight-details/)
 
  ![hardware-snapdragon](../pictures/hardware\hardware-snapdragon.jpg)
 
 ## 快速摘要
 
--                             片上系统: [晓龙 801](https://www.qualcomm.com/products/snapdragon/processors/801)
+-                             片上系统: [骁龙 801](https://www.qualcomm.com/products/snapdragon/processors/801)
                                   - CPU: Quad-core 2.26 GHz Krait
                               - DSP: Hexagon DSP (QDSP6 V5A) – 801 MHz+256KL2 (运行飞控代码)
                               - GPU: Qualcomm® Adreno™ 330 GPU
@@ -27,7 +27,7 @@
 -                             加速度计 / 陀螺仪 /磁力计: Invensense公司的MPU-9250 9-轴传感器, 3x3mm QFN, 接在 SPI1
                                   - 气压计: Bosch公司的 BMP280 气压传感器, 接在 I2C3
                               - 电压: 5V直流电用外部2S-6S电池通过APM适配器调节至5V
-                              - 可购买: [Intrinsyc 仓](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit)
+                              - 可购买: [Intrinsyc商店](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit)
 
 ## 接口
 
@@ -48,7 +48,7 @@
 
 ### WiFi
 
-- WLAN0, WLAN1 (+BT 4.0): U.FL connector: [Taoglas 胶天线  (DigiKey公司)](http://www.digikey.com/product-detail/en/FXP840.07.0055B/931-1222-ND/3877414)
+- WLAN0, WLAN1 (+BT 4.0): U.FL connector: [Taoglas 胶粘剂的天线  (DigiKey公司)](http://www.digikey.com/product-detail/en/FXP840.07.0055B/931-1222-ND/3877414)
 
 ### 连接器
 
@@ -78,7 +78,7 @@ tty-4 bam-2
 | 5    | GND               | GND       |               |
 | 6    | I2C2_SCL          | SPI2_CLK  | (3.3V)        |
 
-#### J12 /万向总线
+#### J12 /云台总线
 
 | Pin  | 2-wire UART + GPIO | SPI       | Comment       |
 | ---- | ------------------ | --------- | ------------- |
