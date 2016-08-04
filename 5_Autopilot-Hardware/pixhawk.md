@@ -15,12 +15,12 @@
     - CPU: 24 MHz ARM Cortex M3
     - RAM: 8 KB SRAM
 -   Wifi: 外加ESP8266 
-    - GPS: U-Blox 7/8 (Hobbyking) / U-Blox 6 (3D Robotics)
-    - 光流: [PX4 光流模块](http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html)
-    - 可购买:
-      - [Hobbyking EU version (433 MHz)](http://www.hobbyking.com/hobbyking/store/__80554__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_with_Telemetry_and_GPS_433Mhz_.html)
--   [Hobbyking US version (915 MHz)](http://www.hobbyking.com/hobbyking/store/__80555__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_with_Telemetry_and_GPS_915Mhz_.html)
-    - [3D Robotics Store](https://store.3drobotics.com/products/3dr-pixhawk)(GPS 和数传不捆绑)
+- GPS: U-Blox 7/8 (Hobbyking) / U-Blox 6 (3D Robotics)
+- 光流: [PX4 光流模块](http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html)
+- 可购买:
+ - [Hobbyking EU version (433 MHz)](http://www.hobbyking.com/hobbyking/store/__80554__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_with_Telemetry_and_GPS_433Mhz_.html)
+ - [Hobbyking US version (915 MHz)](http://www.hobbyking.com/hobbyking/store/__80555__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_with_Telemetry_and_GPS_915Mhz_.html)
+ - [3D Robotics Store](https://store.3drobotics.com/products/3dr-pixhawk)(GPS 和数传不捆绑)
 -   配件:
     - [数字空速管](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
     - [Hobbyking Wifi 数传](http://www.hobbyking.com/hobbyking/store/__87841__APM_Pixhawk_Wireless_Wifi_Radio_Module.html)
