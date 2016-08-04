@@ -1,6 +1,6 @@
 # 骁龙自动驾驶仪
 
-金鱼草飞行平台是高端的自动驾驶仪 / 机载计算机， 它的DSP 上 有QuRT 实时操作系统来运行 PX4 ，使用[DSPAL API](https://github.com/ATLFlight/dspal)兼容与 POSIX   。  与  [Pixhawk](../5_Autopilot-Hardware/pixhawk.md) 相比它添加了一个摄像头和 WiFi 及其高端的处理能力和不同的 IO接口。
+金鱼草飞行平台是高端的自动驾驶仪 / 机载计算机， 它的DSP 上 有QuRT 实时操作系统来运行 PX4 ，使用[DSPAL API](https://github.com/ATLFlight/dspal)兼容与 POSIX   。  与  [Pixhawk](../5_Autopilot-Hardware/pixhawk.md) 相比它添加了一个摄像头和 WiFi 及其高端的处理能力和不同的 IO 接口。
 
 有关的晓龙平台飞行的更多信息在[Snapdragon-Flight-Details](https://www.intrinsyc.com/qualcomm-snapdragon-flight-details/)
 
