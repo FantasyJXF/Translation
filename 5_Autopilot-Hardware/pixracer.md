@@ -1,14 +1,14 @@
 # Pixracer
 
-Pixhawk XRacer板系列是专为小型赛车和飞机进行了优化。 相反，Pixfalcon 和 Pixhawk 具有内置 wifi 上网、 新传感器、 方便的全速接口、CAN口、支持 2 M 闪存。
+Pixhawk XRacer板系列是专为小型赛车和飞机进行了优化。 相反， [Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)和[Pixhawk](../5_Autopilot-Hardware/pixhawk.md)具有内置 wifi 上网、 新传感器、 方便的全速接口、CAN口、支持 2 M 闪存。
 
+![pixracer](../pictures/hardware/hardware-pixracer.jpg)
 ## 快速摘要
 
-<aside class="tip">
 主要硬件文档在这里: https://pixhawk.org/modules/pixracer
-</aside>
 
--   主片上系统: STM32F437
+
+-   主片上系统:  [STM32F437](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
     - CPU: 180 MHz，ARM Cortex M4内核，单精度FPU
     - RAM: 256 KB SRAM
 -   FPV标准参数: 36×36毫米，标准30.5毫米孔型
@@ -23,11 +23,11 @@ Pixhawk XRacer板系列是专为小型赛车和飞机进行了优化。 相反�
     - OneShot PWM 输出 (可配置)
     - 可选：安全开关和蜂鸣器
     - 可购买:
-      - AUAV Pixracer
+      - [AUAV Pixracer](http://www.auav.co/product-p/xr-v1.htm)
 -   配件:
-    - 数字空速管
-    - Hobbyking OSD + US 数传 (915 MHz)
-    - Hobbyking OSD + EU 数传 (433 MHz)
+    - [数字空速管](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
+    - [Hobbyking OSD + US 数传 (915 MHz)](http://www.hobbyking.com/hobbyking/store/__74651__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_915MHz_.html)
+    - [Hobbyking OSD + EU 数传 (433 MHz)](http://www.hobbyking.com/hobbyking/store/__74650__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_433MHz_.html)
 
 ## 套件
 
@@ -45,6 +45,6 @@ Pixracer有专门设计的单独航空电子设备的电源。这是必要的，
 步骤和数传已经可用，固件升级已经由默认引导支持，但尚未启用。
 </aside>
 
-- ESP8266文档和Flash说明
--  自定义 ESP8266 MAVLink firmwarePixracer
+- [ESP8266文档和Flash说明](https://pixhawk.org/peripherals/8266)
+- [自定义 ESP8266 MAVLink firmwarePixracer](https://github.com/dogmaphobic/mavesp8266)
 
