@@ -1,6 +1,8 @@
 # Pixhawk 硬件
 
-[Pixhawk](https://pixhawk.org/modules/pixhawk)是PX4飞行堆栈的标准微控制器平台。它在[NuttX 操作系统](http://nuttx.org)上运行 PX4 中间件。依照CC-BY-SA 3.0 许可开放硬件设计，所有图纸和设计文件都是 [可用](https://github.com/PX4/Hardware)的。[Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)  是 Pixhawk 的FPV 和类似平台较小版本。 对于无人机性能要求较高或照相，高通骁龙[Snapdragon Flight](../5_Autopilot-Hardware/snapdragon_flight.md) 可能会更加合适。
+官网英文原文地址：http://dev.px4.io/hardware-pixhawk.html
+
+[Pixhawk](https://pixhawk.org/modules/pixhawk)是PX4飞行堆栈的标准微控制器平台。它在[NuttX 操作系统](http://nuttx.org)上运行 PX4 中间件。依照CC-BY-SA 3.0 许可开放硬件设计，所有图纸和设计文件都是 [可获得](https://github.com/PX4/Hardware)的。[Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)  是 Pixhawk 的FPV 和类似平台较小版本。 对于无人机性能要求较高或照相，高通骁龙[Snapdragon Flight](../5_Autopilot-Hardware/snapdragon_flight.md) 可能会更加合适。
 
 ![pixhawk](../pictures/hardware/hardware-pixhawk.png)
 
