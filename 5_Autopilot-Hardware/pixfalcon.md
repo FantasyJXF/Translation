@@ -1,6 +1,8 @@
 # Pixfalcon硬件
 
- Pixfalcon 是衍生于[Pixhawk](../5_Autopilot-Hardware/pixhawk.md)的设计，优化在空间受限的应用，如 FPV 。它有较少的IO，以便尺寸的减少。对于无人机性能要求较高或带有照相机，高通骁龙[Snapdragon Flight](../5_Autopilot-Hardware/snapdragon_flight.md)可能会更加合适。
+官网英文原文地址： http://dev.px4.io/hardware-pixfalcon.html
+
+Pixfalcon 是衍生于[Pixhawk](../5_Autopilot-Hardware/pixhawk.md)的设计，优化在空间受限的应用，如 FPV(First Persoan View,第一人称主视角) 。考虑到减小尺寸，Pixfalcon有更少的IO。对于性能要求较高或需要带有照相机的无人机，高通骁龙[Snapdragon Flight](../5_Autopilot-Hardware/snapdragon_flight.md)可能会更加合适。
 
 ![pixfalcon](../pictures/hardware/hardware-pixfalcon.png)
 
