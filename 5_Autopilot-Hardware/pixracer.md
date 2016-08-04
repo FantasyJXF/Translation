@@ -13,20 +13,20 @@ Pixhawk XRacer板系列专门为小型赛车和飞机进行了优化。 与 [Pix
 -   主片上系统:  [STM32F437](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
     - CPU: 180 MHz，ARM Cortex M4内核，单精度FPU
     - RAM: 256 KB SRAM
--   FPV标准参数: 36×36毫米，标准30.5毫米孔型
-    - Wifi 数传 and 软件升级
-    - 公司的 ICM-20608 加速度计 / 陀螺仪 (4 KHz) / MPU9250 加速度计 / 陀螺仪 / 磁力计 (4 KHz)
-    - HMC5983 磁力计的温度补偿
-    - Measurement Specialties公司的 MS5611 气压计
-    - JST GH 连接器
-    - microSD (记录日志)
-    - S.BUS / Spektrum / SUMD / PPM 输入
-    - FrSky 数传口
-    - OneShot PWM 输出 (可配置)
-    - 可选：安全开关和蜂鸣器
-    - 可购买:
-      - [AUAV Pixracer](http://www.auav.co/product-p/xr-v1.htm)
--   配件:
+- FPV标准参数: 36×36毫米，标准30.5毫米孔型
+- Wifi 数传 and 软件升级
+- 公司的 ICM-20608 加速度计 / 陀螺仪 (4 KHz) / MPU9250 加速度计 / 陀螺仪 / 磁力计 (4 KHz)
+- HMC5983 磁力计的温度补偿
+- Measurement Specialties公司的 MS5611 气压计
+- JST GH 连接器
+- microSD (记录日志)
+- S.BUS / Spektrum / SUMD / PPM 输入
+- FrSky 数传口
+- OneShot PWM 输出 (可配置)
+- 可选：安全开关和蜂鸣器
+- 可购买:
+ - [AUAV Pixracer](http://www.auav.co/product-p/xr-v1.htm)
+- 配件:
     - [数字空速管](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
     - [Hobbyking OSD + US 数传 (915 MHz)](http://www.hobbyking.com/hobbyking/store/__74651__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_915MHz_.html)
     - [Hobbyking OSD + EU 数传 (433 MHz)](http://www.hobbyking.com/hobbyking/store/__74650__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_433MHz_.html)
