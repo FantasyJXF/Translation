@@ -174,9 +174,9 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 5.3-硬件在环仿真                |   Innoecho   |                               |
 | 5.4-连接ROS                 |    Innoecho |                               |
 | 6-自驾仪的硬件                  |    - _ -    |      Autopilot Hardware       |
-| 6.1-骁龙                    |             |                               |
+| 6.1-骁龙                    |  誓言    |                               |
 | 6.1.1-光流                  |   景略    |                               |
-| 6.2-树莓派Pi 2               |             |                               |
+| 6.2-树莓派Pi 2               |   誓言  |                               |
 | 6.3-Pixhawk               |     景略      |                               |
 | 6.4-Pixfacon              |     景略      |                               |
 | 6.5-Pixracer              |     景略      |                               |
@@ -211,13 +211,13 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 11.5-外部位置估计                |  Innoecho  |                               |
 | 11.6-Gazebo Octomap       |   Innoecho   |                               |
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
-| 12.1-I2C                  |             |                               |
+| 12.1-I2C                  |  - _ -    |                               |
 | 12.2-UAVCAN               |  老四       |                               |
 | 12.2.1-UAVCAN Bootloader  |   老四       |                               |
 | 12.2.2-UAVCAN 固件升级        |   老四     |                               |
 | 12.2.3-UAVCAN 配置          |   老四     |                               |
 | 12.3-PWM / GPIO           |             |                               |
-| 12.4-UART                 |             |                               |
+| 12.4-UART                 |  - _ -    |                               |
 | 13-调试以及高级主题               |    - _ -    | Debugging and Advanced Topics |
 | 13.1-FAQ                  | 如果你永无畏惧  |                               |
 | 13.2-系统控制台                |             |                               |
