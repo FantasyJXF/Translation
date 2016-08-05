@@ -23,7 +23,8 @@
         "advanced-emoji",
         "-sharing",
         "local-video",
-        "donate"
+        "donate",
+        "back-to-top-button"
     ],
     "pluginsConfig": {
         "mathjax": {
