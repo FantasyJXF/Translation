@@ -4,8 +4,8 @@
 
 This page shows you how to set up the PX4Flow and a LIDAR-Lite for position estimation in the INAV position estimator. A short video demonstrating a position hold can be seen here:
 
-* [indoor](https://www.youtube.com/watch?v=MtmWYCEEmS8) 
-* [outdoor](https://www.youtube.com/watch?v=4MEEeTQiWrQ)
+* [indoor](http://7xvob5.com2.z0.glb.qiniucdn.com/Pixhawk%20PX4Flow%20indoor%20demo.mp4) 
+* [outdoor](http://7xvob5.com2.z0.glb.qiniucdn.com/Pixhawk%20PX4Flow%20outdoor%20demo.mp4)
 
   ![px4flow](../pictures/hardware\px4flow.png)
   ![lidarlite](../pictures/hardware\lidarlite.png)
