@@ -1,6 +1,6 @@
 # 树莓派Pi 2
 
-# Raspberry Pi 2 Autopilot
+# 树莓派2自动驾驶仪
 
 ![rpi2](../pictures/hardware/hardware-rpi2.jpg)
 
