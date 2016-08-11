@@ -28,15 +28,14 @@ PX4 is 反应式系统[reactive system](concept-architecture.md) 使用订阅/�
   - 驱动位于[DriverFramework](https://github.com/px4/DriverFramework)
   - 参考配置：运行'make qurt_eagle_release'构建Snapdragon飞行参考配置。
 
-## Device IDs
 
-PX4 uses device IDs to identify individual sensors consistently across the system. These IDs are stored in the configuration parameters and used to match sensor calibration values, as well as to determine which sensor is logged to which logfile entry.
+## 驱动ID
+PX4使用驱动ID用于将独立传感器贯穿于整个系统。这些ID被存储于配置参数，被用于匹配传感器校正值，以及决定哪些传感器被记录到log中。
 
-The order of sensors (e.g. if there is a `/dev/mag0` and an alternate `/dev/mag1`) is not determining priority - the priority is instead stored as part of the published uORB topic.
+传感器的顺序（例如一个是`/dev/mag0`，另一个是`/dev/mag1`）于优先级不挂钩的，优先级实际是在发布uORB topic时确定的。
 
-### Decoding example
-
-For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding.
+### 举个例子
+用三个磁力计作为例子，使用飞行log（.px4log）转存变量。磁力计被作为主要传感器，而三个参数编码为传感器ID和`MAG_PRIME`。每一个MAGx_ID是一个24bit数值，左面手工填零补充。
 
 ```
 CAL_MAG0_ID = 73225.0
@@ -44,8 +43,7 @@ CAL_MAG1_ID = 66826.0
 CAL_MAG2_ID = 263178.0
 CAL_MAG_PRIME = 73225.0
 ```
-
-This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will show up in the log file as `IMU.MagX`.
+这里使用外部HMC5983通过I2C连接，总线1，地址0x1E：在log中以`IMU.MagX`显示。
 
 ```
 # device ID 73225 in 24-bit binary:
@@ -55,8 +53,7 @@ This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will
 HMC5883   0x1E    bus 1 I2C
 ```
 
-This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It will show up in the log file as `IMU1.MagX`.
-
+这里使用内部HMC5983 通过SPI连接，总线1，选择slot5。在log中以`IMU1.MagX`显示。
 ```
 # device ID 66826 in 24-bit binary:
 00000001  00000101  00001 010
@@ -76,8 +73,8 @@ MPU9250   dev 4   bus 1 SPI
 ```
 
 ### Device ID Encoding
-
-The device ID is a 24bit number according to this format. Note that the first fields are the least significant bits in the decoding example above.
+### 设备ID编码
+设备ID是24位数值按照以下格式。注意这里第一字段最后最低有效位，在下面的例子中解码。
 
 ```C
 struct DeviceStructure {
@@ -87,8 +84,7 @@ struct DeviceStructure {
   uint8_t devtype;   // device class specific device type
 };
 ```
-
-The `bus_type` is decoded according to:
+这里`bus_type` 按以下方式解码：
 
 ```C
 enum DeviceBusType {
@@ -99,7 +95,7 @@ enum DeviceBusType {
 };
 ```
 
-and `devtype` is decoded according to:
+`devtype` 按以下方式解码：
 
 ```C
 #define DRV_MAG_DEVTYPE_HMC5883  0x01
