@@ -1,25 +1,20 @@
-# uORB消息收发
+# uORB消息机制
 
-## 介绍
+## 简介
 
-uORB是一个异步的，用于线程间或者进程间通信的消息发布/订阅接口.
+uORB是一种用于进程间进行异步发布和订阅的消息机制API。
 
-查看 [教程](../3_Tutorial/writing_an_application.md),学习如何在C++中使用它.
+在[tutorial](tutorial-hello-sky.md)中可以学习通过C++如何使用uORB。
+
+uORB在bootup之前自动运行，很多应用基于uORB。（我认为是在系统启动前执行uorb并注册各自应用这个bootup应该是指的nuttx系统启动，彩虹小羊注）。uORB通过`uorb start`启动。在Unit test中可以使用`uorb test`开始uorb。
+
+## 添加新的topic
 
 
-uORB会在系统启动的早期自动运行，因为很多应用程序依赖于它. 运行的命令是 `uorb start`.
-单元测试可以运行 `uorb test`.
-
-## 添加一个新主题
-
-要添加一个新主题, 你需要在`msg/`目录创建新一个文件`.msg`,然后添加该文件名到
-`msg/CMakeLists.txt`列表. 这样,关于主题的C/C++代码就会被自动生成.
-
-查看已有的`msg`文件中可以看到支持的消息类型. 一个消息也可以嵌套在另外的消息中.
-在每一个被生成的C/C++结构中，字段`uint64_t timestamp`都会被添加. 该字段是用于日志记录的，
-所以当记录消息的时候请确保对它有赋值.
-
-要在代码中使用主题，首先添加头文件:
+要想增加新的topic，你需要在‘msg/’目录下创建一个新的‘.msg’ 文件并在`msg/CMakeLists.txt`下添加该文件。这样C/C++编译器自动在程序中添相应的代码。
+可以先看看现有的'msg'文件了解下都支持那些类型。一个消息也可以嵌套在其他消息当中。
+每一个生成的C/C++结构体中，一个field `uint64_t timestamp` 会被增加。这个变量用于将消息记录到日志当中
+为了在代码中使用"topic"需要添加头文件:
 
 ```
 #include <uORB/topics/topic_name.h>
@@ -31,7 +26,7 @@ uORB会在系统启动的早期自动运行，因为很多应用程序依赖于�
 # TOPICS mission offboard_mission onboard_mission
 ```
 
-然后再代码中, 把它们作为主题id使用:`ORB_ID(offboard_mission)`.
+然后在代码中, 把它们作为主题id使用:`ORB_ID(offboard_mission)`.
 
 ## 发布主题
 
@@ -40,9 +35,7 @@ uORB会在系统启动的早期自动运行，因为很多应用程序依赖于�
 
 ## 列出所有主题并进行监听
 
-<aside class="note">
-The 'listener' command is only available on Pixracer (FMUv4) and Linux / OS X.
-</aside>
+‘收听者’命令仅在Pixracer（FMUv4）以及Linux/OS X上可用。
 
 要列出所有主题, 先列出文件句柄:
 
