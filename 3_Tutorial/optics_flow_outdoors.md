@@ -45,7 +45,7 @@ PX4Flow必须指向地面，可以使用Pixhawk上的I2C接口进行连接。为
 *图6: 为PX4Flow搭建了一个天气保护盒子。用泡沫包裹着盒子一是可以降低声呐读取的螺旋桨噪声，同时还可以保护相机免受碰撞。*
 
 
-## 聚焦相机
+## 相机聚焦
 ---
 
 为了保证好的光流质量，将PX4Flow上的的相机聚焦到一个理想的飞行高度是十分重要的。要让相机聚焦，首先准备一个带有文字的物体（例如，一本书），然后将PX4Flow插入到USB中，最后运行QGroundControl。在设置菜单下，选择PX4Flow，你会看到一个相机的拍摄得到的图片。通过拧动相机的固定螺母来放松或收紧镜头找到相机的焦点的方法进行聚焦。
@@ -53,13 +53,13 @@ PX4Flow必须指向地面，可以使用Pixhawk上的I2C接口进行连接。为
 **注意：如果你的飞行高度超过了3米，相机将聚焦在一个无限远的地方，对于在更高处的飞行，这一点不需要作改变 **
 
 ![focus](../pictures/px4flow/flow_focus_book.png)
-*Figure: Use a text book to focus the flow camera at the height you want to fly, typically 1-3 meters. Above 3 meters the camera should be focused at infinity and work for all higher altitudes.*
+*图7：用一本书在你想要飞行的高度上完成光流相机的聚焦，一般在1-3米的范围内。超过3米时，应该将相机聚焦到一个无限远的位置，这样对于在更高处的飞行也适用*
 
 ![focusings](../pictures/px4flow/flow_focusing.png)
-*Figure: The px4flow interface in QGroundControl that can be used for focusing the camera*
+*图8：QGroudControl地面站的px4flow光流界面可以被用来对相机进行聚焦*
 
 
-## Sensor Parameters
+## 传感器参数
 ---
 
 All the parameters can be changed in QGroundControl
