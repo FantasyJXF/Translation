@@ -62,11 +62,10 @@ PX4Flow必须指向地面，可以使用Pixhawk上的I2C接口进行连接。为
 ## 传感器参数
 ---
 
-All the parameters can be changed in QGroundControl
+所有的参数都可以在QGroundControl中进行修改
 
-- SENS_EN_LL40LS Set to 1 to enable lidar-lite distance measurements
-- SENS_EN_SF0X Set to 1 to enable lightware distance measurements (e.g. sf02 and sf10a)
-
+- 将SEN_EN_LL40LS设置为1以使能lidar-lite进行距离测量
+- 将SEN_EN_SF0X设置为1以使能lightware进行距离测量(例如.sf02和sf10a)
 
 ## Local Position Estimator (LPE)
 ---
