@@ -52,7 +52,7 @@ sdlog2 stop
 
 你也可以使用包含在 [PyMAVLink](https://pixhawk.org/dev/pymavlink) 中的mavgraph工具来生成绘图。
 
-## CSV \/ Matlab: Converting Logs to CSV
+## CSV / Matlab: Converting Logs to CSV
 
 要读取二进制文件并将其转换为CSV，可以使用Python工具[sdlog2\_dump.py](https://github.com/PX4/Firmware/tree/master/Tools/sdlog2)。同样的目录中包含着运行转换器和绘制大量核心信息的MATLAB脚本。
 
