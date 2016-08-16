@@ -72,10 +72,10 @@ PX4Flow必须指向地面，可以使用Pixhawk上的I2C接口进行连接。为
 LPE是一种基于扩展卡尔曼滤波器EKF的位置与速度估计器。LPE使用了惯性导航系统并且与INAV估计器有着类似的功能，但是它能够基于状态协方差动态地计算卡尔曼增益。LPE还可以检测故障，这个功能将使类似于声呐这种能够通过软件界面返回无效测量值的传感器更好的发挥作用。
 
 
-## Flight Video Outdoor
+## 户外飞行视频
 ---
 
-Below is a plot of the autonomous mission from the outdoor flight video above using optical flow. GPS is not used to estimate the vehicle position but is plotted for a ground truth comparison. The offset between the GPS and flow data is due to the initialization of the estimator from user error on where it was placed. The initial placement is assumed to be at LPE_LAT and LPE_LON (described below).
+下面是一个在户外使用光流进行自主任务飞行的视频以及飞行得到的绘图。虽说没有用到GPS来对飞行器的位置进行估计，但是图中还是将GPS的信息画出来用于地面实况比较。GPS和光流数据之间的补偿是为了对用户安装光流的位置的误差进行初始化估计。初始安装位置是在LPE\_LAT（经度）和LPE_LON（纬度）(在下面会进行说明)。
 
 {% raw %}
 <video id="my-video" class="video-js" controls preload="auto" width="100%" 
@@ -91,12 +91,12 @@ poster="../pictures/diagrams/opticsflow.png" data-setup='{"aspectRatio":"16:9"}'
 
 ![gps](../pictures/px4flow/lpe_flow_vs_gps.png)
 
-*Figure 4: LPE based autonomous mission with optical flow and sonar*
+*图9: 带有光流和声呐的飞行器基于LPE的自主任务飞行*
 
 
-## Parameters
+## 参数
 ---
-The local position estimator will automatically fuse LIDAR and optical flow data when the sensors are plugged in.
+当传感器插入时，LPE会自动融合LIDAR和光流测量的数据。
 
 - LPE_FLOW_OFF_Z - This is the offset of the optical flow camera from the center of mass of the vehicle. This measures positive down and defaults to zero. This can be left zero for most typical configurations where the z offset is negligible.
 - LPE_FLW_XY - Flow standard deviation in meters.
