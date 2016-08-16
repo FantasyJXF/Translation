@@ -75,7 +75,7 @@ LPE是一种基于扩展卡尔曼滤波器EKF的位置与速度估计器。LPE�
 ## 户外飞行视频
 ---
 
-下面是一个在户外使用光流进行自主任务飞行的视频以及飞行得到的绘图。虽说没有用到GPS来对飞行器的位置进行估计，但是图中还是将GPS的信息画出来用于地面实况比较。GPS和光流数据之间的补偿是为了对用户安装光流的位置的误差进行初始化估计。初始安装位置是在LPE\_LAT（经度）和LPE_LON（纬度）(在下面会进行说明)。
+下面是一个在户外使用光流进行自主任务飞行的视频以及飞行得到的绘图。虽说没有用到GPS来对飞行器的位置进行估计，但是图中还是将GPS的信息画出来用于地面实况比较。GPS和光流数据之间的偏移是由于用户安装光流的位置的初值估计误差。初始安装位置是在LPE\_LAT（经度）和LPE_LON（纬度）(在下面会进行说明)。
 
 {% raw %}
 <video id="my-video" class="video-js" controls preload="auto" width="100%" 
@@ -99,36 +99,36 @@ poster="../pictures/diagrams/opticsflow.png" data-setup='{"aspectRatio":"16:9"}'
 当传感器插入时，LPE会自动融合LIDAR和光流测量的数据。
 
 - LPE_FLOW_OFF_Z - 这是光流相机距飞行器重心的偏移。该值向下为正，默认为0。在绝大多数正常安装的情况下，该值可以保持为0，因为z轴上的偏移微不足道。
-- LPE_FLW_XY - Flow standard deviation in meters.
-- LPW_FLW_QMIN - Minimum flow quality to accept measurement.
-- LPE_SNR_Z -Sonar standard deviation in meters.
-- LPE_SNR_OFF_Z - Offset of sonar sensor from center of mass.
-- LPE_LDR_Z - Lidar standard deviation in meters.
-- LPE_LDR_Z_OFF -Offset of lidar from center of mass.
-- LPE_GPS_ON - You won't be able to fly without GPS if LPE_GPS_ON is set to 1. You must disable it or it will wait for GPS altitude to initialize position. This is so that GPS altitude will take precedence over baro altitude if GPS is available.
+- LPE_FLW_XY - 光流的标准差，单位米。
+- LPW_FLW_QMIN - 可接受测量的光流质量最小值。
+- LPE_SNR_Z -声呐的标准差，单位米。
+- LPE_SNR_OFF_Z - 声呐传感器距飞行器重心的偏移。
+- LPE_LDR_Z - 激光雷达Lidar的标准差，单位米。
+- LPE_LDR_Z_OFF -Lidar距飞行器重心的偏移。
+- LPE_GPS_ON - 如果参数LPE_GPS_ON设置为1，在没有GPS的情况下飞行器将无法飞行。必须禁用此项或者等待GPS获得高度信息并将位置初始化。这是为了当GPS可用时由GPS获得的高度信息优先级高于气压计获得的高度信息。
 
-**NOTE: LPE_GPS_ON must be set to 0 to enable flight without GPS**
+**注意：在没有GPS的情况下,必须将参数LPE_GPS_ON置0才能飞行**
 
 
-## Autonomous Flight Parameters
+## 自主飞行参数
 ---
-_Tell the vehicle where it is in the world_
+_告诉飞行器它的当前位置_
 
-- LPE_LAT - The latitude associated with the (0,0) coordinate in the local frame.
-- LPE_LON - The longitude associated with the (0,0) coordinate in the local frame.
+- LPE_LAT - 与机体坐标系中坐标(0,0)相关联的纬度。
+- LPE_LON - 与机体坐标系中坐标(0,0)相关联的经度。
 
-_Make the vehicle keep a low altitude and slow speed_
+_让飞行器保持一个很低的高度与速度_
 
-- MPC_ALT_MODE - Set this to 1 to enable terrain follow
-- LPE_T_Z - This is the terrain process noise. If your environment is hilly, set it to 0.1, if it is a flat parking lot etc. set it to 0.01.
-- MPC_XY_VEL_MAX - Set this to 2 to limit leaning
-- MPC_XY_P - Decrease this to around 0.5 to limit leaning
-- MIS_TAKEOFF_ALT - Set this to 2 meters to allow low altitude takeoffs.
+- MPC_ALT_MODE - 将此值设置为1以使能地形跟踪
+- LPE_T_Z - 这是地形的过程噪声。如果在丘陵地带飞行，将此值设置为0.1，如果是在一个平坦的停车场等类似的地方飞行，则可将此值设置为0.01。
+- MPC_XY_VEL_MAX - 将此值设置为2以限制倾斜
+- MPC_XY_P - 将此值降低到0.5以限制倾斜。
+- MIS_TAKEOFF_ALT - 将此值设置为2米以允许低空起飞。
 
-_Waypoints_
+_航点_
 
-- Create waypoints with altitude 3 meters or below.
-- Do not create flight plans with extremely long distance, expect about 1m drift \/ 100 m of flight.
+- 在高度3米或更低处创建航点.
+- Do not create flight plans with extremely long distance, expect about 1m drift \/ 100 m of flight.不要使用很长的距离创建飞行计划，
 
 **Note: Before your first auto flight, walk the vehicle manually through the flight with the flow sensor to make sure it will trace the path you expect.**
 
