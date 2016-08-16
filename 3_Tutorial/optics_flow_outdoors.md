@@ -128,7 +128,6 @@ _让飞行器保持一个很低的高度与速度_
 _航点_
 
 - 在高度3米或更低处创建航点.
-- Do not create flight plans with extremely long distance, expect about 1m drift \/ 100 m of flight.不要使用很长的距离创建飞行计划，
+- 不要创建过远距离的飞行计划，每飞行100米预期会产生1米的漂移。
 
-**Note: Before your first auto flight, walk the vehicle manually through the flight with the flow sensor to make sure it will trace the path you expect.**
-
+**注意：在第一次自主飞行之前，先使用带有光流传感器的飞行器手动进行巡线，这样可以确保飞行器沿着你期望的路径飞行**
