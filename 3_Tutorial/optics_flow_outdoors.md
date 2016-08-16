@@ -98,7 +98,7 @@ poster="../pictures/diagrams/opticsflow.png" data-setup='{"aspectRatio":"16:9"}'
 ---
 当传感器插入时，LPE会自动融合LIDAR和光流测量的数据。
 
-- LPE_FLOW_OFF_Z - This is the offset of the optical flow camera from the center of mass of the vehicle. This measures positive down and defaults to zero. This can be left zero for most typical configurations where the z offset is negligible.
+- LPE_FLOW_OFF_Z - 这是光流相机距飞行器重心的偏移。该值向下为正，默认为0。在绝大多数正常安装的情况下，该值可以保持为0，因为z轴上的偏移微不足道。
 - LPE_FLW_XY - Flow standard deviation in meters.
 - LPW_FLW_QMIN - Minimum flow quality to accept measurement.
 - LPE_SNR_Z -Sonar standard deviation in meters.
