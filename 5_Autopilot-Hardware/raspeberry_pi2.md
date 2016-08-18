@@ -1,66 +1,63 @@
+
 # 树莓派Pi 2
 
-# Raspberry Pi 2 Autopilot
+# 树莓派2自动驾驶仪
 
 ![rpi2](../pictures/hardware/hardware-rpi2.jpg)
 
-## Developer Quick Start
+## 开发者快速开始使用
 
-### OS Image
+### OS Image系统镜像
 
-Use the [Emlid RT Raspbian image](http://docs.emlid.com/navio/Downloads/Real-time-Linux-RPi2/) till the default pre-configured PX4 image is made available. The default image will have most of the setup procedures shown below already done.
+  使用[Emlid RT Raspbian image](http://docs.emlid.com/navio/Downloads/Real-time-Linux-RPi2/)这个前期配置好的有效的PX4树莓派镜像。这个镜像默认最大化的事先配置了程序。
+### 使用设置
+此树莓派镜像已经事先设置好了SSH。用户名：pi 和密码：raspberry。你可以直接通过网络去连接你的树莓派2（以太网已经启动并且默认自动分配IP）和可以配置使用wifi。在这篇文档中，我们采取默认的用户名和密码登入树莓派系统。
 
-### Setting up access
+设置你的树莓派加入你的本地wifi网络（使你的树莓派连接你的wifi），关于如何设置请参考这篇
+ [指导文章](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)。找到树莓派在你网络中的IP地址，随后你可以开始通过SSH的方式连接Pi2。
 
-The Raspbian image has SSH setup already. Username is "pi" and password is "raspberry". You can connect to your RPi2 over a network (Ethernet is set to come up with DHCP by default) and then proceed to configure WiFi access. We assume that the username and password remain at their defaults for the purpose of this guide.
-
-To setup the RPi2 to join your local wifi, follow [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md).
-
-Find the IP address of your Pi from your network, and then you can proceed to connect to it using SSH.
 <div class="host-code"></div>
 
 ```sh
 ssh pi@<IP-ADDRESS>
 ```
 
-### Changing hostnames
+### 改变树莓派主机名
+为了避免与同一网络上的其他树莓派有冲突，我们建议你改变默认主机名为明显的名字。我们使用px4autopilot作为我们的主机名。通过ssh连接pi并执行指令。
 
-To avoid conflicts with any other RPis on the network, we advise you to change the default hostname to something sensible. We used "px4autopilot" for our setup. Connect to the Pi via SSH and follow the below instructions.
-
-Edit the hostname file:
+编辑主机名文件:
 
 ```sh
 sudo nano /etc/hostname
 ```
 
-Change ```raspberry``` to whatever hostname you want (one word with limited characters apply)
+更改主机名 ```raspberry```为你想要的任何主机名  (一个word字的有限字符)
 
-Next you need to change the hosts file:
+下一步更改主机host文件:
 
 ```sh
 sudo nano /etc/hosts
 ```
 
-Change the entry ```127.0.1.1 raspberry``` to ```127.0.1.1 <YOURNEWHOSTNAME>```
-
-Reboot the Pi after this step is completed to allow it to re-associate with your network.
+更改入口 ```127.0.1.1 raspberry``` 为 ```127.0.1.1 <YOURNEWHOSTNAME>```
+做完这步重启电脑成功后允许他重新关联你的网络。
 
 ### Setting up Avahi (Zeroconf)
-
-To make connecting to the Pi easier, we recommend setting up Avahi (Zeroconf) which allows easy access to the Pi from any network by directly specifying its hostname.
+为了使你更容易的连接上你的树莓派，我们推荐设置Avahi（Zeroconf：零配置网络服务规范）来更简单的使用连接网络。
+使连接到树莓派更容易，我们建议设立的avahi（zeroconf）允许方便地访问任何网络PI直接指定主机名。
 
 ```sh
 sudo apt-get install avahi-daemon
 sudo insserv avahi-daemon
 ```
 
-Next, setup the Avahi configuration file
+接下来，设置Avahi配置文件
 
 ```sh
 sudo nano /etc/avahi/services/multiple.service
 ```
 
-Add this to the file :
+把下面文字加入文件中：
 
 ```xml
 <?xml version="1.0" standalone='no'?>
@@ -79,13 +76,14 @@ Add this to the file :
 </service-group>
 ```
 
-Restart the daemon
+重新启动后台进程
+
 
 ```sh
 sudo /etc/init.d/avahi-daemon restart
 ```
 
-And that's it. You should be able to access your Pi directly by its hostname from any computer on the network.
+到此就结束了。你应该可以在同一网络上的任意一台电脑上通过树莓派的主机名访问你的树莓派。 
 
 <aside class="tip">
 You might have to add .local to the hostname to discover it.
@@ -93,11 +91,12 @@ You might have to add .local to the hostname to discover it.
 
 ### Configuring a SSH Public-Key
 
-In order to allow the PX4 development environment to automatically push executables to your board, you need to configure passwordless access to the RPi. We use the public-key authentication method for this.
+为了允许PX4开发环境自动的更新可执行文件到你的开发板子上，你需要配置无密码访问RPi。我们使用公钥的验证方法。
 
-To generate new SSH keys enter the following commands (Choose a sensible hostname such as ```<YOURNANME>@<YOURDEVICE>```.  Here we have used ```pi@px4autopilot```)
+输入下面的命令来创建新的SSH密钥 (使用合理的主机名如 ```<YOURNANME>@<YOURDEVICE>```.  在这我们使用 ```pi@px4autopilot```)
 
-These commands need to be run on the HOST development computer!
+这些命令需要运行在主机开发电脑上！
+
 
 <div class="host-code"></div>
 
@@ -105,9 +104,10 @@ These commands need to be run on the HOST development computer!
 ssh-keygen -t rsa -C pi@px4autopilot
 ```
 
-Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location ($HOME/.ssh/id_rsa) by just hitting Enter.
+执行上面这条命令，将会询问你这个密钥存在哪个位置。我们建议你直接回车让它存储在默认位置($HOME/.ssh/id_rsa)。
 
-Now you should see the files ```id_rsa``` and ```id_rsa.pub``` in your ```.ssh``` directory in your home folder:
+
+现在你可以看到这些文件 ```id_rsa``` 和 ```id_rsa.pub``` 在你的 电脑主目录文件夹下的```.ssh``` 文件夹里:
 
 <div class="host-code"></div>
 
@@ -116,10 +116,10 @@ ls ~/.ssh
 authorized_keys  id_rsa  id_rsa.pub  known_hosts
 ```
 
-The ```id_rsa``` file is your private key. Keep this on the development computer.
-The ```id_rsa.pub``` file is your public key. This is what you put on the targets you want to connect to.
+这 ```id_rsa``` 文件是你的私人密钥. 让它保存在开发主机电脑上.
+这 ```id_rsa.pub``` 文件是你的公共密钥. This is what you put on the targets you want to connect to.
 
-To copy your public key to your Raspberry Pi, use the following command to append the public key to your authorized_keys file on the Pi, sending it over SSH:
+把你的公共密钥复制到你的树莓派上，使用下面的命令来将你的公共密钥添加到树莓派上的密钥授权文件里。sending it over SSH:
 
 <div class="host-code"></div>
 
@@ -127,11 +127,11 @@ To copy your public key to your Raspberry Pi, use the following command to appen
 cat ~/.ssh/id_rsa.pub | ssh pi@px4autopilot 'cat >> .ssh/authorized_keys'
 ```
 
-Note that this time you will have to authenticate with your password ("raspberry" by default).
+注意：这一次你将通过密码的方式进行身份验证(默认是"raspberry").
 
-Now try ```ssh pi@px4autopilot``` and you should connect without a password prompt.
+现在尝试使用 ```ssh pi@px4autopilot``` 连接时没有密码提示.
 
-If you see a message "```Agent admitted failure to sign using the key.```" then add your RSA or DSA identities to the authentication agent, ssh-agent and the execute the following command:
+如果你看到这条信息"```Agent admitted failure to sign using the key.```" 然后加入你的RSA或者DSA认证身份到你的 ssh-agent（密钥管理器），并执行下面的命令：
 
 <div class="host-code"></div>
 
@@ -139,13 +139,13 @@ If you see a message "```Agent admitted failure to sign using the key.```" then 
 ssh-add
 ```
 
-If this did not work, delete your keys with ```rm ~/.ssh/id*``` and follow the instructions again.
+如果它不工作, 使用 ```rm ~/.ssh/id*```这条命令删除你的密钥，然后按照上面的操作重新再做一遍。
 
-### Testing file transfer
+### 测试文件传输
 
-We use SCP to transfer files from the development computer to the target board over a network (WiFi or Ethernet).
+我们使用SCP命令通过网络（wifi或者以太网）从开发主机传输文件到目标板。
 
-To test your setup, try pushing a file from the development PC to the Pi over the network now. Make sure the Pi has network access, and you can SSH into it.
+为了测试你的设置, 现在尝试通过网络从开发主机上推送到树莓派上。确保你的树莓派能正确访问网络，并且你可以使用ssh访问它。
 
 <div class="host-code"></div>
 
@@ -155,14 +155,16 @@ scp hello.txt pi@px4autopilot:/home/pi/
 rm hello.txt
 ```
 
-This should copy over a "hello.txt" file into the home folder of your RPi. Validate that the file was indeed copied, and you can proceed to the next step.
+这是拷贝一个"hello.txt"文件到你树莓派的家目录下（/home/pi）。
+确认这个文件是真的拷贝进去了，你就可以执行下一步了。
 
-### Native builds (optional)
+### 本地构建 (可选)
 
-You can run PX4 builds directly on the Pi if you desire. This is the *native* build.
-The other option is to run builds on a development computer which cross-compiles for the Pi, and pushes the PX4 executable binary directly to the Pi. This is the *cross-compiler* build, and the recommended one for developers due to speed of deployment and ease of use. For cross-compiling setups, you can skip this step.
+如果你想你也可以直接在树莓派上进行PX4的构建。这就是本地构建目标。
 
-The below installation script will automatically update the native build system on the Pi to that required by PX4. Run these commands on the Pi itself!
+其他方法就是通过交叉编译的方式在一台开发主机上为树莓派运行构建可执行目标，然后直接发送PX4可执行二进制文件到树莓派上。推荐使用交叉编译的方法, 因为它可以以加快开发和容易开发。对于使用交叉编译环境，你就可以跳过这一步。
+
+这下面的安装脚本可以自动的在Pi上更新PX4的本地开发环境。在树莓派上运行这些命令。
 
 ```sh
 git clone https://github.com/pixhawk/rpi_toolchain.git
@@ -174,4 +176,3 @@ chmod +x install_native.sh
 ### Building the code
 
 Continue with our [standard build system installation](../1_Getting-Started/linux.md).
-
