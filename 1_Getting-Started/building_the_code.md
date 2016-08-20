@@ -8,7 +8,7 @@ PX4可以在控制台或者图形界面/IDE开发
 
 ![building](../pictures/toolchain/terminal.png)
 
-终端在家目录启动，我们默认去到'~/src/Firmware' 然后，克隆顶层资源库。有经验的开发者可以克隆自己的复制的[资源库](https://help.github.com/articles/fork-a-repo/) 
+终端在Home目录启动，我们默认去到'~/src/Firmware' 然后，克隆顶层资源库。有经验的开发者可以克隆自己的复制的[资源库](https://help.github.com/articles/fork-a-repo/) 
 
 <div class="host-code"></div>
 
