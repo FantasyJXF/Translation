@@ -37,7 +37,7 @@ make px4fmu-v2_default
 
 ![buildfail](../pictures/console/build.PNG)
 
-首次编译结束后可能会出现内存溢出的错误`error:ld returned 1 exit status`，原因是arm-none-eabi版本不对，可以通过下载[4.8.4版本](http://pan.baidu.com/s/1c1QzUU0)，进行解压后复制并替换掉PX4 Toolchain安装目录下Toolchain文件夹内的相应文件即可。
+首次编译结束后可能会出现内存溢出的错误`error:ld returned 1 exit status`，原因是arm-none-eabi 4.7.4版本不对，可以通过下载[4.8.4版本](http://pan.baidu.com/s/1c1QzUU0)，进行解压后复制并替换掉PX4 Toolchain安装目录下Toolchain文件夹内的相应文件即可。
 
 紧接着重新启动控制台并进入Firmware文件夹：
 <div class="host-code"></div>
