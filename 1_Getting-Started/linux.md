@@ -91,9 +91,9 @@ sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf android-too
 
 安装向导将会启动，使用默认设置，一路回车即可。
 
-<aside class="tip">
+
 骁龙的开发者应该在[这里](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tool-request)申请Hexagon 7.2.10 Linux工具链和Hexagon 2.0 SDK for Linux。
-</aside>
+
 
 下载好Hexagon SDK和Hexagon工具链后，clone这个仓库：
 
