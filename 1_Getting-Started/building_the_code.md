@@ -1,4 +1,4 @@
-![](/assets/build.PNG)# 编译px４软件
+# 编译px４软件
 官网英文原文地址：http://dev.px4.io/starting-building.html
 
 PX4可以在控制台或者图形界面/IDE开发
@@ -35,9 +35,18 @@ make px4fmu-v2_default
 
 注意到“make”是一个字符命令编译工具，“px4fmu-v2”是硬件/ardupilot版本，“default”是默认配置，所有的PX4编译目标遵循这个规则。 
 
-![buildfail](../pictures/console/build.PNG)
+首次编译结束后可能会出现内存溢出的错误`error:ld returned 1 exit status`，原因是arm-none-eabi 4.7.4版本不对。
 
-首次编译结束后可能会出现内存溢出的错误`error:ld returned 1 exit status`，原因是arm-none-eabi 4.7.4版本不对，可以通过下载[4.8.4版本](http://pan.baidu.com/s/1c1QzUU0)，进行解压后复制并替换掉PX4 Toolchain安装目录下Toolchain文件夹内的相应文件即可。
+<div class="host-code"></div>
+
+```sh
+collect2.exe:error:ld returned 1 exit status
+make[3]: *** [src/firmware/nuttx/firmware_muttx] Error 1
+make[2]: *** [src/firmware/nuttx/CMakeFiles/firmware_muttx.dir/all] Error 2
+make[1]: *** [all] Error 2
+make: *** [px4fmu-v2_default] Error 2
+```
+这个问题可以通过下载[4.8.4版本](http://pan.baidu.com/s/1c1QzUU0)，进行解压后复制并替换掉PX4 Toolchain安装目录下Toolchain文件夹内的相应文件即可。
 
 紧接着重新启动控制台并进入Firmware文件夹：
 <div class="host-code"></div>
@@ -67,7 +76,7 @@ Scanning dependencies of target build_firmware_px4fmu-v2
 make px4fmu-v2_default upload
 ```
 
-A successful run will end with this output:
+上传成功时输出情况如下：
 
 <div class="host-code"></div>
 
