@@ -100,5 +100,5 @@
    * [ULog文件模式](12_Debugging-and-Advanced-Topics/advanced-ulog-file-format.md)
    * [Licenses](12_Debugging-and-Advanced-Topics/advanced-licenses.md)
 * [软件更新](13_Software_Update/13_software_update_md.md)
-   * [STM32\/BootLoader](13_Software_Update/13_bootloader.md)
+   * [STM32/BootLoader](13_Software_Update/13_bootloader.md)
 
