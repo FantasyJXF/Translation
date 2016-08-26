@@ -161,7 +161,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 3.6-PWM限制状态机              |  Innoecho   |                               |
 | 4-教程                      |    - _ -    |           Tutorials           |
 | 4.1-地面站                   |     范新强    |                            |
-| 4.2-编写应用程序                |   summer    |                               |
+| 4.2-编写应用程序                |   PONY    |                               |
 | 4.3-QGC的视频流               |  积土为山  |                               |
 | 4.4-光流和LiDAR-Lite         |   summer    |                               |
 | 4.5-综合测试                  |   Innoecho   |                               |
@@ -192,7 +192,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 8.3.1-电机映射                | Innoecho  |                               |
 | 8.3.2-QAV 250 Racer       |  Innoecho  |                               |
 | 8.3.3-Matrice 100         |  Innoecho  |                               |
-| 8.3.4-QAV-R               |            |                               |
+| 8.3.4-QAV-R               |  Fantasy  |                               |
 | 8.4-直升机                   | Innoecho  |                               |
 | 8.4.1-Wing Wing Z-84      |  Innoecho  |                               |
 | 8.5-垂直起降飞行器               | Innoecho  |                               |
