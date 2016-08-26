@@ -11,32 +11,34 @@
 
 ## 第一步：文件设置 
 
-To conveniently manage your custom code and pull in updates from the main repository, it is recommended to fork the Firmware repository with the GIT version control system:
+为了更方便的管理你的个人代码和上传更新到原始代码仓库，强烈建议使用fork命令通过GIT版本控制系统得到一个新的PX4固件。
 
-- [Sign up](https://github.com/signup/free) for Github
-- Go to the [Firmware repository website](https://github.com/px4/Firmware/) and click **FORK** on the upper right part.
+-在github(https://github.com/signup/free) 上注册一个账户；
+-登陆px4的固件托管网址(https://github.com/px4/Firmware/)，然后点击右上方的FORK按钮；
 - If you are not already there, open the website of your fork and copy the private repository URL in the center.
-- Clone the repository to your hard drive, e.g. on the command line via `git clone https://github.com/<youraccountname>/Firmware.git`. Windows users please [refer to the Github help](https://help.github.com/articles/set-up-git#platform-windows) and e.g. fork / clone with their Github for Windows app.
+- 点击到你fork后的站点，复制你的私人PX4代码仓库的URL地址。
+- 克隆你的代码仓库到你的硬盘中，在命令行中输入：`git clone https://github.com/<youraccountname>/Firmware.git`。
+  对于windows用户，请参考github帮助中的介绍(https://help.github.com/articles/set-up-git#platform-windows)。例如在github创建的官方应用程序中使用fork/clone命令克隆仓库到本地硬盘中。
 - Update the git submodules: Run in your shell (on Windows in the PX4 console). 
-
+- 更新px4代码包含的git子模块：运行命令行工具（在windows上运行PX4终端）
+- 
 <div class="host-code"></div>
-
 ```sh
 cd Firmware
 git submodule init
 git submodule update --recursive
 ```
 
-Enter the `Firmware/src/examples/` directory on your local hard drive and look at the files in the directory.
+打开你本地硬盘克隆的软件仓库的`Firmware/src/examples/`文件夹，查看里面的文件。
 
-## Step 2: Minimal Application
+## 第二步：创建小型应用程序
 
-Create a new C file named `px4_simple_app.c` in the `px4_simple_app` folder (it will already be present, delete the existing file for the maximum educational effect).
+在`Firmware/src/examples/px4_simple_app`下，创建一个新的C语言文件`px4_simple_app.c`。(该文件已存在，你可以直接删掉它，来完全自主编辑学习。)
 
-Edit it and start with the default header and a main function.
+从默认头文件和main主函数开始，编辑这个文件。
 
 <aside class="tip">
-Note the code style in this file - all contributions to PX4 should adhere to it.
+注意这个文件中的代码风格，所有PX4的软件版本都将遵守这个风格。
 </aside>
 
 ```C
@@ -101,34 +103,32 @@ int px4_simple_app_main(int argc, char *argv[])
 }
 ```
 
-## Step 3: Register the Application in NuttShell and build it
+## 第三步：在NuttShell中注册应用程序，然后编译
 
-The application is now complete and could be run, but it is not registered as NuttShell command yet. To enable the compilation of the application into the firmware, add it to the list of modules to build, which is here: 
-
+现在应用程序已经完成并且能够运行，但还没有注册成NuttShell命令行工具。如果想要将应用程序编译到固件中，将它加到下面的模块编译列表中：
 - Pixhawk v1/2: [Firmware/cmake/configs/nuttx_px4fmu-v2_default.cmake](https://github.com/PX4/Firmware/blob/master/cmake/configs/nuttx_px4fmu-v2_default.cmake)
 - Pixracer: [Firmware/cmake/configs/nuttx_px4fmu-v4_default.cmake](https://github.com/PX4/Firmware/blob/master/cmake/configs/nuttx_px4fmu-v4_default.cmake)
 
-Create a new line for your application somewhere in the file:
-
+在你的应用程序的下面的文件中添加一行：
   `examples/px4_simple_app`
 
-Build it:
+编译它：
 
 - Pixhawk v1/2: `make px4fmu-v2_default`
 - Pixhawk v3: `make px4fmu-v4_default`
 
-## Step 4: Upload and Test the app
+## 第四步：上传并且测试应用程序
 
-Enable the uploader and then reset the board:
+使能uploader然后重置开发板：
 
 - Pixhawk v1/2: `make px4fmu-v2_default upload`
 - Pixhawk v3: `make px4fmu-v4_default upload`
 
-It should print before you reset the board a number of compile messages and at the end:
+在你重置开发板之前，会在后面打印如下的编译信息：
 
   `Loaded firmware for X,X, waiting for the bootloader...`
 
-Once the board is reset, and uploads, it prints:
+一旦开发板重置成功并且应用程序上传成功，打印信息：
 
 <div class="host-code"></div>
 
@@ -141,15 +141,15 @@ Rebooting.
 [100%] Built target upload
 ```
 
-### Connect the console
+### 连接到终端
 
-Now connect to the [system console](../12_Debugging-and-Advanced-Topics/advanced-system-console.md) either via serial or USB. Hitting ENTER will bring up the shell prompt:
+现在通过串口或USB连接到系统命令行终端(../12_Debugging-and-Advanced-Topics/advanced-system-console.md)。点击回车键能打开shell命令行工具：
 
 ```sh
   nsh>
 ```
 
-Type ''help'' and hit ENTER
+输入“help”然后回车
 
 ```sh
   nsh> help
@@ -173,14 +173,14 @@ Type ''help'' and hit ENTER
     serdis
 ```
 
-Note that `px4_simple_app` is now part of the available commands. Start it by typing `px4_simple_app` and ENTER:
+现在‘px4_simple_app’已经是一个可用的命令了。输入`px4_simple_app`命令然后回车：
 
 ```sh
   nsh> px4_simple_app
   Hello Sky!
 ```
 
-The application is now correctly registered with the system and can be extended to actually perform useful tasks.
+现在应用程序已经成功注册到系统中，能够被扩展并且运行一些有用的任务。
 
 ## Step 5: Subscribing Sensor Data
 
