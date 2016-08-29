@@ -5,7 +5,7 @@
 
 ##前提条件
 
-- Pixhawk 或者 Snapdragonhuozhehuozhe兼容的飞控
+- Pixhawk 或者 Snapdragon兼容的自驾仪
 - [安装](../1_Getting-Started/install_toolchain.md)PX4 工具链
 - Github 账号  ([免费注册](https://github.com/signup/free))
 
