@@ -182,13 +182,14 @@ Rebooting.
 
 现在应用程序已经成功注册到系统中，能够被扩展并且运行一些有用的任务。
 
-## Step 5: Subscribing Sensor Data
+## 第五步：读取传感器数据
 
-To to something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands). Note that the *true* hardware abstraction of the PX4 platform comes into play here -- no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
+为了实现一些功能，应用程序需要读取传感器的输入然后反应到对电机或者舵机的输出中。注意在这里，PX平台真正的硬件抽象的概念在这里体现---当硬件平台或者传感器更新，完全不需要更新你的应用程序或者更新传感器驱动程序。
 
-Individual message channels between applications are called *topics* in PX4. For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/topics/sensor_combined.h) [topic](../6_Middleware-and-Architecture/uorb_messaging.md), which holds the synchronized sensor data of the complete system.
 
-Subscribing to a topic is swift and clean:
+在PX4中，应用程序间发送的单独的消息叫做“topics”，在本教程中，我们关心的话题是“多传感器间的uORB消息机制”（[sensor_combined](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/topics/sensor_combined.h) [topic](../6_Mid)）。这些消息机制使得整个系统能够同步传感器数据。
+
+读取一个消息是快速且方便的：
 
 ```C++
 #include <uORB/topics/sensor_combined.h>
@@ -196,9 +197,9 @@ Subscribing to a topic is swift and clean:
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
-The `sensor_sub_fd` is a topic handle and can be used to very efficiently perform a blocking wait for new data. The current thread goes to sleep and is woken up automatically by the scheduler once new data is available, not consuming any CPU cycles while waiting. To do this, we use the (poll())[http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html] POSIX system call.
+“sensor_sub_fd” 是一个消息句柄，能够非常高效的处理新数据的到来之前的延迟等待。当前线程会休眠，直到新的传感器数据到来时，被调度器唤醒，并且在等待时不需要占用任何的CPU时间。为了实现这个功能，我们使用poll()函数[http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html]，即POSIX系统调用。
 
-Adding `poll()` to the subscription looks like (*pseudocode, look for the full implementation below*):
+在消息读取中加入“poll()”机制：
 
 ```C++
 #include <poll.h>
@@ -228,7 +229,7 @@ while (true) {
 }
 ```
 
-Compile the app now by issuing
+编译应用程序：
 
 <div class="host-code"></div>
 
@@ -236,15 +237,15 @@ Compile the app now by issuing
   make
 ```
 
-### Testing the uORB Subscription
+### 第六步：测试uORB消息读取机制
 
-The final step is to start your application as background application.
+最后一步，开始你的应用程序，并且切换到后台应用。
 
 ```
   px4_simple_app &
 ```
 
-Your app will flood the console with the current sensor values:
+你的应用程序会向串口输出当前传感器的值：
 
 ```
   [px4_simple_app] Accelerometer:   0.0483          0.0821          0.0332
@@ -255,13 +256,13 @@ Your app will flood the console with the current sensor values:
   [px4_simple_app] Accelerometer:   0.0489          0.0804          0.0328
 ```
 
-It will exit after printing five values. The next tutorial page will explain how to write a deamon which can be controlled from the commandline.
+它会在输出5次数据后退出。下一篇教程中会介绍如何编写一个能通过命令行控制的后台应用。
 
-## Step 7: Publishing Data
+## 第七部：打印数据
 
-To use the calculated outputs, the next step is to *publish* the results. If we use a topic from which we know that the ''mavlink'' app forwards it to the ground control station, we can even look at the results. Let's hijack the attitude topic for this purpose.
+为了能获取到计算后的数据，下一步就是“打印”这些结果。如果我们知道某一个消息是使用mavlink协议转发给地面控制站的，我们就可以通过这个消息去查看结果。例如我们通过这个方法来获得高度信息的消息。
 
-The interface is pretty simple: Initialize the struct of the topic to be published and advertise the topic:
+接口非常简单:初始化消息的结构体，然后广播这条消息：
 
 ```C
 #include <uORB/topics/vehicle_attitude.h>
@@ -272,13 +273,12 @@ memset(&att, 0, sizeof(att));
 orb_advert_t att_pub_fd = orb_advertise(ORB_ID(vehicle_attitude), &att);
 ```
 
-In the main loop, publish the information whenever its ready:
+在主循环中，当消息准备好时，打印这条消息。
 
 ```C
 orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 ```
-
-The modified complete example code is now:
+修改后的完整的示例代码如下：
 
 ```C
 #include <px4_config.h>
@@ -367,16 +367,16 @@ int px4_simple_app_main(int argc, char *argv[])
 }
 ```
 
-## Running the final example
+## 第八步：运行整个示例
 
-And finally run your app:
+运行你的应用程序：
 
 ```sh
   px4_simple_app
 ```
-
+如果打开QGroundControl，你就能通过实时绘图程序(Tools -> Analyze)来获得实时的传感器数据。
 If you start QGroundControl, you can check the sensor values in the realtime plot (Tools -> Analyze)
 
-## Wrap-Up
+## 小结
 
-This tutorial covered everything needed to develop a "grown up" PX4 autopilot application. Keep in mind that the full list of uORB messages / topics is [available here](https://github.com/PX4/Firmware/tree/master/msg/) and that the headers are well documented and serve as reference.
+这个教程包含了所有开发一个PX4应用程序需要的东西。关于uORB消息机制的详细信息参见(https://github.com/PX4/Firmware/tree/master/msg/) 。所有的头文件都已经良好的注释作为参考。
