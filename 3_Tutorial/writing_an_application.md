@@ -6,19 +6,19 @@
 ##前提条件
 
 - Pixhawk 或者 Snapdragonhuozhehuozhe兼容的飞控
-- PX4 工具链 [installed](../1_Getting-Started/install_toolchain.md)
-- Github 账号  ([sign up for free](https://github.com/signup/free))
+- [安装](../1_Getting-Started/install_toolchain.md)PX4 工具链
+- Github 账号  ([免费注册](https://github.com/signup/free))
 
 ## 第一步：文件设置 
 
 为了更方便的管理你的个人代码和上传更新到原始代码仓库，强烈建议使用fork命令通过GIT版本控制系统得到一个新的PX4固件。
 
--在github(https://github.com/signup/free) 上注册一个账户；
--登陆px4的固件托管网址(https://github.com/px4/Firmware/)，然后点击右上方的FORK按钮；
+-在github上[注册]((https://github.com/signup/free) )一个账户；
+-登陆[px4的固件托管网址](https://github.com/px4/Firmware/)，然后点击右上方的**FORK**按钮；
 - If you are not already there, open the website of your fork and copy the private repository URL in the center.
 - 点击到你fork后的站点，复制你的私人PX4代码仓库的URL地址。
 - 克隆你的代码仓库到你的硬盘中，在命令行中输入：`git clone https://github.com/<youraccountname>/Firmware.git`。
-  对于windows用户，请参考github帮助中的介绍(https://help.github.com/articles/set-up-git#platform-windows)。例如在github创建的官方应用程序中使用fork/clone命令克隆仓库到本地硬盘中。
+  对于windows用户，请参考[github帮助](https://help.github.com/articles/set-up-git#platform-windows)中的介绍。例如在github创建的官方应用程序中使用fork/clone命令克隆仓库到本地硬盘中。
 - Update the git submodules: Run in your shell (on Windows in the PX4 console). 
 - 更新px4代码包含的git子模块：运行命令行工具（在windows上运行PX4终端）
 - 
@@ -143,7 +143,7 @@ Rebooting.
 
 ### 连接到终端
 
-现在通过串口或USB连接到系统命令行终端(../12_Debugging-and-Advanced-Topics/advanced-system-console.md)。点击回车键能打开shell命令行工具：
+现在通过串口或USB连接到[系统命令行终端](../12_Debugging-and-Advanced-Topics/advanced-system-console.md)。点击回车键能打开shell命令行工具：
 
 ```sh
   nsh>
@@ -184,7 +184,7 @@ Rebooting.
 
 ## 第五步：读取传感器数据
 
-为了实现一些功能，应用程序需要读取传感器的输入然后反应到对电机或者舵机的输出中。注意在这里，PX平台真正的硬件抽象的概念在这里体现---当硬件平台或者传感器更新，完全不需要更新你的应用程序或者更新传感器驱动程序。
+> 为了实现一些功能，应用程序需要读取传感器的输入然后反应到对电机或者舵机的输出中。注意在这里，PX平台真正的硬件抽象的概念在这里体现---当硬件平台或者传感器更新，完全不需要更新你的应用程序或者更新传感器驱动程序。
 
 
 在PX4中，应用程序间发送的单独的消息叫做“topics”，在本教程中，我们关心的话题是“多传感器间的uORB消息机制”（[sensor_combined](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/topics/sensor_combined.h) [topic](../6_Mid)）。这些消息机制使得整个系统能够同步传感器数据。
