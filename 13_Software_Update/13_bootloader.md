@@ -63,9 +63,11 @@ If this error message occurs: `Error erasing flash with vFlashErase packet`
 
 Disconnect the target (while leaving JTAG connected) and run
 
-```mon tpwr disable
+```
+mon tpwr disable
 swdp_scan
 attach 1
-load tapv1_bl.elf```
+load tapv1_bl.elf
+```
 
 This will disable target powering and attempt another flash cycle.
