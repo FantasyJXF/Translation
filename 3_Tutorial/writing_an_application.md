@@ -13,15 +13,13 @@
 
 为了更方便的管理你的个人代码和上传更新到原始代码仓库，强烈建议使用fork命令通过GIT版本控制系统得到一个新的PX4固件。
 
--在github上[注册]((https://github.com/signup/free) )一个账户；
--登陆[px4的固件托管网址](https://github.com/px4/Firmware/)，然后点击右上方的**FORK**按钮；
-- If you are not already there, open the website of your fork and copy the private repository URL in the center.
+- 在github上[注册](https://github.com/signup/free )一个账户；
+- 登陆[px4的固件托管网址](https://github.com/px4/Firmware/)，然后点击右上方的**FORK**按钮；
 - 点击到你fork后的站点，复制你的私人PX4代码仓库的URL地址。
 - 克隆你的代码仓库到你的硬盘中，在命令行中输入：`git clone https://github.com/<youraccountname>/Firmware.git`。
   对于windows用户，请参考[github帮助](https://help.github.com/articles/set-up-git#platform-windows)中的介绍。例如在github创建的官方应用程序中使用fork/clone命令克隆仓库到本地硬盘中。
-- Update the git submodules: Run in your shell (on Windows in the PX4 console). 
 - 更新px4代码包含的git子模块：运行命令行工具（在windows上运行PX4终端）
-- 
+
 <div class="host-code"></div>
 ```sh
 cd Firmware
@@ -379,4 +377,4 @@ If you start QGroundControl, you can check the sensor values in the realtime plo
 
 ## 小结
 
-这个教程包含了所有开发一个PX4应用程序需要的东西。关于uORB消息机制的详细信息参见(https://github.com/PX4/Firmware/tree/master/msg/) 。所有的头文件都已经良好的注释作为参考。
+这个教程包含了所有开发一个PX4应用程序需要的东西。关于uORB消息机制的详细信息参见可以从[这里]((https://github.com/PX4/Firmware/tree/master/msg/))获得 。所有的头文件都已经良好的注释作为参考。
