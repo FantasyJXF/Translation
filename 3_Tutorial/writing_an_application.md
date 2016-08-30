@@ -1,4 +1,4 @@
-# First App Tutorial (Hello Sky)
+# 第一个应用程序教程(Hello Sky)
 官网英文原文地址：http://dev.px4.io/tutorial-hello-sky.html
 
 本教程详细解释了如何创建一个新的板载应用程序，以及如何运行它。
@@ -16,17 +16,19 @@
 - 在github上[注册](https://github.com/signup/free )一个账户；
 - 登陆[px4的固件托管网址](https://github.com/px4/Firmware/)，然后点击右上方的**FORK**按钮；
 - 点击到你fork后的站点，复制你的私人PX4代码仓库的URL地址。
-- 克隆你的代码仓库到你的硬盘中，在命令行中输入：`git clone https://github.com/<youraccountname>/Firmware.git`。
+- 克隆你的代码仓库到你的硬盘中，在命令行中输入：
+  `git clone https://github.com/<youraccountname>/Firmware.git`
   对于windows用户，请参考[github帮助](https://help.github.com/articles/set-up-git#platform-windows)中的介绍。例如在github创建的官方应用程序中使用fork/clone命令克隆仓库到本地硬盘中。
 - 更新px4代码包含的git子模块：运行命令行工具（在windows上运行PX4终端）
 
 
 ```
 cd Firmware
+
 git submodule init
+
 git submodule update --recursive
 ```
-
 
 
 打开你本地硬盘克隆的软件仓库的`Firmware/src/examples/`文件夹，查看里面的文件。
