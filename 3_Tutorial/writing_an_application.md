@@ -21,9 +21,11 @@
 - 更新px4代码包含的git子模块：运行命令行工具（在windows上运行PX4终端）
 
 
-```cd Firmware
+```
+cd Firmware
 git submodule init
-git submodule update --recursive```
+git submodule update --recursive
+```
 
 
 
