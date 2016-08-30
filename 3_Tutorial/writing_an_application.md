@@ -29,15 +29,18 @@ git submodule update --recursive
 
 打开你本地硬盘克隆的软件仓库的`Firmware/src/examples/`文件夹，查看里面的文件。
 
+
 ## 第二步：创建小型应用程序
+
 
 在`Firmware/src/examples/px4_simple_app`下，创建一个新的C语言文件`px4_simple_app.c`。(该文件已存在，你可以直接删掉它，来完全自主编辑学习。)
 
+
 从默认头文件和main主函数开始，编辑这个文件。
 
-<aside class="tip">
-注意这个文件中的代码风格，所有PX4的软件版本都将遵守这个风格。
-</aside>
+
+> 注意这个文件中的代码风格，所有PX4的软件版本都将遵守这个风格。
+
 
 ```C
 /****************************************************************************
@@ -101,19 +104,27 @@ int px4_simple_app_main(int argc, char *argv[])
 }
 ```
 
+
 ## 第三步：在NuttShell中注册应用程序，然后编译
 
 现在应用程序已经完成并且能够运行，但还没有注册成NuttShell命令行工具。如果想要将应用程序编译到固件中，将它加到下面的模块编译列表中：
+
 - Pixhawk v1/2: [Firmware/cmake/configs/nuttx_px4fmu-v2_default.cmake](https://github.com/PX4/Firmware/blob/master/cmake/configs/nuttx_px4fmu-v2_default.cmake)
+
 - Pixracer: [Firmware/cmake/configs/nuttx_px4fmu-v4_default.cmake](https://github.com/PX4/Firmware/blob/master/cmake/configs/nuttx_px4fmu-v4_default.cmake)
 
+
 在你的应用程序的下面的文件中添加一行：
+ 
   `examples/px4_simple_app`
+
 
 编译它：
 
+
 - Pixhawk v1/2: `make px4fmu-v2_default`
 - Pixhawk v3: `make px4fmu-v4_default`
+
 
 ## 第四步：上传并且测试应用程序
 
