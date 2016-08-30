@@ -1,16 +1,11 @@
-# **Optical Flow on the Snapdragon Flight**
+# **在骁龙飞行的光流**
 官网英文原文地址：http://dev.px4.io/optical_flow.html
 
-The Snapdragon Flight board has a downward facing gray-scale camera which can be used for optical flow based position stabilization.
+骁龙飞行板有向下的灰度摄像头可用于基于位置稳定的光流。除了一个摄像头，光流需要一个向下的面对距离传感器。这里的teraranger一讨论使用。
 
-Besides a camera, optical flow requires a downward facing distance sensor. Here, the use of the TeraRanger One is discussed.
+## **TeraRanger的安装程序 **
 
-## **TeraRanger One setup**
-
-To connect the TeraRanger One \(TROne\) to the Snapdragon Flight, the TROne I2C adapter must be used. The TROne must be flashed with the I2C firmware by the vendor.
-
-The TROne is connected to the Snapdragon Flight through a custom DF13 4-to-6 pin cable. The wiring is as follows:
-
+连接teraranger人（特朗\）的骁龙飞行的特朗I2C适配器必须使用。在特朗必须亮出与供应商的I2C固件。这不是通过自定义DF134-to-6引脚连接电缆的骁龙飞行。该接线如下： 
 | **4 pin** | **&lt;-&gt;** | **6 pin** |
 | :--- | :--- | :--- |
 | 1 |  | 1 |
@@ -18,19 +13,18 @@ The TROne is connected to the Snapdragon Flight through a custom DF13 4-to-6 pin
 | 3 |  | 4 |
 | 4 |  | 5 |
 
-The TROne must be powered with 10 - 20V.
+特朗所需电压10——20V。
 
-## **Optical flow**
+## **光流**
+光流计算的应用处理器，通过Mavlink送到PX4。克隆和编译[卡\ _cam ]（https://github.com/px4/snap_cam）据其自述说明回购。
 
-The optical flow is computed on the application processor and sent to PX4 through Mavlink. Clone and compile the [snap\_cam](https://github.com/PX4/snap_cam) repo according to the instructions in its readme.
-
-Run the optical flow application as root:
+以光流应用程序作为根：
 
 ```
 optical_flow -n 50 -f 30
 ```
 
-The optical flow application requres IMU Mavlink messages from PX4. You may have to add an additional Mavlink instance to PX4 by adding the following to your \` mainapp.config \`:
+光流应用要求IMU mavlink消息从PX4。您可能需要添加一个额外的mavlink实例PX4通过添加以下内容到你的\` mainapp.config \`:
 
 ```
 mavlink start -u 14557 -r 1000000 -t 127.0.0.1 -o 14558
