@@ -20,12 +20,12 @@
   对于windows用户，请参考[github帮助](https://help.github.com/articles/set-up-git#platform-windows)中的介绍。例如在github创建的官方应用程序中使用fork/clone命令克隆仓库到本地硬盘中。
 - 更新px4代码包含的git子模块：运行命令行工具（在windows上运行PX4终端）
 
-<div class="host-code"></div>
-```sh
-cd Firmware
+
+```cd Firmware
 git submodule init
-git submodule update --recursive
-```
+git submodule update --recursive```
+
+
 
 打开你本地硬盘克隆的软件仓库的`Firmware/src/examples/`文件夹，查看里面的文件。
 
