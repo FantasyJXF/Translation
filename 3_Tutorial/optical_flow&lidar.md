@@ -1,53 +1,53 @@
-# Optical flow and LIDAR-Lite
+# 光流传感器和激光雷达传感器
 
 官网英文原文地址：http://dev.px4.io/flow_lidar_setup.html
 
-This page shows you how to set up the PX4Flow and a LIDAR-Lite for position estimation in the INAV position estimator. A short video demonstrating a position hold can be seen here:
+本页展示了如何在INAV位置估计中设置PX4FLOW光流传感器和LIDAR-Liter激光雷达传感器。如下是一个定位的验证小视频。
 
-* [indoor](http://7xvob5.com2.z0.glb.qiniucdn.com/Pixhawk%20PX4Flow%20indoor%20demo.mp4) 
-* [outdoor](http://7xvob5.com2.z0.glb.qiniucdn.com/Pixhawk%20PX4Flow%20outdoor%20demo.mp4)
+* [室内](http://7xvob5.com2.z0.glb.qiniucdn.com/Pixhawk%20PX4Flow%20indoor%20demo.mp4) 
+* [室外](http://7xvob5.com2.z0.glb.qiniucdn.com/Pixhawk%20PX4Flow%20outdoor%20demo.mp4)
 
-  ![px4flow](../pictures/hardware\px4flow.png)
-  ![lidarlite](../pictures/hardware\lidarlite.png)
+  ![光流](../pictures/hardware\px4flow.png)
+  ![激光雷达](../pictures/hardware\lidarlite.png)
 
 
-## Hardware
+## 硬件
 
-The PX4Flow has to point towards the ground and can be connected using the I2C port on the pixhawk.
-For the connection of the LIDAR-Lite please refer to [this](https://pixhawk.org/peripherals/rangefinder?s[]=lidar) page.
-For best performance make sure the PX4Flow is attached at a good position and is not exposed to vibration. \(preferably on the down side of the quad-rotor\).
+PX4Flow光流传感器必须指向地面，并且可以使用I2C口连接到pixhawk。
+
+关于LIDAR-Liter激光雷达传感器的连接，请查看页面[this](https://pixhawk.org/peripherals/rangefinder?s[]=lidar).
+为了得到最好的性能，请保持PX4Flow光流传感器在一个良好的位置并且不要有太大的震动。（最好在四旋翼飞行器的下方且朝向地面）
 
 ![flow_lidar_attached](../pictures/hardware\flow_lidar_attached.jpg)
 
-## Parameters
+## 参数
 
-All the parameters can be changed in QGroundControl
+所有的参数都能通过QGroundControl地面站进行修改
 
 * SENS\_EN\_LL40LS
-  Set to 1 to enable lidar-lite distance measurements
+  设置为1来启用激光雷达距离测量
 
 * INAV\_LIDAR\_EST
-  Set to 1 to enable altitude estimation based on distance measurements
+  设置为1来启用基于距离测量的高度估计。
 
 * INAV\_FLOW\_DIST\_X and INAV\_FLOW\_DIST\_Y
-  These two values \(in meters\) are used for yaw compensation.
-  The offset has to be measured according to the following figure:
+  这两个参数（单位：米）被用来作偏航角度的补偿。
+  补偿的偏移量参考下面的图例。
    ![flowing](../pictures/hardware\px4flow_offset.png)
 
 * ​
-
-  In the above example the offset of the PX4Flow \(red dot\) would have a negative X offset and a negative Y offset.
+  上面的例子中，光流传感器的安装位置会产生一个正向的X轴的偏移和一个正向的Y轴的偏移。
 
 * INAV\_LIDAR\_OFF
-  Set a calibration offset for the lidar-lite in meters. The value will be added to the measured distance.
+  是指激光雷达高度的一个振动偏移量（单位/米），这个数值会被加入到激光定高传感器的距离测量中。
 
 
-## Advanced
+## 高级用户
 
-For advanced usage\/development the following parameters can be changed as well. Do NOT change them if you do not know what you are doing!
+对于高级用户，下面的参数也可以进行修改。但在你了解它们的用法前，不要修改它们。
 
 * INAV\_FLOW\_W
-  Sets the weight for the flow estimation\/update
+  是指光流的位置估计对整个姿态估计的权重。
 * INAV\_LIDAR\_ERR
-  Sets the threshold for altitude estimation\/update in meters. If the correction term is bigger than this value, it will not be used for the update.
+  设置高度估计的门限值，如果测量结果值高于这个值，测量结果会被舍弃。
 
