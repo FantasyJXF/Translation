@@ -1,11 +1,11 @@
-# **骁龙Flight的光流**
+# 骁龙Flight的光流
 官网英文原文地址：http://dev.px4.io/optical_flow.html
 
 骁龙Flight有一个向下的灰度摄像头可用于实现基于光流的定位。
 
 除了一个摄像头，光流还需要一个向下的距离传感器.这里讨论关于TeraRanger One的使用。
 
-## **安装TeraRanger One **
+## 安装TeraRanger One 
 
 为了将TeraRanger One(TROne)连接到骁龙Flight上，必须使用TROne I2C适配器。 TROne必须先由供应商刷好I2C固件。
 
@@ -19,7 +19,7 @@ TROne通过一根定制的DF13 4转6接口线与骁龙Flight连接。线序如�
 
 TROne必须用10-20V的电压供电。
 
-## **光流**
+## 光流
 光流获取的数据在应用处理器上进行计算并通过Mavlink传到PX4中。从GitHub上克隆[snap_cam]（https://github.com/px4/snap_cam）仓库的固件并根据README文件中的教程完成编译。
 
 运行光流的应用程序来root：
