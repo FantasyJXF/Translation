@@ -21,7 +21,7 @@ TROne通过一根定制的DF13 4转6接口线与骁龙Flight连接。线序如�
 TROne必须用10-20V的电压供电。
 
 ## 光流
-光流获取的数据在应用处理器上进行计算并通过Mavlink传到PX4中。从GitHub上克隆[snap_cam]（https://github.com/px4/snap_cam）仓库的固件并根据README文件中的教程完成编译。
+光流获取的数据在应用处理器上进行计算并通过Mavlink传到PX4中。从GitHub上克隆[snap_cam](https://github.com/px4/snap_cam)仓库的固件并根据README文件中的教程完成编译。
 
 运行光流的程序来root：
 
