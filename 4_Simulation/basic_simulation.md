@@ -76,9 +76,9 @@ make broadcast jmavsim
 为了扩展或自定义仿真界面，可以编辑 `Tools/jMAVSim`文件夹下的文件。能够通过 Github上的[jMAVSim repository](https://github.com/px4/jMAVSim)取得原码.
 
 <aside class="note">
->**通知：**建立系统的执行正确的模块来检测依赖项 ，包括模拟器. 它不会覆盖目录中的文件的更改, 然而, 当这些改变是继承了需要在固件中重新获得新的HASH协议注册的子模块. 这样做, `git add Tools/jMAVSim` 和继承修改. 这将更新模拟器的 GIT hash.
+>**通知：**建立系统的执行正确的模块来检测依赖项，包括仿真器.它不会覆盖目录中的文件的更改, 然而, 当这些改变是继承了需要在固件中重新获得新的HASH协议注册的子模块. 这样做, `git add Tools/jMAVSim` 和继承修改. 这将更新模拟器的 GIT hash.
 </aside>
 
-## Interfacing to ROS
+## 连接ROS
 
-模拟能够 [interfaced to ROS](../4_Simulation/interfacingto_ros.md) 同样的方式像车载真车一样 .
+这个仿真能够[连接到ROS上](../4_Simulation/interfacingto_ros.md)，其方法与将一个搭载真实的飞行器的板子连接到ROS上相同。
