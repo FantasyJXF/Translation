@@ -1,18 +1,16 @@
-# 基本仿真
+# 软件在环仿真 (SITL) 
 
-# 循环仿真软件 (SITL) 
-
-循环仿真软件运行在主机上的完整的系统并模拟自动驾驶仪。它通过本地网络连接到模拟器。 设置看起来像这样 
-
+软件在环仿真是在主机上运行一个完整的系统并模拟自驾仪。它通过本地网络连接到仿真器。 设置成如下的形式：
 
 {% mermaid %}
 graph LR;
   Simulator-->MAVLink;
   MAVLink-->SITL;
 {% endmermaid %}
-## 运行循环仿真软件 SITL
 
-在确保[模拟必备条件](../1_Getting-Started/install_toolchain.md) 已经安装在系统上, 刚刚推出 : 使方便目标将编译在POSIX主机建立和运行仿真 .
+## 运行SITL
+
+在确保[仿真必备条件](../1_Getting-Started/install_toolchain.md) 已经安装在系统上之后, 就可以直接启动 : 使用便捷的`make target`可以编译POSIX的主构建，并运行仿真 .
 
 <div class="host-code"></div>
 
@@ -20,7 +18,7 @@ graph LR;
 make posix_sitl_default jmavsim
 ```
 
-这将提到PX4 shell:
+这将启动PX4 shell:
 
 ```sh
 [init] shell id: 140735313310464
@@ -39,30 +37,31 @@ Ready to fly.
 pxh>
 ```
 
-## 重要文件
+## 重要的文件
 
-- 启动脚本文件是在 [posix-configs/SITL/init](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL/init) 文件夹和名叫 `rcS_SIM_AIRFRAME`, 默认是 `rcS_jmavsim_iris`.
-- 系统启动文件 (相当于 `/` 认为这) 位于生成内部的目录 : `build_posix_sitl_default/src/firmware/posix/rootfs/`
+- 启动脚本文件在 [posix-configs/SITL/init](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL/init) 文件夹中并被命名为`rcS_SIM_AIRFRAME`, 默认是 `rcS_jmavsim_iris`.
+- 系统启动文件 (相当于 `/` 被视为) 位于构建文件夹内部 : `build_posix_sitl_default/src/firmware/posix/rootfs/`
 
-## 带着它去空中
+## 起飞
 
-在一个带3D图像的窗口的 [jMAVSim](http://github.com/PX4/jMAVSim.git)模拟器:
+添加一个带[jMAVSim](http://github.com/PX4/jMAVSim.git)仿真器的3D视觉窗口：
 
  ![jmavsim](../pictures/sim\jmavsim.png)
-一旦完成初始化，该系统将登载原点 (`telem> home: 55.7533950, 37.6254270, -0.00`). 你能够通过输入，验证命令在空中生效：
+
+一旦完成初始化，该系统将打印home的位置 (`telem> home: 55.7533950, 37.6254270, -0.00`). 你能够通过输入以下指令让其起飞：
 
 ```sh
 pxh> commander takeoff
 ```
 
 > <aside class="tip">
-> 可通过地面站(QGC)支持操纵杆或拇指操纵杆 . 要使用手动输入，把系统打在手动飞行模式  (e.g. POSCTL, 位置控制). 从地面站QGC参考菜单启动拇指操纵杆。
+> 提示：地面站(QGC)支持虚拟操纵杆或拇指操纵杆。要使用手动输入，把系统打在手动飞行模式(e.g. POSCTL, 位置控制)。从地面站QGC参考菜单启动拇指操纵杆。
 > </aside>
 >
 
-## 模拟一个Wifi无人机
+## Wifi无人机的仿真
 
-用一个特殊的目标来模拟无人机通过局域网WiFi连接 :
+现有一个特殊的任务：对通过局域网WiFi连接的无人机进行仿真
 
 <div class="host-code"></div>
 
@@ -70,14 +69,14 @@ pxh> commander takeoff
 make broadcast jmavsim
 ```
 
-模拟器在本地网络的他的地址上传输就像一个真无人机所能做的一样。
+如同一个真正的无人机会做的一样，仿真器也会广播无人机在局域网中的地址
 
 ## 扩展和自定义
 
-扩展或自定义仿真界面 , 编辑文件在 `Tools/jMAVSim` 文件夹。代码能够通过 [jMAVSim repository](https://github.com/px4/jMAVSim)  Github网取得原码.
+为了扩展或自定义仿真界面，可以编辑 `Tools/jMAVSim`文件夹下的文件。能够通过 Github上的[jMAVSim repository](https://github.com/px4/jMAVSim)取得原码.
 
 <aside class="note">
-建立系统的执行正确的模块来检测依赖项 ，包括模拟器. 它不会覆盖目录中的文件的更改, 然而, 当这些改变是继承了需要在固件中重新获得新的HASH协议注册的子模块. 这样做, `git add Tools/jMAVSim` 和继承修改. 这将更新模拟器的 GIT hash.
+>**通知：**建立系统的执行正确的模块来检测依赖项 ，包括模拟器. 它不会覆盖目录中的文件的更改, 然而, 当这些改变是继承了需要在固件中重新获得新的HASH协议注册的子模块. 这样做, `git add Tools/jMAVSim` 和继承修改. 这将更新模拟器的 GIT hash.
 </aside>
 
 ## Interfacing to ROS
