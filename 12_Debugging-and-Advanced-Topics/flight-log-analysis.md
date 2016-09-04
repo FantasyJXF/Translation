@@ -1,86 +1,77 @@
-\# 飞行日志分析
+# 飞行日志分析
 
-There are several software packages that exist to analyze PX4 flight logs. They are described below.
+官网英文原文地址：http://dev.px4.io/flight_log_analysis.html
 
 这里有几个分析PX4飞行日志的软件，描述如下：
 
-\#\# \[Log Muncher\]\(http:\/\/logs.uaventure.com\)
+## [Log Muncher](http://logs.uaventure.com/)
 
-\#\#\# 上传
+### 上传
 
-用户可直接访问网站并直接上传log: \[http:\/\/logs.uaventure.com\/\]
+用户可直接访问网站并直接上传log: http://logs.uaventure.com
 
-!\[logmuncher\]\(..\/pictures\/log\/logmuncher.png\)
+![logmuncher](../pictures/log/logmuncher.png)
 
-\#\#\# 结果
+### 结果
 
-!\[multirotor\]\(..\/pictures\/log\/log-muncher-result.png\)
+![multirotor](../pictures/log/log-muncher-result.png)
 
-\[Example Log\]\(http:\/\/logs.uaventure.com\/view\/KwTFDaheRueMNmFRJQ3huH\)
+[Example Log](http://logs.uaventure.com/view/KwTFDaheRueMNmFRJQ3huH)
 
-\#\#\# 优点
+### 优点
 
-\* web based, great for end-users
+* 基于网页，便于终端用户
 
-\* 基于网页，便于终端用户
+* 用户可以上传并和别人分享
 
-\* user can upload load and then share report with others
+### 缺点
 
-\* 用户可以上传并和别人分享
+* 分析非常有限，没有定制功能
 
-\#\#\# 缺点
+## [FlightPlot](https://github.com/DrTon/FlightPlot)
 
-\* 分析非常有限，没有定制功能
+![floghtplot](../pictures/log/flightplot.png)
 
-\#\# \[FlightPlot\]\(https:\/\/github.com\/DrTon\/FlightPlot\)
+### 优点
 
-!\[floghtplot\]\(..\/pictures\/log\/flightplot.png\)
 
-\#\#\# 优点
+* 基于JAVA,跨平台
 
-\* java based, cross-platform
+* 直观的用户界面，没有编程知识的要求
 
-\* 基于JAVA,跨平台
+### 缺点
 
-\* intuitive GUI, no programming knowledge required
+* analysis constrained by what features have been built-in
 
-\* 直观的用户界面，没有编程知识的要求
+* 分析受限于系统内置的一些特性
 
-\#\#\# 缺点
+## [PX4Tools](https://github.com/dronecrew/px4tools)
 
-\* analysis constrained by what features have been built-in
+![tools](../pictures/log/px4tools.png)
 
-\* 功能已经内置分析受限
+### 安装
 
-\#\# \[PX4Tools\]\(https:\/\/github.com\/dronecrew\/px4tools\)
+* 建议的方法是使用anaconda3. 详情见 [px4tools github page](https://github.com/dronecrew/px4tools) .
 
-!\[tools\]\(..\/pictures\/log\/px4tools.png\)
+```bash
 
-\#\#\# 安装
+conda install -c https://conda.anaconda.org/dronecrew px4tools
 
-\* 建议的方法是使用anaconda3. 详情见 \[px4tools github page\]\(https:\/\/github.com\/dronecrew\/px4tools\) .
+```
 
- .
+### 优点
 
-\`\`\`bash
+* 便于分享，用户可以查看笔记在github(e.g. [https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb))
 
-conda install -c https:\/\/conda.anaconda.org\/dronecrew px4tools
+* 基于python,跨平台，产品有anaconda 2 and anaconda3
 
-\`\`\`
+* ipython/ jupyter 笔记容易分享和分析
 
-\#\#\# 优点
+* 高级绘图能力允许做细节的分析
 
-\* 便于分享，用户可以查看笔记在github\(e.g. \[https:\/\/github.com\/jgoppert\/lpe-analysis\/blob\/master\/15-09-30%20Kabir%20Log.ipynb\]\(https:\/\/github.com\/jgoppert\/lpe-analysis\/blob\/master\/15-09-30%20Kabir%20Log.ipynb\)\)
+### 缺点
 
-\* 基于python,跨平台，产品有anaconda 2 and anaconda3
+* 要求用户懂python
 
-\* ipython\/ jupyter 笔记容易分享和分析
-
-\* 高级绘图能力允许做细节的分析
-
-\#\#\# 缺点
-
-\* 要求用户懂python
-
-\* 目前要求用户在使用之前将log文件转化为csv文件
+* 目前要求用户在使用之前将log文件转化为csv文件
 
