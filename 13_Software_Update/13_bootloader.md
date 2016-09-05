@@ -34,8 +34,8 @@ make
 
 ## 使用正确的串口
 
-* On LINUX: `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
-* On MAC OS: Make sure to use the cu.xxx port, not the tty.xxx port: `tar ext /dev/tty.usbmodemDDEasdf`
+* LINUX: `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
+* MAC OS: 确认使用的是xxx口而不是tty.xxx口: `tar ext /dev/tty.usbmodemDDEasdf`
 
 ```
 arm-none-eabi-gdb
@@ -50,13 +50,13 @@ arm-none-eabi-gdb
   (gdb) kill
 ```
 
-## Troubleshooting
+## 故障检测
 
-If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated. Upgrade the on-probe software first.+
+如果上述任意一条指令没有找到，要么你就是没有使用Blackmagic探针，或者是软件过时了。首先尝试升级探针软件。
 
-If this error message occurs: `Error erasing flash with vFlashErase packet`
+如果出现这个错误： `Error erasing flash with vFlashErase packet`
 
-Disconnect the target \(while leaving JTAG connected\) and run
+断开目标连接（同时让JTAG保持连接），进而运行下列指令
 
 ```
 mon tpwr disable
@@ -65,5 +65,5 @@ attach 1
 load tapv1_bl.elf
 ```
 
-This will disable target powering and attempt another flash cycle.
+此举将禁用目标连接的电源并尝试另一个刷写循环。
 
