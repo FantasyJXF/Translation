@@ -1,42 +1,38 @@
 # STM32 BootLoader
 
+官网英文原文地址：http:\/\/dev.px4.io\/stm32\_bootloader.html
 
-The code for the PX4 bootloader is available from the Github [Bootloader](https://github.com/px4/bootloader)repository.
+PX4 bootloader的代码在Github的 [Bootloader](https://github.com/px4/bootloader) 仓库。
 
-## Supported Boards
+## 支持的飞控板
 
+* FMUv1 \(PX4FMU, STM32F4\)
+* FMUv2 \(Pixhawk 1, STM32F4\)
+* FMUv3 \(Pixhawk 2, STM32F4\)
+* FMUv4 \(Pixracer 3 和 Pixhawk 3 Pro, STM32F4\)
+* FMUv5 \(Pixhawk 4, STM32F7\)
+* TAPv1 \(TBA, STM32F4\)
+* ASCv1 \(TBA, STM32F4\)
 
-* FMUv1 (PX4FMU, STM32F4)
-* FMUv2 (Pixhawk 1, STM32F4)
-* FMUv3 (Pixhawk 2, STM32F4)
-* FMUv4 (Pixracer 3 and Pixhawk 3 Pro, STM32F4)
-* FMUv5 (Pixhawk 4, STM32F7)
-* TAPv1 (TBA, STM32F4)
-* ASCv1 (TBA, STM32F4)
-
-
-## Building the Bootloader
+## 构建Bootloader
 
 ```
 git clone https://github.com/PX4/Bootloader.git
 cd Bootloader
 make
 ```
-After this step a range of elf files for all supported boards are present in the Bootloader directory.
 
+经过这一步会为所有支持的飞控板生成一系列elf文件，这些文件都在BootLoader目录中。
 
-## Flashing the Bootloader
+## 刷Bootloader
 
->IMPORTANT: The right power sequence is critical for some boards to allow JTAG / SWD access. Follow these steps exactly as described. The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
+> 重要提醒：对于一些飞控板来说，为了使用JTAG\/SWD接口需要采取正确的供电顺序。正是按照所描述的这些步骤。 下列的说明适用于Blackmagic\/Dronecode探针。其他的JTAG探针可能需要使用类似的不同顺序。尝试刷BootLoader的开发者应该具备相关知识。如果你不知道如何进行这些操作，或许你应该再三考虑你是否确实需要更改BootLoader中的任何东西。
 
-* Disconnect the JTAG cable
-* Connect the USB power cable
-* Connect the JTAG cable
+* 断开JTAG连线
+* 连接USB电源线
+* 连接JTAG
 
-
-## Using the right serial port
-
-
+## 使用正确的串口
 
 * On LINUX: `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
 * On MAC OS: Make sure to use the cu.xxx port, not the tty.xxx port: `tar ext /dev/tty.usbmodemDDEasdf`
@@ -52,16 +48,15 @@ arm-none-eabi-gdb
         ...
         Transfer rate: 17 KB/sec, 828 bytes/write.
   (gdb) kill
-  ```
+```
 
 ## Troubleshooting
-
 
 If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated. Upgrade the on-probe software first.+
 
 If this error message occurs: `Error erasing flash with vFlashErase packet`
 
-Disconnect the target (while leaving JTAG connected) and run
+Disconnect the target \(while leaving JTAG connected\) and run
 
 ```
 mon tpwr disable
@@ -71,3 +66,4 @@ load tapv1_bl.elf
 ```
 
 This will disable target powering and attempt another flash cycle.
+
