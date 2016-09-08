@@ -1,6 +1,6 @@
 # STM32 BootLoader
 
-官网英文原文地址：http:\/\/dev.px4.io\/stm32\_bootloader.html
+官网英文原文地址：http://dev.px4.io/stm32_bootloader.html
 
 PX4 bootloader的代码在Github的 [Bootloader](https://github.com/px4/bootloader) 仓库。
 
