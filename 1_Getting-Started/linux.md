@@ -62,6 +62,7 @@ sudo apt-get remove modemmanager
 
 ```sh
 sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded -y
+sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
 sudo apt-get update
 sudo apt-get install python-serial openocd \
     flex bison libncurses5-dev autoconf texinfo build-essential \
