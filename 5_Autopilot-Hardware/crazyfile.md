@@ -56,5 +56,24 @@ The onboard nRF module allows connecting to the board via Bluetooth or through t
 
 ## Flying
 
+{% raw %}
+
+<video id="my-video" class="video-js" controls preload="auto" width="100%"
+
+poster="http://image84.360doc.com/DownloadImg/2015/04/1617/52474470_2.jpg" data-setup='{"aspectRatio":"16:9"}'>
+
+ <source src="http://7xvob5.com2.z0.glb.qiniucdn.com/Crazyflie%202.0-%20PX4%20Manual%20Stabilized.mp4" type='video/mp4' >
+
+ <p class="vjs-no-js">
+
+ To view this video please enable JavaScript, and consider upgrading to a web browser that
+
+ <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+
+ </p>
+
+</video>
+
+{% endraw %}
 
 
