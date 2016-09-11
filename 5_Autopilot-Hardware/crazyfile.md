@@ -2,7 +2,7 @@
 
 The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2 (CF2) is here: https://www.bitcraze.io/crazyflie-2/
 
-![](images/hardware/hardware-crazyflie2.png)
+
 
 ## Quick Summary
 
@@ -56,5 +56,5 @@ The onboard nRF module allows connecting to the board via Bluetooth or through t
 
 ## Flying
 
-{% youtube %}https://www.youtube.com/watch?v=oWk0RRIzF-4{% endyoutube %}
+
 
