@@ -39,7 +39,7 @@
     * [Pixhawk](5_Autopilot-Hardware/pixhawk.md)
     * [Pixfalcon](5_Autopilot-Hardware/pixfalcon.md)
     * [Pixracer](5_Autopilot-Hardware/pixracer.md)
-    * [Crazyfile](5_Autopilot-Hardware/crazyfile.md)
+    * [Crazyfile 2.0](5_Autopilot-Hardware/crazyfile.md)
 * [中间件及架构](6_Middleware-and-Architecture/middleware_and_architecture.md)
     * [uORB](6_Middleware-and-Architecture/uorb_messaging.md)
     * [自定义MAVLink消息](6_Middleware-and-Architecture/custom-mavlink-message.md)
