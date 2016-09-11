@@ -25,7 +25,7 @@ QGroundControl是一个基于PX4自动驾驶仪配置和飞行的应用程序。
 ![parameters](../pictures/gcs/setting-parameter.png)
 ## 安装
 
-QGroundControl可以从这里下载 [QGroundControl](http://qgroundcontrol.org/downloads).
+QGroundControl可以从这里下载 [QGroundControl](http://qgroundcontrol.com/).
 
 <aside class="tip">
 开发人员建议使用最新的版本，而不是稳定版本。
