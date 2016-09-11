@@ -17,11 +17,6 @@
 
 ## NEW! Bash on Windows
 
-There is a new option for Windows users which is to run Bash shell natively then follow the Linux
-
-build instructions. See [BashOnWindows](https://github.com/Microsoft/BashOnWindows). We have 
-
-verified that the PX4 build succeeds in this environment. It cannot yet flash the firmware, but
-
-you can use the Mission Planner or QGroundControl to flash custom firwmare on Windows.
+There is a new option for Windows users which is to run Bash shell natively then follow the Linux build instructions. See [BashOnWindows](https://github.com/Microsoft/BashOnWindows). We have
+verified that the PX4 build succeeds in this environment. It cannot yet flash the firmware, but you can use the Mission Planner or QGroundControl to flash custom firwmare on Windows.
 
