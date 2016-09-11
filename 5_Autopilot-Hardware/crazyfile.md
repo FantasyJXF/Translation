@@ -1,4 +1,4 @@
-# Crazyflie 2.0
+![](/assets/11.png)# Crazyflie 2.0
 
 The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2 (CF2) is here: https://www.bitcraze.io/crazyflie-2/
 
