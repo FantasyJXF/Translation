@@ -85,6 +85,7 @@
     * [系统启动](12_Debugging-and-Advanced-Topics/advanced-system-startup.md)
     * [参数 & 配置](12_Debugging-and-Advanced-Topics/advanced-configurations.md)
     * [自驾仪调试](12_Debugging-and-Advanced-Topics/simulation-debugging.md)
+    * [仿真调试](12_Debugging-and-Advanced-Topics/仿真调试.md)
     * [发送调试的值](12_Debugging-and-Advanced-Topics/advanced-debug-valuesmd.md)
     * [室内 \/ 假 GPS](12_Debugging-and-Advanced-Topics/advanced-fake-gps.md)
     * [相机触发器](12_Debugging-and-Advanced-Topics/advanced-camera-trigger.md)
@@ -100,7 +101,7 @@
     * [Docker 容器](12_Debugging-and-Advanced-Topics/advanced-docker.md)
     * [Jenkins持续集成环境](12_Debugging-and-Advanced-Topics/advanced-jenkins-ci.md)
     * [ULog文件模式](12_Debugging-and-Advanced-Topics/advanced-ulog-file-format.md)
-    * [Licenses](12_Debugging-and-Advanced-Topics/advanced-licenses.md)
+    * 仿真调试
 * [软件更新](13_Software_Update/13_software_update_md.md)
     * [STM32\_BootLoader](13_Software_Update/13_bootloader.md)
 
