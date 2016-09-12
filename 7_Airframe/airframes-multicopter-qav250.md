@@ -1,5 +1,6 @@
 # QAV 250
 
+官网英文原文地址：http://dev.px4.io/airframes-multicopter-qav250.html
 ## 部件列表
 
 - [Pixracer组件](../5_Autopilot-Hardware/pixracer.md)或者[Pixfalcon组件](../5_Autopilot-Hardware/pixfalcon.md) (包括GPS和电源模块)
