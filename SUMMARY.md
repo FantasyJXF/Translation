@@ -92,7 +92,7 @@
     * [Logging](12_Debugging-and-Advanced-Topics/logging.md)
     * [飞行日志分析](12_Debugging-and-Advanced-Topics/flight-log-analysis.md)
     * [EKF2的Log文件回放](12_Debugging-and-Advanced-Topics/ekf2_log_replay.md)
-    * [System-wide Replay](12_Debugging-and-Advanced-Topics/system-wide-replay.md)
+    * [System-wide Replay](12_Debugging-and-Advanced-Topics/advanced-system-wide-replay.md)
     * [Snapdragon Advanced](12_Debugging-and-Advanced-Topics/advanced-snapdragon.md)
         * [获取I\/O数据](12_Debugging-and-Advanced-Topics/advanced-accessing-io-data.md)
         * [相机和光流](12_Debugging-and-Advanced-Topics/advanced-snapdragon_camera.md)

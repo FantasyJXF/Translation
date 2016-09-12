@@ -1,6 +1,6 @@
 # Snapdragon Advanced
 
-# Snapdragon Advanced
+官网英文原文地址：http://dev.px4.io/advanced-snapdragon.html
 
 ## Connect to Snapdragon
 
