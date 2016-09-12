@@ -1,5 +1,7 @@
 # 机型综述
 
+官网英文原文地址：http://dev.px4.io/airframes-architecture.html
+
 PX4系统是模块化的架构，这使得它对所有的机器人类型都可以使用同一个代码库。
 
 {% mermaid %}
