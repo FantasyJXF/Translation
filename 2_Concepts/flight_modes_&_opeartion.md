@@ -1,6 +1,6 @@
 # 飞行模式
 
-官网英文原文地址：[http:\/\/dev.px4.io\/concept-flight-modes.html](http://dev.px4.io/concept-flight-modes.html)
+官网英文原文地址：http://dev.px4.io/concept-flight-modes.html
 
 **飞行模式**定义了系统在任何给定时间的状态。用户可以使用远程遥控器或者[QGroundControl](../3_Tutorial/ground_control_station.md)地面站来进行飞行模式切换。
 
