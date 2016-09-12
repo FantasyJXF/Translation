@@ -1,5 +1,7 @@
 # Logging
 
+官网英文原文地址：http://dev.px4.io/advanced-logging.html
+
 This describes the new logger, `SYS_LOGGER` set to 1.
 
 The logger is able to log any ORB topic with all included fields. Everything
