@@ -1,5 +1,7 @@
 # 使用视觉或运动捕捉系统
 
+官网英文原文地址：http://dev.px4.io/external-position.html
+
 本页目的在于构建基于PX4的，使用除了GPS之外的位置数据系统，例如像VICON、Optitrack之类的运动捕捉系统和像[ROVIO](https://github.com/ethz-asl/rovio)、[SVO](https://github.com/uzh-rpg/rpg_svo)或者[PTAM](https://github.com/ethz-asl/ethzasl_ptam)之类的基于视觉的估计系统。
 
 位置估计既可以来源于板载计算机，也可以来源于外部系统（例如：VICON）。这些数据用于更新机体相对于本地坐标系的位置估计。来自于视觉或者运动捕捉系统的朝向信息也可以被适当整合进姿态估计器中。
