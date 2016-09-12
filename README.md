@@ -175,12 +175,13 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 5.4-连接ROS                 |    Innoecho |                               |
 | 6-自驾仪的硬件                  |    - _ -    |      Autopilot Hardware       |
 | 6.1-骁龙                    |  誓言    |                               |
-| 6.1.1-光流                  |   景略    |                               |
+| 6.1.1-光流                  |  Fantasy    |                               |
 | 6.2-树莓派Pi 2               |   誓言  |                               |
 | 6.3-Pixhawk               |     景略      |                               |
 | 6.4-Pixfacon              |     景略      |                               |
 | 6.5-Pixracer              |     景略      |                               |
-| 7-中间件及架构                  |    - _ -    |  Middleware and Architecture  |
+| 6.5-Crazyfile 2.0         |               |                               |
+| 7-中间件及架构               |    - _ -    |  Middleware and Architecture  |
 | 7.1-uORB                  |    彩虹小羊     |                               |
 | 7.2-自定义MAVlink消息           |    彩虹小羊     |                               |
 | 7.3-守护进程                  |    彩虹小羊     |                               |
@@ -211,7 +212,8 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 11.5-外部位置估计                |  Innoecho  |                               |
 | 11.6-Gazebo Octomap       |   Innoecho   |                               |
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
-| 12.1-I2C                  |  - _ -    |                               |
+| 12.1-I2C BUS                 |  - _ -    |                               |
+| 12.1.1-SF1XX Lidar           |           |                               |
 | 12.2-UAVCAN               |  老四       |                               |
 | 12.2.1-UAVCAN Bootloader  |   老四       |                               |
 | 12.2.2-UAVCAN 固件升级        |   老四     |                               |
@@ -240,4 +242,5 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 13.17-Jenkins持续集成环境       |             |                               |
 | 13.18-ULog文件模式            |             |                               |
 | 13.19-Licenses            |             |                               |
-| 14-软件更新               |                  |       Software Update     |
+| 14-软件更新               |   - _ -      |       Software Update     |
+| 14.1-STM32 BootLoader    |  Fantasy    |                   |
