@@ -1,6 +1,6 @@
 # 设置云台控制
 
-# Gimbal Control Setup
+官网英文原文地址：http://dev.px4.io/advanced-gimbal-control.html
 
 PX4 contains a generic mount/gimbal control driver with different input and output methods. Any input can be selected to drive any output.
 
