@@ -1,5 +1,7 @@
 # 垂直起降
 
+官网英文原文地址：http://dev.px4.io/airframes-vtol.html
+
 事实上，[PX4飞控系统](../2_Concepts/flight_stack.md)支持所有的垂直起降机型配置：
  
 - 尾座式 (X/+型布局的双/四旋翼)
