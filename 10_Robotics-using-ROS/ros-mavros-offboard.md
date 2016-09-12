@@ -1,5 +1,7 @@
 # MAVROS外部控制例程
 
+官网英文原文地址：http://dev.px4.io/ros-mavros-offboard.html
+
 <aside class="caution">
 外部控制是危险的。如果在真机上操作，确保可以在出错的时候切换回手动控制。
 </aside>
