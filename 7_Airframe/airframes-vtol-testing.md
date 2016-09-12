@@ -1,5 +1,7 @@
 # 垂直起降测试
 
+官网英文原文地址：http://dev.px4.io/airframes-vtol-testing.html
+
 测试垂直起降飞行器是否正确运行，主要的关注点在转换阶段：
 
 - 工作台
