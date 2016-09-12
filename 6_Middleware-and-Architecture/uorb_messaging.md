@@ -1,5 +1,7 @@
 # uORB消息机制
 
+官网英文原文地址：http://dev.px4.io/advanced-uorb.html
+
 ## 简介
 
 uORB是一种用于进程间进行异步发布和订阅的消息机制API。
