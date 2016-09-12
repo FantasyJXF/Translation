@@ -1,5 +1,7 @@
 # 外部控制
 
+官网英文原文地址：http://dev.px4.io/offboard-control.html
+
 <aside class="caution">
 外部控制是危险的。在进行外部控制飞行之前，开发者需要保证有充分的准备、测试以及安全预防措施。
 </aside>
