@@ -1,5 +1,7 @@
 # 使用DroneKit与PX4通讯
 
+官网英文原文地址：http://dev.px4.io/dronekit-example.html
+
 [DroneKit](http://dronekit.io)可以帮助创建强大的无人机应用。这些应用运行在无人机的协同计算机上，通过执行计算密集但又需要低延迟的任务（计算机视觉）来增强飞控计算机。
 
 DroneKit和PX4目前致力于获得完全兼容。截止DroneKit-python 2.2.0，仅提供任务处理和状态监控这样的基本支持。
