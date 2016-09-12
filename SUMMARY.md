@@ -84,7 +84,7 @@
     * [系统控制台](12_Debugging-and-Advanced-Topics/advanced-system-console.md)
     * [系统启动](12_Debugging-and-Advanced-Topics/advanced-system-startup.md)
     * [参数 & 配置](12_Debugging-and-Advanced-Topics/advanced-configurations.md)
-    * [自驾仪调试](12_Debugging-and-Advanced-Topics/simulation-debugging.md)
+    * [自驾仪调试](12_Debugging-and-Advanced-Topics/advanced-gdb-debug.md)
     * [仿真调试](12_Debugging-and-Advanced-Topics/advanced-simulation_debug.md)
     * [发送调试的值](12_Debugging-and-Advanced-Topics/advanced-debug-values.md)
     * [室内 \/ 假 GPS](12_Debugging-and-Advanced-Topics/advanced-fake-gps.md)
