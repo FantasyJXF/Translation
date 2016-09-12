@@ -1,5 +1,7 @@
 # 驱动框架
 
+官网英文原文地址：http://dev.px4.io/advanced-drivers.html
+
 PX4的代码库使用一个轻量级的，统一的驱动抽象层：[DriverFramework](https://github.com/px4/DriverFramework). 
 POSIX和 [QuRT](https://en.wikipedia.org/wiki/Qualcomm_Hexagon)的驱动写入这个驱动框架当中。
 
