@@ -51,13 +51,13 @@ arm-none-eabi-gdb
 ```
 ### J-Link
 
-These instructions are for the [J-Link GDB server](https://www.segger.com/jlink-gdb-server.html).
+关于 [J-Link GDB server](https://www.segger.com/jlink-gdb-server.html)的教程点进去就行了。
 
-#### Prerequisites
+#### 必备条件
 
-[Download the J-Link software](https://www.segger.com/downloads/jlink#) from the Segger website and install it according to their instructions.
+从Segger官网下载[J-Link](https://www.segger.com/downloads/jlink#) 软件并按照其教程进行安装。
 
-#### Run the JLink GDB server
+#### 运行JLink GDB
 
 FMUv1:
 ```bash
@@ -69,7 +69,7 @@ AeroFC:
 JLinkGDBServer -select USB=0 -device STM32F429AI -if SWD-DP -speed 20000
 ```
 
-#### Connect GDB
+#### 连接GDB
 
 ```bash
 arm-none-eabi-gdb
