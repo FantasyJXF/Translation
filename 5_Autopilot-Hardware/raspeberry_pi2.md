@@ -1,7 +1,7 @@
 
-# 树莓派Pi 2
+# 树莓派2/3自动驾驶仪
 
-# 树莓派2自动驾驶仪
+官网英文原文地址：http://dev.px4.io/hardware-rpi.html
 
 ![rpi2](../pictures/hardware/hardware-rpi2.jpg)
 
