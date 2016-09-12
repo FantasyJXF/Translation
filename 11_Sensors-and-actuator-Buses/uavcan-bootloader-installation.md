@@ -1,5 +1,7 @@
 # UAVCAN Bootloader
 
+官网英文原文地址：http://dev.px4.io/uavcan-bootloader-installation.html
+
 # UAVCAN Bootloader Installation
 
 <aside class="warning">
