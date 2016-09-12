@@ -1,6 +1,6 @@
-# Jenkins持续集成环境
-
 # Jenkins CI
+
+官网英文原文地址：http://dev.px4.io/advanced-jenkins-ci.html
 
 Jenkins continuous integration server on [SITL01](http://sitl01.dronetest.io/) is used to automatically run integration tests against PX4 SITL.
 
