@@ -1,6 +1,6 @@
 # 相机触发器
 
-# Camera Trigger
+官网英文原文地址:http://dev.px4.io/advanced-camera-trigger.html
 
 The camera trigger driver allows the use of the AUX ports to send out pulses in
 order to trigger a camera. This can be used for multiple applications including
