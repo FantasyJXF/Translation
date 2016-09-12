@@ -1,5 +1,7 @@
 # Pixhawk系列飞控板的协同计算机
 
+官网英文原文地址：http://dev.px4.io/pixhawk-companion-computer.html
+
 无论何种协同计算机（Raspberry Pi, Odroid, Tegra K1），与Pixhawk系列飞控板之间的接口是相同的：它们通过串口连接到Pixhawk上的`TELEM2`，这个端口专用于与协同计算机相连。连接的消息格式是[MAVLink](http://mavlink.org)。
 
 ## Pixhawk设置
