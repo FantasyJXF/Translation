@@ -1,5 +1,7 @@
 # ROS仿真接口
 
+官网英文原文地址：http://dev.px4.io/simulation-ros-interface.html
+
 模拟自驾仪会在端口14557开放第二个MAVLink接口。将MAVROS连接到这个端口将会接收到实际飞行中发出的所有数据。
 
 ## 启动MAVROS
