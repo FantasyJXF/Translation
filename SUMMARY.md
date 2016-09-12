@@ -92,6 +92,7 @@
     * [Logging](12_Debugging-and-Advanced-Topics/logging.md)
     * [飞行日志分析](12_Debugging-and-Advanced-Topics/flight-log-analysis.md)
     * [EKF2的Log文件回放](12_Debugging-and-Advanced-Topics/ekf2_log_replay.md)
+    * [System-wide Replay](12_Debugging-and-Advanced-Topics/system-wide-replay.md)
     * [Snapdragon Advanced](12_Debugging-and-Advanced-Topics/advanced-snapdragon.md)
         * [获取I\/O数据](12_Debugging-and-Advanced-Topics/advanced-accessing-io-data.md)
         * [相机和光流](12_Debugging-and-Advanced-Topics/advanced-snapdragon_camera.md)
@@ -102,7 +103,6 @@
     * [Jenkins持续集成环境](12_Debugging-and-Advanced-Topics/advanced-jenkins-ci.md)
     * [ULog文件模式](12_Debugging-and-Advanced-Topics/advanced-ulog-file-format.md)
     * 仿真调试
-    * System-wide Replay
 * [软件更新](13_Software_Update/13_software_update_md.md)
     * [STM32\_BootLoader](13_Software_Update/13_bootloader.md)
 
