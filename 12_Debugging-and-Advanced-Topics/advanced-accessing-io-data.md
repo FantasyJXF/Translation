@@ -1,6 +1,6 @@
 # 获取I/O数据
 
-# Accessing I/O Data
+官网英文原文地址：http://dev.px4.io/advanced-accessing-io-data.html
 
 Low level bus data can be accessed from code running on the aDSP, using a POSIX-like API called DSPAL.  The header files for this API are maintained
 on [github](https://github.com/ATLFlight/dspal) and are commented with Doxygen formatted documentation in each header file.  A description of the API's supported
