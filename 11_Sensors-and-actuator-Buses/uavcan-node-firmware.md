@@ -1,6 +1,6 @@
 # UAVCAN 固件升级
 
-# UAVCAN Firmware Upgrading
+官网英文原文地址：http://dev.px4.io/uavcan-node-firmware.html
 
 ## Vectorcontrol ESC Codebase (Pixhawk ESC 1.6 and S2740VC)
 
