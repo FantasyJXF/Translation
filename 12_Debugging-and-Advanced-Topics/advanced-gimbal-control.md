@@ -50,7 +50,7 @@ vmount test yaw 30
 ```
 to control the gimbal.
 
-![Gazebo Gimbal Simulation](images/gazebo-gimbal-simulation.png)
+![gimbal](../pictures/hardware/gazebo-gimbal-simulation.png)
 
 
 
