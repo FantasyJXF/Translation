@@ -1,6 +1,8 @@
-
 # QAV-R
 ---
+
+官网英文原文地址：http://dev.px4.io/qav-r.html
+
 ![a](../pictures/airframes/multicopter/qav-r.png)
 
 ## Parts List
