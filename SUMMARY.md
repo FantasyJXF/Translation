@@ -86,7 +86,7 @@
    * [参数 & 配置](12_Debugging-and-Advanced-Topics/advanced-configurations.md)
    * [仿真调试](12_Debugging-and-Advanced-Topics/simulation-debugging.md)
    * [发送调试的值](12_Debugging-and-Advanced-Topics/advanced-debug-valuesmd.md)
-   * [室内 \/ 假 GPS](12_Debugging-and-Advanced-Topics/advanced-fake-gps.md)
+   * [室内 / 假 GPS](12_Debugging-and-Advanced-Topics/advanced-fake-gps.md)
    * [相机触发器](12_Debugging-and-Advanced-Topics/advanced-camera-trigger.md)
    * [Logging](12_Debugging-and-Advanced-Topics/logging.md)
    * [飞行日志分析](12_Debugging-and-Advanced-Topics/flight-log-analysis.md)
