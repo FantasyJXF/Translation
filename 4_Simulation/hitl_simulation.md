@@ -1,6 +1,6 @@
 # 硬件在环仿真
 
-官网英文原文地址：http:\/\/dev.px4.io\/simulation-hitl.html
+官网英文原文地址：http://dev.px4.io/simulation-hitl.html
 
 硬件在环仿真指的自驾仪与仿真器相连并且所有的代码运行在自驾仪上的仿真。这种方法的优点是可以测试代码在实际处理器中的运行情况。
 
