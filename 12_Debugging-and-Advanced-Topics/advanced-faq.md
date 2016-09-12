@@ -1,5 +1,7 @@
 # 常见问题
 
+官网英文原文地址：http://dev.px4.io/advanced-faq.html
+
 ## 编译错误
 
 ### 内存溢出
