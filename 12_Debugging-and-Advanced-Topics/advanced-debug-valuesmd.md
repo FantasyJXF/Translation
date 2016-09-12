@@ -1,6 +1,6 @@
-# 发送调试的值
-
 # Send Debug String / Float Pairs
+
+官网英文原文地址：http://dev.px4.io/advanced-debug-values.html
 
 It is often necessary during software development to output individual important numbers.
 
