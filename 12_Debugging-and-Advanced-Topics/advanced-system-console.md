@@ -106,7 +106,13 @@ Type `ls` to view the local file system, type `free` to see the remaining free R
 nsh> ls
 nsh> free
 ```
-
+## MAVLink Shell
+ For NuttX-based systems (Pixhawk, Pixracer, ...), the nsh console can also be
+ accessed via mavlink. This works via serial link or WiFi (UDP/TCP). Make sure
+ that QGC is not running, then start the shell with e.g.
+ `./Tools/mavlink_shell.py /dev/ttyACM0` (use `-h` to get a description of all
+ available arguments).
+ 
 # Snapdragon DSP Console
 
 When you are connected to your Snapdragon board via usb you have access to the px4 shell on the posix side of things.
