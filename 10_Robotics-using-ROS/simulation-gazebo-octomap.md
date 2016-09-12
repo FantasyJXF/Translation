@@ -1,5 +1,7 @@
 # OctoMap
 
+官网英文原文地址：http://dev.px4.io/simulation-gazebo-octomap.html
+
 [OctoMap库](http://octomap.github.io/)实现了一个三维占据栅格模型。本文档说明如何在[旋翼仿真](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator)中使用它。
 
 ## 安装
