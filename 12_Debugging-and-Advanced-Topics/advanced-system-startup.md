@@ -1,6 +1,6 @@
 # 系统启动
 
-# System Startup
+官网英文原文地址：http://dev.px4.io/advanced-system-startup.html
 
 The PX4 boot is controlled by shell scripts in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d) folder.
 
