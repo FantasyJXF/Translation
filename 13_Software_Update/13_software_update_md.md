@@ -1,5 +1,6 @@
-
 # Software Update
+
+官网英文原文地址：http://px4.osdrone.net/13_Software_Update/13_software_update_md.html
 
 The method to update the PX4 software on the drone depends on the hardware platform. For microcontroller based applications new Firmware is flashed through USB or serial.
 
