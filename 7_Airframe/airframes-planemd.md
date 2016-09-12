@@ -1,4 +1,6 @@
-# 飞机机型
+# 直升机机型
+
+官网英文原文地址：http://dev.px4.io/airframes-plane.html
 
 借助于灵活的[混控系统](../2_Concepts/mixingand_actuators.md)，PX4支持包括一般飞机，飞翼，倒V尾飞机以及垂直起降飞机在内的所有能想到的飞机几何构型。
 
