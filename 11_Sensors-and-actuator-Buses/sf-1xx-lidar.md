@@ -2,6 +2,8 @@
 
 ----------------------------------------------------
 
+官网英文原文地址：http://dev.px4.io/sf1xx_lidar_setup.html
+
 This page shows you how to set up one of following lidars:
 
  1. SF10/a
