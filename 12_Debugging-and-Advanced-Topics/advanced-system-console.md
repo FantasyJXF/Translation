@@ -1,6 +1,6 @@
-# 系统控制台
+# PX4系统控制台
 
-# PX4 System Console
+官网英文原文地址：http://dev.px4.io/advanced-system-console.html
 
 The system console allows low-level access to the system, debug output and analysis of the system boot process. The most convenient way to connect it is by using a [Dronecode probe](http://nicadrone.com/index.php?id_product=65&controller=product), but a plain FTDI cable can be used as well.
 
