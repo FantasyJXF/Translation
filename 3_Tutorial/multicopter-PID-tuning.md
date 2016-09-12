@@ -1,6 +1,7 @@
 # MULTICOPTER PID TUNING GUIDE 
 ---
 
+官网英文原文地址：http://px4.io/docs/multicopter-pid-tuning-guide/
 
 ## Multicopter Flight Controller Tuning Guide
 This guide is for advanced users / experts only. If you don’t understand what a PID tuning is you might crash your aircraft.
