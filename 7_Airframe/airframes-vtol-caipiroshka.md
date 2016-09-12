@@ -1,5 +1,7 @@
 # TBS Caipiroshka
 
+官网英文原文地址：http://dev.px4.io/airframes-vtol-caipiroshka.html
+
 由TBS Caipirinha稍作修改得到垂直起降型Caipiroshka。
 
 {% raw %}
