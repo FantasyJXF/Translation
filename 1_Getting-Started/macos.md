@@ -1,9 +1,9 @@
-# Installing Files and Code
+# 安装文件和代码
 官网英文原文地址：http://dev.px4.io/starting-installing-mac.html
 
-Usage of the [Homebrew package manager](http://mxcl.github.com/homebrew/) for Mac OS X is recommended. The installation of Homebrew is quick and easy: [installation instructions](http://mxcl.github.com/homebrew/).
+推荐使用Mac OS X的 [Homebrew 包管理器](http://mxcl.github.com/homebrew/) 进行安装. Homebrew的安装十分便捷: [安装指南](http://mxcl.github.com/homebrew/).
 
-After installing Homebrew, copy these commands to your shell:
+安装好Homebrew以后,拷贝以下命令到终端命令行:
 
 <div class="host-code"></div>
 
@@ -17,7 +17,7 @@ brew install astyle cmake ninja
 brew install ant graphviz sdformat3 protobuf eigen opencv
 ```
 
-Then install the required python packages:
+然后安装我们需要的python包:
 
 <div class="host-code"></div>
 
@@ -26,16 +26,16 @@ sudo easy_install pip
 sudo pip install pyserial empy
 ```
 
-## Snapdragon Flight
+## 骁龙飞行平台
 
-Developers working on Snapdragon Flight should use an Ubuntu VM for the time being and follow the Linux instructions. Qualcomm provides reliable tooling for Ubuntu exclusively. The PX4 dev team had the most consistent experience with VMWare, in particular when it comes to USB stability.
+高通为Ubuntu提供了可靠的工具链。因此使用骁龙飞行平台的开发者应该安装一个Ubuntu虚拟机，并参考Linux下方法进行工具链的安装。PX4开发团队使用的虚拟机软件是VMWare，尤其是在VMWare对USB有了稳定的支持以后。
 
-## Simulation
+## 编译
 
-OS X comes with CLANG pre-installed. No further installation steps are required.
+OS X 预装了CLANG. 因此无需再安装其他的编译器.
 
-## Editor / IDE
+## 编辑器 / IDE
 
-And finally download and install the Qt Creator app: [Download](http://www.qt.io/download-open-source/#section-6)
+最后下载并安装 Qt Creator: [下载](http://www.qt.io/download-open-source/#section-6)
 
-Now continue to run the [first build](../1_Getting-Started/building_the_code.md)!
+接下来进行 [首次编译](../1_Getting-Started/building_the_code.md)!
