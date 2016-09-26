@@ -48,7 +48,7 @@ Make sure it's armed, eg. with `commander takeoff`, then use for example
 ```
 vmount test yaw 30
 ```
-to control the gimbal.
+to control the gimbal.Note that the simulated gimbal stabilizes itself, so if you send mavlink commands, set the `stabilize` flags to false.
 
 ![gimbal](../pictures/hardware/gazebo-gimbal-simulation.png)
 
