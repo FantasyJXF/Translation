@@ -28,9 +28,9 @@ graph LR;
 
 需要安装Gazebo和我们的仿真插件。
 
-<aside class="tip">
-确认你安装的Gazebo版本是Gazebo 6。Linux用户：如果你安装的ROS版本早于Jade，请先卸载其绑定的旧版本Gazebo (sudo apt-get remove ros-indigo-gazebo)
-</aside>
+
+> **提示** 推荐使用Gazebo7（最低使用Gazebo6）。如果你的Linux操作系统安装的ROS版本早于Jade，请先卸载其绑定的旧版本Gazebo (sudo apt-get remove ros-indigo-gazebo)，因为该版本太老了。
+
 
 ### Mac OS
 
