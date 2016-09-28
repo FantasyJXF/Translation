@@ -56,10 +56,9 @@ pxh>
 pxh> commander takeoff
 ```
 
-> <aside class="tip">
-> 提示：地面站(QGC)支持虚拟操纵杆或拇指操纵杆。要使用手动输入，把系统打在手动飞行模式(e.g. POSCTL, 位置控制)。从地面站QGC参考菜单启动拇指操纵杆。
-> </aside>
->
+
+> **提示** 地面站(QGC)支持虚拟操纵杆或拇指操纵杆。要使用手动输入，把系统打在手动飞行模式(e.g. POSCTL, 位置控制)。从地面站QGC参考菜单启动拇指操纵杆。
+
 
 ## Wifi无人机的仿真
 
@@ -78,7 +77,7 @@ make broadcast jmavsim
 为了扩展或自定义仿真界面，可以编辑 `Tools/jMAVSim`文件夹下的文件。能够通过 Github上的[jMAVSim repository](https://github.com/px4/jMAVSim)取得原码.
 
 
-> **通知**  建立系统的执行正确的模块来检测依赖项，包括仿真器.它不会覆盖目录中的文件的更改, 然而, 当这些改变是继承了需要在固件中重新获得新的HASH协议注册的子模块. 这样做, `git add Tools/jMAVSim` 和继承修改. 这将更新模拟器的 GIT hash.
+> **提示**  构建系统强制执行正确的子模块来检测依赖项，包括仿真器。它不会覆盖目录中的文件的修改, 然而,当这些修改已经提交时，子模块需要在Firmware仓库中用一个新的提交hash值注册。需要进行的操作时 `git add Tools/jMAVSim` 并提交修改。这将更新模拟器的GIT hash。
 
 
 ## 连接ROS
