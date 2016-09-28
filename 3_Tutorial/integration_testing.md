@@ -36,7 +36,7 @@ rostest px4 mavros_posix_tests_iris.launch gui:=true headless:=false
 
 #### 1.) 创建新的测试脚本
 
-测试脚本位于`integrationtests/python_src/px4_it/mavros/`，可以参考这些脚本文件。或者查阅ROS官方文档学习如何使用unittest](http://wiki.ros.org/unittest)。
+测试脚本位于`integrationtests/python_src/px4_it/mavros/`，可以参考这些脚本文件。或者查阅ROS官方文档学习如何使用[unittest](http://wiki.ros.org/unittest)。
 
 空的测试框架:
 
