@@ -77,8 +77,7 @@ make broadcast jmavsim
 为了扩展或自定义仿真界面，可以编辑 `Tools/jMAVSim`文件夹下的文件。能够通过 Github上的[jMAVSim repository](https://github.com/px4/jMAVSim)取得原码.
 
 
-> **提示**  构建系统强制执行正确的子模块来检测依赖项，包括仿真器。它不会覆盖目录中的文件的修改, 然而,当这些修改已经提交时，子模块需要在Firmware仓库中用一个新的提交hash值注册。需要进行的操作时 `git add Tools/jMAVSim` 并提交修改。这将更新模拟器的GIT hash。
-
+> **提示** 构建系统强制检查所有依赖的子模块，包括仿真软件。虽然这些文件夹中文件的改变不会被覆盖，但当这些改变被提交的时候子模块需要在固件库中以新的hash注册。为此，输入 `git add Tools/jMAVSim`进行提交。这样仿真软件的GIT hash就会被更新。
 
 ## 连接ROS
 
