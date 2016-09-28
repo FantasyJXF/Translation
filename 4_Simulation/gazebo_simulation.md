@@ -29,17 +29,21 @@ graph LR;
 需要安装Gazebo和我们的仿真插件。
 
 
-> **提示** 推荐使用Gazebo7（最低使用Gazebo6）。如果你的Linux操作系统安装的ROS版本早于Jade，请先卸载其绑定的旧版本Gazebo (sudo apt-get remove ros-indigo-gazebo)，因为该版本太老了。
+> **提示** 推荐使用Gazebo 7（最低使用Gazebo 6）。如果你的Linux操作系统安装的ROS版本早于Jade，请先卸载其绑定的旧版本Gazebo (sudo apt-get remove ros-indigo-gazebo)，因为该版本太老了。
 
 
 ### Mac OS
 
-Mac OS 安装 Gazebo 6。
+Mac OS需要安装Gazebo 7，相应的需要安装xquartz，并且在没有OpenCV时无法运行。
 
 <div class="host-code"></div>
 
 ```sh
-brew install gazebo6
+brew cask install xquartz
+
+brew install homebrew/science/opencv
+
+brew install gazebo7
 ```
 
 ### Linux
@@ -48,11 +52,11 @@ PX4 SITL使用Gazebo仿真软件，但不依赖ROS。但是也可以像普通飞
 
 #### ROS 用户
 
-如果你计划与ROS一起用 PX4，确保按照[Gazebo 6版本指南](http://gazebosim.org/tutorials?tut=ros_wrapper_versions#Gazebo6.xseries)进行配置。
+如果你计划与ROS一起用PX4，确保按照[Gazebo 7版本指南](http://gazebosim.org/tutorials?tut=ros_wrapper_versions#Gazebo7.xseries)进行配置。
 
 #### 正常安装
 
-按照[Linux安装指导](http://gazebosim.org/tutorials?tut=install_ubuntu&ver=6.0&cat=install) 安装Gazebo 6。
+按照[Linux安装指导](http://gazebosim.org/tutorials?tut=install_ubuntu&ver=7.0&cat=install) 安装Gazebo 7。
 
 ## 进行仿真
 
@@ -94,9 +98,9 @@ cd ~/src/Firmware
 make posix_sitl_default gazebo_tailsitter
 ```
 
-<aside class="tip">
-如果你在运行的时候遇到错误或缺少依赖，确保你是按照[安装文件和代码](http://dev.px4.io/starting-installing-mac.html)安装的。
-<aside>
+
+> **提示** 如果你在运行的时候遇到错误或缺少依赖，确保你是按照[安装文件和代码](http://dev.px4.io/starting-installing-mac.html)安装的。
+
 
 接着会启动PX4 shell:
 
@@ -131,17 +135,17 @@ pxh>
 pxh> commander takeoff
 ```
 
-<aside class="tip">
-可以通过QGroundControl (QGC)支持手柄或拇指手柄。为了使用手柄控制飞行器，要将系统设为手动飞行模式（如 POSCTL、位置控制），并从QGC的选项菜单中启用拇指手柄。
-</aside>
 
-## 扩展和定制
+> **提示** 可以通过QGroundControl (QGC)支持手柄或拇指手柄。为了使用手柄控制飞行器，要将系统设为手动飞行模式（如 POSCTL、位置控制），并从QGC的选项菜单中启用拇指手柄。
+
+
+## 扩展和自定义
 
 为了扩展和定制仿真接口，编辑`Tools/sitl_gazebo`文件夹中的文件。这些代码可以从Github上的[sitl_gazebo repository](https://github.com/px4/sitl_gazebo)访问。
 
-<aside class="note">
-构建系统强制检查所有依赖的子模块，包括仿真软件。虽然这些文件夹中文件的改变不会被覆盖，但当这些改变被提交的时候子模块需要在固件库中以新的hash注册。为此，输入`git add Tools/sitl_gazebo` 进行提交。这样仿真软件的GIT hash就会被更新。
-</aside>
+
+> **提示** 构建系统强制检查所有依赖的子模块，包括仿真软件。虽然这些文件夹中文件的改变不会被覆盖，但当这些改变被提交的时候子模块需要在固件库中以新的hash注册。为此，输入`git add Tools/sitl_gazebo` 进行提交。这样仿真软件的GIT hash就会被更新。
+
 
 ## 与ROS连接
 
