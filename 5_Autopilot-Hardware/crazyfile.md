@@ -62,13 +62,9 @@ Crazyfile系列的微型四轴飞行器是由Bitcraze AB创建的。关于Crazyf
 - 在设置中更改模式为1或者2
 - 用QGC校准
 
-Connecting via **MAVLink**
-- Use a Crazyradio PA alongside a compatible GCS
-- See [cfbridge](https://github.com/dennisss/cfbridge) for how to connect any UDP capable GCS to the radio
-
 通过**MAVLink**连接
-- 使用Crazyfile PA外加一个兼容的地面站
-- 从[cfbridge](https://github.com/dennisss/cfbridge)中查看如何将支持UDP的地面站连接到接受机上
+- 使用Crazyfile PA，外加一个兼容的地面站
+- 从[cfbridge](https://github.com/dennisss/cfbridge)中查看如何将支持UDP的地面站连接到接收机上
 
 ## Flying
 
