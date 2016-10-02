@@ -66,7 +66,7 @@ Crazyfile系列的微型四轴飞行器是由Bitcraze AB创建的。关于Crazyf
 - 使用Crazyfile PA，外加一个兼容的地面站
 - 从[cfbridge](https://github.com/dennisss/cfbridge)中查看如何将支持UDP的地面站连接到接收机上
 
-## Flying
+## 飞行
 
 {% raw %}
 
