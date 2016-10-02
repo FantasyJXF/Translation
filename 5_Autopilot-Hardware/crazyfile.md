@@ -39,31 +39,36 @@ Crazyfile系列的微型四轴飞行器是由Bitcraze AB创建的。关于Crazyf
   完成后断开CF2。
       - 如果成功的话，CF2再次连接时黄色的LED灯应该闪烁
 
-5. Grab the [Firmware](https://github.com/PX4/Firmware)
+5. 从GitHub上获取PX4 [Firmware](https://github.com/PX4/Firmware)的源码
 
-6. Compile with `make crazyflie_default upload`
+6. 用`make crazyflie_default upload`指令上传固件
 
-7. When prompted to plug in device, plug in CF2: the yellow LED should start blinking indicating bootloader mode. Then the red LED should turn on indicating that the flashing process has started.
+7. 提示接入设备时，连接CF2:黄色的LED灯开始闪烁表明当前处于bootloader模式。然后红色的LED灯被点亮表明烧录过程已经开始了。
 
-8. Wait for completion
+8. 等待完成
 
-9. Done! Calibrate via QGC
+9. 完成！通过QGC地面站进行校准
 
-## Wireless
+## 无线
 
 
-The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
-- A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
-- To fly the CF2 right away, the Crazyflie phone app is supported via Bluetooth
+板载的nRF模块支持通过蓝牙或专有2.4ghz北欧ESB协议连接。
 
-Using the official Bitcraze **Crazyflie phone app**
-- Connect via Bluetooth
-- Change mode in settings to 1 or 2
-- Calibrate via QGC
+- 推荐使用[Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/)
+- 要立即试飞CF2，Crazyfile手机app支持通过蓝牙连接
+
+使用官方的Bitcraze **Crazyflie手机app**
+- 通过蓝牙连接
+- 在设置中更改模式为1或者2
+- 用QGC校准
 
 Connecting via **MAVLink**
 - Use a Crazyradio PA alongside a compatible GCS
 - See [cfbridge](https://github.com/dennisss/cfbridge) for how to connect any UDP capable GCS to the radio
+
+通过**MAVLink**连接
+- 使用Crazyfile PA外加一个兼容的地面站
+- 从[cfbridge](https://github.com/dennisss/cfbridge)中查看如何将支持UDP的地面站连接到接受机上
 
 ## Flying
 
