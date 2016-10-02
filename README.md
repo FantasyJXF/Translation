@@ -180,7 +180,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 6.3-Pixhawk               |     景略      |                               |
 | 6.4-Pixfacon              |     景略      |                               |
 | 6.5-Pixracer              |     景略      |                               |
-| 6.6-Crazyfile 2.0         |               |                               |
+| 6.6-Crazyfile 2.0         |    Fantasy   |                               |
 | 7-中间件及架构               |    - _ -    |  Middleware and Architecture  |
 | 7.1-uORB                  |    彩虹小羊     |                               |
 | 7.2-自定义MAVlink消息           |    彩虹小羊     |                               |
@@ -214,10 +214,10 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
 | 12.1-I2C BUS                 |  - _ -    |                               |
 | 12.1.1-SF1XX Lidar           |           |                               |
-| 12.2-UAVCAN               |  老四       |                               |
-| 12.2.1-UAVCAN Bootloader  |   老四       |                               |
-| 12.2.2-UAVCAN 固件升级        |   老四     |                               |
-| 12.2.3-UAVCAN 配置          |   老四     |                               |
+| 12.2-UAVCAN               |            |                               |
+| 12.2.1-UAVCAN Bootloader  |            |                               |
+| 12.2.2-UAVCAN 固件升级        |          |                               |
+| 12.2.3-UAVCAN 配置          |         |                               |
 | 12.3-PWM / GPIO           |             |                               |
 | 12.4-UART                 |  - _ -    |                               |
 | 13-调试以及高级主题               |    - _ -    | Debugging and Advanced Topics |
@@ -230,15 +230,15 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 13.7-发送调试的值               |             |                               |
 | 13.8-室内 / 假 GPS           |             |                               |
 | 13.9-相机触发器                |             |                               |
-| 13.10-Logging                |      老四      |                               |
-| 13.11-飞行日志分析            |    老四      |                               |
+| 13.10-Logging                |    老四        |                               |
+| 13.11-飞行日志分析            |          |                               |
 | 13.12-EKF2的Log文件回放         |             |                               |
 | 13.13-System-wide Replay       |             |                               |
 | 13.14-Snapdragon Advanced |             |                               |
 | 13.14.1-获取I/O数据           |             |                               |
 | 13.14.2-相机和光流             |             |                               |
-| 13.15-安装RealSense R200的驱动 |   志祥     |                               |
-| 13.16-设置云台控制             |       志祥   |                               |
+| 13.15-安装RealSense R200的驱动 |          |                               |
+| 13.16-设置云台控制             |            |                               |
 | 13.17-切换状态估计器             |             |                               |
 | 13.18-Docker 容器           |             |                               |
 | 13.19-Jenkins持续集成环境       |             |                               |
