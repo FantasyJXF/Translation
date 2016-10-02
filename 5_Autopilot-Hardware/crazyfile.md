@@ -2,41 +2,42 @@
 
 官网英文原文地址：http://dev.px4.io/hardware-crazyflie2.html
 
-The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2 (CF2) is here: https://www.bitcraze.io/crazyflie-2/
+Crazyfile系列的微型四轴飞行器是由Bitcraze AB创建的。关于Crazyfile 2(CF2)的概况在[这里](https://www.bitcraze.io/crazyflie-2/)。
 
 ![crazy](/pictures/hardware/crazyflie2.png)
 
-## Quick Summary
+## 简要概括
 
-<aside class="tip">
-The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
-</aside>
-
-  * Main System-on-Chip: STM32F405RG
-    * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-    * RAM: 192 KB SRAM
-  * nRF51822 radio and power management MCU
-  * MPU9250 Accel / Gyro / Mag
-  * LPS25H barometer
+主要的硬件文档在[这里](https://wiki.bitcraze.io/projects:crazyflie2:index):
+* 系统主芯片：STM32F405RG
+  * CPU: 带单精度FPU的168 MHz ARM Cortex M4
+  * RAM: 192KB SRAM
+* nRF51822电台和电源管理控制器
+* MPU9250加速度计/陀螺仪/磁力计
+* LPS25H气压计
 
 
-## Flashing
+## 刷固件
 
-After setting up the PX4 development environment, follow these steps to put the PX4 software on the CF2:
+设置好PX4开发环境之后，按照以下步骤可将PX4软件安装到CF2上：
 
-1. Grab source code of the PX4 [Bootloader](https://github.com/PX4/Bootloader)
+1. 从GitHub上获取PX4 [Bootloader](https://github.com/PX4/Bootloader)的源码
 
-2. Compile using `make crazyflie_bl`
+2. 用`make crazyflie_bl`指令进行编译
 
-3. Put the CF2 into DFU mode:
-	- Ensure it is initially unpowered
-	- Hold down button
-	- Plug into computer's USB port
-	- After a second, the blue LED should start blinking and after 5 seconds should start blinking faster
-	- Release button
+3. 让CF2进入DFU模式
+      - 保证其开始时未上电
+      - 按住按键
+      - 连接到电脑的USB口
+      - 一秒后，蓝色的LED灯应该开始闪烁，五秒后应该闪的更快
+      - 松开按键
 
-4. Flash bootloader using dfu-util: `sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D crazyflie_bl.bin` and unplug CF2 when done
-	- If successful, then the yellow LED should blink when plugging in again
+4. 使用dfu-util刷Bootloader，输入指令
+
+  ```sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D crazyflie_bl.bin```
+
+  完成后断开CF2。
+      - 如果成功的话，CF2再次连接时黄色的LED灯应该闪烁
 
 5. Grab the [Firmware](https://github.com/PX4/Firmware)
 
