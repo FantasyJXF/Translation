@@ -9,7 +9,7 @@ POSIX和 [QuRT](https://en.wikipedia.org/wiki/Qualcomm_Hexagon)的驱动写入�
 
 
 ## 核心架构
-PX4 is 反应式系统[reactive system](concept-architecture.md) 使用订阅/发布来传递消息.文件句柄是不被操作系统的核心所需要或者使用。两个主要API被使用：
+PX4 is 反应式系统[reactive system](concept-architecture.md) 使用订阅/发布来传递消息.文件句柄是不被操作系统的核心所需要或者使用。主要使用了API：
 
 - 发布/订阅系统，该系统拥有一个文件，网络或者共享内存，其依靠于PX4后台运行。
 - 全局驱动注册器，它允许枚举设备和获取/设置这些设备参数。这个可以很简单的作为一个链表或者文件系统地图。
@@ -44,7 +44,7 @@ CAL_MAG1_ID = 66826.0
 CAL_MAG2_ID = 263178.0
 CAL_MAG_PRIME = 73225.0
 ```
-这里使用外部HMC5983通过I2C连接，总线1，地址0x1E：在log中以`IMU.MagX`显示。
+通过I2C连接的外部HMC5983，总线1，地址0x1E：在log中以`IMU.MagX`显示。
 
 ```
 # device ID 73225 in 24-bit binary:
@@ -54,7 +54,8 @@ CAL_MAG_PRIME = 73225.0
 HMC5883   0x1E    bus 1 I2C
 ```
 
-这里使用内部HMC5983 通过SPI连接，总线1，选择slot5。在log中以`IMU1.MagX`显示。
+通过SPI连接的内部HMC5983，总线1，选择slot5。在log中以`IMU1.MagX`显示。
+
 ```
 # device ID 66826 in 24-bit binary:
 00000001  00000101  00001 010
@@ -63,7 +64,7 @@ HMC5883   0x1E    bus 1 I2C
 HMC5883   dev 5   bus 1 SPI
 ```
 
-And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. It will show up in the log file as `IMU2.MagX`.
+以及通过SPI总线连接的内部MPU9250磁力计，总线1，从设备选择slot4。在log中以`IMU2.MagX`显示。
 
 ```
 # device ID 263178 in 24-bit binary:
