@@ -6,7 +6,7 @@
 
 ## 启动MAVROS
 
-如果需要ROS接口，那么已经在运行的次要MAVLink实例可以通过[mavros](../10_Robotics-using-ROS/ros-mavros-offboard.md)连接到ROS。使用如下的URL连接到指定IP（`fcu_url`即SITL的地址和端口）：
+如果需要ROS接口，那么已经在运行的次要MAVLink实例可以通过[mavros](../10_Robotics-using-ROS/ros-mavros-offboard.md)连接到ROS。若要连接到一个特定的IP(`fcu_url`是SITL的IP/端口)，请使用一个如下形式的URL:
 
 <div class="host-code"></div>
 
@@ -14,7 +14,7 @@
 roslaunch mavros px4.launch fcu_url:="udp://:14540@192.168.1.36:14557"
 ```
 
-使用这个URL连接到本地：
+若要链接到本地，请使用这种形式的URL：
 
 <div class="host-code"></div>
 
