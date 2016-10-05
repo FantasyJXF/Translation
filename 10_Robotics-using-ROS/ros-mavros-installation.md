@@ -2,7 +2,7 @@
 
 官网英文原文地址：http://dev.px4.io/ros-mavros-installation.html
 
-ROS包[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)允许在运行ROS的计算机、支持MAVLink的飞控板以及支持MAVLink的地面站之间通讯。虽然MAVROS可以用来与任何支持MAVLink的飞控板通讯，但是本文档仅就PX4飞行堆与运行ROS的协同计算机之间的通讯予以说明。
+[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)ROS包允许在运行ROS的计算机、支持MAVLink的飞控板以及支持MAVLink的地面站之间通讯。虽然MAVROS可以用来与任何支持MAVLink的飞控板通讯，但是本文档仅就PX4飞行堆与运行ROS的协同计算机之间的通讯予以说明。
 
 ## 安装
 
