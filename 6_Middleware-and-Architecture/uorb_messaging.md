@@ -8,13 +8,13 @@ uORB是一种用于进程间进行异步发布和订阅的消息机制API。
 
 在[tutorial](tutorial-hello-sky.md)中可以学习通过C++如何使用uORB。
 
-uORB在bootup之前自动运行，很多应用基于uORB。（我认为是在系统启动前执行uorb并注册各自应用这个bootup应该是指的nuttx系统启动，彩虹小羊注）。uORB通过`uorb start`启动。在Unit test中可以使用`uorb test`开始uorb。
+由于很多应用都是基于uORB的，因此在系统刚启动时uORB就自动运行了。uORB通过`uorb start`启动。可以使用`uorb test`进行单位测试。
 
 ## 添加新的topic
 
 
-要想增加新的topic，你需要在‘msg/’目录下创建一个新的‘.msg’ 文件并在`msg/CMakeLists.txt`下添加该文件。这样C/C++编译器自动在程序中添相应的代码。
-可以先看看现有的'msg'文件了解下都支持那些类型。一个消息也可以嵌套在其他消息当中。
+要想增加新的topic，你需要在`msg/`目录下创建一个新的`.msg` 文件并在`msg/CMakeLists.txt`下添加该文件。这样C/C++编译器自动在程序中添相应的代码。
+可以先看看现有的`msg`文件了解下都支持那些类型。一个消息也可以嵌套在其他消息当中。
 每一个生成的C/C++结构体中，一个field `uint64_t timestamp` 会被增加。这个变量用于将消息记录到日志当中
 为了在代码中使用"topic"需要添加头文件:
 
