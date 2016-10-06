@@ -16,10 +16,7 @@
 
 需要设置两个参数（从QGroundControl或者NSH shell）来使能或者禁用视觉/运动捕捉。
 
-<aside class="note">
-设置系统参数```CBRK_NO_VISION```为0来使能视觉位置估计。 
-</aside>
 
-<aside class="note">
-设置系统参数```ATT_EXT_HDG_M```为1或者2来使能外部朝向估计。设置为1使用视觉，设置为2使用运动捕捉。
-</aside>
+> 设置系统参数```CBRK_NO_VISION```为0来使能视觉位置估计。 
+
+> 设置系统参数```ATT_EXT_HDG_M```为1或者2来使能外部朝向估计。设置为1使用视觉，设置为2使用运动捕捉。
