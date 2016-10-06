@@ -35,11 +35,8 @@
 ```
 
 执行下面两行
-<aside class="note">
-第一行将默认的shell编辑器（vim）修改为gedit。推荐不熟悉vim的用户使用，如果熟悉的话，可以忽略。
-</aside>
 
-<div class="host-code"></div>
+> 提示:第一行是将默认的shell编辑器（vim）修改为gedit。推荐不熟悉vim的用户使用，如果熟悉的话，可以忽略。
 
 ```sh
 	export EDITOR='gedit'
@@ -47,7 +44,6 @@
 ```
 
 将下面两行
-<div class="host-code"></div>
 
 ```sh
 	<param name="frame_id" type="string" value="map" />	
@@ -55,7 +51,6 @@
 	<!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->
 ```
 
-<div class="host-code"></div>
 修改为
 
 ```sh
@@ -66,9 +61,9 @@
 
 ## 运行仿真
 
+
 现在，在三个不同的终端窗口中执行下面三行。这将打开Gazebo，Rviz和octomap服务器。
 
-<div class="host-code"></div>
 
 ```sh
 	roslaunch rotors_gazebo mav_hovering_example_with_vi_sensor.launch  mav_name:=firefly
