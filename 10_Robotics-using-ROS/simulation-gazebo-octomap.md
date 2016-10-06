@@ -64,8 +64,6 @@
 	<remap from="cloud_in" to="/firefly/vi_sensor/camera_depth/depth/points" />
 ```
 
-
-
 ## 运行仿真
 
 现在，在三个不同的终端窗口中执行下面三行。这将打开Gazebo，Rviz和octomap服务器。
