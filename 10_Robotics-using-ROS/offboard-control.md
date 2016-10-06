@@ -3,7 +3,7 @@
 官网英文原文地址：http://dev.px4.io/offboard-control.html
 
 
-> **警告：**外部控制是很危险的。在进行外部控制飞行之前，开发者需要保证有充分的准备、测试以及安全预防措施。
+> **警告：** 外部控制是很危险的。在进行外部控制飞行之前，开发者需要保证有充分的准备、测试以及安全预防措施。
 
 
 外部控制允许使用运行在飞控板外部的软件去控制px4飞行堆。通过MAVLink协议完成这些操作，特别是[SET_POSITION_TARGET_LOCAL_NED](http://mavlink.org/messages/common#SET_POSITION_TARGET_LOCAL_NED)和[SET_ATTITUDE_TARGET](http://mavlink.org/messages/common#SET_ATTITUDE_TARGET)消息.
