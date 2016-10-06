@@ -2,7 +2,7 @@
 
 官网英文原文地址：http://dev.px4.io/ros-raspberrypi-installation.html
 
-本文介绍如何在一个作为Pixhawk的协同计算机的树莓派2上安装ROS-indigo。
+本文介绍如何在一个作为Pixhawk协同计算机的树莓派2上安装ROS-indigo。
 
 ## 准备
 
