@@ -2,7 +2,7 @@
 
 官网英文原文地址：http://dev.px4.io/ros-mavros-installation.html
 
-[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)ROS包允许在运行ROS的计算机、支持MAVLink的飞控板以及支持MAVLink的地面站之间通讯。虽然MAVROS可以用来与任何支持MAVLink的飞控板通讯，但是本文档仅就PX4飞行堆与运行ROS的协同计算机之间的通讯予以说明。
+[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)ROS包允许在运行ROS的计算机、支持MAVLink的飞控板以及支持MAVLink的地面站之间通讯。虽然MAVROS可以用来与任何支持MAVLink的飞控板通讯，但是本文仅就PX4飞行栈与运行ROS的协同计算机之间的通讯予以说明。
 
 ## 安装
 
@@ -65,6 +65,5 @@ $ rosdep install --from-paths src --ignore-src --rosdistro indigo -y
 $ catkin build
 ```
 
-<aside class="note">
-如果在树莓派上安装MAVROS，当运行"rosdep install ..."时可能会遇到和操作系统有关的错误。在rosdep命令中加上"--os=OS_NAME:OS_VERSION "，其中OS_NAME是你的操作系统名称，OS_VERSION是你的操作系统版本（例如：--os=debian:jessie）
-</aside>
+
+> **提示:**如果在树莓派上安装MAVROS，当运行`rosdep install ...`时可能会遇到和操作系统有关的错误。在rosdep命令中加上`--os=OS_NAME:OS_VERSION `，其中OS_NAME是你的操作系统名称，OS_VERSION是你的操作系统版本（例如：--os=debian:jessie）
