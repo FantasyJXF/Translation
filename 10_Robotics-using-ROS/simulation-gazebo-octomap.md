@@ -78,7 +78,7 @@
 	roslaunch octomap_server octomap_tracking_server.launch
 ```
 
-在Rviz窗口的左上方，修改域'Fixed Frame'，将'map'改为'world'，然后在窗口左下方单击add按钮并选择MarkerArray，最后双击MarkerArray，并将'Marker Topic'从'/free_cells_vis_array'修改为'/occupied_cells_vis_array'。
+在Rviz窗口的左上方，修改域`Fixed Frame`，将`map`改为`world`，然后在窗口左下方单击add按钮并选择MarkerArray，最后双击MarkerArray，并将`Marker Topic`从`/free_cells_vis_array`修改为`/occupied_cells_vis_array`。
 
 现在，你应该看到地面的一部分。
 
