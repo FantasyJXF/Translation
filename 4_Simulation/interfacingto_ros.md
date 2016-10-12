@@ -6,7 +6,7 @@
 
 ## 启动MAVROS
 
-如果需要ROS接口，那么已经在运行的次要MAVLink实例可以通过[mavros](../10_Robotics-using-ROS/ros-mavros-offboard.md)连接到ROS。若要连接到一个特定的IP(`fcu_url`是SITL的IP/端口)，请使用一个如下形式的URL:
+如果需要ROS接口，那么已经在运行的次级(secondary)MAVLink实例可以通过[mavros](../10_Robotics-using-ROS/ros-mavros-offboard.md)连接到ROS。若要连接到一个特定的IP(`fcu_url`是SITL的IP/端口)，请使用一个如下形式的URL:
 
 <div class="host-code"></div>
 
@@ -92,11 +92,13 @@ INFO  Waiting for initial data on UDP. Please start the flight simulator to proc
 
 ```sh
 cd <Firmware_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
+source Tools/setup_gazebo.bash $(pwd) <Firmware_clone/build_posix_sitl_default>
 ```
+> 这里`Firmware_clone`指的就是你下载Firmware时的文件夹.可以具体查看Tools下的README.md以及setup_gazebo.bash文件.
 
 现在，就像在ROS中做过的那样启动Gazebo，并在其中插入Iris四旋翼模型。一旦Iris模型载入，它将会自动连接到px4应用。
 
 ```sh
 roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/sitl_gazebo/worlds/iris.world
 ```
+> 如果遇到模型无法载入的情况,尝试将sitl_gazebo文件夹下的models中的模型复制到home文件夹下的.gazebo/models中.
