@@ -2,7 +2,7 @@
 
 官网英文原文地址：http://dev.px4.io/advanced-system-console.html
 
-The system console allows low-level access to the system, debug output and analysis of the system boot process. The most convenient way to connect it is by using a [Dronecode probe](http://nicadrone.com/index.php?id_product=65&controller=product), but a plain FTDI cable can be used as well.
+该系统控制台允许访问系统底层，调试输出和分析系统启动流程。访问系统控制台最方便的方式是使用[Dronecode 探针](http://nicadrone.com/index.php?id_product=65&controller=product)，但是也可以使用FTDI线。
 
 ## System Console vs. Shell
 
