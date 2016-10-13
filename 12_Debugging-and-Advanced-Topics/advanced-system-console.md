@@ -2,74 +2,75 @@
 
 官网英文原文地址：http://dev.px4.io/advanced-system-console.html
 
-The system console allows low-level access to the system, debug output and analysis of the system boot process. The most convenient way to connect it is by using a [Dronecode probe](http://nicadrone.com/index.php?id_product=65&controller=product), but a plain FTDI cable can be used as well.
+该系统控制台（System Console）允许访问系统底层，调试输出和分析系统启动流程。访问系统控制台最方便的方式是使用[Dronecode 探针](http://nicadrone.com/index.php?id_product=65&controller=product)，但是也可以使用FTDI线。
 
-## System Console vs. Shell
+## 系统控制台（System Console） vs. Shell
 
-There are multiple shells, but only one console: The system console is the location where all boot output (and applications auto-started on boot) is printed.
+有多种shell，但只有一个控制台：系统控制台，它是打印所有引导输出（和引导中自动启动的应用程序）的位置。
 
-- System console (first shell): Hardware serial port
-- Additional shells: Pixhawk on USB (e.g. lists as /dev/tty.usbmodem1 on Mac OS)
+- 系统控制台（第一shell）：硬件串口
+- 其他shells: 连接到USB的Pixhawk(如Mac OS显示为 /dev/tty.usbmodem1)
 
 <aside class="tip">
-USB: To just run a few quick commands or test an application connecting to the USB shell is sufficient. To use it, boot the system without the microSD card inserted. The hardware serial console is only needed for boot debugging or when USB should be used for MAVLink to connect a [GCS](../3_Tutorial/ground_control_station.md).
+USB: To just run a few quick commands or test an application connecting to the USB shell is sufficient. To use it, boot the system without the microSD card inserted. The hardware serial console is only needed for boot debugging or when USB should be used for MAVLink to connect a 
+如果只是运行几个简单的命令或测试应用程序，连接到USB shell是足够的。要使用USB shell，需要在不插入microSD卡的情况下引导系统。只有在需要开机调试或USB用于MAVlink连接地面站[GCS](../3_Tutorial/ground_control_station.md).的时候，才需要硬件串行控制台。
 </aside>
 
-## Snapdragon Flight: Wiring the Console
+## Snapdragon Flight: Console接线
 
-The developer kit comes with a breakout board with three pins to access the console. Connect the bundled FTDI cable to the header and the breakout board to the expansion connector.
+开发人员工具包里面有一个三个引脚接口板，它可以用于访问控制台。将捆绑的FTDI电缆连接到标头，并将接口板连接到扩展连接器。
 
-## Pixracer / Pixhawk v3: Wiring the Console
+## Pixracer / Pixhawk v3: Console接线
 
-Connect the 6-pos JST SH 1:1 cable to the Dronecode probe or connect the individual pins of the cable to a FTDI cable like this:
+将6PJST SH 1：1线缆连接到Dronecode Probe，或者将连接线的每个接头按照如下所示连接到FTDI线上：
 
 | Pixracer / Pixhawk v3 |           | FTDI |                  |
 | --------------------- | --------- | ---- | ---------------- |
 | 1                     | +5V (red) |      | N/C              |
-| 2                     | UART7 Tx  | 5    | FTDI RX (yellow) |
-| 3                     | UART7 Rx  | 4    | FTDI TX (orange) |
+| 2                     | UART7 Tx  | 5    | FTDI RX (黄) |
+| 3                     | UART7 Rx  | 4    | FTDI TX (橙) |
 | 4                     | SWDIO     |      | N/C              |
 | 5                     | SWCLK     |      | N/C              |
-| 6                     | GND       | 1    | FTDI GND (black) |
+| 6                     | GND       | 1    | FTDI GND (黑) |
 
-## Pixhawk v1: Wiring the Console
+## Pixhawk v1: Console接线
 
-The system console can be accessed through the Dronecode probe or an FTDI cable. Both options are explained in the section below.
+系统控制台可以通过Dronecode Probe或FTDI线访问。这两个选项将在下面解释。
 
-### Connecting via Dronecode Probe
+### 使用Dronecode Probe连接
 
-Connect the 6-pos DF13 1:1 cable on the [Dronecode probe](http://nicadrone.com/index.php?id_product=65&controller=product) to the SERIAL4/5 port of Pixhawk.
+将 [Dronecode probe](http://nicadrone.com/index.php?id_product=65&controller=product) 的6P DF13 1:1线连接到Pixhawk的SERIAL4/5接口。
 
 ![console](../pictures/console/dronecode_probe.jpg)
 
-### Connecting via FTDI 3.3V Cable
+### 通过FTDI 3.3V 线连接
 
-If no Dronecode probe is at hand an FTDI 3.3V (Digi-Key: [768-1015-ND](http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393)) will do as well.
+如果手头没有Dronecode Probe，也可以使用FTDI 3.3V (Digi-Key: [768-1015-ND](http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393)) 。
 
 | Pixhawk 1/2 |           | FTDI |                  |
 | ----------- | --------- | ---- | ---------------- |
-| 1           | +5V (red) |      | N/C              |
+| 1           | +5V (红) |      | N/C              |
 | 2           | S4 Tx     |      | N/C              |
 | 3           | S4 Rx     |      | N/C              |
-| 4           | S5 Tx     | 5    | FTDI RX (yellow) |
-| 5           | S5 Rx     | 4    | FTDI TX (orange) |
-| 6           | GND       | 1    | FTDI GND (black) |
+| 4           | S5 Tx     | 5    | FTDI RX (黄) |
+| 5           | S5 Rx     | 4    | FTDI TX (橙) |
+| 6           | GND       | 1    | FTDI GND (黑) |
 
-The connector pinout is shown in the figure below.
+连接器引脚接线如图下图。
 
 ![connectors](../pictures/console/console_connector.jpg)
 
-The complete wiring is shown below.
+完整的布线如下。
 
 ![debug](../pictures/console/console_debug.jpg)
 
-## Opening the Console
+## 打开控制台
 
 After the console connection is wired up, use the default serial port tool of your choice or the defaults described below:
-
+控制台连接接线后，使用您选择的工具的默认串口或者以下描述的默认设置：
 ### Linux / Mac OS: Screen
 
-Install screen on Ubuntu (Mac OS already has it installed):
+Ubuntu下安装screen (Mac OS 已经默认安装了):
 
 <div class="host-code"></div>
 
@@ -77,10 +78,10 @@ Install screen on Ubuntu (Mac OS already has it installed):
 sudo apt-get install screen
 ```
 
-- Serial: Pixhawk v1 / Pixracer use 57600 baud
-- Serial: Snapdragon Flight uses 115200 baud
+- 串行: Pixhawk v1 / Pixracer 使用 57600 波特率
+- 串行: Snapdragon Flight 使用 115200 波特率
 
-Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
+使用 screen 连接到正确的串口，配置为 BAUDRATE baud, 8 data bits, 1 stop bit (使用 `ls /dev/tty*` and 观看在拔下/重新插入USB设备时，发生了什么样的变化). 常见名称，Linux下是`/dev/ttyUSB0` and `/dev/ttyACM0` ，Mac OS下是 `/dev/tty.usbserial-ABCBD`。
 
 <div class="host-code"></div>
 
@@ -90,17 +91,17 @@ screen /dev/ttyXXX BAUDRATE 8N1
 
 ### Windows: PuTTY
 
-Download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and start it.
+下载 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 并启动它.
 
-Then select 'serial connection' and set the port parameters to:
+然后选择“串行连接”，然后设置端口参数：
 
 - 57600 baud
 - 8 data bits
-  - 1 stop bit
+- 1 stop bit
 
-## Getting Started on the Console
+## 控制台（Console）入门
 
-Type `ls` to view the local file system, type `free` to see the remaining free RAM. The console will also display the system boot log when power-cycling the board.
+键入ls查看本地文件系统，使用free查看剩余的可用RAM。当控制板单独供电时，控制台也将显示在系统引导日志。
 
 ```bash
 nsh> ls
@@ -110,37 +111,37 @@ nsh> free
  For NuttX-based systems (Pixhawk, Pixracer, ...), the nsh console can also be
  accessed via mavlink. This works via serial link or WiFi (UDP/TCP). Make sure
  that QGC is not running, then start the shell with e.g.
- `./Tools/mavlink_shell.py /dev/ttyACM0` (use `-h` to get a description of all
+  (use `-h` to get a description of all
  available arguments).
+对于基于NuttX的系统（Pixhawk，Pixracer，...），NSH控制台也可以通过mavlink访问。它通过串行链路或WiFi（UDP / TCP）来工作。确保QGC没有运行，然后启动shell使用如下命令`./Tools/mavlink_shell.py /dev/ttyACM0`（使用-h获得所有可用参数的描述）。
  
 # Snapdragon DSP Console
 
-When you are connected to your Snapdragon board via usb you have access to the px4 shell on the posix side of things.
-The interaction with the DSP side (QuRT) is enabled with the `qshell` posix app and its QuRT companion.
+当您通过USB连接到您的Snapdragon板，你可以访问POSIX上PX4的shell 。与DSP侧（QuRT）的交互可以通过`qshell`POSIX应用程序及其QuRT伴随电脑伴侣来开启。
 
-With the Snapdragon connected via USB, open the mini-dm to see the output of the DSP:
-
+With the Snapdragon connected via USB, open the  to see the output of the DSP:
+通过USB连接的Snapdragon，打开mini-dm可以看到DSP的输出：
 ```
 ${HEXAGON_SDK_ROOT}/tools/mini-dm/Linux_Debug/mini-dm
 ```
 
-Run the main app on the linaro side:
+运行主程序：
 
 ```
 cd /home/linaro
 ./mainapp mainapp.config
 ```
 
-You can now use all apps loaded on the DSP from the linaro shell with the following syntax:
+您现在可以从linaro的shell以下语法来使用DSP加载的所有的应用程序：
 
 ```
 pxh> qshell command [args ...]
 ```
 
-For example, to see the available QuRT apps:
+例如，要查看可用的QuRT应用程序：
 
 ```
 pxh> qshell list_tasks
 ```
 
-The output of the executed command is displayed on the minidm.
+所执行的命令的输出显示在minidm。
