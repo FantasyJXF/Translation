@@ -1,20 +1,15 @@
 # PX4开发指南#
 
-<aside class="tip">
-注意：仅限于开发者！这个指南旨在推动开发而不是为消费者准备。
-</aside>
+
+> 注意：仅限于开发者！这个指南旨在推动开发而不是为消费者准备。
+
 
 这个指南介绍了如何在PX4系统架构下开发，它使开发人员能够: 
 
 * 了解[系统的概况](../1_Getting-Started/initial_configuration.md)。 
 * 获取和修改[PX4飞行栈](../2_Concepts/flight_stack.md)和[PX4中间件](../2_Concepts/middleware.md)。 
-* 在[骁龙飞控](../5_Autopilot-Hardware/snapdragon_flight.md)、[Pixhawk](../5_Autopilot-Hardware/pixhawk.md)和[Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)上部署PX4。
+* 在[骁龙飞控](../5_Autopilot-Hardware/snapdragon_flight.md)、[Pixhawk](../5_Autopilot-Hardware/pixhawk.md)和[Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)上应用PX4。
 
-##更新日志##
-
-###2015-10-06###
-
-* 初始发布
 
 ##许可证##
 
