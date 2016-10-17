@@ -1,15 +1,16 @@
-# Software Update
+# 更新软件
 
 官网英文原文地址：http://dev.px4.io/software_update.html
 
 The method to update the PX4 software on the drone depends on the hardware platform. For microcontroller based applications new Firmware is flashed through USB or serial.
+更新无人机上面的PX4软件的方法依据硬件不同而不同。对于基于微控制器，通过USB或者是串口来烧写固件。
 
-## Infrastructure
+## 下层构造（Infrastructure）
 
 
 
 
-## Flashing the Bootloader
+## 烧写 Bootloader
 
 
 
@@ -21,4 +22,3 @@ The method to update the PX4 software on the drone depends on the hardware platf
         ...
         Transfer rate: 17 KB/sec, 828 bytes/write.
   (gdb) kill```
-
