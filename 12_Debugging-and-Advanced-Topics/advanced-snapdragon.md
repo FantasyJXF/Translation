@@ -16,6 +16,7 @@ screen /dev/ttyUSB0 115200
 
 Change USB0 to whatever it happens to be. Check `/dev/` or `/dev/serial/by-id`.
 
+
 ### Over ADB (Android Debug Bridge)
 
 Connect the Snapdragon over USB2.0 and power it up using the power module.
@@ -64,13 +65,12 @@ fastboot devices
 Download the latest BSP from Intrinsyc:
 
 ```
-unzip Flight_BSP_3.0_apq8074-le-1-0_r00015.zip
-cd Flight_3.0_apq8074-le-1-0_ap_standard_oem_r00015/Flight_3.0_apq8074-le-1-0_ap_standard_oem_r00015/binaries/Flight_BSP_3.0
-chmod +x fastboot-all.sh
+unzip Flight_3.1.1_BSP_apq8074-00003.zip
+cd BSP/binaries/Flight_BSP_4.0
 ./fastboot-all.sh
 ```
 
-On P1 boards, it is normal that the partitions `recovery`, `update`, and `factory` will fail.
+It is normal that the partitions `recovery`, `update`, and `factory` will fail.
 
 ### Updating the ADSP firmware
 
@@ -78,14 +78,13 @@ Part of the PX4 stack is running on the ADSP (the DSP side of the Snapdragon 807
 
 <aside class="caution">If anything goes wrong during the ADSP firmware update, your Snapdragon can get bricked! Follow the steps below carefully which should prevent bricking in most cases.</aside>
 
-First of all, if you're not already on BSP 3.0, [upgrade the Linux image](#upgradingreplacing-the-linux-image)!
+First of all, if you're not already on BSP 3.1.1, [upgrade the Linux image](#upgradingreplacing-the-linux-image)!
 
 #### Prevent bricking
 
 To prevent the system from hanging on boot because of anything wrong with the ADSP firmware, do the following changes before updating:
 
 Edit the file directly on the Snapdragon over `screen` or `adb shell`:
-
 ```sh
 vim /usr/local/qr-linux/q6-admin.sh
 ```
@@ -93,7 +92,6 @@ vim /usr/local/qr-linux/q6-admin.sh
 Or load the file locally and edit it there with the editor of your choice:
 
 To do this, load the file locally:
-
 ```sh
 adb pull /usr/local/qr-linux/q6-admin.sh
 ```
@@ -108,6 +106,7 @@ And push it back:
 
 ```sh
 adb push q6-admin.sh /usr/local/qr-linux/q6-admin.sh
+adb shell chmod +x /usr/local/qr-linux/q6-admin.sh
 ```
 
 Comment out the while loops causing boot to hang:
@@ -130,13 +129,13 @@ and:
 
 #### Push the latest ADSP firmware files
 
-Download the file Flight_adsp_8074_firmware.zip from Intrinsyc.
+Download the file [Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip](http://support.intrinsyc.com/attachments/download/691/Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip) from Intrinsyc.
 
 And copy them on to the Snapdragon:
 
 ```
-unzip Flight_adsp_8074_firmware.zip -d Flight_adsp_8074_firmware
-cd Flight_adsp_8074_firmware
+unzip Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip
+cd images/8074-eagle/normal/adsp_proc/obj/qdsp6v5_ReleaseG/LA/system/etc/firmware
 adb push . /lib/firmware
 ```
 
@@ -145,6 +144,7 @@ Then do a graceful reboot, so that the firmware gets applied:
 ```
 adb reboot
 ```
+
 
 ## Serial ports
 
@@ -158,7 +158,7 @@ The APIs to set up and use the UART are described in [dspal](https://github.com/
 
 <aside class="todo">These are notes for advanced developers.</aside>
 
-Connect to the Linux shell (see [console instructions](../12_Debugging-and-Advanced-Topics/advanced-system-console.md#snapdragon-flight-wiring-the-console)).
+Connect to the Linux shell (see [console instructions](advanced-system-console.html#snapdragon-flight-wiring-the-console)).
 
 ### Access point mode
 
@@ -194,6 +194,7 @@ Then configure station mode:
 reboot
 ```
 
+
 ## Troubleshooting
 
 ### adb does not work
@@ -202,6 +203,7 @@ reboot
 - Make sure you are using a working Micro-USB cable.
 - Try a USB 2.0 port.
 - Try front and back ports of your computer.
+
 
 ### USB permissions
 
@@ -263,6 +265,7 @@ sudo udevadm trigger
 
 If it still doesn't work, check [this answer on StackOverflow](http://askubuntu.com/questions/461729/ubuntu-is-not-detecting-my-android-device#answer-644222).
 
+
 ### Board doesn't start / is boot-looping / is bricked
 
 If you can still connect to the board using the serial console and get to a prompt such as:
@@ -297,12 +300,13 @@ If you happen to have a [P2 board](#do-i-have-a-p1-or-p2-board), you should be a
 
 If everything fails, you probably need to request help from intrinsyc.
 
+
 ### No space left on device
 
 Sometimes `make eagle_default upload` fails to upload:
 
 ```
-failed to copy 'mainapp' to '/home/linaro/mainapp': No space left on device
+failed to copy 'px4' to '/home/linaro/px4': No space left on device
 ```
 
 This can happen if ramdumps fill up the disk. To clean up, do:
@@ -314,14 +318,14 @@ rm -rf /var/log/ramdump/*
 Also, the logs might have filled the space. To delete them, do:
 
 ```
-rm -rf /root/logs/*
+rm -rf /root/log/*
 ```
 
 ### Undefined PLT symbol
 
 #### _FDtest
 
-If you see the following output on mini-dm when trying to start the mainapp, it means that you need to [update the ADSP firmware](#updating-the-adsp-firmware):
+If you see the following output on mini-dm when trying to start the px4 program, it means that you need to [update the ADSP firmware](#updating-the-adsp-firmware):
 
 ```
 [08500/03]  05:10.960  HAP:45:undefined PLT symbol _FDtest (689) /libpx4muorb_skel.so  0303  symbol.c
@@ -333,9 +337,28 @@ If you have changed the source, presumably added functions and you see `undefine
 
 - Do the declaration and definition of your function match one to one?
 - Is your code actually getting compiled?
-  Is the module listed in the [cmake config](https://github.com/PX4/Firmware/blob/master/cmake/configs/qurt_eagle_default.cmake)?
+Is the module listed in the [cmake config](https://github.com/PX4/Firmware/blob/master/cmake/configs/qurt_eagle_default.cmake)?
 - Is the (added) file included in the `CMakeLists.txt`?
 - Try adding it to the POSIX build and running the compilation. The POSIX linker will inform you about linking errors at compile/linking time.
+
+### krait update param XXX failed on startup
+
+```
+ERROR [platforms__posix__px4_layer] krait update param 297 failed
+ERROR [platforms__posix__px4_layer] krait update param 646 failed
+
+px4 starting.
+ERROR [muorb] Initialize Error calling the uorb fastrpc initalize method..
+ERROR [muorb] ERROR: FastRpcWrapper Not Initialized
+```
+
+If you get errors like the above when starting px4, try
+- [upgrading the Linux image](#upgradingreplacing-the-linux-image)
+- and [updating the ADSP firmware](#updating-the-adsp-firmware). Also try to do this from a native Linux installation instead of a virtual machine. There have been [reports](https://github.com/PX4/Firmware/issues/5303) where it didn't seem to work when done in a virtual machine.
+- then [rebuild the px4 software](http://dev.px4.io/starting-building.html#building-px4-software), by first completely deleting your existing Firmware repo and then recloning it [as described here](http://dev.px4.io/starting-building.html#compiling-on-the-console)
+- and finally [rebuild and re-run it](http://dev.px4.io/starting-building.html#qurt--snapdragon-based-boards)
+- make sure the executable bit of `/usr/local/qr-linux/q6-admin.sh` is set:
+  `adb shell chmod +x /usr/local/qr-linux/q6-admin.sh`
 
 ### ADSP restarts
 
@@ -394,6 +417,8 @@ REV A
 QUALCOMM
 ```
 
-The P1 of the second line is key.
+If you see **H9550**, it means you have a P2 board!
 
-<aside class="note">P1 boards don't have a factory partition/image and therefore can't be restored to factory state.</aside>
+**Please ignore that it says -P1.**
+
+Presumably P1 boards don't have a factory partition/image and therefore can't be restored to factory state.
