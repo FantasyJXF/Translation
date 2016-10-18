@@ -86,10 +86,16 @@ To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colons
 
 For example,
 
-```shexport PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'```
+```sh
+export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
+```
 
 would suppress optimization of the targets: platforms\_\_posix\_\_px4\_layer, modules\_\_systemlib, modules\_\_uORB, examples\_\_px4\_simple\_app, modules\_\_uORB\_\_uORB\_tests and px4.
 
 The targets that can be matched with these regular expressions can beprinted with the command:
 
-```shmake -C build_posix_sitl_* list_cmake_targets```
+```sh
+
+make -C build_posix_sitl_* list_cmake_targets
+
+```
