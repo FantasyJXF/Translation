@@ -4,7 +4,7 @@
 
 该PX4启动是由 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d)文件夹下的shell脚本控制。
 
-所有以号码和下划线（例如`10000_airplane`）开头的文件的都是内置的机型配置。他们在编译时被导出成一个`airframes.xml`文件，它被 [QGroundControl](http://qgroundcontrol.org)解析后提供给机身选择界面使用。添加新的配置参照[此处](../7_Airframe/airframes-adding-a-new-frame.md)。
+所有以数字和下划线（例如`10000_airplane`）开头的文件的都是内置的机型配置。他们在编译时被导出成一个`airframes.xml`文件，它被 [QGroundControl](http://qgroundcontrol.org)解析后提供给机身选择界面使用。添加新的配置参照[此处](../7_Airframe/airframes-adding-a-new-frame.md)。
 
 剩余的文件是常规启动逻辑的一部分，并且第一执行文件是[rcS](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/rcS)脚本，它调用所有其它的脚本。
 
