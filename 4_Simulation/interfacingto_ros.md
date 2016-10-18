@@ -48,9 +48,15 @@ sudo apt-get install ros-indigo-gazebo6-plugins
 为了在ROS中运行包装过的SITL，需要升级ROS环境，然后正常启动：
 
 ```sh
-cd <Firmware_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
+cd <Firmware_clone> 
+make posix_sitl_default 
+source ~/catkin_ws/devel/setup.bash 
+source Tools/setup_gazebo.bash $(pwd) build_posix_sitl_default 
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd) 
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 roslaunch px4 posix_sitl.launch
+
+
 ```
 
 在自己的启动文件中包含上面提到的启动文件中的任意一个就可以在仿真中运行自己的ROS应用。
