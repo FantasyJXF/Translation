@@ -26,11 +26,16 @@ sudo easy_install pip
 sudo pip install pyserial empy
 ```
 
+### Java for jMAVSim
+
+If you're intending to use jMAVSim, you need to install [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 
+
+
 ## 骁龙飞行平台
 
 高通为Ubuntu提供了可靠的工具链。因此使用骁龙飞行平台的开发者应该安装一个Ubuntu虚拟机，并参考Linux下方法进行工具链的安装。PX4开发团队使用的虚拟机软件是VMWare，尤其是在VMWare对USB有了稳定的支持以后。
 
-## 编译
+## 仿真
 
 OS X 预装了CLANG. 因此无需再安装其他的编译器.
 
