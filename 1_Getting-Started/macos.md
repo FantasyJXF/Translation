@@ -1,6 +1,14 @@
 # 安装文件和代码
 官网英文原文地址：http://dev.px4.io/starting-installing-mac.html
 
+第一步就是从Mac应用商店中安装Xcode。安装完成后打开一个新的终端并安装命令行工具：
+
+```
+xcode-select --install
+```
+
+## Homebrew Installation
+
 推荐使用Mac OS X的 [Homebrew 包管理器](http://mxcl.github.com/homebrew/) 进行安装. Homebrew的安装十分便捷: [安装指南](http://mxcl.github.com/homebrew/).
 
 安装好Homebrew以后,拷贝以下命令到终端命令行:
@@ -14,7 +22,8 @@ brew update
 brew install git bash-completion genromfs kconfig-frontends gcc-arm-none-eabi
 brew install astyle cmake ninja
 # simulation tools
-brew install ant graphviz sdformat3 protobuf eigen opencv
+brew install ant graphviz sdformat3 eigen protobuf
+brew install homebrew/science/opencv
 ```
 
 然后安装我们需要的python包:
@@ -28,8 +37,7 @@ sudo pip install pyserial empy
 
 ### Java for jMAVSim
 
-If you're intending to use jMAVSim, you need to install [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 
-
+如果你打算使用JMAVSim,需要同时安装[Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).。
 
 ## 骁龙飞行平台
 
