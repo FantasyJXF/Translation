@@ -2,6 +2,8 @@
 
 官网英文原文地址：http://dev.px4.io/advanced-gdb-debugging.html
 
+自驾仪通过GBD或者LLDB运行PX4支撑的调试
+
 The autopilots running PX4 support debugging via GDB or LLDB.
 
 ## Identifying large memory consumers
