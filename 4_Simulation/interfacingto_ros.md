@@ -56,7 +56,6 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 roslaunch px4 posix_sitl.launch
 
-
 ```
 
 在自己的启动文件中包含上面提到的启动文件中的任意一个就可以在仿真中运行自己的ROS应用。
