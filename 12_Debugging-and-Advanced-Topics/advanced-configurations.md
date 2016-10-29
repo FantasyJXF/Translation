@@ -2,9 +2,9 @@
 
 官网英文原文地址：http://dev.px4.io/advanced-configurations.html
 
-The PX4 platform uses the param subsystem (a flat table of float and int32_t values) and text files (for mixers and startup scripts) to store its configuration.
+PX4使用参数子系统（实际就是浮点和整型数据的列表）和文本文件（用来配置Mixer混合器和启动脚本）来储存相关配置。
 
-The [system startup](../12_Debugging-and-Advanced-Topics/advanced-system-startup.md) and how [airframe configurations](../7_Airframe/airframes-adding-a-new-frame.md) work are detailed on other pages. This section discusses the param subsystem in detail
+关于[系统启动](../12_Debugging-and-Advanced-Topics/advanced-system-startup.md) 和[机体参数配置](../7_Airframe/airframes-adding-a-new-frame.md) 的实现在其他章节有详细讲述。这部分主要是详细讨论参数子系统。
 
 ## Commandline usage
 
