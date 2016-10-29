@@ -78,9 +78,8 @@ int32_t param = 0;
 param_get(param_find("PARAM_NAME"), &param);
 ```
 
-## Parameter Meta Data
-
-PX4 uses an extensive parameter meta data system to drive the user-facing presentation of parameters. Correct meta data is critical for good user experience in the ground station.
+##参数数据元
+PX4使用一个参数数据元系统来驱动面向用户的参数展示。正确的数据元对地面站中良好的用户体验有重要意义。 uses an extensive parameter meta data system to drive the user-facing presentation of parameters. Correct meta data is critical for good user experience in the ground station.
 
 A typical parameter meta data section will look like this:
 
@@ -113,8 +112,7 @@ Where each line has this use:
  * @min <the minimum sane value. Can be overriden by the user>
  * @max <the maximum sane value. Can be overriden by the user>
  * @decimal <the minimum sane value. Can be overriden by the user>
- * @increment <the "ticks" in which this value will increment in the UI>
- * @reboot_required true <add this if changing the param requires a system restart>
+ * @increment <the "ticks" in which this value will increment in the UI> 
  * @group <a title for parameters which form a group>
  */
 PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
