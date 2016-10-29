@@ -6,19 +6,19 @@ PX4使用参数子系统（实际就是浮点和整型数据的列表）和文�
 
 关于[系统启动](../12_Debugging-and-Advanced-Topics/advanced-system-startup.md) 和[机体参数配置](../7_Airframe/airframes-adding-a-new-frame.md) 的实现在其他章节有详细讲述。这部分主要是详细讨论参数子系统。
 
-## Commandline usage
+## 命令行的使用
 
-The PX4 [system console](../12_Debugging-and-Advanced-Topics/advanced-system-console.md) offers the ```param``` tool, which allows to set parameters, read their value, save them and export and restore to and from files.
+PX4[系统控制台](../12_Debugging-and-Advanced-Topics/advanced-system-console.md) 提供了 ```param``` 命令,可以对参数进行设置、访问、保存，以及从文件中导入和保存到文件。 
 
-### Getting and Setting Parameters
+### 访问和设置参数
 
-The param show command lists all system parameters:
+命令行param show 可以列出所有系统参数:
 
 ```sh
 param show
 ```
 
-To be more selective a partial parameter name with wildcard can be used:
+参数名+字符可以选择对应的参数进行操作:
 
 ```sh
 nsh> param show RC_MAP_A*
@@ -31,29 +31,33 @@ x   RC_MAP_ACRO_SW [375,514] : 0
  723 parameters total, 532 used.
 ```
 
-### Exporting and Loading Parameters
+### 导出和加载参数
 
-The standard save command will store the parameters in the current default file:
+一般的保存命令可以保存参数到默认的文件中:
 
 ```sh
 param save
 ```
 
-If provided with an argument, it will store the parameters instead to this new location:
+如果保存后面加上路径，将会保存参数到新的位置
 
 ```sh
 param save /fs/microsd/vtol_param_backup
 ```
 
-There are two different commands to load parameters: ```param load``` will load a file and replace the current parameters with what is in this file, resulting in a 1:1 copy of the state that was present when these parameters were stored. ```param import``` is more subtle: It will only change parameter values which have been changed from the default. This is great to e.g. initially calibrate a board (without configuring it further), then importing the calibration data without overwriting the rest of the system configuration.
+加载参数有两种方法:
+ ```param load``` 
+加载文件并用文件中的数据代替现有参数设置，最终把以前某个状态储存的数据一一复制过来
+```param import``` 
+这个命令更为精妙，它只改变与默认设置不同的参数。这个命令有重要的作用，比如在进行最初校准但不进行其他配置时，导入之前校准的参数就可以只改变校准数据而不对其他配置操作。
 
-Overwrite the current parameters:
+覆盖现有参数:
 
 ```sh
 param load /fs/microsd/vtol_param_backup
 ```
 
-Merge the current parameters with stored parameters (stored values which are non-default take precedence):
+合并现有参数和储存的参数 (储存文件中与默认参数不同的参数覆盖默认参数):
 
 ```sh
 param import /fs/microsd/vtol_param_backup
