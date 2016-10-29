@@ -79,11 +79,12 @@ param_get(param_find("PARAM_NAME"), &param);
 ```
 
 ##参数数据元
-PX4使用一个参数数据元系统来驱动面向用户的参数展示。正确的数据元对地面站中良好的用户体验有重要意义。 uses an extensive parameter meta data system to drive the user-facing presentation of parameters. Correct meta data is critical for good user experience in the ground station.
 
-A typical parameter meta data section will look like this:
+PX4使用一个参数数据元系统把参数展示给用户。正确的合适的数据元对地面站的用户体验有重要意义。
 
-```C++
+一段传统的数据元如下所示：
+
+```C++```
 /**
  * Pitch P gain
  *
