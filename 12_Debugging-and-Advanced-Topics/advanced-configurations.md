@@ -65,7 +65,7 @@ param import /fs/microsd/vtol_param_backup
 
 ## C / C++ API
 
-There is also a C and a separate C++ API which can be used to access parameter values.
+PX4还有独立的C和C++接口访问配置数据。
 
 <aside class="todo">
 Discuss param C / C++ API.
