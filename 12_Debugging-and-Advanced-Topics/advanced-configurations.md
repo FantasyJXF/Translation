@@ -84,7 +84,7 @@ PX4使用一个参数数据元系统把参数展示给用户。正确的合适�
 
 一段传统的数据元如下所示：
 
-```C++```
+```C++
 /**
  * Pitch P gain
  *
@@ -101,7 +101,7 @@ PX4使用一个参数数据元系统把参数展示给用户。正确的合适�
 PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
 ```
 
-Where each line has this use:
+各行的作用：
 
 ```C++
 /**
