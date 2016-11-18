@@ -16,6 +16,6 @@
 现在继续运行： [代码编译](../1_Getting-Started/building_the_code.md)!
 
 ## 新消息!Windows上的Bash
-现在,那些想要在本地运行Bash shell进而按照Linux编译教程进行操作的Windows用户有了新的选择.请参见[BashOnWindows](https://github.com/Microsoft/BashOnWindows).我们已经进行了验证,PX4可以在此环境下成功编译.目前还无法用其刷写固件,但是你可以使用Mission Planner或者QGroundControl地面砖刷固件.
+现在,那些想要在本地运行Bash shell进而按照Linux编译教程进行操作的Windows用户有了新的选择.请参见[BashOnWindows](https://github.com/Microsoft/BashOnWindows).我们已经进行了验证,PX4可以在此环境下成功编译.目前还无法用其刷写固件,但是你可以使用Mission Planner或者QGroundControl地面专刷固件.
 
 
