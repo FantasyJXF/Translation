@@ -241,9 +241,8 @@ Then reboot the Snapdragon:
 adb reboot
 ```
 
-## Compiling in a graphical IDE
-
-The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an [Eclipse project](https://github.com/PX4/Firmware/blob/master/.project) and a [Sublime project](https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project) in the source tree.
+##图形IDE界面下编译
+PX4 支持Qt Creator, Eclipse 和Sublime Text三种集成式开发环境。  Qt Creator是最友好的开发环境，所以被是唯一官方支持的IDE。除非资深的Eclipse 或Sublime开发者，否则一般不推荐使用Eclipse或Sublime进行二次开发。硬件底层开发可以在 [Eclipse project](https://github.com/PX4/Firmware/blob/master/.project) 和 a [Sublime project](https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project) 找到源码。
 
 {% raw %}
 <video id="my-video" class="video-js" controls preload="auto" width="100%" 
@@ -256,15 +255,14 @@ poster="../pictures/diagrams/qtcreator.PNG" data-setup='{"aspectRatio":"16:9"}'>
 </video>
 {% endraw %}
 
-## Qt Creator Functionality
-
-Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.
+## Qt Creator 功能
+Qt creator 提供单击选择变量、代码自动补全、代码编译和固件上传等功能。
 
 ![qtcreator](../pictures/toolchain/qtcreator.png)
 
-### Qt Creator on Linux
+### Linux 平台的 Qt Creator 
 
-Before starting Qt Creator, the [project file](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator) needs to be created:
+在启动Qt creator之前,  需要先创建[工程文件](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator) :
 
 <div class="host-code"></div>
 
@@ -274,20 +272,21 @@ mkdir ../Firmware-build
 cd ../Firmware-build
 cmake ../Firmware -G "CodeBlocks - Unix Makefiles"
 ```
+接着启动Qt creator（如果系统没安装Qt Creator 百度一下linux下安装Qt Creator，然后再启动Qt Creator）并加载 Firmware 根目录下 CMakeLists.txt 文件，步骤：点击工具栏 File -> Open File or Project -> Select the CMakeLists.txt file 。
+如果加载提示ninja没有安装，请按照“高级Linux”章节进行ninja编译工具的安装，安装完成后，log out（登出）并log in（登入）。
 
-Then load the CMakeLists.txt in the root firmware folder via File -> Open File or Project -> Select the CMakeLists.txt file.
+加载了文件后，点击左侧projects按钮，在run onfiguration栏选择'custom executable',在executable 栏里输入'make'， argument栏输入 'upload'，将‘play’按钮配置成运行工程。
 
-After loading, the 'play' button can be configured to run the project by selecting 'custom executable' in the run target configuration and entering 'make' as executable and 'upload' as argument.
 
-### Qt Creator on Windows
+### Windows平台的 Qt Creator 
 
 <aside class="todo">
-Windows has not been tested with Qt creator yet.
+Windows平台下的Qt Creator开发目前也没经过详细测试。
 </aside>
 
-### Qt Creator on Mac OS
+### Mac OS 平台的  Qt Creator 
 
-Before starting Qt Creator, the [project file](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator) needs to be created:
+启动 Qt Creator 之前，需要先创建 [project file](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator) ：
 
 <div class="host-code"></div>
 
@@ -298,7 +297,7 @@ cd build_creator
 cmake .. -G "CodeBlocks - Unix Makefiles"
 ```
 
-That's it! Start Qt Creator, then complete the steps in the video below to set up the project to build.
+完成上述步骤以后，启动 Qt Creator, 完成下面视频中的步骤，就可以进行工程文件的编译了。
 
 {% raw %}
 <video id="my-video" class="video-js" controls preload="auto" width="100%" 
