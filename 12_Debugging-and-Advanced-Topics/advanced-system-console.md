@@ -2,12 +2,11 @@
 
 官网英文原文地址：http://dev.px4.io/advanced-system-console.html
 
-该系统控制台（System Console）允许访问系统底层，调试输出和分析系统启动流程。访问系统控制台最方便的方式是使用[Dronecode probe](http://nicadrone.com/index.php?id_product=65&controller=product)，但是也可以使用FTDI线。
+该系统控制台（System Console）允许访问系统底层，调试输出和分析系统启动流程。访问系统控制台最方便的方式是使用[Dronecode probe](http://nicadrone.com/index.php?id_product=65&controller=product)，但是也可以使用FTDI线（译者注：如果没有FTDI线，可用常见的USB转串口（TTL）模块代替，效果是一样的）。
 
 ## 系统控制台（System Console） vs. Shell
 
-有多种shell，但只有一个控制台：系统控制台，它是打印所有引导输出（和引导中自动启动的应用程序）的位置。
-
+有多种shell，但只有一个控制台：系统控制台，它是打印所有引导输出（和引导中自动启动的应用程序）的位置。（可以理解为系统控制台是多个shell中唯一一个打印所有引导输出的shell）
 - 系统控制台（第一shell）：硬件串口
 - 其他shells: 连接到USB的Pixhawk(如Mac OS显示为 /dev/tty.usbmodem1)
 
@@ -43,7 +42,7 @@ USB: To just run a few quick commands or test an application connecting to the U
 
 ![console](../pictures/console/dronecode_probe.jpg)
 
-### 通过FTDI 3.3V 线连接
+### 通过FTDI 3.3V 线（USB 转串口模块）连接
 
 如果手头没有Dronecode Probe，也可以使用FTDI 3.3V (Digi-Key: [768-1015-ND](http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393)) 。
 
@@ -67,7 +66,7 @@ USB: To just run a few quick commands or test an application connecting to the U
 ## 打开控制台
 
 After the console connection is wired up, use the default serial port tool of your choice or the defaults described below:
-控制台连接接线后，使用您选择的工具的默认串口或者以下描述的默认设置：
+控制台连接接线后，使用您选择的工具的默认串口或者以下描述的默认设置：（大部分新手读者看到这里，可能会困惑的是console 和screen的关系，不理解也没关系，不影响我们设置，仔细按照下面的教程进行设置，可以成功打开控制台）
 ### Linux / Mac OS: Screen
 
 Ubuntu下安装screen (Mac OS 已经默认安装了):
@@ -81,13 +80,16 @@ sudo apt-get install screen
 - 串行: Pixhawk v1 / Pixracer 使用 57600 波特率
 - 串行: Snapdragon Flight 使用 115200 波特率
 
-使用 screen 连接到正确的串口，配置为 BAUDRATE baud, 8 data bits, 1 stop bit (使用 `ls /dev/tty*` and 观看在拔下/重新插入USB设备时，发生了什么样的变化). 常见名称，Linux下是`/dev/ttyUSB0` and `/dev/ttyACM0` ，Mac OS下是 `/dev/tty.usbserial-ABCBD`。
+使用 screen 连接到正确的串口，配置为 BAUDRATE baud, 8 data bits, 1 stop bit （注：找到正确串口的方法如下：先在终端下输入 `ls /dev/tty*` ， 拔下串口设备（这里有一点需要注意，Pxhawk的小型USB口是一直插着给板子供电，拔的是上面的[Dronecode probe](http://nicadrone.com/index.php?id_product=65&controller=product)）或者FTDI线（就是usb转串口线），然后重新输入 `ls /dev/tty*`，观察终端页面发生了什么样的变化，那个变化（少掉）的名称就是系统的串口). 在编者的机器上少了`/dev/ttyUSB0 `，说明串口设备的正确串口是`/dev/ttyUSB0 `）。找到正确的串口后，重新连接串口设备。
+
+常见名称，Linux下是`/dev/ttyUSB0` and `/dev/ttyACM0` ，Mac OS下是 `/dev/tty.usbserial-ABCBD`。（可以看到编者的linux系统的串口确实是常见名称`/dev/ttyUSB0`）
 
 <div class="host-code"></div>
 
 ```bash
 screen /dev/ttyXXX BAUDRATE 8N1
 ```
+注意上面的/dve/ttyXXX BAUDRATE 8N1要替换为自己系统的正确串口和硬件波特率（如果是lunux和pxhawk，加上编者上面的正确串口`/dev/ttyUSB0 `，这条语句应该修改为 `screen /dev/ttyUSB0 57600 8N1`）。正确输入上述命令后，终端会切换为console，如果没有切换为console或切换后输入没有反应，则插拔一下USB连接线或者串口连接线。重新输入`screen /dev/ttyUSB0 57600 8N1`，然后输入enter,出现nsh> 说明打开控制台成功。
 
 ### Windows: PuTTY
 
