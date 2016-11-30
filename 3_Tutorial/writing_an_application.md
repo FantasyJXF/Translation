@@ -156,7 +156,7 @@ Rebooting.
 
 ### 连接到终端
 
-现在通过串口或USB连接到[系统命令行终端](../12_Debugging-and-Advanced-Topics/advanced-system-console.md)。点击回车键能打开shell命令行工具：
+现在通过串口或USB连接到[系统命令行终端](../12_Debugging-and-Advanced-Topics/advanced-system-console.md)（新手玩家第一次进行USB或者串口连接系统命令行终端，请点开上面的链接，按照要求进行系统控制台安装，安装完毕后，输入回车键打开终端（linux）或者命令行工具（windows））。点击回车键能打开shell命令行工具：
 
 ```sh
   nsh>
