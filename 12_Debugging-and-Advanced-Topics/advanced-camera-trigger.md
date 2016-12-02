@@ -22,21 +22,19 @@ In `TRIG_MODE` 0 the triggering is off.
 The full list of parameters pertaining to the camera trigger module can be found
 on the [parameter reference](https://pixhawk.org/firmware/parameters#camera_trigger) page.
 
-<aside class="tip">
-If it is your first time enabling the camera trigger app, remember to reboot
+
+> If it is your first time enabling the camera trigger app, remember to reboot
 after changing the `TRIG_MODE` parameter to either 1, 2 or 3.
-</aside>
+
 
 ## Camera-IMU sync example
 
-In this example, we will go over the basics of synchronizing IMU measurements
-with visual data to build a stereo visual-inertial navigation system (VINS). To
-be clear, the idea here isn't to take an IMU measurement exactly at the same time
-as we take a picture but rather to correctly time stamp our images so as to
-provide accurate data to our VI algorithm.
+In this example, we will go over the basics of synchronizing IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VI algorithm.
 
-The following diagram illustrates the sequence of events which must happen in
-order to correctly time stamp our images.
+The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks. This offset is added or subtracted from the timestamps in the mavlink messages (e.g HIGHRES_IMU) in the cross-middleware translator component (e.g Mavros on the companion and mavlink_receiver in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if Mavros is used with a high-bandwidth on-board link.
+For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from mid-exposure, and a image sequence number is recorded and sent to the companion computer (CAMERA_TRIGGER message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number, the images timestamped (with the timestamp from the CAMERA_TRIGGER message) and then published.
+
+The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
 
 ```mermaid
 sequenceDiagram
