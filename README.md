@@ -166,21 +166,23 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4.4-光流和LiDAR-Lite         |   PONY    |                               |
 | 4.5-综合测试                  |   Innoecho   |                               |
 | 4.6-户外光流                  |    Fantasy   |                               |
-| 4.7-多旋翼PID调参             |  F的平方  |                               |
+| 4.7-多旋翼PID调参             |              |                               |
 | 4.8-sdlog2                  |  Fantasy   |                               |
+| 4.9-ecl EKF                  |           |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
 | 5.1-基本仿真                  |  积土为山  |                               |
 | 5.2-Gazebo仿真              |  积土为山  |                               |
 | 5.3-硬件在环仿真                |   Innoecho   |                               |
 | 5.4-连接ROS                 |    Innoecho |                               |
 | 6-自驾仪的硬件                  |    - _ -    |      Autopilot Hardware       |
-| 6.1-骁龙                    |  誓言    |                               |
-| 6.1.1-光流                  |  Fantasy    |                               |
-| 6.2-树莓派Pi 2               |   誓言  |                               |
-| 6.3-Pixhawk               |     景略      |                               |
-| 6.4-Pixfacon              |     景略      |                               |
+| 6.1-Crazyfile 2.0         |    Fantasy   |                               |
+| 6.2-Intel Aero             |               |                               |
+| 6.3-Pixfacon              |     景略      |                               |
+| 6.4-Pixhawk               |     景略      |                               |
 | 6.5-Pixracer              |     景略      |                               |
-| 6.6-Crazyfile 2.0         |    Fantasy   |                               |
+| 6.6-树莓派Pi 2               |   誓言  |                               |
+| 6.7-骁龙                    |  誓言    |                               |
+| 6.7.1-光流                  |  Fantasy    |                               |
 | 7-中间件及架构               |    - _ -    |  Middleware and Architecture  |
 | 7.1-uORB                  |    彩虹小羊     |                               |
 | 7.2-自定义MAVlink消息           |    彩虹小羊     |                               |
