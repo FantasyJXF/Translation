@@ -181,4 +181,4 @@ Determining which of these is the primary casue requires a methodical approach t
 5) Plot vehicle_gps_position.s_variance_m_s
 
 During normal operation, all the test levels should remain below 0.5 with only occasional spikes above this. An example of a good log is shown here:
-
+![ekf](../pictures/log/ecl_ekf.png)
