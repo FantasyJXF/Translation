@@ -105,7 +105,7 @@
    * [Jenkins持续集成环境](12_Debugging-and-Advanced-Topics/advanced-jenkins-ci.md)
    * [ULog文件模式](12_Debugging-and-Advanced-Topics/advanced-ulog-file-format.md)
    * [Licenses](12_Debugging-and-Advanced-Topics/advanced-licenses.md)
-   * Continuous Intergration
+   * [Continuous Intergration](12_Debugging-and-Advanced-Topics/continuous_intergration.md)
 * [软件更新](13_Software_Update/13_software_update_md.md)
    * [STM32_BootLoader](13_Software_Update/13_bootloader.md)
 
