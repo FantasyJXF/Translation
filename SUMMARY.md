@@ -103,7 +103,7 @@
    * [切换状态估计器](12_Debugging-and-Advanced-Topics/advanced-switching_state_estimators.md)
    * [Docker 容器](12_Debugging-and-Advanced-Topics/advanced-docker.md)
    * [Continuous Intergration](12_Debugging-and-Advanced-Topics/continuous_intergration.md)
-       * Jekins
+       * [Jekins](12_Debugging-and-Advanced-Topics/jekins_continuous_integration.md)
    * [Jenkins持续集成环境](12_Debugging-and-Advanced-Topics/advanced-jenkins-ci.md)
    * [ULog文件模式](12_Debugging-and-Advanced-Topics/advanced-ulog-file-format.md)
    * [Licenses](12_Debugging-and-Advanced-Topics/advanced-licenses.md)
