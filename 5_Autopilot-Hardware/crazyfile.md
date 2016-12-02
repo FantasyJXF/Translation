@@ -8,7 +8,7 @@ Crazyfile系列的微型四轴飞行器是由Bitcraze AB创建的。关于Crazyf
 
 ## 简要概括
 
-主要的硬件文档在[这里](https://wiki.bitcraze.io/projects:crazyflie2:index):
+> 主要的硬件文档在[这里](https://wiki.bitcraze.io/projects:crazyflie2:index):
 * 系统主芯片：STM32F405RG
   * CPU: 带单精度FPU的168 MHz ARM Cortex M4
   * RAM: 192KB SRAM
