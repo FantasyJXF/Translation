@@ -35,7 +35,7 @@
  ULog logging format.
  
  ### Example
- ![](images/flight_log_analysis/flight-review-example.png)
+ ![review](..pictures/log/flight-review-example.png)
  
  ### Postive
  * web based, great for end-users
