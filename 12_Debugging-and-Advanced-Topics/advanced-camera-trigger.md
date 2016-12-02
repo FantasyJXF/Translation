@@ -36,7 +36,7 @@ For acquiring synchronised image frames and inertial measurements, we connect th
 
 The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
 
-```mermaid
+{% mermaid %}
 sequenceDiagram
   Note right of px4 : Time sync with mavros is done automatically
   px4 ->> mavros : Camera Trigger ready
@@ -49,7 +49,7 @@ sequenceDiagram
   camera driver ->> camera driver : Match sequence number
   camera driver ->> camera driver : Stamp image and publish
 end
-```
+{% endmermaid %}
 
 ### Step 1
 
