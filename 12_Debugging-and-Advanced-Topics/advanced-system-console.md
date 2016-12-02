@@ -10,10 +10,9 @@
 - 系统控制台（第一shell）：硬件串口
 - 其他shells: 连接到USB的Pixhawk(如Mac OS显示为 /dev/tty.usbmodem1)
 
-<aside class="tip">
-USB: To just run a few quick commands or test an application connecting to the USB shell is sufficient. To use it, boot the system without the microSD card inserted. The hardware serial console is only needed for boot debugging or when USB should be used for MAVLink to connect a 
-如果只是运行几个简单的命令或测试应用程序，连接到USB shell是足够的。要使用USB shell，需要在不插入microSD卡的情况下引导系统。只有在需要开机调试或USB用于MAVlink连接地面站[GCS](../3_Tutorial/ground_control_station.md).的时候，才需要硬件串行控制台。
-</aside>
+
+> USB shell:如果只是运行几个简单的命令或测试应用程序，连接到USB shell是足够的。MAVLink可以在此使用，具体情况请查看下文。 只有在需要开机调试或USB用于MAVlink连接地面站[GCS](../3_Tutorial/ground_control_station.md).的时候，才需要硬件串行控制台。
+
 
 ## Snapdragon Flight: Console接线
 
