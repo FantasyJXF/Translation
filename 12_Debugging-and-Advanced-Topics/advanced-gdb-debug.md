@@ -2,7 +2,6 @@
 
 官网英文原文地址：http://dev.px4.io/advanced-gdb-debugging.html
 
-自驾仪通过GBD或者LLDB运行PX4支撑的调试。
 
 The autopilots running PX4 support debugging via GDB or LLDB.
 
@@ -33,19 +32,27 @@ Stack usage is calculated with stack coloring and thus is not the current usage,
 ### Heap allocations
 Dynamic heap allocations can be traced on POSIX in SITL with [gperftools](https://github.com/gperftools/gperftools).
 Once installed, it can be used with:
-  * Run jmavsim: `cd Tools/jMAVSim/out/production && java -Djava.ext.dirs= -jar jmavsim_run.jar -udp 127.0.0.1:14560`
+  * Run jmavsim: `./Tools/jmavsim_run.sh`
   * Then:
 
 ```bash
 cd build_posix_sitl_default/tmp
 export HEAPPROFILE=/tmp/heapprofile.hprof
 env LD_PRELOAD=/lib64/libtcmalloc.so ../src/firmware/posix/px4 posix-configs/SITL/init/lpe/iris
- +pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
+pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
 ```
 
 It will generate a pdf with a graph of the heap allocations.
 The numbers in the graph will all be zero, because they are in MB. Just look at the percentages instead. They show the live memory (of the node and the subtree), meaning the memory that was still in use at the end.
 
+If it does not generate heap dumps while running the `px4` app you might need to change the settings of the profiler. On some systems it is necessary to set an interval time when to write the dumps:
+
+```
+# Specify interval in seconds
+export HEAP_PROFILE_TIME_INTERVAL=10
+```
+
+See the [gperftools docs](http://htmlpreview.github.io/?https://github.com/gperftools/gperftools/blob/master/doc/heapprofile.html) for more information.
 
 ## Sending MAVLink debug key / value pairs
 
@@ -146,3 +153,4 @@ Line 311 of "../src/modules/uORB/uORBDevices_nuttx.cpp"
    starts at address 0x8087c4e <uORB::DeviceNode::publish(orb_metadata const*, void*, void const*)+2>
    and ends at 0x8087c52 <uORB::DeviceNode::publish(orb_metadata const*, void*, void const*)+6>.
 ```
+
