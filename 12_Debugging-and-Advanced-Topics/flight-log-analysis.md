@@ -5,6 +5,7 @@
 这里有几个分析PX4飞行日志的软件，描述如下：
 
 ## [Log Muncher](http://logs.uaventure.com/)
+> 注意： Log Muncher只可以被用来查看先前`.px4log`格式的日志`
 
 ### 上传
 
@@ -27,6 +28,23 @@
 ### 缺点
 
 * 分析非常有限，没有定制功能
+
+## [Flight Review](http://logs.px4.io)
+ 
+ Flight Review is the successor of Log Muncher, used in combination with the new
+ ULog logging format.
+ 
+ ### Example
+ ![](images/flight_log_analysis/flight-review-example.png)
+ 
+ ### Postive
+ * web based, great for end-users
+ * user can upload, load and then share report with others
+ * interactive plots
+ 
+ ### Negative
+ * no customization possible
+ 
 
 ## [FlightPlot](https://github.com/DrTon/FlightPlot)
 
