@@ -3,7 +3,7 @@
 官网英文原文地址：http://dev.px4.io/hardware-intel-aero.html
 
 The Aero is a UAV development platform. Part of this is the Intel Aero Compute Board (see below), running Linux on a Quad-core CPU. This is connected to the FMU, which runs PX4 on NuttX.
-
+![intel](,,/pictures/hardware/hardware-intel-aero.png)
 
 ## Introduction
 
