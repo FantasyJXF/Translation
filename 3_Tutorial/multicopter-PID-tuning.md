@@ -1,128 +1,133 @@
-# MULTICOPTER PID TUNING GUIDE 
+# 多旋翼PID调参教程 
 ---
 
 官网英文原文地址：http://px4.io/docs/multicopter-pid-tuning-guide/
 
-## Multicopter Flight Controller Tuning Guide
 This guide is for advanced users / experts only. If you don’t understand what a PID tuning is you might crash your aircraft.
 
->NEVER do multirotor tuning with carbon fiber or carbon fiber reinforced blades.
+本教程仅适用于高级用户/专家。如果你不理解PID调参代表什么，很可能导致炸机。
 
->NEVER use damaged blades.
+>**绝不**带着碳纤维桨或者增强型碳纤维桨进行多旋翼调参。
 
->For SAFETY reason, the default gains are set to small value. You HAVE TO increase the gains before you can expect any control responses. 
+>**绝不**使用损坏的桨。
 
-This tutorial is valid for all multi rotor setups (AR.Drone, PWM Quads / Hexa / Octo setups). Proportional, Integral, Derivative controllers are the most widespread control technique. There are substantially better performing control techniques (LQR/LQG) from the model predictive control, since these techniques require a more or less accurate model of the system, they not as widely used. The goal of all PX4 control infrastructure is move as soon as possible on MPC, since not for all supported systems models are available, PID tuning is very relevant (and PID control sufficient for many cases).
+>鉴于**安全**因素，默认的增益都设置成相应的较小的值。在你想要得到控制响应前，必须先增大相应的增益。
+
+这个教程对所有的多旋翼(AR.Drone，PWM 四轴/六轴/八轴飞行器)都有效。比例(P)，积分(I)，微分(D)控制器应用最广泛的控制技术。在模型预测控制中有一些效果更好的控制技术(LQR/LQG)，但是由于这些控制技术或多或少地需要精确的系统模型，因此没能得到广泛应用。PX4所有控制基础设施的目标就是能在MPC上尽可能快的移动，因为模型不是对所有支持的系统都可用，因此PID调参非常重要(并且PID控制在许多情况下是足够的)。
 
 
-## Introduction
-
+## 介绍
 
 The PX4 `multirotor_att_control` app executes an outer loop of orientation controller, controlled by parameters:
 
-* Roll control (MC_ROLL_P)
-* Pitch control (MC_PITCH_P)
-* Yaw control (MC_YAW_P)
+PX4中的 `multirotor_att_control` 应用程序执行外环姿态控制器的外环，取决于以下参数：
+
+* 横滚比例控制 (MC_ROLL_P)
+* 俯仰比例控制 (MC_PITCH_P)
+* 偏航比例控制 (MC_YAW_P)
 
 
-And an inner loop with three independent PID controllers to control the attitude rates:
+同时内环通过三个独立的PID控制器来控制姿态角速度：
 
-* Roll rate control (MC_ROLLRATE_P, MC_ROLLRATE_I, MC_ROLLRATE_D)
-* Pitch rate control (MC_PITCHRATE_P, MC_PITCHRATE_I, MC_PITCHRATE_D)
-* Yaw rate control (MC_YAWRATE_P, MC_YAWRATE_I, MC_YAWRATE_D)
+* 横滚角速度控制(MC_ROLLRATE_P, MC_ROLLRATE_I, MC_ROLLRATE_D)
+* 俯仰角速度控制(MC_PITCHRATE_P, MC_PITCHRATE_I, MC_PITCHRATE_D)
+* 偏航角速度控制 (MC_YAWRATE_P, MC_YAWRATE_I, MC_YAWRATE_D)
 
-The outer loop’s output are desired body rates (e.g. if the multirotor should be level but currently has 30 degrees roll, the control output will be e.g. a rotation speed of 60 degrees per second). The inner rate control loop changes the rotor motor outputs so that the copter rotates with the desired angular speed.
+外环输出的是期望的机体角速度(例如：如果多旋翼应该处于水平，但是当前存在30度的横滚角，那么控制输出就将产生60度每秒的角速度)。内环(即角速度控制环)改变电机的输出以使飞行器按照期望的角速度旋转。
 
+增益实际上有一个直观的意义，例如：如果将MC_ROLL_P增益值设置为6.0并且姿态角存在0.5弧度的偏移（大约30度)，那么飞行器将尝试以6倍的角速度来进行补偿，也就是3.0弧度每秒(rad/s)或者约170度每秒(deg/s)。对于内环来说，如果将MC_ROLLRATE_P增益设置成0.1，那么推力对横滚角的输出将会是3*0.1 = 0.3，这意味着飞行器一侧的电机将减速30%，同时另一侧的电机加速，以此来诱导角动量以便是飞行器回到水平状态。
 
-The gains actually have an intuitive meaning, e.g.: if the MC_ROLL_P gain is 6.0, the copter will try to compensate 0.5 radian offset in attitude (~30 degrees) with 6 times the angular speed, i.e. 3 radians/s or ~170 degrees/s. Then if gain for the inner loop MC_ROLLRATE_P is 0.1 then thrust control output for roll will be 3 * 0.1 = 0.3. This means that it will lower the speed of rotors on one side by 30% and increase the speed on the other one to induce angular momentum in order to go back to level.
-There is also MC_YAW_FF parameter that controls how much of user input need to feed forward to yaw rate controller. 0 means very slow control, controller will start to move yaw only when sees yaw position error, 1 means very responsive control, but with some overshot, controller will move yaw immediately, always keeping yaw error near zero.
-
-
-## Motor Band / Limiting
+参数MC_YAW_FF反映的是用户输入对偏航速度控制器的前馈比例。值为0代表极慢的响应速度，仅当偏航位置误差出现时，控制器才开始偏航运动；值为1代表响应非常灵敏的控制，但有一些超调，控制器将立刻进行偏航运动并始终保持偏航误差接近零，。
 
 
-As the above example illustrates, under certain conditions it would be possible that one motor gets an input higher than its maximum speed and another gets an input lower than zero. If this happens, the forces created by the motors violate the control model and the multi rotor will likely flip. To prevent this, the multi rotor mixers on PX4 include a band-limit. If one of the rotors leaves this safety band, the total thrust of the system is lowered so that the relative percentage that the controller did output can be satisfied. As a result the multi rotor might not climb or loose altitude a bit, but it will never flip over. The same for lower side, even if commanded roll is large, it will be scaled to not exceed commanded summary thrust and copter will not flip on takeoff at near-zero thrust.
+## 电机带限（Motor Band / Limiting）
+
+如上述示例所示，在某些条件下，一个电机可能获得高于其最大速度的输入，而另一个电机获得低于零的输入。如果发生这种情况，由电机产生的力将违反控制模型，多旋翼飞行器很可能会翻转。为了防止这种情况发生，PX4上的多旋翼混控器使用了一个带限。如果有一个电机超出了安全范围，系统的总推力会被降低，使得控制器输出的相对百分比能得到满足。因此，多旋翼飞行器可能不会爬升，甚至稍微掉高，但它绝不会翻转。同样对于下侧，即使命令的横滚角度很大，它也将被缩放到一个不超过命令总推力的值，并且飞行器将不会在接近零推力起飞时发生翻转。
 
 
-### Step 1: Preparation
+### **第1步**：准备
+
+首先将所有的参数都设置为初始值：
+
+1. 将所有的MC_XXX_P设置为0(ROLL, PITCH, YAW)
+2. 除了MC_ROLLRATE_P 和 MC_PITCHRATE_P之外，将所有的MC_XXXRATE_P、 MC_XXXRATE_I、 MC_XXXRATE_D设置为0
+3. 将MC_ROLLRATE_P和MC_PITCHRATE_P设置为一个比较小的值，例如0.02
+4. 将MC_YAW_FF设置为0.5
+
+所有的增益都应该缓慢的增加，每次增加20%~30%，在最终微调时甚至应该降至10%。注意，增益太大(即使只比最优增益值大了1.5-2倍)可能会导致非常危险的振荡！
 
 
-First of all set all parameters to initial values:
-
-1. Set all MC_XXX_P to zero (ROLL, PITCH, YAW)
-2. Set all MC_XXXRATE_P, MC_XXXRATE_I, MC_XXXRATE_D to zero, except MC_ROLLRATE_P and MC_PITCHRATE_P
-3. Set MC_ROLLRATE_P and MC_PITCHRATE_P to a small value, e.g. 0.02
-4. Set MC_YAW_FF to 0.5
-
-All gains should be increased very slowly, by 20%-30% per iteration, and even 10% for final fine tuning. Note, that too large gain (even only 1.5-2 times more than optimal!) may cause very dangerous oscillations!
+### **第2步**:： 稳定横滚(ROLL)和俯仰(PITCH)角速度
 
 
-### Step 2: Stabilize Roll and Pitch Rates
+**P 增益调节**
+
+参数： MC_ROLLRATE_P，MC_PITCHRATE_P
+
+如果飞行器是对称的，那么ROLL和PITCH的值应该是相同的；如果不是——则应该分别进行调节。
+
+用手牢牢抓住多旋翼并将油门推到大约50%，使飞机的重量几乎为零。用手让飞机在横滚或俯仰方向上倾斜，并观察其响应。飞机应该会温和的对抗该运动，但它**不会**试图回到水平。如果飞机发生了振荡，则需要将RATE_P调低。一旦控制响应变慢但是正确了，则继续增加RATE_P直到飞机再次开始振荡。接下来降低RATE_P直到飞机只有轻微的振荡或者完全没有振荡(降低大约10%)，只剩下超调。典型值约为0.1。
+
+**D 增益调节**
+
+参数：MC_ROLLRATE_D， MC_PITCHRATE_D
+
+假设增益处于多旋翼振荡的状态下，并且RATE_P略微减小。从0.01开始慢慢增加RATE_D，直到消除最后一点振荡。如果电机发生颤抖，那么说明RATE_D太大了，需要将其调低。通过调节RATE_P和 RATE_D的大小，飞机的响应能够达到恰到好处。典型值大约在0.01~0.02之间。
+
+在QGroundControl地面站中，你可以画出横滚和俯仰角速度图(ATTITUDE.rollspeed/pitchspeed)。这里曲线不会振荡，但是有一些超调(10%~20%)是没有关系的。
+
+**I 增益调节**
+
+如果横滚和俯仰角速度始终达不到设定值，并且存在漂移，从MC_ROLLRATE_P增益值的5%-10%处开始，将MC_ROLLRATE_I和MC_PITCHRATE_I 增益相加
 
 
-**P Gain Tuning**
-
-Parameters: MC_ROLLRATE_P, MC_PITCHRATE_P.
-
-If copter is symmetrical, then values for ROLL and PITCH should be equal, if not – then tune it separately.
-
-Keep the multi rotor in your hand and increase the thrust to about 50%, so that the weight is virtually zero. Tilt it in roll or pitch direction, and observe the response. It should mildly fight the motion, but it will NOT try to go back to level. If it oscillates, tune down RATE_P. Once the control response is slow but correct, increase RATE_P until it starts to oscillate. Cut back RATE_P until it does only mildly oscillate or not oscillate any more (about 10% cutback), just over-shoots. Typical value is around 0.1.
-
-**D Gain Tuning**
-
-Parameters: MC_ROLLRATE_D, MC_PITCHRATE_D.
-
-Assuming the gains are in a state where the multi rotor oscillated and RATE_P was slightly reduced. Slowly increase RATE_D, starting from 0.01. Increase RATE_D to stop the last bit of oscillation. If the motors become twitchy, the RATE_D is too large, cut it back. By playing with the magnitudes of RATE_P and RATE_D the response can be fine-tuned. Typical value is around 0.01…0.02.
-
-In QGroundControl you can plot roll and pitch rates (ATTITUDE.rollspeed/pitchspeed). It must not oscillate, but some overshot (10-20%) is ok.
-
-**I Gain Tuning**
-
-If the roll and pitch rates never reach the setpoint but have an offset, add MC_ROLLRATE_I and MC_PITCHRATE_I gains, starting at 5-10% of the MC_ROLLRATE_P gain value.
+### **第3步**：  稳定横滚和俯仰角
 
 
-### Step 3: Stabilize Roll and Pitch Angles
+**P增益调节**
+
+参数 ： MC_RATE_P， MC_RATE_P
+
+将MC_ROLL_P以及MC_PITCH_P设置为一个较小的值，例如设置为3。
+
+用手牢牢抓住多旋翼并将油门推到大约50%，使飞机的重量几乎为零。用手让飞机在横滚或俯仰方向上倾斜，并观察其响应。飞机应该会缓慢地回到水平。如果飞机发生振荡，则应该将P调低。一旦控制响应变慢但是正确了，则继续增加P直到飞机再次开始振荡。最优的响应是带有一些超调(大约10%~20%)。在得到稳定的响应之后再次对RATE_P，RATE_D进行微调。
+
+在QGroundControl地面站中，你可以画出横滚和俯仰角示意图 (ATTITUDE.roll/pitch)以及控制输出(ctrl0, ctrl1)。姿态角的超调量应该不超过10-20%。
 
 
-**P Gain Tuning**
-
-Parameters: MC_RATE_P, MC_RATE_P.
-
-Set MC_ROLL_P and MC_PITCH_P to a small value, e.g. 3
-Keep the multi rotor in your hand and increase the thrust to about 50%, so that the weight is virtually zero. Tilt it in roll or pitch direction, and observe the response. It should go slowly back to level. If it oscillates, tune down P. Once the control response is slow but correct, increase P until it starts to oscillate. Optimal responce is some overshot (~10-20%). After getting stable respone fine tune RATE_P, RATE_D again.
-
-In QGroundControl you can plot roll and pitch (ATTITUDE.roll/pitch) and control (ctrl0, ctrl1). Attitude angles overshot should be not more than 10-20%.
+### **第4步**： 稳定偏航角速度
 
 
-### Step 4: Stabilize Yaw Rate
+**P增益调节**
+
+参数： MC_YAWRATE_P
+
+将MC_YAWRATE_P设置为一个较小的值，例如设置为0.1。
+
+用手牢牢抓住多旋翼并将油门推到大约50%，使飞机的重量几乎为零。用手让飞机在偏航方向上转动，并观察其响应。电机的声音应该会发生改变，同时飞机应该会对抗这个偏航转动。飞机的响应将基本上弱于横滚和俯仰运动，这是正常的。如果飞机发生振荡或者颤抖，则需要将RATE_P调低。如果对于很小的运动(油门到顶vs空转螺旋桨)飞机的响应也非常剧烈，则继续减少RATE_P。典型值大约在0.2~0.3之间。
+
+如果偏航角速度控制非常灵敏或者发生振荡，可能会恶化横滚和俯仰响应。可以通过转向、横滚、俯仰和偏航检查系统的总响应。
 
 
-**P Gain Tuning**
-
-Parameters: MC_YAWRATE_P.
-
-Set MC_YAWRATE_P to small value, e.g. 0.1
-Keep the multi rotor in your hand and increase the thrust to about 50%, so that the weight is virtually zero. Turn it around its yaw axis, observe the response. The motor sound should change and the system should fight the yaw rotation. The response will be substantially weaker than roll and pitch, which is fine. If it oscillates or becomes twitchy, tune down RATE_P. If responce is very large even on small movements (full throttle spinning vs idle spinning propellers) reduce RATE_P. Typical value is around 0.2…0.3.
-
-The yaw rate control, if very strong or oscillating, can deteriorate the roll and pitch response. Check the total response by turning around, roll, pitch and yaw.
+### **第5步**： 稳定偏航角
 
 
-### Step 5: Stabilize Yaw Angle
+**P增益调节**
 
+参数： MC_YAW_P
 
-**P Gain Tuning**
+将MC_YAW_P设置为一个较低的值，例如设置为1。
 
-Parameters: MC_YAW_P.
+用手牢牢抓住多旋翼并将油门推到大约50%，使飞机的重量几乎为零。用手让飞机在偏航方向上转动，并观察其响应。飞机应该会慢慢地回到初始航向上。如果飞机发生振荡，则需要将MC_YAW_P调低。一旦控制响应变慢但是正确了，则需要增加MC_YAW_P直到响应变得稳定，同时不能有振荡。典型值大约在2~3之间。
 
-Set MC_YAW_P to a low value, e.g. 1
-Keep the multi rotor in your hand and increase the thrust to about 50%, so that the weight is virtually zero. Rotate it around yaw, and observe the response. It should go slowly back to the initial heading. If it oscillates, tune down P. Once the control response is slow but correct, increase P until the response is firm, but it does not oscillate. Typical value is around 2…3.
+可以在QGroundControl地面站中查看ATTITUDE.yaw偏航角曲线。偏航角的超调应该不超过2-5%。
 
-Look at ATTITUDE.yaw in QGroundControl. Yaw overshot should be not more than 2-5% (less than for attitude).
+**前馈调节**
 
-**Feed Forward Tuning**
-
-Parameters: MC_YAW_FF.
+参数：MC_YAW_FF
 
 This parameter is not critical and can be tuned in flight, in worst case yaw responce will be sluggish or too fast. Play with FF parameter to get comfortable responce. Valid range is 0…1. Typical value is 0.8…0.9. (For aerial video optimal value may be much smaller to get smooth responce.)
 
-Look at ATTITUDE.yaw in QGroundControl. Yaw overshot should be not more than 2-5% (less than for attitude).
+此参数不是特别重要并且可以在飞行过程中调节，在最坏的情况下，偏航响应将会滞后或者太快。调节前馈参数FF以获得一个舒适的响应。有效范围在0~1之间。典型值为0.8....0.9。(对于航拍视频，为获得平滑的响应，最佳值可能小得多)
+
+可以在QGroundControl地面站中查看ATTITUDE.yaw偏航角曲线。偏航角的超调应该不超过2-5%。
