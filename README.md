@@ -166,7 +166,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4.4-光流和LiDAR-Lite         |   PONY    |                               |
 | 4.5-综合测试                  |   Innoecho   |                               |
 | 4.6-户外光流                  |    Fantasy   |                               |
-| 4.7-多旋翼PID调参             |              |                               |
+| 4.7-多旋翼PID调参             |   Fantasy   |                               |
 | 4.8-sdlog2                  |  Fantasy   |                               |
 | 4.9-ecl EKF                  |           |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
