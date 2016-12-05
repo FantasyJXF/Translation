@@ -3,7 +3,6 @@
 
 官网英文原文地址：http://px4.io/docs/multicopter-pid-tuning-guide/
 
-This guide is for advanced users / experts only. If you don’t understand what a PID tuning is you might crash your aircraft.
 
 本教程仅适用于高级用户/专家。如果你不理解PID调参代表什么，很可能导致炸机。
 
@@ -125,8 +124,6 @@ PX4中的 `multirotor_att_control` 应用程序执行外环姿态控制器的外
 **前馈调节**
 
 参数：MC_YAW_FF
-
-This parameter is not critical and can be tuned in flight, in worst case yaw responce will be sluggish or too fast. Play with FF parameter to get comfortable responce. Valid range is 0…1. Typical value is 0.8…0.9. (For aerial video optimal value may be much smaller to get smooth responce.)
 
 此参数不是特别重要并且可以在飞行过程中调节，在最坏的情况下，偏航响应将会滞后或者太快。调节前馈参数FF以获得一个舒适的响应。有效范围在0~1之间。典型值为0.8....0.9。(对于航拍视频，为获得平滑的响应，最佳值可能小得多)
 
