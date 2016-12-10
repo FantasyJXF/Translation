@@ -17,7 +17,6 @@
 
 ## 介绍
 
-The PX4 `multirotor_att_control` app executes an outer loop of orientation controller, controlled by parameters:
 
 PX4中的 `multirotor_att_control` 应用程序执行外环姿态控制器的外环，取决于以下参数：
 
