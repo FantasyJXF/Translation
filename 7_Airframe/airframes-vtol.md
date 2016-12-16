@@ -20,6 +20,8 @@
 
 - `VT_FW_PERM_STAB` 系统在悬停模式下使用姿态增稳。如果这个参数设置为1，那么在飞机模式下也会使用姿态增稳；如果这个参数设置为0，那么飞机模式下将会使用纯手动飞行。
 - `VT_ARSP_TRANS`参数决定飞行器悬停状态转换到前飞状态的空速阈值，这个值设置过小会导致转换阶段的失速现象。 
+- `RC_MAP_TRANS_SW` should be assigned to a RC switch before flight. This allows you to check if the multicopter- and fixed wing mode work properly. (Can also be used to switch manually between those two control modes during flight)
+  
 
 ## 尾座式
 
