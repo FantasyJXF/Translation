@@ -1,19 +1,21 @@
 # PX4 Docker Containers
 
-官网英文原文地址：http://dev.px4.io/advanced-docker.html
+官网英文原文地址：[http://dev.px4.io/advanced-docker.html](http://dev.px4.io/advanced-docker.html)
 
 Docker containers are available that contain the complete PX4 development toolchain including Gazebo and ROS simulation:
 
-- **px4io/px4-dev**: toolchain including simulation
-- **px4io/px4-dev-ros**: toolchain including simulation and ROS (incl. MAVROS)
+* **px4io/px4-dev**: toolchain including simulation
+* **px4io/px4-dev-ros**: toolchain including simulation and ROS \(incl. MAVROS\)
 
-Dockerfiles and README can be found here: https://github.com/PX4/containers/tree/master/docker/px4-dev
+Pull one of the tagged images if you're after a container that just works, for instance\`px4io/px4-dev-ros:v1.0\`, the\`latest\`container is usually changing a lot.
 
-They are build automatically on Docker Hub: https://hub.docker.com/u/px4io/
+Dockerfiles and README can be found here: [https://github.com/PX4/containers/tree/master/docker/px4-dev](https://github.com/PX4/containers/tree/master/docker/px4-dev)
+
+They are build automatically on Docker Hub: [https://hub.docker.com/u/px4io/](https://hub.docker.com/u/px4io/)
 
 ## Prerequisites
 
-Install Docker from here https://docs.docker.com/installation/, preferably use one of the Docker-maintained package repositories to get the latest version.
+Install Docker from here [https://docs.docker.com/installation/](https://docs.docker.com/installation/), preferably use one of the Docker-maintained package repositories to get the latest version.
 
 Containers are currently only supported on Linux. If you don't have Linux you can run the container inside a virtual machine, see further down for more information. Do not use `boot2docker` with the default Linux image because it contains no X-Server.
 
@@ -21,7 +23,7 @@ Containers are currently only supported on Linux. If you don't have Linux you ca
 
 The following will run the Docker container including support for X forwarding which makes the simulation GUI available from inside the container. It also maps the directory `<local_src>` from your computer to `<container_src>` inside the container. Please see the Docker docs for more information on volume and network port mapping.
 
-With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
+With the `-–privileged` option it will automatically have access to the devices on your host \(e.g. a joystick and GPU\). If you connect/disconnect a device you have to restart the container.
 
 ```sh
 # enable access to xhost from the container
@@ -50,7 +52,7 @@ sudo docker start container_name
 sudo docker exec -it container_name bash
 ```
 
-If you need multiple shells connected to the container, just open a new shell and execute that last command again. 
+If you need multiple shells connected to the container, just open a new shell and execute that last command again.
 
 ## Virtual machine support
 
@@ -58,7 +60,7 @@ Any recent Linux distribution should work.
 
 The following configuration is tested:
 
-- OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
+* OS X with VMWare Fusion and Ubuntu 14.04 \(Docker container with GUI support on Parallels make the X-Server crash\).
 
 **Memory**
 
@@ -93,4 +95,5 @@ docker ps
 
 ## Legacy
 
-The ROS multiplatform containers are not maintained anymore: https://github.com/PX4/containers/tree/master/docker/ros-indigo
+The ROS multiplatform containers are not maintained anymore: [https://github.com/PX4/containers/tree/master/docker/ros-indigo](https://github.com/PX4/containers/tree/master/docker/ros-indigo)
+
