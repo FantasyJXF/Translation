@@ -144,7 +144,33 @@ export PATH="${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linu
 ```sh
 source ~/.bashrc
 ```
+#### Sysroot Installation
 
+A sysroot is required to provide the libraries and header files needed to cross compile applications for the Snapdragon Flight applications processor.
+
+The qrlSDK sysroot provies the required header files and libraries for the camera, GPU, etc.
+
+Download the file [Flight\_3.1.1\_qrlSDK.zip](http://support.intrinsyc.com/attachments/download/690/Flight_3.1.1_qrlSDK.zip) and save it in `cross_toolchain/download/`.
+
+```sh
+cd cross_toolchain
+unset HEXAGON_ARM_SYSROOT
+./qrlinux_sysroot.sh
+```
+
+Append the following to your ~/.bashrc:
+
+```sh
+export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v3.1.1_sysroot
+```
+
+Load the new configuration:
+
+```sh
+source ~/.bashrc
+```
+
+For more sysroot options see [Sysroot Installation](https://github.com/ATLFlight/cross_toolchain/blob/sdk3/README.md#sysroot-installation)
 #### 升级ADSP固件
 
 在构建，烧写以及运行代码之前，还需要升级[ADSP固件](../12_Debugging-and-Advanced-Topics/advanced-snapdragon.md#updating-the-adsp-firmware)。
@@ -160,6 +186,7 @@ DSP的信息可以通过mini-dm查看。
 ```sh
 $HOME/Qualcomm/Hexagon_SDK/2.0/tools/mini-dm/Linux_Debug/mini-dm
 ```
+> Note: Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
 
 ### 树莓派
 
@@ -176,6 +203,21 @@ cd rpi_toolchain
 在工具链安装过程中需要输入密码。
 
 如果不想把工具链安装在默认位置```/opt/rpi_toolchain```，可以执行``` ./install_cross.sh <PATH>```向安装脚本传入其它地址。安装脚本会自动配置需要的环境变量。
+
+Finally, run the following command to update the evironmental variables:
+```
+source ~/.profile
+```
+
+### Parrot Bebop
+
+Developers working with the Parrot Bebop should install the RPi Linux Toolchain. Follow the  
+description under [Raspberry Pi hardware](raspberry-pi-hardware).
+
+Next, install ADB.
+
+``sh      
+sudo apt-get install android-tools-adb -y` ``
 
 ## 完成
 
