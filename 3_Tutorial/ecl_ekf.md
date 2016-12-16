@@ -25,7 +25,7 @@ Note: The 'fusion time horizon' delay and length of the buffers is determined by
 
 The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops. The position of the IMU relative to the body frame is set by the EKF2\_IMU\_POS\_X,Y,Z parameters.
 
-The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: \[Matlab Symbolic Derivation\]\([https://github.com/PX4/ecl/blob/master/matlab/scripts/Inertial%20Nav%20EKF/GenerateNavFilterEquations.m\](https://github.com/PX4/ecl/blob/master/matlab/scripts/Inertial%20Nav%20EKF/GenerateNavFilterEquations.m\)\)
+The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/matlab/scripts/Inertial%20Nav%20EKF/GenerateNavFilterEquations.m)
 
 ## What sensor measurements does it use?
 
@@ -124,7 +124,7 @@ EKF outputs, states and status data are published to a number of uORB topics whi
 
 The .ulog format data can be parsed in python by using the \[PX4 pyulog library\]\([https://github.com/PX4/pyulog\](https://github.com/PX4/pyulog\)\).
 
-Most of the EKF data is found in the \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\) and \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\) uORB messages that are logged to the .ulog file.
+Most of the EKF data is found in the [ekf2\_innovations]([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg\) uORB messages that are logged to the .ulog file.
 
 ### Output Data
 
