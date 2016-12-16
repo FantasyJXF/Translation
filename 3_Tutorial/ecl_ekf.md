@@ -122,21 +122,21 @@ For this reason, no claims for accuracy relative to the legacy combination of at
 
 EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the .ulog file format. To use the .ulog format, set the SYS\_LOGGER parameter to 1.
 
-The .ulog format data can be parsed in python by using the \[PX4 pyulog library\]\([https://github.com/PX4/pyulog\](https://github.com/PX4/pyulog\)\).
+The .ulog format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
-Most of the EKF data is found in the [ekf2\_innovations]([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg\) uORB messages that are logged to the .ulog file.
+Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg)and [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
 
 ### Output Data
 
-* Attitude output data is found in the \[vehicle\_attitude\]\([https://github.com/PX4/Firmware/blob/master/msg/vehicle\\_attitude.msg\](https://github.com/PX4/Firmware/blob/master/msg/vehicle\_attitude.msg\)\) message.
-* Local position output data is found in the \[vehicle\_local\_position\]\([https://github.com/PX4/Firmware/blob/master/msg/vehicle\\_local\\_position.msg\](https://github.com/PX4/Firmware/blob/master/msg/vehicle\_local\_position.msg\)\) message.
-* Control loop feedback data is found in the the \[control\_state\]\([https://github.com/PX4/Firmware/blob/master/msg/control\\_state.msg\](https://github.com/PX4/Firmware/blob/master/msg/control\_state.msg\)\) message.
-* Global \(WGS-84\) output data is found in the \[vehicle\_global\_position\]\([https://github.com/PX4/Firmware/blob/master/msg/vehicle\\_global\\_position.msg\](https://github.com/PX4/Firmware/blob/master/msg/vehicle\_global\_position.msg\)\) message.
-* Wind velocity output data is found in the \[wind\_estimate\]\([https://github.com/PX4/Firmware/blob/master/msg/wind\\_estimate.msg\](https://github.com/PX4/Firmware/blob/master/msg/wind\_estimate.msg\)\) message.
+* Attitude output data is found in the [vehicle_attitude](https://github.com/PX4/Firmware/blob/master/msg/vehicle_attitude.msg) message.
+* Local position output data is found in the [vehicle_local_position](https://github.com/PX4/Firmware/blob/master/msg/vehicle_local_position.msg)message.
+* Control loop feedback data is found in the the [control_state](https://github.com/PX4/Firmware/blob/master/msg/control_state.msg) message.
+* Global \(WGS-84\) output data is found in the [vehicle_global_position](https://github.com/PX4/Firmware/blob/master/msg/vehicle_global_position.msg) message.
+* Wind velocity output data is found in the [wind_estimate](https://github.com/PX4/Firmware/blob/master/msg/wind_estimate.msg) message.
 
 ### States
 
-Refer to states\[32\] in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\). The index map for states\[32\] is as follows:
+Refer to states\[32\] in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg). The index map for states\[32\] is as follows:
 
 * \[0 ... 3\] Quaternions
 * \[4 ... 6\] Velocity NED \(m/s\)
@@ -150,7 +150,7 @@ Refer to states\[32\] in \[estimator\_status\]\([https://github.com/PX4/Firmware
 
 ### State Variances
 
-Refer to covariances\[28\] in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\). The index map for covariances\[28\] is as follows:
+Refer to covariances\[28\] in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg). The index map for covariances\[28\] is as follows:
 
 * \[0 ... 3\] Quaternions
 * \[4 ... 6\] Velocity NED \(m/s\)^2
@@ -164,27 +164,27 @@ Refer to covariances\[28\] in \[estimator\_status\]\([https://github.com/PX4/Fir
 
 ### Observation Innovations
 
-* Magnetometer XYZ \(gauss\) : Refer to mag\_innov\[3\] in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
-* Yaw angle \(rad\) : Refer to heading\_innov in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
-* Velocity and position innovations : Refer to vel\_pos\_innov\[6\] in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\). The index map for vel\_pos\_innov\[6\] is as follows:
+* Magnetometer XYZ \(gauss\) : Refer to mag\_innov\[3\] in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Yaw angle \(rad\) : Refer to heading\_innov in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Velocity and position innovations : Refer to vel\_pos\_innov\[6\] in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg). The index map for vel\_pos\_innov\[6\] is as follows:
 * \[0 ... 2\] Velocity NED \(m/s\)
 * \[3 ... 5\] Position NED \(m\)
-* True Airspeed \(m/s\) : Refer to airspeed\_innov in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
-* Synthetic sideslip \(rad\) : Refer to beta\_innov in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
-* Optical flow XY \(rad/sec\) : Refer to flow\_innov in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
-* Height above ground \(m\) : Refer to hagl\_innov in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
+* True Airspeed \(m/s\) : Refer to airspeed\_innov in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Synthetic sideslip \(rad\) : Refer to beta\_innov in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Optical flow XY \(rad/sec\) : Refer to flow\_innov in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Height above ground \(m\) : Refer to hagl\_innov in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
 
 ### Observation Innovation Variances
 
-* Magnetometer XYZ \(gauss^2\) : Refer to mag\_innov\_var\[3\] in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
+* Magnetometer XYZ \(gauss^2\) : Refer to mag\_innov\_var\[3\] in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
 * Yaw angle \(rad^2\) : Refer to heading\_innov\_var in the ekf2\_innovations message.
-* Velocity and position innovations : Refer to vel\_pos\_innov\_var\[6\] in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\). The index map for vel\_pos\_innov\_var\[6\] is as follows:
+* Velocity and position innovations : Refer to vel\_pos\_innov\_var\[6\] in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg). The index map for vel\_pos\_innov\_var\[6\] is as follows:
 * \[0 ... 2\] Velocity NED \(m/s\)^2
 * \[3 ... 5\] Position NED \(m^2\)
-* True Airspeed \(m/s\)^2 : Refer to airspeed\_innov\_var in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
-* Synthetic sideslip \(rad^2\) : Refer to beta\_innov\_var in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
-* Optical flow XY \(rad/sec\)^2 : Refer to flow\_innov\_var in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
-* Height above ground \(m^2\) : Refer to hagl\_innov\_var in \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\)\).
+* True Airspeed \(m/s\)^2 : Refer to airspeed\_innov\_var in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Synthetic sideslip \(rad^2\) : Refer to beta\_innov\_var in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Optical flow XY \(rad/sec\)^2 : Refer to flow\_innov\_var in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Height above ground \(m^2\) : Refer to hagl\_innov\_var in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
 
 ### Output Complementary Filter
 
@@ -196,7 +196,7 @@ The output complementary filter is used to propagate states forward from the fus
 
 ### EKF Errors
 
-The EKF constains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\).
+The EKF constains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in \[estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
 
 ### Observation Errors
 
@@ -207,7 +207,7 @@ There are two categories of observation faults:
 
 Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence check applied to the innovations. The number of standard deviations for the check are controlled by the EKF2\_&lt;&gt;\_GATE parameter for each observation type.
 
-Test levels are  available in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\) as follows:
+Test levels are  available in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) as follows:
 
 * mag\_test\_ratio : ratio of the largest magnetometer innovation component to the innovation test limit
 * vel\_test\_ratio : ratio of the largest velocity innovation component to the innovation test limit
@@ -216,11 +216,11 @@ Test levels are  available in \[estimator\_status\]\([https://github.com/PX4/Fir
 * tas\_test\_ratio : ratio of the true airspeed innovation to the innovation test limit
 * hagl\_test\_ratio : ratio of the height above ground innovation to the innovation test limit
 
-For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\).
+For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
 
 ### GPS Quality Checks
 
-The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the EKF2\_GPS\_CHECK and EKF2\_REQ&lt;&gt; parameters. The pass/fail status for these checks is logged in the \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).gps\\_check\\_fail\\_flags](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).gps\_check\_fail\_flags\) message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition gps\_check\_fail\_flags in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\).
+The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the EKF2\_GPS\_CHECK and EKF2\_REQ&lt;&gt; parameters. The pass/fail status for these checks is logged in the [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).gps\\_check\\_fail\\_flags](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).gps\_check\_fail\_flags\) message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition gps\_check\_fail\_flags in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
 
 ### EKF Numerical Errors
 
@@ -231,7 +231,7 @@ To prevent this, every covariance and state update step contains the following e
 * If the innovation variance is less than the observation variance \(this requires a negative state variance which is impossible\) or the covariance update will produce a negative variance for any of the states, then:
   * The state and covariance update is skipped
   * The corresponding rows and columns in the covariance matrix are reset
-  * The failure is recorded in the \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\) filter\_fault\_flags messaage
+  * The failure is recorded in the [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) filter\_fault\_flags messaage
 
 
 * State variances \(diagonals in the covariance matrix\) are constrained to be non-negative.
@@ -244,8 +244,8 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 
 The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. If this is occurring, then the following signs should be evident in the data
 
-* \[ekf2\_innovations\]\(https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\).vel\_pos\_innov\[3\] and  \[ekf2\_innovations\]\(https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\).vel\_pos\_innov\[5\] will both have the same sign.
-* \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).hgt\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).hgt\_test\_ratio\) will be greater than 1.0
+* [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).vel\_pos\_innov\[3\] and  \[ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
+* [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
 
 
 The recommended first step is to  esnure that the autopilot is isolated from the airframe using an effective isolatoin mounting system. An isolaton mount has 6 degrees of freedom, and therefore 6 resonant frequencies. As a general rule, the 6 resonant frequencies of the autopilot on the isolation mount should be above 25Hz to avoid interaction with the autopilot dynamics and below the frequency of the motors.
@@ -284,22 +284,22 @@ The most common causes of position divergence are:
 
 Determining which of these is the primary casue requires a methodical approach to analysis of the EKF log data:
 
-* Plot the velocty innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vel\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vel\_test\_ratio\)
+* Plot the velocty innovation test ratio - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vel\_test\_ratio\)
 
-* Plot the horizontal position innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).pos\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).pos\_test\_ratio\)
+* Plot the horizontal position innovation test ratio - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).pos\_test\_ratio\)
 
-* Plot the height innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).hgt\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).hgt\_test\_ratio\)
+* Plot the height innovation test ratio - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio\)
 
-* Plot the magnetoemrer innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).mag\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).mag\_test\_ratio\)
+* Plot the magnetoemrer innovation test ratio - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).mag\_test\_ratio\)
 
-* Plot the GPS receier reported speed accuracy - \[vehicle\_gps\_position\]\([https://github.com/PX4/Firmware/blob/master/msg/vehicle\\_gps\\_position.msg\\).s\\_variance\\_m\\_s](https://github.com/PX4/Firmware/blob/master/msg/vehicle\_gps\_position.msg\).s\_variance\_m\_s\)
+* Plot the GPS receier reported speed accuracy - [vehicle_gps_position](https://github.com/PX4/Firmware/blob/master/msg/vehicle_gps_position.msg).s\_variance\_m\_s\)
 
-* Plot the IMU delta angle state estimates - \[estimator\_status\]\(\[\[\[[https://github.com/PX4/Firmware/blob/master/msg/estimator\\\\\_status.msg\\\\\).states\\\\\[10\\\\]\\\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\\\_status.msg\\\\).states\\\\[10\\\\)\\\]\\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\\\_status.msg\\\\).states\\\\[10\\\]\\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).states\\\[10\\\)\\\)\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\\\_status.msg\\\\).states\\\\[10\\\]\\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).states\\\[10\\\)\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).states\\\[10\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).states\\[10\\)\\)\\)\](https://github.com/PX4/Firmware/blob/master/msg/estimator\\\\_status.msg\\\\).states\\\\[10\\\]\\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).states\\\[10\\\)\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).states\\\[10\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).states\\[10\\)\\)\](https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).states\\\[10\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).states\\[10\\)\](https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).states\\[10\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).states\[10\)\)\)\)\], states\[11\] and states\[12\]
+* Plot the IMU delta angle state estimates - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).states\[10\],states\[11\] and states\[12\]
 
 * Plot the EKF internal high frequency vibration metrics:
-  * Delta angle coning vibration -\[estimator\_status\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[0\]
-  * High frequency delta angle vibration - \[estimator\_status\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[1\]
-  * High frequency delta velocity vibration - \[estimator\_status\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[2\]
+  * Delta angle coning vibration -[estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vibe\[0\]
+  * High frequency delta angle vibration - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vibe\[1\]
+  * High frequency delta velocity vibration - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vibe\[2\]
 
 
 During normal operation, all the test ratios should remain below 0.5 with only occasional spikes above this as shown in the example below from a successful flight:
@@ -334,7 +334,7 @@ Bad yaw alignment causes a velocity test ratio that increases rapidly when the v
 
 ### Determination of Poor GPS Accuracy
 
-Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vel\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vel\_test\_ratio\) to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
+Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vel\_test\_ratio\) to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
 
 ![](/pictures/log/ecl_ekf_3.png)
 
