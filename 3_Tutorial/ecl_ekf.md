@@ -284,7 +284,7 @@ For a binary pass/fail summary for each sensor, refer to innovation\_check\_flag
 
 \#\#\#GPS Quality Checks
 
-The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the EKF2\_GPS\_CHECK and EKF2\_REQ&lt;&gt; parameters. The pass/fail status for these checks is logged in the \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).gps\\_check\\_fail\\_flags](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).gps\_check\_fail\_flags) message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition gps\_check\_fail\_flags in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\).
+The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the EKF2\_GPS\_CHECK and EKF2\_REQ&lt;&gt; parameters. The pass/fail status for these checks is logged in the \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).gps\\_check\\_fail\\_flags](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).gps\_check\_fail\_flags\) message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition gps\_check\_fail\_flags in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\)\).
 
 \#\#\#EKF Numerical Errors
 
@@ -312,9 +312,9 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 
 The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. If this is occurring, then the following signs should be evident in the data
 
-\* \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\\).vel\\_pos\\_innov\\[3\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\).vel\_pos\_innov\[3\)\] and  \[ekf2\_innovations\]\([https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\\).vel\\_pos\\_innov\\[5\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\).vel\_pos\_innov\[5\)\] will both have the same sign.
+\* \[ekf2\_innovations\]\(\[[https://github.com/PX4/Firmware/blob/master/msg/ekf2\\\_innovations.msg\\\).vel\\\_pos\\\_innov\\\[3\\]\(https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\\).vel\\_pos\\_innov\\[3\\)\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\\).vel\\_pos\\_innov\\[3\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\).vel\_pos\_innov\[3\)\)\] and  \[ekf2\_innovations\]\(\[[https://github.com/PX4/Firmware/blob/master/msg/ekf2\\\_innovations.msg\\\).vel\\\_pos\\\_innov\\\[5\\]\(https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\\).vel\\_pos\\_innov\\[5\\)\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\\_innovations.msg\\).vel\\_pos\\_innov\\[5\](https://github.com/PX4/Firmware/blob/master/msg/ekf2\_innovations.msg\).vel\_pos\_innov\[5\)\)\] will both have the same sign.
 
-\* \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).hgt\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).hgt\_test\_ratio) will be greater than 1.0
+\* \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).hgt\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).hgt\_test\_ratio\) will be greater than 1.0
 
 The recommended first step is to  esnure that the autopilot is isolated from the airframe using an effective isolatoin mounting system. An isolaton mount has 6 degrees of freedom, and therefore 6 resonant frequencies. As a general rule, the 6 resonant frequencies of the autopilot on the isolation mount should be above 25Hz to avoid interaction with the autopilot dynamics and below the frequency of the motors.
 
@@ -360,33 +360,33 @@ The most common causes of position divergence are:
 
 Determining which of these is the primary casue requires a methodical approach to analysis of the EKF log data:
 
-\* Plot the velocty innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vel\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vel\_test\_ratio)
+\* Plot the velocty innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vel\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vel\_test\_ratio\)
 
-\* Plot the horizontal position innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).pos\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).pos\_test\_ratio)
+\* Plot the horizontal position innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).pos\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).pos\_test\_ratio\)
 
-\* Plot the height innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).hgt\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).hgt\_test\_ratio)
+\* Plot the height innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).hgt\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).hgt\_test\_ratio\)
 
-\* Plot the magnetoemrer innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).mag\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).mag\_test\_ratio)
+\* Plot the magnetoemrer innovation test ratio - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).mag\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).mag\_test\_ratio\)
 
-\* Plot the GPS receier reported speed accuracy - \[vehicle\_gps\_position\]\([https://github.com/PX4/Firmware/blob/master/msg/vehicle\\_gps\\_position.msg\\).s\\_variance\\_m\\_s](https://github.com/PX4/Firmware/blob/master/msg/vehicle\_gps\_position.msg\).s\_variance\_m\_s)
+\* Plot the GPS receier reported speed accuracy - \[vehicle\_gps\_position\]\([https://github.com/PX4/Firmware/blob/master/msg/vehicle\\_gps\\_position.msg\\).s\\_variance\\_m\\_s](https://github.com/PX4/Firmware/blob/master/msg/vehicle\_gps\_position.msg\).s\_variance\_m\_s\)
 
-\* Plot the IMU delta angle state estimates - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).states\\[10\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).states\[10\)\], states\[11\] and states\[12\]
+\* Plot the IMU delta angle state estimates - \[estimator\_status\]\(\[[https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).states\\\[10\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).states\\[10\\)\](https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).states\\[10\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).states\[10\)\)\], states\[11\] and states\[12\]
 
 \* Plot the EKF internal high frequency vibration metrics:
 
-\* Delta angle coning vibration - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[0\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[0\)\]
+\* Delta angle coning vibration - \[estimator\_status\]\(\[[https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).vibe\\\[0\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[0\\)\](https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[0\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[0\)\)\]
 
-\* High frequency delta angle vibration - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[1\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[1\)\]
+\* High frequency delta angle vibration - \[estimator\_status\]\(\[[https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).vibe\\\[1\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[1\\)\](https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[1\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[1\)\)\]
 
-\* High frequency delta velocity vibration - \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[2\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[2\)\]
+\* High frequency delta velocity vibration - \[estimator\_status\]\(\[[https://github.com/PX4/Firmware/blob/master/msg/estimator\\\_status.msg\\\).vibe\\\[2\\]\(https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[2\\)\](https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vibe\\[2\](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vibe\[2\)\)\]
 
 During normal operation, all the test ratios should remain below 0.5 with only occasional spikes above this as shown in the example below from a successful flight:
 
-!\[Position, Velocity, Height and Magnetometer Test Ratios\]\(Screen Shot 2016-12-02 at 9.20.50 pm.png\)
+![](/pictures/log/ecl_ekf_1.png)
 
 The following plot shows the EKF vibration metrics for a multirotor with good isolation. The landing shock and the increased vibration during takeoff and landing can be seen. Insifficient data has been gathered with these metrics to provide specific advice on maximum thresholds.
 
-!\[\]\(Screen Shot 2016-12-02 at 10.24.00 pm.png\)
+![](/pictures/log/ecl_ekf_2.png)
 
 The above vibration metrics are of limited value as the presence of vibration at a frequency close to the IMU sampling frequency \(1kHz for most boards\) will cause  offsets to appear in the data that do not show up in the high frequency vibration metrics. The only way to detect aliasing errors is in their effect on inertial navigation accuracy and the rise in innovation levels.
 
@@ -412,19 +412,17 @@ Bad yaw alignment causes a velocity test ratio that increases rapidly when the v
 
 \#\#\#Determination of Poor GPS Accuracy
 
-Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vel\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vel\_test\_ratio) to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
+Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in \[estimator\_status\]\([https://github.com/PX4/Firmware/blob/master/msg/estimator\\_status.msg\\).vel\\_test\\_ratio](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).vel\_test\_ratio\) to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
 
-!\[\]\(gps glitch - test ratios.png\)
+![](/pictures/log/ecl_ekf_3.png)
 
 This is accompanied with rise in the GPS receivers reported velocity accuracy which indicates that it was likely a GPS error.
 
-!\[\]\(gps glitch - reported receiver accuracy.png\)
+![](/pictures/log/ecl_ekf_4.png)
 
 If we also look at the GPS horizontal velocity innovations and innovation variances, we can see the large spike in North velocity innovation that accompanies this GPS 'glitch' event.
 
-!\[\]\(gps glitch - velocity innovations.png\)
-
-
+![](/pictures/log/ecl_ekf_5.png)
 
 \#\#\#Determination of GPS Data Loss
 
