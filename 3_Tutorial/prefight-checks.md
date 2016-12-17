@@ -1,6 +1,6 @@
 # Preflight Sensor and EKF Checks
 
-官网英文原文地址：[http://dev.px4.io/pre\\_flight\\_checks.html](http://dev.px4.io/pre\_flight\_checks.html)
+官网英文原文地址：http://dev.px4.io/pre_flight_checks.html
 
 The commander module performs a number of preflight sensor quality and EKF checks which are controlled by the COM\_ARM&lt;&gt; parameters. If these checks fail, the motors are prevented from arming and the following error messages are produced:
 
