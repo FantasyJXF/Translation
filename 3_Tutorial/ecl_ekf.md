@@ -196,7 +196,7 @@ The output complementary filter is used to propagate states forward from the fus
 
 ### EKF Errors
 
-The EKF constains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in \[estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+The EKF constains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
 
 ### Observation Errors
 
@@ -220,7 +220,7 @@ For a binary pass/fail summary for each sensor, refer to innovation\_check\_flag
 
 ### GPS Quality Checks
 
-The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the EKF2\_GPS\_CHECK and EKF2\_REQ&lt;&gt; parameters. The pass/fail status for these checks is logged in the [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).gps\\_check\\_fail\\_flags](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).gps\_check\_fail\_flags\) message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition gps\_check\_fail\_flags in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the EKF2\_GPS\_CHECK and EKF2\_REQ&lt;&gt; parameters. The pass/fail status for these checks is logged in the [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).gps\\_check\\_fail\\_flags](https://github.com/PX4/Firmware/blob/master/msg/estimator\_status.msg\).gps\_check\_fail\_flags\) message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition gps\check\_fail\_flags in  [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
 
 ### EKF Numerical Errors
 
@@ -244,7 +244,7 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 
 The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. If this is occurring, then the following signs should be evident in the data
 
-* [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).vel\_pos\_innov\[3\] and  \[ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
+* [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).vel\_pos\_innov\[3\] and  [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
 * [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
 
 
