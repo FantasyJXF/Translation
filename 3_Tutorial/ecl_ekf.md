@@ -6,7 +6,7 @@
 
 ## 什么是 ecl EKF?
 
-ECL \(Estimation and Control Library，估计与控制库）使用EKF(Extended Kalman Filter，扩展卡尔曼滤波器)算法来处理传感器测量信息并为下面的状态提供估计：
+ECL(Estimation and Control Library，估计与控制库）使用EKF(Extended Kalman Filter，扩展卡尔曼滤波器)算法来处理传感器测量信息并为下面的状态提供估计：
 
 * 四元数，定义为从地球NED(北东地)坐标系到机体坐标系X,Y,Z的旋转四元数
 * 速度，关于IMU - 北，东，地 (m/s)
