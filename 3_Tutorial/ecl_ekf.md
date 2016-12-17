@@ -1,23 +1,25 @@
-# Using the ecl EKF
+# 使用 ecl EKF
 
 官网英文原文地址： http://dev.px4.io/tuning_the_ecl_ekf.html
 
-This tutorial answers common questions about use of the ECL EKF algorithm.
+本教程旨在解答一些关于ECL EKF算法使用的常见问题。
 
-## What is the ecl EKF?
+## 什么是 ecl EKF?
 
-The ECL \(Estimation and Control Library\) uses an Extended Kalman Filter algorithm to process sensor measurements and provide an estimate of the following states:
+ECL \(Estimation and Control Library，估计与控制库）使用EKF(Extended Kalman Filter，扩展卡尔曼滤波器)算法来处理传感器测量信息并为下面的状态提供估计：
 
-* Quaternion defining the rotation from North,East,Down local earth fram to X,Y,Z body frame
-* Velocity at the IMU - North,East,Down \(m/s\)
-* Position at the IMU - North,East,Down \(m\)
-* IMU delta angle bias estimates - X,Y,Z \(rad\)
-* IMU delta velocity bias estimates - X,Y,Z\(m/s\)
-* Earth Magnetic field components - North,East,Down \(gauss\)
-* Vehicle body frame magnetic field bias - X,Y,Z \(gauss\)
-* Wind velocity - North,East \(m/s\)
+* 四元数，定义为从地球NED(北东地)坐标系到机体坐标系X,Y,Z的旋转四元数
+* 速度，关于IMU - 北，东，地 (m/s)
+* 位置，关于IMU - 北，东，地 (m)
+* 角速度偏移估计，关于IMU - X,Y,Z (rad)
+* 速度偏移估计，关于IMU - X,Y,Z (m/s)
+* 地磁分量 - 北，东，地 (gauss)
+* 磁偏量，关于飞行器本身 - X,Y,Z (gauss)
+* 风速 - 北，东 (m/s)
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time. The delay compensation for each sensor is controlled by the EKF2\_\*\_DELAY parameters.
+
+
 
 A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data. The time constant for this filter is controlled by the EKF2\_TAU\_VEL and EKF2\_TAU\_POS parameters.
 
