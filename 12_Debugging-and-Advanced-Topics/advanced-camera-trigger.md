@@ -2,25 +2,20 @@
 
 官网英文原文地址:http://dev.px4.io/advanced-camera-trigger.html
 
-The camera trigger driver allows the use of the AUX ports to send out pulses in
-order to trigger a camera. This can be used for multiple applications including
-timestamping photos for aerial surveying and reconstruction, synchronizing a
-multi-camera system or visual-inertial navigation.
+相机触发驱动器是为了让AUX端口发出一个脉冲来触发相机. 这个可以用于多个应用程序，包括航测和重建照片、同步多相机系统或者视觉惯性导航.
 
-In addition to a pulse being sent out, a MAVLink message is published containing
-a sequence number (thus the current session's image sequence number) and the
-corresponding time stamp.
+除了会发送一个脉冲, mavlink会传回一个序列号（当前所拍摄的图像的一个序列号）和拍摄的时间.
+支持三种不同的模式:
 
-Three different modes are supported:
+- `触发` 1 就像一个基本的定时器，可以通过系统控制台分别设置启用和禁用 `相机触发使能` 或 `相机触发不使能`. 可以重复设置间隔时间，来执行相机触发.
+- `触发模式` 2 用一个开关来定时何时曝光.
+- `触发模式` 3 基于远程触发.每次超过设定的水平距离时都要触发拍摄
+. 然而，两个相机之间的最小时间间隔由设定的触发间隔时间决定.
 
-- `TRIG_MODE` 1 works like a basic intervalometer that can be enabled and disabled by calling in the system console `camera_trigger enable` or `camera_trigger disable`, respectively. Repeated enabling time-shifts the intervals to match the latest call.
-- `TRIG_MODE` 2 switches the intervalometer constantly on.
-- `TRIG_MODE` 3 triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval.
-
-In `TRIG_MODE` 0 the triggering is off.
+在 `触发模式` 0 触发关闭.
 
 The full list of parameters pertaining to the camera trigger module can be found
-on the [parameter reference](https://pixhawk.org/firmware/parameters#camera_trigger) page.
+on the想找到与相机触发模块有关的参数配置的完整列表，请参考 [参考](https://pixhawk.org/firmware/parameters#camera_trigger) 页.
 
 
 > If it is your first time enabling the camera trigger app, remember to reboot
