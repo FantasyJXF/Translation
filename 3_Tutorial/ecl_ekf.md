@@ -17,21 +17,19 @@ ECL(Estimation and Control Library，估计与控制库）使用EKF(Extended Kal
 * 磁偏量，关于飞行器本身 - X,Y,Z (gauss)
 * 风速 - 北，东 (m/s)
 
-The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time. The delay compensation for each sensor is controlled by the EKF2\_\*\_DELAY parameters.
+EKF在一个延迟的`fusion time horizon`上运行，以允许传感器在每次测量时相对于IMU存在不同的时间延迟。 每个传感器的数据都是FIFO缓存的并由EKF从缓存中检索，得以在正确的时候使用。每个传感器的延迟补偿由参数`EKF2_*_DELAY`控制。
 
+互补滤波器用于利用缓存好的IMU数据将状态从`fusion time horizon`向前传播到当前时间。该滤波器的时间常数由参数`EKF2_TAU_VEL `和`EKF2_TAU_POS`控制。
 
+> **注意：**`fusion time horizon`延迟和缓冲区的长度由参数`EKF2_*_DELAY`的最大值确定。如果未使用某传感器，建议将其时间延迟设置为零。降低`fusion time horizon`延迟会减少互补滤波器中用于将状态向前传播到当前时间的误差
 
-A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data. The time constant for this filter is controlled by the EKF2\_TAU\_VEL and EKF2\_TAU\_POS parameters.
+调整位置和速度状态以消除IMU和机体坐标系之间由于安装误差所产生的偏移，避免其输出到控制回路。 IMU相对于机体坐标系的位置由参数`EKF2_IMU_POS_X，Y，Z`设置。
 
-Note: The 'fusion time horizon' delay and length of the buffers is determined by the largest of the EKF2\_\*\_DELAY parameters. If a sensor is not being used, it is recommended to set its time delay to zero. Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
+EKF仅使用IMU的数据进行状态预测。IMU的数据不会用作EKF推导过程中的量测值。协方差预测、状态更新以及协方差更新的代数方程都是使用Matlab符号工具箱导出的，可以在这里找到：[Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/matlab/scripts/Inertial%20Nav%20EKF/GenerateNavFilterEquations.m)
 
-The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops. The position of the IMU relative to the body frame is set by the EKF2\_IMU\_POS\_X,Y,Z parameters.
+## ecl EKF使用何种传感器测量值？
 
-The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/matlab/scripts/Inertial%20Nav%20EKF/GenerateNavFilterEquations.m)
-
-## What sensor measurements does it use?
-
-The EKF has different modes of operation that allow for different combinations of sensor measurements. On start-up the filter checks for a minimum viable combination of sensors and after initial tilt, yaw and height alignment is completed, enters a mode that provides rotation, vertical velocity,  vertical position, IMU delta angle bias and IMU delta velocity bias estimates.
+根据传感器测量值的不同组合，EKF具有不同的操作模式。在启动时，滤波器会检查传感器的最小可行组合，并在初始倾斜、偏航以及高度对准完成后进入一个提供旋转、垂直速度、垂直位置、IMU角增量误差和IMU速度增量误差估计的模式，
 
 This mode requires IMU data, a source of yaw \(magnetometer or external vision\) and a source of height data. This minimum data set is required for all EKF modes of operation. Other sensor data can then be used to estimate additional states.
 
