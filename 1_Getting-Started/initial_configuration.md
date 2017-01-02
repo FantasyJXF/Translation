@@ -29,9 +29,7 @@ PX4飞行栈并不强制要求无线控制系统。它也不要求使用单独�
 
 ### 单通道模式开关
 
-<aside class="todo">
-Move these instructions here.
-</aside>
 
 在这种模式下，该系统接受一个单一的通道作为模式开关，而不是使用多个开关，这在 [legacy wiki](https://pixhawk.org/peripherals/radio-control/opentx/single_channel_mode_switch)有解释。
+
 
