@@ -1,9 +1,9 @@
 # 结构预览
-官网英文原文地址：http://dev.px4.io/concept-flight-modes.html
+官网英文原文地址：http://dev.px4.io/concept-architecture.html
 
-PX4由两个层次组成：一是[飞行控制栈](../2_Concepts/flight_stack.md)，即自驾仪的软件解决方案，二是[中间件](../2_Concepts/middleware.md)，一种可以支持任意类型自主机器人的通用机器人中间件。
+PX4由两个层次组成：一是[飞行控制栈(flight stack)](../2_Concepts/flight_stack.md)，即自驾仪的软件解决方案，二是[中间件](../2_Concepts/middleware.md)，一种可以支持任意类型自主机器人的通用机器人中间件。
 
-所有的[无人机机型](../7_Airframe/airframes-architecture.md)，事实上所有的机器人系统包括船舶，都具有同一代码库。整个系统设计是[反应式](http://www.reactivemanifesto.org)的，这意味着：
+所有的[无人机机型](../7_Airframe/airframes-architecture.md)，事实上所有的包括船舶在内的机器人系统，都具有同一代码库。整个系统设计是[反应式(reactive)](http://www.reactivemanifesto.org)的，这意味着：
 
 - 所有的功能被划分为可替换部件
 - 通过异步消息传递进行通信
@@ -24,7 +24,7 @@ PX4由两个层次组成：一是[飞行控制栈](../2_Concepts/flight_stack.md
 {% mermaid %}
 graph TD;
   制导-->导航;
-  user-->制导-;
+  user-->制导;
   user-->stickmapper;
   stickmapper-->导航;
   导航-->位置控制

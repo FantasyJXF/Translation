@@ -29,19 +29,22 @@ EKF仅使用IMU的数据进行状态预测。IMU的数据不会用作EKF推导�
 
 ## ecl EKF使用何种传感器测量值？
 
-根据传感器测量值的不同组合，EKF具有不同的操作模式。在启动时，滤波器会检查传感器的最小可行组合，并在初始倾斜、偏航以及高度对准完成后进入一个提供旋转、垂直速度、垂直位置、IMU角增量误差和IMU速度增量误差估计的模式，
+根据传感器测量值的不同组合，EKF具有不同的操作模式。在启动时，滤波器会检查传感器的最小可行组合，并在初始倾斜、偏航以及高度对准完成后进入一个提供旋转、垂直速度、垂直位置、IMU角增量误差和IMU速度增量误差估计的模式。
 
-This mode requires IMU data, a source of yaw \(magnetometer or external vision\) and a source of height data. This minimum data set is required for all EKF modes of operation. Other sensor data can then be used to estimate additional states.
+此模式需要有传感器的数据，例如偏航数据源（由磁力计或者外部视觉设备提供）和高度数据源。所有的EKF操作模式都需要这个最小的数据集。然后可以使用其他传感器数据来估计附加的状态。
 
-### IMU
+### 惯性测量单元（IMU）
 
-* Three axis body fixed Inertial Measurement unit delta angle and delta velocity data at a minimum rate of 100Hz. Note: Coning corrections should be applied to the IMU delta angle data before it is used by the EKF.
+* 惯性测量单元的三轴位置固定，用于采集单位角增量和速度增量数据，最低采样频率为100Hz。
 
-### Magnetometer
+> 注意：在EKF使用IMU角增量数据之前应对其进行校正修正。
 
-Three axis body fixed magnetometer data \(or external vision system pose data\) at a minimum rate of 5Hz is required. Magnetometer data can be used in two ways:
+### 磁力计
+
+三轴磁力计（或者是外部视觉系统）的最低采样率为5Hz。磁力计数据可以以两种方式使用：
 
 * Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination. This yaw angle is then used as an observation by the EKF. This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases. It is the default method used during start-up and on ground.
+* 使用倾斜估计和磁偏角将磁力计测量值转换为偏航角
 * The  XYZ magnetometer readings are used as separate observations. This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies. It is the default method when the vehicle is airborne and has climbed past 1.5 m altitude.
 
 The logic used to select the mode is set by the EKF2\_MAG\_TYPE parameter.

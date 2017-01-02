@@ -11,7 +11,7 @@
 - 其他shells: 连接到USB的Pixhawk(如Mac OS显示为 /dev/tty.usbmodem1)
 
 
-> USB shell:如果只是运行几个简单的命令或测试应用程序，连接到USB shell是足够的。MAVLink可以在此使用，具体情况请查看下文。 只有在需要开机调试或USB用于MAVlink连接地面站[GCS](../3_Tutorial/ground_control_station.md).的时候，才需要硬件串行控制台。
+> USB shell:如果只是运行几个简单的命令或测试应用程序，连接到USB shell是足够的。MAVLink可以在此使用，具体情况请查看下文。 只有在需要开机调试或USB用于MAVlink连接地面站[GCS](../3_Tutorial/ground_control_station.md)的时候，才需要硬件串行控制台。
 
 
 ## Snapdragon Flight: Console接线
@@ -22,13 +22,13 @@
 
 将6PJST SH 1：1线缆连接到Dronecode Probe，或者将连接线的每个接头按照如下所示连接到FTDI线上：
 
-| Pixracer / Pixhawk v3 |           | FTDI |                  |
-| --------------------- | --------- | ---- | ---------------- |
-| 1                     | +5V (red) |      | N/C              |
-| 2                     | UART7 Tx  | 5    | FTDI RX (黄) |
-| 3                     | UART7 Rx  | 4    | FTDI TX (橙) |
-| 4                     | SWDIO     |      | N/C              |
-| 5                     | SWCLK     |      | N/C              |
+| Pixracer / Pixhawk v3 |           | FTDI |              |
+| --------------------- | --------- | ---- | ------------ |
+| 1                     | +5V (red) |      | N/C          |
+| 2                     | UART7 Tx  | 5    | FTDI RX (黄)  |
+| 3                     | UART7 Rx  | 4    | FTDI TX (橙)  |
+| 4                     | SWDIO     |      | N/C          |
+| 5                     | SWCLK     |      | N/C          |
 | 6                     | GND       | 1    | FTDI GND (黑) |
 
 ## Pixhawk v1: Console接线
@@ -45,14 +45,14 @@
 
 如果手头没有Dronecode Probe，也可以使用FTDI 3.3V (Digi-Key: [768-1015-ND](http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393)) 。
 
-| Pixhawk 1/2 |           | FTDI |                  |
-| ----------- | --------- | ---- | ---------------- |
-| 1           | +5V (红) |      | N/C              |
-| 2           | S4 Tx     |      | N/C              |
-| 3           | S4 Rx     |      | N/C              |
-| 4           | S5 Tx     | 5    | FTDI RX (黄) |
-| 5           | S5 Rx     | 4    | FTDI TX (橙) |
-| 6           | GND       | 1    | FTDI GND (黑) |
+| Pixhawk 1/2 |         | FTDI |              |
+| ----------- | ------- | ---- | ------------ |
+| 1           | +5V (红) |      | N/C          |
+| 2           | S4 Tx   |      | N/C          |
+| 3           | S4 Rx   |      | N/C          |
+| 4           | S5 Tx   | 5    | FTDI RX (黄)  |
+| 5           | S5 Rx   | 4    | FTDI TX (橙)  |
+| 6           | GND     | 1    | FTDI GND (黑) |
 
 连接器引脚接线如图下图。
 
@@ -64,7 +64,6 @@
 
 ## 打开控制台
 
-After the console connection is wired up, use the default serial port tool of your choice or the defaults described below:
 控制台连接接线后，使用您选择的工具的默认串口或者以下描述的默认设置：（大部分新手读者看到这里，可能会困惑的是console 和screen的关系，不理解也没关系，不影响我们设置，仔细按照下面的教程进行设置，可以成功打开控制台）
 ### Linux / Mac OS: Screen
 
@@ -109,18 +108,12 @@ nsh> ls
 nsh> free
 ```
 ## MAVLink Shell
- For NuttX-based systems (Pixhawk, Pixracer, ...), the nsh console can also be
- accessed via mavlink. This works via serial link or WiFi (UDP/TCP). Make sure
- that QGC is not running, then start the shell with e.g.
-  (use `-h` to get a description of all
- available arguments).
-对于基于NuttX的系统（Pixhawk，Pixracer，...），NSH控制台也可以通过mavlink访问。它通过串行链路或WiFi（UDP / TCP）来工作。确保QGC没有运行，然后启动shell使用如下命令`./Tools/mavlink_shell.py /dev/ttyACM0`（使用-h获得所有可用参数的描述）。
- 
+ 对于基于NuttX的系统（Pixhawk，Pixracer，...），NSH控制台也可以通过mavlink访问。它通过串行链路或WiFi（UDP / TCP）来工作。确保QGC没有运行，然后启动shell使用如下命令`./Tools/mavlink_shell.py /dev/ttyACM0`（使用-h获得所有可用参数的描述）。
+
 # Snapdragon DSP Console
 
 当您通过USB连接到您的Snapdragon板，你可以访问POSIX上PX4的shell 。与DSP侧（QuRT）的交互可以通过`qshell`POSIX应用程序及其QuRT伴随电脑伴侣来开启。
 
-With the Snapdragon connected via USB, open the  to see the output of the DSP:
 通过USB连接的Snapdragon，打开mini-dm可以看到DSP的输出：
 ```
 ${HEXAGON_SDK_ROOT}/tools/mini-dm/Linux_Debug/mini-dm
