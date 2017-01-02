@@ -233,7 +233,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 13.8-室内 / 假 GPS           |             |                               |
 | 13.9-相机触发器                |   含笑~饮砒霜   |                               |
 | 13.10-Logging                |    老四        |                               |
-| 13.11-飞行日志分析            |          |                               |
+| 13.11-飞行日志分析            |   Fantasy       |                               |
 | 13.12-EKF2的Log文件回放         |             |                               |
 | 13.13-System-wide Replay       |             |                               |
 | 13.14-Snapdragon Advanced |             |                               |
@@ -249,4 +249,4 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 13.20-ULog文件模式            |             |                               |
 | 13.21-Licenses            |             |                               |
 | 14-软件更新               |   - _ -      |       Software Update     |
-| 14.1-STM32 BootLoader    |  Fantasy    |                   |
+| 14.1-STM32 BootLoader    |  Fantasy    |           |
