@@ -58,9 +58,13 @@ PX4 SITL使用Gazebo仿真软件，但不依赖ROS。但是也可以像普通飞
 
 按照[Linux安装指导](http://gazebosim.org/tutorials?tut=install_ubuntu&ver=7.0&cat=install) 安装Gazebo 7。
 
+确保gazebo7和libgazebo7-dev都装上了。
+
 ## 进行仿真
 
 在PX4固件源文件的目录下运行一种机架类型（支持四旋翼、固定翼和垂直起降，含光流）的PX4 SITL。
+
+> 注意：You can use the instructions below to keep Gazebo running and only re-launch PX4.
 
 ### 四旋翼
 
