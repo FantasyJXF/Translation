@@ -204,7 +204,7 @@ cd rpi_toolchain
 
 如果不想把工具链安装在默认位置```/opt/rpi_toolchain```，可以执行``` ./install_cross.sh <PATH>```向安装脚本传入其它地址。安装脚本会自动配置需要的环境变量。
 
-Finally, run the following command to update the evironmental variables:
+Finally, run the following command to update the environmental variables:
 ```
 source ~/.profile
 ```

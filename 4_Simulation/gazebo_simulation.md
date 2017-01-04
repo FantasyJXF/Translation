@@ -80,13 +80,26 @@ cd ~/src/Firmware
 make posix gazebo_iris_opt_flow
 ```
 
-### 垂直起降
+### 3DR Solo
 
-<div class="host-code"></div>
+```sh
+make posix gazebo_solo
+```
+
+### Standard Plane
+
+```sh
+make posix gazebo_plane
+```
+
+
+
+### 标准垂直起降飞机
 
 ```sh
 cd ~/src/Firmware
-make posix_sitl_default gazebo_standard_vtol
+make posix_sitl_default 
+gazebo_standard_vtol
 ```
 
 ### 立式垂直起降
@@ -98,6 +111,7 @@ cd ~/src/Firmware
 make posix_sitl_default gazebo_tailsitter
 ```
 
+## 起飞
 
 > **提示** 如果你在运行的时候遇到错误或缺少依赖，确保你是按照[安装文件和代码](http://dev.px4.io/starting-installing-mac.html)安装的。
 
@@ -121,11 +135,10 @@ Ready to fly.
 pxh>
 ```
 
-<aside class="note">
-右击四旋翼模型可以从弹出的菜单中启用跟随模式，这将会始终保持飞行器在视野中。
-</aside>
 
-## 起飞
+> 右击四旋翼模型可以从弹出的菜单中启用跟随模式，这将会始终保持飞行器在视野中。
+
+
 
  ![gazebo](../pictures/sim\gazebo.png)
 
@@ -137,6 +150,22 @@ pxh> commander takeoff
 
 
 > **提示** 可以通过QGroundControl (QGC)支持手柄或拇指手柄。为了使用手柄控制飞行器，要将系统设为手动飞行模式（如 POSCTL、位置控制），并从QGC的选项菜单中启用拇指手柄。
+
+## Starting Gazebo and PX4 separately
+
+For extended development sessions it might be more convenient to start Gazebo and PX4 separately or even from within an IDE.
+
+In addition to the existing cmake targets that run `sitl_run.sh` with parameters for px4 to load the correct model it creates a launcher targets named `px4_<mode>` that is a thin wrapper around original sitl px4 app. This thin wrapper simply embeds app arguments like current working directories and the path to the model file.
+
+### How to use it
+
+  * Run gazebo (or any other sim) server and client viewers via the terminal:
+```
+make posix_sitl_default gazebo_none_ide
+```
+  * In your IDE select `px4_<mode>` target you want to debug (e.g. `px4_iris`)
+  * Start the debug session directly from IDE
+This approach significantly reduces the debug cycle time because simulator (e.g. gazebo) is always running in background and you only re-run the px4 process which is very light.
 
 
 ## 扩展和自定义
