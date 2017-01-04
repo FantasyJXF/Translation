@@ -1,14 +1,8 @@
 # uLanding Radar
 
-官网英文原文地址：http://dev.px4.io/uart-ulanding-radar.html
+官网英文原文地址：[http://dev.px4.io/uart-ulanding-radar.html](http://dev.px4.io/uart-ulanding-radar.html)
 
-
-
-The uLanding radar is a product from \[Aerotenna\]\(http://aerotenna.com/sensors/\) and can be used to measure distance to an object.
-
-
-
-
+The uLanding radar is a product from \[Aerotenna\]\([http://aerotenna.com/sensors/\](http://aerotenna.com/sensors/\)\) and can be used to measure distance to an object.
 
 ## Enable the driver for your hardware
 
@@ -22,13 +16,9 @@ To do so add the following line to the cmake config file which corresponds to th
 drivers/ulanding
 ```
 
+All config files are located \[here.\]\([https://github.com/PX4/Firmware/tree/master/cmake/configs\](https://github.com/PX4/Firmware/tree/master/cmake/configs\)\)
 
-
-All config files are located \[here.\]\(https://github.com/PX4/Firmware/tree/master/cmake/configs\)
-
-
-
-\#\# Start the driver
+##  Start the driver
 
 You will have to tell the sytem to start the driver for the radar during sytem startup.
 
@@ -38,21 +28,13 @@ You can simply add the following line to an \[extras.txt\]\(advanced-system-star
 ulanding_radar start /dev/serial_port
 ```
 
-
-
 In the upper command you will have to replace the last argument with the serial port you have connected the hardware to.
 
 If you don't specify any port the driver will use /dev/ttyS2 which is the TELEM2 port on Pixhawk.
 
-
-
 **Warning**
-
-
 
 If you are connecting the radar device to TELEM2 then make sure to set the parameter SYS\_COMPANION to 0. Otherwise the serial port
 
 will be used by a another application and you will get unexpected behaviour.
-
-
 
