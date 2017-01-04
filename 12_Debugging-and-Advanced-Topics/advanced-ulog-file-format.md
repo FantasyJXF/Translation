@@ -159,19 +159,15 @@ Predefined information messages are:
 
 \| int32\_t time\_ref\_utc         \| UTC Time offset in seconds \|  -3600        \|
 
+The format of \`ver\_sw\_release\` and \`ver\_os\_release\` is: 0xAABBCCTT, where AA
 
+is major, BB is minor, CC is patch and TT is the type. Type is defined as
 
-  The format of \`ver\_sw\_release\` and \`ver\_os\_release\` is: 0xAABBCCTT, where AA
+following: \`&gt;= 0\`: development, \`&gt;= 64\`: alpha version, \`&gt;= 128\`: beta
 
-  is major, BB is minor, CC is patch and TT is the type. Type is defined as
+version, \`&gt;= 192\`: RC version, \`== 255\`: release version.
 
-  following: \`&gt;= 0\`: development, \`&gt;= 64\`: alpha version, \`&gt;= 128\`: beta
-
-  version, \`&gt;= 192\`: RC version, \`== 255\`: release version.
-
-  So for example 0x010402ff translates into the release version v1.4.2.
-
-
+So for example 0x010402ff translates into the release version v1.4.2.
 
 * 'P': parameter message. Same format as `message_info_s`.
   If a parameter dynamically changes during runtime, this message can also be
@@ -229,22 +225,18 @@ struct message_data_s {
   logged binary message as defined by `message_format_s`. See above for special  
   treatment of padding fields.
 
-
-
-*  'L': Logged string message, i.e. printf output.
+* 'L': Logged string message, i.e. printf output.
 
 ```
 struct message_logging_s {
-	struct message_header_s header;
-	uint8_t log_level;
-	uint64_t timestamp;
-	char message[header.msg_size-hdr_size-9]
+    struct message_header_s header;
+    uint8_t log_level;
+    uint64_t timestamp;
+    char message[header.msg_size-hdr_size-9]
 };
 ```
 
-  \`timestamp\`: in microseconds, \`log\_level\`: same as in the Linux kernel:
-
-
+\`timestamp\`: in microseconds, \`log\_level\`: same as in the Linux kernel:
 
 \| Name       \| Level value  \| Meaning                              \|
 
@@ -265,8 +257,6 @@ struct message_logging_s {
 \| INFO       \|      '6'     \| Informational                        \|
 
 \| DEBUG      \|      '7'     \| Debug-level messages                 \|
-
-
 
 * 'S': synchronization message so that a reader can recover from a corrupt
   message by search for the next sync message \(not used currently\).

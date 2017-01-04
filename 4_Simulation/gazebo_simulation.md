@@ -64,7 +64,7 @@ PX4 SITL使用Gazebo仿真软件，但不依赖ROS。但是也可以像普通飞
 
 在PX4固件源文件的目录下运行一种机架类型（支持四旋翼、固定翼和垂直起降，含光流）的PX4 SITL。
 
-> 注意：You can use the instructions below to keep Gazebo running and only re-launch PX4.
+> 注意：您可以使用下面的说明来保持Gazebo运行，并且只用重新启动PX4。
 
 ### 四旋翼
 
@@ -89,14 +89,14 @@ make posix gazebo_iris_opt_flow
 ```sh
 make posix gazebo_solo
 ```
+![solo](/pictures/sim/gazebo_solo.png)
 
-### Standard Plane
+### 标准飞机
 
 ```sh
 make posix gazebo_plane
 ```
-
-
+![plane](/pictures/sim/gazebo_plane.png)
 
 ### 标准垂直起降飞机
 
@@ -105,6 +105,7 @@ cd ~/src/Firmware
 make posix_sitl_default 
 gazebo_standard_vtol
 ```
+![vtol](/pictures/sim/gazebo_standard_vtol.png)
 
 ### 立式垂直起降
 
@@ -114,6 +115,8 @@ gazebo_standard_vtol
 cd ~/src/Firmware
 make posix_sitl_default gazebo_tailsitter
 ```
+![](/pictures/sim/gazebo_tailsitter.png)
+
 
 ## 起飞
 
@@ -143,8 +146,7 @@ pxh>
 > 右击四旋翼模型可以从弹出的菜单中启用跟随模式，这将会始终保持飞行器在视野中。
 
 
-
- ![gazebo](../pictures/sim\gazebo.png)
+ ![gazebo](../pictures/sim/gazebo.png)
 
 一旦完成初始化，系统将会打印出起始位置(`telem> home: 55.7533950, 37.6254270, -0.00`)。你可以通过输入下面的命令让飞行器起飞：
 
