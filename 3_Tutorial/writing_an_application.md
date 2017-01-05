@@ -24,9 +24,7 @@
 
 ```
 cd Firmware
-
 git submodule init
-
 git submodule update --recursive
 ```
 
@@ -119,7 +117,7 @@ int px4_simple_app_main(int argc, char *argv[])
 
 
 在你的应用程序的下面的文件中添加一行：
- 
+
   `examples/px4_simple_app`
 
 

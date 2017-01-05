@@ -2,7 +2,7 @@
 
 官网英文原文地址：http://dev.px4.io/tutorial-integration-testing.html
 
-这是综合测试，测试会自动执行([Jenkins CI](../12_Debugging-and-Advanced-Topics/advanced-jenkins-ci.md))。
+这是综合测试，测试会自动执行([Jenkins CI](../14_Testing-and-CI/jekins_continuous_integration.md))。
 
 ## ROS / MAVROS测试
 

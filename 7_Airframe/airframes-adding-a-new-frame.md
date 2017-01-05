@@ -4,7 +4,7 @@
 
 PX4使用存储的配置作为机型的起始点。添加配置是非常简单的：在[init.d文件夹](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d)创建一个新的文件，这个文件需要以一个没有使用的自动启动ID作为文件名的前缀，然后[构建并上传](../1_Getting-Started/building_the_code.md)固件即可。
 
-如果不想创建自己的配置文件，也可以用SD卡上的文本文件替换掉已有的自定义配置文件，具体细节请查看[定制系统启动](../12_Debugging-and-Advanced-Topics/advanced-system-startup.md)页。
+如果不想创建自己的配置文件，也可以用SD卡上的文本文件替换掉已有的自定义配置文件，具体细节请查看[自定义系统启动](../12_Debugging-and-Advanced-Topics/advanced-system-startup.md)页。
 
 ## 机型配置
 

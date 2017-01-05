@@ -6,7 +6,7 @@
 
 uORB是一种用于进程间进行异步发布和订阅的消息机制API。
 
-在[tutorial](../3_Tutorial/writing_an_application.md)中可以学习通过C++如何使用uORB。
+在[教程](../3_Tutorial/writing_an_application.md)中可以学习通过C++如何使用uORB。
 
 由于很多应用都是基于uORB的，因此在系统刚启动时uORB就自动运行了。uORB通过`uorb start`启动。可以使用`uorb test`进行单位测试。
 

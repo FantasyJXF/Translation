@@ -16,7 +16,7 @@ topics. For system-wide replay, this consists of all hardware input: sensors, RC
 input, mavlink commands and file system.
 
 All identified topics need to be logged at full rate (see
-[logging](advanced-logging.md)). For `ekf2` this is already the case with the
+[logging](../12_Debugging-and-Advanced-Topics/logging.md)). For `ekf2` this is already the case with the
 default set of logged topics.
 
 It is important that all replayed topics contain only a single absolute
