@@ -115,15 +115,15 @@ sdlog2 start -t -r 100 -e -b 16
 为了测试microSD的带宽，以200Hz的频率32KB的缓冲区开启该应用程序，键入`-e`标志立刻开始记录日志。
 
 ```
-首先停止正在运行的实
-# sdlog2 stop
+#首先停止正在运行的实例
+sdlog2 stop
 sdlog2 start -t -r 200 -e -b 32
-# Run the perf command to see the induced sdlog2 load:
-# (NOTE: the performance counter only exists during logging)
+# 运行perf命令以查看sdlog2产生的负载
+# (注意：性能计数器仅在日志记录期间存在)
 perf
-# Or run top
+# 或者直接运行top(在Ubuntu用用来查看当前系统资源)
 top
-# Stop the app to clean up FDs and filesystem
+# 停止应用程序以清理文件描述符和文件系统
 sdlog2 stop
 ```
 
