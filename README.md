@@ -1,3 +1,4 @@
+
 PX4中文维基
 --- 
 
@@ -46,7 +47,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 
 1. **网页端编辑**（<font color=#DC143C size=72>**强烈推荐**</font>：非常简单，只需三步就可以完成你的贡献）
    - 在浏览在线页面时进行编辑本页，这样，只要你看到不妥的地方立马可以修改，具体如下图
- ![edithere](pictures/introducing\online.png)
+      ![edithere](pictures/introducing\online.png)
 
    - 或者也可以直接打开github中[网页端][8]进入要进行编辑的文件，如下图
 [8]: https://github.com/FantasyJXF/Translation
@@ -68,7 +69,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
     - 检查是否与原有版本有冲突，如果有，解决冲突再提交，没有则提交，如下图
 ![pull](pictures/introducing/finish.png)
 
-   - 剩下来就是版主的事了，如果没有太大的问题，版主就可以合并分支了，到这你的对本文档的贡献就完成了。
+- 剩下来就是版主的事了，如果没有太大的问题，版主就可以合并分支了，到这你的对本文档的贡献就完成了。
 
 1. 本地编辑（git高级用户推荐）
 
@@ -148,7 +149,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 2.2-安装工具链                 |      冰      |                               |
 | 2.2.1-MAC OS              |             |                               |
 | 2.2.2-Linux               |      冰      |                               |
-| 2.2.2.1-高级Linux           |   Innoecho    |                               |
+| 2.2.2.1-高级Linux           |  Innoecho   |                               |
 | 2.2.3-Windows             |    风城少主     |                               |
 | 2.3-代码编译                  |      冰      |                               |
 | 2.4-合作开发                  |      冰      |                               |
@@ -160,93 +161,95 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 3.5-混控输出                  |  Innoecho   |                               |
 | 3.6-PWM限制状态机              |  Innoecho   |                               |
 | 4-教程                      |    - _ -    |           Tutorials           |
-| 4.1-地面站                   |     范新强    |                            |
-| 4.2-编写应用程序                |   PONY    |                               |
-| 4.3-QGC的视频流               |  积土为山  |                               |
-| 4.4-光流和LiDAR-Lite         |   PONY    |                               |
-| 4.5-综合测试                  |   Innoecho   |                               |
-| 4.6-户外光流                  |    Fantasy   |                               |
-| 4.7-多旋翼PID调参             |   Fantasy   |                               |
-| 4.8-sdlog2                  |  Fantasy   |                               |
-| 4.9-ecl EKF                  |           |                               |
+| 4.1-地面站                   |     范新强     |                               |
+| 4.2-编写应用程序                |    PONY     |                               |
+| 4.3-QGC的视频流               |    积土为山     |                               |
+| 4.4-光流和LiDAR-Lite         |    PONY     |                               |
+| 4.5-综合测试                  |  Innoecho   |                               |
+| 4.6-户外光流                  |   Fantasy   |                               |
+| 4.7-多旋翼PID调参              |   Fantasy   |                               |
+| 4.8-sdlog2                |   Fantasy   |                               |
+| 4.9-ecl EKF               |             |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
-| 5.1-基本仿真                  |  积土为山  |                               |
-| 5.2-Gazebo仿真              |  积土为山  |                               |
-| 5.3-硬件在环仿真                |   Innoecho   |                               |
-| 5.4-连接ROS                 |    Innoecho |                               |
+| 5.1-基本仿真                  |    积土为山     |                               |
+| 5.2-Gazebo仿真              |    积土为山     |                               |
+| 5.3-硬件在环仿真                |  Innoecho   |                               |
+| 5.4-连接ROS                 |  Innoecho   |                               |
 | 6-自驾仪的硬件                  |    - _ -    |      Autopilot Hardware       |
-| 6.1-Crazyfile 2.0         |    Fantasy   |                               |
-| 6.2-Intel Aero             |               |                               |
+| 6.1-Crazyfile 2.0         |   Fantasy   |                               |
+| 6.2-Intel Aero            |             |                               |
 | 6.3-Pixfacon              |     景略      |                               |
 | 6.4-Pixhawk               |     景略      |                               |
 | 6.5-Pixracer              |     景略      |                               |
-| 6.6-树莓派Pi 2               |   誓言  |                               |
-| 6.7-骁龙                    |  誓言    |                               |
-| 6.7.1-光流                  |  Fantasy    |                               |
-| 7-中间件及架构               |    - _ -    |  Middleware and Architecture  |
+| 6.6-树莓派Pi 2               |     誓言      |                               |
+| 6.7-骁龙                    |     誓言      |                               |
+| 6.7.1-光流                  |   Fantasy   |                               |
+| 6.7.2-高级骁龙                |             |                               |
+| 6.7.2.1-获取I/O数据           |             |                               |
+| 6.7.2.1-相机和光流             |             |                               |
+| 7-中间件及架构                  |    - _ -    |  Middleware and Architecture  |
 | 7.1-uORB                  |    彩虹小羊     |                               |
-| 7.2-自定义MAVlink消息           |    彩虹小羊     |                               |
+| 7.2-自定义MAVlink消息          |    彩虹小羊     |                               |
 | 7.3-守护进程                  |    彩虹小羊     |                               |
 | 7.4-驱动框架                  |    彩虹小羊     |                               |
 | 8-机型                      |    - _ -    |           Airframes           |
-| 8.1-统一的基础代码               |  Innoecho  |                               |
-| 8.2-添加一个新的机型              | Innoecho  |                               |
-| 8.3-多旋翼                   |  Innoecho |                               |
-| 8.3.1-电机映射                | Innoecho  |                               |
-| 8.3.2-QAV 250 Racer       |  Innoecho  |                               |
-| 8.3.3-Matrice 100         |  Innoecho  |                               |
-| 8.3.4-QAV-R               |  Fantasy  |                               |
-| 8.4-直升机                   | Innoecho  |                               |
-| 8.4.1-Wing Wing Z-84      |  Innoecho  |                               |
-| 8.5-垂直起降飞行器               | Innoecho  |                               |
-| 8.5.1-垂直起降测试              |  Innoecho  |                               |
+| 8.1-统一的基础代码               |  Innoecho   |                               |
+| 8.2-添加一个新的机型              |  Innoecho   |                               |
+| 8.3-多旋翼                   |  Innoecho   |                               |
+| 8.3.1-电机映射                |  Innoecho   |                               |
+| 8.3.2-QAV 250 Racer       |  Innoecho   |                               |
+| 8.3.3-Matrice 100         |  Innoecho   |                               |
+| 8.3.4-QAV-R               |   Fantasy   |                               |
+| 8.4-直升机                   |  Innoecho   |                               |
+| 8.4.1-Wing Wing Z-84      |  Innoecho   |                               |
+| 8.5-垂直起降飞行器               |  Innoecho   |                               |
+| 8.5.1-垂直起降测试              |  Innoecho   |                               |
 | 8.5.2-TBS Caipiroshka     |  Innoecho   |                               |
-| 8.6-船舶，潜水艇，飞艇，racer       | Innoecho  |                               |
+| 8.6-船舶，潜水艇，飞艇，racer       |  Innoecho   |                               |
 | 9-Companion Computer      |    - _ -    |      Companion Computers      |
-| 9.1-Pixhawk family        | Innoecho  |                               |
-| 10-使用DroneKit的机器人         |  Innoecho |    Robotics using DroneKit    |
-| 10.1-DroneKit的使用          |  Innoecho  |                               |
+| 9.1-Pixhawk family        |  Innoecho   |                               |
+| 10-使用DroneKit的机器人         |  Innoecho   |    Robotics using DroneKit    |
+| 10.1-DroneKit的使用          |  Innoecho   |                               |
 | 11-使用ROS的机器人              |    - _ -    |      Robotics using ROS       |
-| 11.1-用Linux进行外部控制         | Innoecho  |                               |
-| 11.2-在树莓派Pi2上安装ROS        |  Innoecho  |                               |
-| 11.3-MAVROS                     |  Innoecho  |                               |
-| 11.4-MAVROS外部控制例程          |  Innoecho  |                               |
-| 11.5-外部位置估计                |  Innoecho  |                               |
-| 11.6-Gazebo Octomap       |   Innoecho   |                               |
+| 11.1-用Linux进行外部控制         |  Innoecho   |                               |
+| 11.2-在树莓派Pi2上安装ROS        |  Innoecho   |                               |
+| 11.3-MAVROS               |  Innoecho   |                               |
+| 11.4-MAVROS外部控制例程         |  Innoecho   |                               |
+| 11.5-外部位置估计               |  Innoecho   |                               |
+| 11.6-Gazebo Octomap       |  Innoecho   |                               |
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
-| 12.1-I2C BUS                 |  - _ -    |                               |
-| 12.1.1-SF1XX Lidar           |           |                               |
-| 12.2-UAVCAN               |            |                               |
-| 12.2.1-UAVCAN Bootloader  |            |                               |
-| 12.2.2-UAVCAN 固件升级        |          |                               |
-| 12.2.3-UAVCAN 配置          |         |                               |
+| 12.1-I2C BUS              |    - _ -    |                               |
+| 12.1.1-SF1XX Lidar        |             |                               |
+| 12.2-UAVCAN               |             |                               |
+| 12.2.1-UAVCAN Bootloader  |             |                               |
+| 12.2.2-UAVCAN 固件升级        |             |                               |
+| 12.2.3-UAVCAN 配置          |             |                               |
 | 12.3-PWM / GPIO           |             |                               |
-| 12.4-UART                 |  - _ -    |                               |
+| 12.4-UART                 |    - _ -    |                               |
+| 12.4.1-uLanding Radar     |             |                               |
 | 13-调试以及高级主题               |    - _ -    | Debugging and Advanced Topics |
-| 13.1-FAQ                  | 如果你永无畏惧  |                               |
-| 13.2-系统控制台                |     why      |                               |
-| 13.3-系统启动                 |      why     |                               |
+| 13.1-FAQ                  |   如果你永无畏惧   |                               |
+| 13.2-系统控制台                |     why     |                               |
+| 13.3-系统启动                 |     why     |                               |
 | 13.4-参数 & 配置              |             |                               |
-| 13.5-自驾仪调试                 |             |                               |
+| 13.5-自驾仪调试                |             |                               |
 | 13.6-仿真调试                 |             |                               |
 | 13.7-发送调试的值               |             |                               |
 | 13.8-室内 / 假 GPS           |             |                               |
-| 13.9-相机触发器                |   含笑~饮砒霜   |                               |
-| 13.10-Logging                |    老四        |                               |
-| 13.11-飞行日志分析            |   Fantasy       |                               |
-| 13.12-EKF2的Log文件回放         |             |                               |
-| 13.13-System-wide Replay       |             |                               |
-| 13.14-Snapdragon Advanced |             |                               |
-| 13.14.1-获取I/O数据           |             |                               |
-| 13.14.2-相机和光流             |             |                               |
-| 13.15-安装RealSense R200的驱动 |          |                               |
-| 13.16-设置云台控制             |  含笑~饮砒霜  |                               |
-| 13.17-切换状态估计器             |             |                               |
-| 13.18-Docker 容器           |             |                               |
-| 13.19-连续积分             |             |                               |
-| 13.19.1-Jenkins持续集成环境       |             |                           |
-| 13.20-Out of tree Mocules  |             |                               |
-| 13.20-ULog文件模式            |             |                               |
-| 13.21-Licenses            |             |                               |
-| 14-软件更新               |   - _ -      |       Software Update     |
-| 14.1-STM32 BootLoader    |  Fantasy    |           |
+| 13.9-相机触发器                |   含笑~饮砒霜    |                               |
+| 13.10-Logging             |     老四      |                               |
+| 13.11-飞行日志分析              |   Fantasy   |                               |
+| 13.12-EKF2的Log文件回放        |             |                               |
+| 13.13-System-wide Replay  |             |                               |
+| 13.14-安装RealSense R200的驱动 |             |                               |
+| 13.15-设置云台控制              |   含笑~饮砒霜    |                               |
+| 13.16-切换状态估计器             |             |                               |
+| 13.17-Out of tree Modules |             |                               |
+| 13.18-ULog文件模式            |             |                               |
+| 13.19-Licenses            |             |                               |
+| 14-软件更新                   |    - _ -    |        Software Update        |
+| 14.1-STM32 BootLoader     |   Fantasy   |                               |
+| 15-测试和持续集成                |             |        Testing and CI         |
+| 15.1-Docker 容器            |             |                               |
+| 15.2-持续集成                 |             |                               |
+| 15.2.1-Jenkins持续集成环境      |             |                               |

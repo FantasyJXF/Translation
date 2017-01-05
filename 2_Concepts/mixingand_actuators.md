@@ -2,9 +2,9 @@
 官网英文原文地址：http://dev.px4.io/concept-mixing.html
 
 PX4架构保证了核心控制器中不需要针对机身布局做特别处理。
- 
+
 混控指的是把控制力指令（例如：'右转'）分配到直接控制电机以及舵机的作动器指令。对直升机而言，每个副翼由一个舵机控制，那么混控就指的是控制其中一个副翼抬起而另一个副翼落下。同样的，对多旋翼而言，俯仰操作需要改变所有电机的转速。 
- 
+
 将混控逻辑从实际姿态控制器中分离出来可以大大提高复用性。 
 
 ## Control Pipeline
@@ -24,62 +24,62 @@ graph LR;
 
 PX4 uses control groups (inputs) and output groups. Conceptionally they are very simple: A control group is e.g. `attitude`, for the core flight controls, or `gimbal` for payload. An output group is one physical bus, e.g. the first 8 PWM outputs for servos. Each of these groups has 8 normalized (-1..+1) command ports, which can be mapped and scaled through the mixer. A mixer defines how each of these 8 signals of the controls are connected to the 8 outputs.
 
-For a simple plane control 0 (roll) is connected straight to output 0 (elevator). For a multicopter things are a bit different: control 0 (roll) is connected to all four motors and combined with throttle.
+For a simple plane control 0 (roll) is connected straight to output 0 (aileron). For a multicopter things are a bit different: control 0 (roll) is connected to all four motors and combined with throttle.
 
 #### Control Group #0 (Flight Control)
 
- * 0: roll (-1..1)
- * 1: pitch (-1..1)
- * 2: yaw (-1..1)
- * 3: throttle (0..1 normal range, -1..1 for variable pitch / thrust reversers)
- * 4: flaps (-1..1)
- * 5: spoilers (-1..1)
- * 6: airbrakes (-1..1)
- * 7: landing gear (-1..1)
+* 0: roll (-1..1)
+* 1: pitch (-1..1)
+* 2: yaw (-1..1)
+* 3: throttle (0..1 normal range, -1..1 for variable pitch / thrust reversers)
+* 4: flaps (-1..1)
+* 5: spoilers (-1..1)
+* 6: airbrakes (-1..1)
+* 7: landing gear (-1..1)
 
 #### Control Group #1 (Flight Control VTOL/Alternate)
 
- * 0: roll ALT (-1..1)
- * 1: pitch ALT (-1..1)
- * 2: yaw ALT (-1..1)
- * 3: throttle ALT (0..1 normal range, -1..1 for variable pitch / thrust reversers)
- * 4: reserved / aux0
- * 5: reserved / aux1
- * 6: reserved / aux2
- * 7: reserved / aux3
+* 0: roll ALT (-1..1)
+* 1: pitch ALT (-1..1)
+* 2: yaw ALT (-1..1)
+* 3: throttle ALT (0..1 normal range, -1..1 for variable pitch / thrust reversers)
+* 4: reserved / aux0
+* 5: reserved / aux1
+* 6: reserved / aux2
+* 7: reserved / aux3
 
 #### Control Group #2 (Gimbal)
 
- * 0: gimbal roll
- * 1: gimbal pitch
- * 2: gimbal yaw
- * 3: gimbal shutter
- * 4: reserved
- * 5: reserved
- * 6: reserved
- * 7: reserved (parachute, -1..1)
+* 0: gimbal roll
+* 1: gimbal pitch
+* 2: gimbal yaw
+* 3: gimbal shutter
+* 4: reserved
+* 5: reserved
+* 6: reserved
+* 7: reserved (parachute, -1..1)
 
 #### Control Group #3 (Manual Passthrough)
 
- * 0: RC roll
- * 1: RC pitch
- * 2: RC yaw
- * 3: RC throttle
- * 4: RC mode switch
- * 5: RC aux1
- * 6: RC aux2
- * 7: RC aux3
+* 0: RC roll
+* 1: RC pitch
+* 2: RC yaw
+* 3: RC throttle
+* 4: RC mode switch
+* 5: RC aux1
+* 6: RC aux2
+* 7: RC aux3
 
 #### Control Group #6 (First Payload)
 
- * 0: function 0 (default: parachute)
- * 1: function 1
- * 2: function 2
- * 3: function 3
- * 4: function 4
- * 5: function 5
- * 6: function 6
- * 7: function 7
+* 0: function 0 (default: parachute)
+* 1: function 1
+* 2: function 2
+* 3: function 3
+* 4: function 4
+* 5: function 5
+* 6: function 6
+* 7: function 7
 
 ### Virtual Control Groups
 
@@ -87,25 +87,25 @@ These groups are NOT mixer inputs, but serve as meta-channels to feed fixed wing
 
 #### Control Group #4 (Flight Control MC VIRTUAL)
 
- * 0: roll ALT (-1..1)
- * 1: pitch ALT (-1..1)
- * 2: yaw ALT (-1..1)
- * 3: throttle ALT (0..1 normal range, -1..1 for variable pitch / thrust reversers)
- * 4: reserved / aux0
- * 5: reserved / aux1
- * 6: reserved / aux2
- * 7: reserved / aux3
+* 0: roll ALT (-1..1)
+* 1: pitch ALT (-1..1)
+* 2: yaw ALT (-1..1)
+* 3: throttle ALT (0..1 normal range, -1..1 for variable pitch / thrust reversers)
+* 4: reserved / aux0
+* 5: reserved / aux1
+* 6: reserved / aux2
+* 7: reserved / aux3
 
 #### Control Group #5 (Flight Control FW VIRTUAL)
 
- * 0: roll ALT (-1..1)
- * 1: pitch ALT (-1..1)
- * 2: yaw ALT (-1..1)
- * 3: throttle ALT (0..1 normal range, -1..1 for variable pitch / thrust reversers)
- * 4: reserved / aux0
- * 5: reserved / aux1
- * 6: reserved / aux2
- * 7: reserved / aux3
+* 0: roll ALT (-1..1)
+* 1: pitch ALT (-1..1)
+* 2: yaw ALT (-1..1)
+* 3: throttle ALT (0..1 normal range, -1..1 for variable pitch / thrust reversers)
+* 4: reserved / aux0
+* 5: reserved / aux1
+* 6: reserved / aux2
+* 7: reserved / aux3
 
 ## Mapping
 
@@ -117,15 +117,15 @@ graph TD;
   actuator_group_0-->output_group_6
   actuator_group_1-->output_group_0
 {% endmermaid %}
- 
+
 ## 关键概念 
- 
+
 PX4使用控制组（输入）和输出组。从概念上来说他们非常简单：对核心飞行控制来说，控制组是'姿态'，对载荷来说，则是'云台'。输出组则是一条物理总线，例如用于舵机的基本8路PWM输出。每个组有8个标准化的指令端口，这些端口可以通过混控映射和缩放。混控器定义了8路控制信号如何与8路输出信号相联系。 
- 
+
 对简单的固定翼而言：control0（滚转）与output0（升降舵）直接相连。对多旋翼而言则不同：control0（滚转）与油门混合后与所有的电机相连。 
 
 ## 映射 
- 
+
 因为存在许多控制组（例如飞行控制组，载荷组等）和许多输出组（例如基本8路PWM输出组，UAVCAN组等），所以一个控制组可以向多个输出组发送指令。
 
 {% mermaid %}
@@ -134,15 +134,15 @@ graph TD;
   actuator_group_0-->output_group_1
   actuator_group_1-->output_group_0
 {% endmermaid %}
- 
+
 ## PX4混控器定义 
- 
+
 ROMFS/px4fmu_common/mixers中的文件实现了预定义机架所使用的混控器。它们可以用于自定义机架或者一般的测试。 
- 
+
 ### 语法 
- 
+
 mixer通过文本文件定义；以单个大写字母加一个冒号开始的行是有效的。其它的行则会被忽略，这意味着注释可以自由地在定义中穿插使用。 
- 
+
 每个文件可以定义多个混控器；混控器与作动器的分配关系由读取混控器定义的设备决定，作动器输出数目则由混控器决定。
 
 例如：每个简单混控器或者空混控器按照它们在混控器文件中出现的顺序对应到输出1到输出x。
