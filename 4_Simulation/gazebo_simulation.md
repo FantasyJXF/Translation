@@ -120,7 +120,7 @@ make posix_sitl_default gazebo_tailsitter
 
 ## 起飞
 
-> **提示** 如果你在运行的时候遇到错误或缺少依赖，确保你是按照[安装文件和代码](http://dev.px4.io/starting-installing-mac.html)安装的。
+> **提示** 如果你在运行的时候遇到错误或缺少依赖，确保你是按照[安装文件和代码](../1_Getting-Started/macos.md)安装的。
 
 
 接着会启动PX4 shell:
@@ -155,23 +155,23 @@ pxh> commander takeoff
 ```
 
 
-> **提示** 可以通过QGroundControl (QGC)支持手柄或拇指手柄。为了使用手柄控制飞行器，要将系统设为手动飞行模式（如 POSCTL、位置控制），并从QGC的选项菜单中启用拇指手柄。
+> **提示** QGroundControl(QGC)支持手柄或拇指手柄。为了使用手柄控制飞行器，要将系统设为手动飞行模式（如 POSCTL，位置控制），并从QGC的选项菜单中启用拇指手柄。
 
-## Starting Gazebo and PX4 separately
+## 单独启动Gazebo和PX4
 
-For extended development sessions it might be more convenient to start Gazebo and PX4 separately or even from within an IDE.
+对于扩展开发会话(development sessions)，单独启动Gazebo和PX4可能会更为方便，甚至还可以从IDE中启动。
 
-In addition to the existing cmake targets that run `sitl_run.sh` with parameters for px4 to load the correct model it creates a launcher targets named `px4_<mode>` that is a thin wrapper around original sitl px4 app. This thin wrapper simply embeds app arguments like current working directories and the path to the model file.
+除了现有的使用px4参数运行sitl_run.sh来加载正确的模型的cmake 目标(target)之外，它还创建了一个名为px4_<mode>的启动器目标(launcher targets)(这是原始sitl px4应用程序的thin wrapper)。 这个thin wrapper只是简单地嵌入应用程序参数，如当前工作目录和模型文件的路径。
 
-### How to use it
-
-  * Run gazebo (or any other sim) server and client viewers via the terminal:
+### 如何使用
+  * 通过终端运行gazebo（或任何其他模拟器）服务器(server)和客户端(client)查看器：
 ```
 make posix_sitl_default gazebo_none_ide
 ```
-  * In your IDE select `px4_<mode>` target you want to debug (e.g. `px4_iris`)
-  * Start the debug session directly from IDE
-This approach significantly reduces the debug cycle time because simulator (e.g. gazebo) is always running in background and you only re-run the px4 process which is very light.
+  * 在您的IDE中选择您要调试的px4_ <mode>目标（例如`px4_iris`）
+  * 直接从IDE启动调试会话(session)
+
+这种方法显着减少了调试周期时间，因为模拟器（例如Gazebo）总是在后台运行，并且您只用重新运行非常light的px4进程。
 
 
 ## 扩展和自定义
