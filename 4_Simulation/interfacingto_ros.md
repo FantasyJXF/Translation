@@ -24,7 +24,7 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 
 ## 为ROS安装Gazebo
 
-Gazebo ROS SITL仿真可以在Gazebo6正常运行（Gazebo7不能正常运行），使用如下命令安装Gazebo6：
+Gazebo ROS SITL仿真可以在Gazebo 6和Gazebo 7上正常运行，可以通过如下方式安装：
 
 ```sh
 sudo apt-get install ros-indigo-gazebo6-ros
@@ -33,10 +33,16 @@ sudo apt-get install ros-indigo-gazebo6-ros
 如果需要使用其它传感器模型（例如激光），那么还需要安装Gazebo插件：
 
 ```sh
-sudo apt-get install ros-indigo-gazebo6-plugins
+sudo apt-get install ros-$(ROS_DISTRO)-gazebo7-ros-pkgs    //Recommended
 ```
 
-## 启动ROS包装过的Gazebo
+或者
+
+```sh
+sudo apt-get install ros-$(ROS_DISTRO)-gazebo6-ros-pkgs
+```
+
+## 使用ROS包装器启动Gazebo
 
 如果想要修改Gazebo仿真，使其能够将额外的传感器信息直接发布到ROS主题，例如Gazebo ROS激光传感器信息，那么必须通过适当的ROS包装器来启动Gazebo。
 
