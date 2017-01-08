@@ -27,12 +27,6 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 Gazebo ROS SITL仿真可以在Gazebo 6和Gazebo 7上正常运行，可以通过如下方式安装：
 
 ```sh
-sudo apt-get install ros-indigo-gazebo6-ros
-```
-
-如果需要使用其它传感器模型（例如激光），那么还需要安装Gazebo插件：
-
-```sh
 sudo apt-get install ros-$(ROS_DISTRO)-gazebo7-ros-pkgs    //Recommended
 ```
 
