@@ -161,7 +161,7 @@ pxh> commander takeoff
 
 对于扩展开发会话(development sessions)，单独启动Gazebo和PX4可能会更为方便，甚至还可以从IDE中启动。
 
-除了现有的使用px4参数运行sitl_run.sh来加载正确的模型的cmake 目标(target)之外，它还创建了一个名为px4_<mode>的启动器目标(launcher targets)(这是原始sitl px4应用程序的thin wrapper)。 这个thin wrapper只是简单地嵌入应用程序参数，如当前工作目录和模型文件的路径。
+除了现有的使用px4参数运行sitl\_run.sh来加载正确的模型的cmake 目标(target)之外，它还创建了一个名为px4\_<mode>的启动器目标(launcher targets)(这是原始sitl px4应用程序的thin wrapper)。 这个thin wrapper只是简单地嵌入应用程序参数，如当前工作目录和模型文件的路径。
 
 ### 如何使用
   * 通过终端运行gazebo（或任何其他模拟器）服务器(server)和客户端(client)查看器：
