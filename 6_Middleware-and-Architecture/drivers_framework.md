@@ -9,7 +9,7 @@ POSIX和 [QuRT](https://en.wikipedia.org/wiki/Qualcomm_Hexagon)的驱动写入�
 
 
 ## 核心架构
-PX4 is 反应式系统[reactive system](concept-architecture.md) 使用订阅/发布来传递消息.文件句柄是不被操作系统的核心所需要或者使用。主要使用了API：
+PX4 是一个反应式系统[reactive system](concept-architecture.md) ，使用订阅/发布来传递消息.文件句柄是不被操作系统的核心所需要或者使用。主要使用了以下两个API：
 
 - 发布/订阅系统，该系统拥有一个文件，网络或者共享内存，其依靠于PX4后台运行。
 - 全局驱动注册器，它允许枚举设备和获取/设置这些设备参数。这个可以很简单的作为一个链表或者文件系统地图。
@@ -75,7 +75,7 @@ MPU9250   dev 4   bus 1 SPI
 ```
 
 ### 设备ID编码
-设备ID是24位数值按照以下格式。注意这里第一字段最后最低有效位，在下面的例子中解码。
+根据此格式，设备ID是一个24位的数字。注意，第一字段是上述解码示例中的最低有效位。
 
 ```C
 struct DeviceStructure {
