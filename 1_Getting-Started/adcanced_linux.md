@@ -179,7 +179,8 @@ sudo apt-get update
 <div class="host-code"></div>
 
 ```sh
-sudo apt-get install libc6:i386 libgcc1:i386 gcc-4.6-base:i386 libstdc++5:i386 libstdc++6:i386
+sudo apt-get install libc6:i386 libgcc1:i386 libstdc++5:i386 libstdc++6:i386
+sudo apt-get install gcc-4.6-base:i386 
 ```
 
 ## Ninja构建系统
