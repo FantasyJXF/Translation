@@ -12,7 +12,7 @@ PX4代码可以在 [Mac OS](../1_Getting-Started/macos.md), [Linux](../1_Getting
 * [Linux](../1_Getting-Started/linux.md)
 * [Windows](1_Getting-Started/windows.md)
 
-如果你对Docker熟悉，你可以使用其中一个容器： [Docker Containers](../12_Debugging-and-Advanced-Topics/advanced-docker.md)
+如果你对Docker熟悉，你可以使用其中一个容器： [Docker Containers](../14_Testing-and-CI/advanced-docker.md)
 
 一旦开发环境安装完成，可以接着去 [编译程序](../1_Getting-Started/building_the_code.md).
 
