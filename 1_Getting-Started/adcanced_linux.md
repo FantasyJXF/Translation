@@ -131,20 +131,7 @@ sudo usermod -a -G uucp $USER
 
 ### 工具链安装
 
-执行下面的脚本来安装GCC 4.8.4或者4.9.2:
-
-<div class="host-code"></div>
-
-```sh
-pushd .
-cd ~
-wget https://launchpadlibrarian.net/186124160/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
-tar -jxf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
-exportline="export PATH=$HOME/gcc-arm-none-eabi-4_8-2014q3/bin:\$PATH"
-if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $exportline >> ~/.profile; fi
-. ~/.profile
-popd
-```
+执行下面的脚本来安装GCC 4.9或者5.4版本:
 
 GCC 4.9:
 
@@ -153,9 +140,24 @@ GCC 4.9:
 ```sh
 pushd .
 cd ~
-wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2014-q4-major/+download/gcc-arm-none-eabi-4_9-2014q4-20141203-linux.tar.bz2
-tar -jxf gcc-arm-none-eabi-4_9-2014q4-20141203-linux.tar.bz2
-exportline="export PATH=$HOME/gcc-arm-none-eabi-4_9-2014q4/bin:\$PATH"
+wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
+tar -jxf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
+exportline="export PATH=$HOME/gcc-arm-none-eabi-4_9-2015q3/bin:\$PATH"
+if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $exportline >> ~/.profile; fi
+. ~/.profile
+popd
+```
+
+GCC 5.4:
+
+<div class="host-code"></div>
+
+```sh
+pushd .
+cd ~
+wget https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q2-update/+download/gcc-arm-none-eabi-5_4-2016q2-20160622-linux.tar.bz2
+tar -jxf gcc-arm-none-eabi-5_4-2016q2-20160622-linux.tar.bz2
+exportline="export PATH=$HOME/gcc-arm-none-eabi-5_4-2016q2/bin:\$PATH"
 if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $exportline >> ~/.profile; fi
 . ~/.profile
 popd
