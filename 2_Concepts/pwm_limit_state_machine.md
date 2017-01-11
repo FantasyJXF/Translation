@@ -1,4 +1,4 @@
-# PWM限制状态机
+# PWM_limit状态机
 
 官网英文原文地址：http://dev.px4.io/concept-pwm_limit.html
 
