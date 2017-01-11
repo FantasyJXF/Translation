@@ -5,9 +5,9 @@
 
 ## 权限设置
 
-<aside class="note">
-注意：永远不要使用｀sudo｀来修复权限问题，否则会带来更多的权限问题，需要重装系统来解决。
-</aside>
+
+> 警告：永远不要使用`sudo`来修复权限问题，否则会带来更多的权限问题，需要重装系统来解决。
+
 
 把用户添加到用户组　"dialout":
 
@@ -21,18 +21,16 @@ sudo usermod -a -G dialout $USER
 
 ## 安装
 
-更新包列表，安装下面编译PX4的依赖包。PX4主要支持的家族：
+更新包列表，安装下面编译PX4的依赖包。PX4主要支持的系列：
 
-- NuttX based hardware: [Pixhawk](../5_Autopilot-Hardware/pixhawk.md), [Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md)
-- Snapdragon Flight hardware: [Snapdragon](../5_Autopilot-Hardware/snapgragon_flight.md)
-- Raspberry Pi hardware: [Raspberry Pi 2](../5_Autopilot-Hardware/raspeberry_pi2.md)
-- Host simulation: [jMAVSim SITL](../4_Simulation/basic_simulation.md) and [Gazebo SITL](../4_Simulation/gazebo_simulation.md)
+* NuttX based hardware: [Pixhawk](../5_Autopilot-Hardware/pixhawk.md), [Pixfalcon](../5_Autopilot-Hardware/pixfalcon.md),
+  [Pixracer](../5_Autopilot-Hardware/pixracer.md), [Crazyflie](../5_Autopilot-Hardware/crazyfile.md),
+  [Intel Aero](../5_Autopilot-Hardware/intel_aero.md)
+* Snapdragon Flight hardware: [Snapdragon](../5_Autopilot-Hardware/snapdragon_flight.md)
+* Linux-based hardware: [Raspberry Pi 2/3]([Raspberry Pi 2/3](../5_Autopilot-Hardware/raspeberry_pi2.md)), Parrot Bebop
+* Host simulation: [jMAVSim SITL](../4_Simulation/basic_simulation.md) and [Gazebo SITL](../4_Simulation/gazebo_simulation.md)
 
-
-
-> 注意：安装[Ninja Build System](https://fantasyjxf.gitbooks.io/px4-wiki/content/1_Getting-Started/adcanced_linux.html#Ninja构建系统)可以比make更快进行编译。如果安装了它就会自动选择使用它进行编译。
-
-
+> 提示：安装[Ninja Build System](https://fantasyjxf.gitbooks.io/px4-wiki/content/1_Getting-Started/adcanced_linux.html#Ninja构建系统)可以比make更快进行编译。如果安装了它就会自动选择使用它进行编译。
 
 
 <div class="host-code"></div>
@@ -43,10 +41,10 @@ sudo apt-get update
 sudo apt-get install python-argparse git-core wget zip \
     python-empy qtcreator cmake build-essential genromfs -y
 # simulation tools
-sudo apt-get install ant protobuf-compiler libeigen3-dev libopencv-dev openjdk-7-jdk openjdk-7-jre clang-3.5 lldb-3.5 -y
+sudo apt-get install ant protobuf-compiler libeigen3-dev libopencv-dev openjdk-8-jdk openjdk-8-jre clang-3.5 lldb-3.5 -y
 ```
 
-### NuttX的基本硬件
+### 基于NuttX的硬件
 
 Ubuntu配备了一系列代理管理，这会严重干扰任何机器人相关的串口（或usb串口），卸载掉它也不会有什么影响:
 
@@ -61,89 +59,68 @@ sudo apt-get remove modemmanager
 <div class="host-code"></div>
 
 ```sh
-sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded -y
-sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
-sudo apt-get update
 sudo apt-get install python-serial openocd \
     flex bison libncurses5-dev autoconf texinfo build-essential \
     libftdi-dev libtool zlib1g-dev \
-    python-empy gcc-arm-none-eabi -y
+    python-empy  -y
 ```
 
-如果`gcc-arm-none-eabi`版本导致PX4/Firmware编译错误，请参考   [the bare metal installation instructions](../1_Getting-Started/adcanced_linux.md#toolchain-installation) 手动安装4.8版本。
+在添加arm-none-eabi工具链之前，请确保删除残余。
+
+```sh
+sudo apt-get remove gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi gcc-arm-embedded
+sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
+```
+
+如果`gcc-arm-none-eabi`版本导致PX4/Firmware编译错误，请参考[the bare metal installation instructions](../1_Getting-Started/adcanced_linux.md#toolchain-installation) 手动安装4.9或者5.4版本的arm-none-eabi工具链。
 
 ### 骁龙
 
 #### 工具链安装
 
-首先添加Ubuntu官方平板团队的仓库，然后安装ADB和ARM交叉编译工具链。
-
-<div class="host-code"></div>
-
 ```sh
-sudo add-apt-repository ppa:phablet-team/tools && sudo apt-get update -y
+sudo apt-get install android-tools-adb android-tools-fastboot fakechroot fakeroot unzip xz-utils wget python python-empy -y
 ```
-
-<div class="host-code"></div>
-
-```sh
-sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf android-tools-adb android-tools-fastboot fakechroot fakeroot -y
-```
-
-安装向导将会启动，使用默认设置，一路回车即可。
-
-
-骁龙的开发者应该在[这里](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tool-request)申请Hexagon 7.2.10 Linux工具链和Hexagon 2.0 SDK for Linux。
-
-
-下载好Hexagon SDK和Hexagon工具链后，clone这个仓库：
-
-<div class="host-code"></div>
 
 ```sh
 git clone https://github.com/ATLFlight/cross_toolchain.git
 ```
 
-按照下面命令，把相关文件移动到cross_toolchain/downloads中：
 
-<div class="host-code"></div>
+Get the Hexagon SDK 3.0 from QDN: [https://developer.qualcomm.com/download/hexagon/hexagon-sdk-v3-linux.bin](https://developer.qualcomm.com/download/hexagon/hexagon-sdk-v3-linux.bin)
 
-```sh
-mv qualcomm_hexagon_sdk_2_0_eval.bin cross_toolchain/downloads
-mv Hexagon.LNX.7.2\ Installer-07210.1.tar cross_toolchain/downloads
-cd cross_toolchain/downloads
-tar -xf Hexagon.LNX.7.2\ Installer-07210.1.tar
-```
+This will require a QDN login. You will have to register if you do not already have an account.
 
-执行下列命令安装SDK和工具链：
-
-<div class="host-code"></div>
+Now move the following files in the download folder of the cross toolchain as follows:
 
 ```sh
-cd ../
-./install.sh
+mv ~/Downloads/hexagon-sdk-v3-linux.bin cross_toolchain/downloads
 ```
 
-按照说明配置开发环境。如果使用默认安装设置，那么可以在任何时候重新运行命令配置开发环境。此种情况将只安装缺少的组件。
-
-交叉编译工具链和SDK会被安装到"$HOME/Qualcomm/..."，在"~/.bashrc"中添加：
-
-<div class="host-code"></div>
+Install the toolchain and SDK like this:
 
 ```sh
-export HEXAGON_SDK_ROOT="${HOME}/Qualcomm/Hexagon_SDK/2.0"
-export HEXAGON_TOOLS_ROOT="${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools"
-export HEXAGON_ARM_SYSROOT="${HOME}/Qualcomm/Hexagon_SDK/2.0/sysroot"
-export PATH="${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH"
+cd cross_toolchain
+./installv3.sh
+cd ..
 ```
 
-载入新的配置：
+Follow the instructions to set up the development environment. If you accept all the install defaults you can at any time re-run the following to get the env setup. It will only install missing components.
 
-<div class="host-code"></div>
+After this the tools and SDK will have been installed to "$HOME/Qualcomm/...". Append the following to your ~/.bashrc:
+
+```sh
+export HEXAGON_SDK_ROOT="${HOME}/Qualcomm/Hexagon_SDK/3.0"
+export HEXAGON_TOOLS_ROOT="${HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools"
+export PATH="${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH"
+```
+
+Load the new configuration:
 
 ```sh
 source ~/.bashrc
 ```
+
 #### Sysroot Installation
 
 A sysroot is required to provide the libraries and header files needed to cross compile applications for the Snapdragon Flight applications processor.
