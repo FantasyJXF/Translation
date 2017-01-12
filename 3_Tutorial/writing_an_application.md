@@ -200,7 +200,7 @@ Rebooting.
 
 在PX4中，应用程序间发送的单独的消息叫做“topics”，在本教程中，我们关心的话题是“多传感器间的uORB消息机制”（[sensor_combined](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/topics/sensor_combined.h) [topic](../6_Mid)）。这些消息机制使得整个系统能够同步传感器数据。
 
-读取一个消息是快速且方便的：
+订阅一个话题是非常迅速并且简洁的：
 
 ```C++
 #include <uORB/topics/sensor_combined.h>
@@ -208,7 +208,7 @@ Rebooting.
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
-“sensor_sub_fd” 是一个消息句柄，能够非常高效的处理新数据的到来之前的延迟等待。当前线程会休眠，直到新的传感器数据到来时，被调度器唤醒，并且在等待时不需要占用任何的CPU时间。为了实现这个功能，我们使用poll()函数[http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html]，即POSIX系统调用。
+“sensor_sub_fd” 是一个文件描述符，可以用来非常高效地实现对新数据的阻塞式等待。当前线程进入休眠状态，当新数据可用时，它自动地被调度程序唤醒 ，因此在数据等待时， 不会占用任何CPU资源。为了实现这个功能，我们使用poll()函数[http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html]，即POSIX系统调用。
 
 在消息读取中加入“poll()”机制：
 
@@ -273,7 +273,7 @@ while (true) {
 
 为了能获取到计算后的数据，下一步就是“打印”这些结果。如果我们知道某一个消息是使用mavlink协议转发给地面控制站的，我们就可以通过这个消息去查看结果。例如我们通过这个方法来获得高度信息的消息。
 
-接口非常简单:初始化消息的结构体，然后广播这条消息：
+接口非常简单:初始化消息的结构体，然后公告这条消息：
 
 ```C
 #include <uORB/topics/vehicle_attitude.h>
