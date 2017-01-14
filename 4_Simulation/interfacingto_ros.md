@@ -36,7 +36,7 @@ sudo apt-get install ros-$(ROS_DISTRO)-gazebo7-ros-pkgs    //Recommended
 sudo apt-get install ros-$(ROS_DISTRO)-gazebo6-ros-pkgs
 ```
 
-## 使用ROS包装器启动Gazebo
+## 使用ROS装饰器启动Gazebo
 
 如果想要修改Gazebo仿真，使其能够将额外的传感器信息直接发布到ROS主题，例如Gazebo ROS激光传感器信息，那么必须通过适当的ROS包装器来启动Gazebo。
 
