@@ -270,7 +270,7 @@ Qt creator 提供单击选择变量、代码自动补全、代码编译和固件
 cd ~/src/Firmware
 mkdir ../Firmware-build
 cd ../Firmware-build
-cmake ../Firmware -G "CodeBlocks - Unix Makefiles"
+cmake ../Firmware -G "CodeBlocks - Unix Makefiles" -DCONFIG=nuttx_px4fmu-v2_default
 ```
 接着启动Qt creator（如果系统没安装Qt Creator 百度一下linux下安装Qt Creator，然后再启动Qt Creator）并加载 Firmware 根目录下 CMakeLists.txt 文件，步骤：点击工具栏 File -> Open File or Project -> Select the CMakeLists.txt file 。
 如果加载提示ninja没有安装，请按照“高级Linux”章节进行ninja编译工具的安装，安装完成后，log out（登出）并log in（登入）。
