@@ -6,7 +6,8 @@
 
 ## 可用的估计器
 
-**1. Q attitude estimator(四元数姿态估计) **
+
+**1. Q attitude estimator(四元数姿态估计)**
 
 四元数姿态估计方法非常简单，就是基于四元数的姿态互补滤波器。
 
@@ -22,7 +23,8 @@ LPE (Local Position Estimator) 位置估计使用扩展卡尔曼滤波器对三�
 
 EKF2使用扩展卡尔曼滤波器进行三维的姿态，位置/速度以及风的状态进行估计。
 
-**5. EKF attitude, position and wind states estimator (depricated)(EKF姿态，位置以及风速估计(已过时))（即固件参数列表中的Attitude EKF estimator [链接]：(https://pixhawk.org/firmware/parameters#attitude_ekf_estimator)和Position Estimator [链接]：(https://pixhawk.org/firmware/parameters#position_estimator))**
+**5. EKF attitude, position and wind states estimator (depricated)**(EKF姿态，位置以及风速估计(已过时))
+（即固件参数列表中的[Attitude EKF estimator](https://pixhawk.org/firmware/parameters#attitude_ekf_estimator)和[Position Estimator](https://pixhawk.org/firmware/parameters#position_estimator))
 
 这是一个类似于EKF2的扩展卡尔曼滤波器。然而，很快它就将完全由EKF2代替。
 
