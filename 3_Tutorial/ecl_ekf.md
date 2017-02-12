@@ -43,83 +43,83 @@ EKF仅使用IMU的数据进行状态预测。IMU的数据不会用作EKF推导�
 
 三轴磁力计（或者是外部视觉系统）的最低采样率为5Hz。磁力计数据可以以两种方式使用：
 
-* Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination. This yaw angle is then used as an observation by the EKF. This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases. It is the default method used during start-up and on ground.
-* 使用倾斜估计和磁偏角将磁力计测量值转换为偏航角
-* The  XYZ magnetometer readings are used as separate observations. This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies. It is the default method when the vehicle is airborne and has climbed past 1.5 m altitude.
+* 使用倾斜估计和磁偏角将磁力计测量值转换为偏航角。该偏航角被用作EKF的观测量。这种方法不太准确并且没有考虑机体坐标系的磁场偏移，然而其对于磁异常和大的陀螺仪初始偏移更加鲁棒。它是飞行器刚启动还停留在地面上时使用的默认方法。
+* 磁力计的XYZ三轴读数用作单独测观测值。这种方法更准确，并且允许机体坐标系的偏移。但假定地磁场环境只是缓慢变化，这种方法在存在巨大的外部磁异常时性能较差。这是当飞行器在空中并爬升超过1.5米高度时的默认方法。
 
-The logic used to select the mode is set by the EKF2\_MAG\_TYPE parameter.
+用于选择模式的逻辑由EKF2_MAG_TYPE参数设置。
 
-### Height
+### 高度
 
-A source of height data - either GPS, barometric pressure, range finder or external vision at a minimum rate of 5Hz is required. Note: The primary source of height data is controlled by the EKF2\_HGT\_MODE parameter.
+高度的数据源——GPS，气压，测距仪或外部视觉（最低采样频率5Hz）。注意：高度数据的主要来源由EKF2\_HGT\_MODE参数控制。
 
-If these measurements are not present, the EKF will not start. When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment. When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation  enabling use of additional sensor data:
+如果这些测量不存在，EKF将不会启动。当检测到这些测量时，EKF将初始化状态并完成倾斜和偏航对准。当倾斜和偏航对准完成时，EKF可以转换到其他的操作模式，使得能够使用附加的传感器数据：
 
 ### GPS
 
-GPS measurements will be used for position and velocity if the following conditions are met:
+如果满足以下条件，则GPS测量将用于位置和速度：
 
-* GPS use is enabled via setting of the EKF2\_AID\_MASK parameter.
-* GPS quality checks have passed. These checks are controlled by the EKF2\_GPS\_CHECK and EKF2\_REQ&lt;&gt; parameters.
-* GPS height can be used directly by the EKF via setting of the EKF2\_HGT\_MODE parameter.
+* 通过设置EKF2\_AID\_MASK参数使能GPS的使用
+* GPS通过质量检查。这些检查由EKF2_GPS_CHECK和 EKF2_REQ<>参数控制
+* 通过EKF2_HGT_MODE参数的设置，EKF可以直接使用GPS高度。
 
-### Range Finder
+### 测距仪
 
-Range finder distance to ground is used a by a single state filter to estimate the vertical position of the terrain relative to the height datum.
+测距仪到地面的距离由单个状态滤波器使用，用于估计地形相对于高度基准的垂直位置。
 
-If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the EKF2\_HGT\_MODE parameter to 2.
+如果在可用作零高度基准的平坦表面上操作，测距仪数据也可以直接由EKF使用，以通过将EKF2_HGT_MODE参数设置为2来估计高度。
 
-### Airspeed
+### 空速
 
-Equivalent Airspeed \(EAS\) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting EKF2\_ARSP\_THR to a positive value. Airspeed data will be used when it exceeds the threshold set by a positive value for EKF2\_ARSP\_THR and the vehicle type is not rotary wing.
+通过将EKF2_ARSP_THR设置为正值，等效空速（EAS）数据可用于估计风速并减少GPS丢失时的漂移。 当超过由EKF2_ARSP_THR设置的阈值并且飞行器不是旋翼时，将使用空速数据。
 
 ### Synthetic Sideslip
 
-Fixed wing platforms can take advantage of an assumed sidelsip observation of zero to improve wind speed estimation and also enable wind speed estimation without an airspeed sensor. This is enabled by setting the EKF2\_FUSE\_BETA parameter to 1.
+固定翼平台可以利用假设的边缘观测零点来改进风速估计，并且还能够在没有空速传感器的情况下实现风速估计。可以通过将EKF2_FUSE_BETA参数设置为1来启用此项。
 
-### Optical Flow
+### 光流
 
-Optical flow data will be used if the following conditions are met:
+如果满足以下条件，将使用光流数据：
 
-* Valid range finder data is available.
-* Bit position 1 in the EKF2\_AID\_MASK parameter is true.
-* The quality metric returned by the flow sensor is greater than the minimum requirement set by the EKF2\_OF\_QMIN parameter
+* 有效的测距仪数据可用。
+* EKF2_AID_MASK参数中第1位为真。
+* 光流传感器返回的质量度量大于由EKF2_OF_QMIN参数设置的最小要求
 
-### External Vision System
+### 外部视觉系统
 
-Position and Pose Measurements from an exernal vision system, eg Vicon, can be used:
+位置和姿态可以使用外部视觉系统（例如Vicon）进行测量：
 
-* External vision system horizontal position data will be used if bit position 3 in the EKF2\_AID\_MASK parameter is true.
-* External vision system vertical position data will be used if the EKF2\_HGT\_MODE parameter is set to 3.
+* 如果EKF2_AID_MASK参数中的第3位为真，则将使用外部视觉系统水平位置数据。
+* 如果EKF2_HGT_MODE参数设置为3，则将使用外部视觉系统垂直位置数据。
+* 如果EKF2_AID_MASK参数中的第4位为真，则外部视觉系统的姿态数据将用于偏航估计。
 
-\* External vision system pose data will be used for yaw estimation if bit position 4 in the EKF2\_AID\_MASK parameter is true. 
+## 如何使用ecl EKF?
 
-## How do I use the 'ecl' library EKF?
+将SYS\_MC\_EST\_GROUP参数设置为2可使用ecl EKF.
 
-Set the SYS\_MC\_EST\_GROUP parameter to 2 to use the ecl EKF.
+## 相比其他估计器ecl EKF有什么优缺点?
 
-## What are the advantages and disadvantages of the ecl EKF over other estimators?
+与所有估计器一样，大多数性能需要进行调参以匹配传感器特性。调参是在精度和鲁棒性之间的折衷，尽管我们试图提供满足大多数用户需求的参数，但是仍将存在需要进行参数调节的应用。
 
-Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Tuning is a compromise between accuracy and robustness and although we have attempted to provide a tune that meets the needs of most users, there will be applications where tuning changes are required.
+出于这个原因，相对于attitude\_estimator\_q + local\_position\_estimator的传统估计器组合，ecl EKF没有精度方面的要求(claim)，估计器的最优选取将取决于应用以及参数调节。
 
-For this reason, no claims for accuracy relative to the legacy combination of attitude\_estimator\_q + local\_position\_estimator have been made and the best choice of estimator will depend on the application and tuning.
+### 缺点
 
-### Disadvantages
+* ecl EKF是一个复杂的算法，需要很好地了解扩展卡尔曼滤波理论及其在导航问题中的应用才能更好的进行参数调节。因此，对于没有获得良好效果地用户来说，知道要改变什么则更为困难。
 
-\* The ecl EKF is a complex algorithm that requires a good understanding of extended Kalman filter theory and its application to navigation problems to tune successfully. It is therefore more difficult for users that are not achieving good results to know what to change.
 
-* The ecl EKF uses more RAM and flash space
-* The ecl EKF uses more logging space.
-* The ecl EKF has had less flight time
+* ecl EKF使用更多的RAM和闪存空间
+* ecl EKF使用更多的日志空间
+* ecl EKF具有较少的飞行时间
 
-### Advantages
+### 优点
 
-* The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic manoeuvres once time delay parameters are set correctly.
-* The ecl EKF is capable of fusing a large range of different sensor types.
-* The ecl EKF detects and reports statistically significant inconsistencies in sensor data, assisting with diagnosis of sensor errors.
-* For fixed wing operation, the ecl EKF estimates wind speed with or without an airspeed sensor and is able to use the estimated wind in combination with airspeed measurements and sideslip assumptions to extend the dead-reckoning time avalable if GPS is lost in flight.
-* The ecl EKF estimates 3-axis accelerometer bias which improves accuracy for tailsitters and other vehicles that experience large attitude changes between flight phases.
+* ecl EKF能够以数学上一致的方式融合来自具有不同时间延迟和采样频率的传感器的数据，在正确地设置了时间延迟参数的情况下，该算法将提高动态操纵精度。
+* ecl EKF能够融合大范围的不同传感器类型。
+* ecl EKF检测并报告传感器数据统计中显著的不一致情况，可协助诊断传感器错误。
+* 对于固定翼操作，无论是否使用空速传感器，ecl EKF都能够用于估计风速，并且能够使用估计的风速结合空速测量以及侧滑假设来延长可用的航位推算时间(如果在飞行中丢失GPS信号)。
+* ecl EKF估计3轴加速度计偏差，这提高了立式起落飞行器(tailsitters)和其他飞行器在飞行阶段经历大的姿态变化时的精度。
 * The federated architecture \(combined attitude and position/velocity estimation\) means that attitude estimation benefits from all sensor measurements. This should provide the potential for improved attitude estimation if tuned correctly.
+* 联合架构（将姿态和位置/速度估计结合起来）意味着姿态估计会受益于所有传感器测量。 如果适当调节，这将提供改进姿态估计的潜力。
 
 ## How do I check the EKF performance?
 
