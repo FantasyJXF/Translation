@@ -1,30 +1,30 @@
-# 混控和执行器
+# 输入混合(mixing)和输出执行器(actuators)
 官网英文原文地址：http://dev.px4.io/concept-mixing.html
 
-PX4架构保证了核心控制器中不需要针对机身布局做特别处理。
+该模块用于确保保证了飞控代码不需要针对特定机型做相应输出的修改。
 
-混控指的是把控制力指令（例如：'右转'）分配到直接控制电机以及舵机的作动器指令。对直升机而言，每个副翼由一个舵机控制，那么混控就指的是控制其中一个副翼抬起而另一个副翼落下。同样的，对多旋翼而言，俯仰操作需要改变所有电机的转速。 
+混合指的是输入指令（例如：遥控器打'右转'）分配到电机以及舵机的执行器（如电调或舵机PWM）指令。对于固定翼的副翼控制而言，每个副翼由一个舵机控制，那么混合的意义就是控制其中一个副翼抬起而另一个副翼落下。同样的，对多旋翼而言，向前打俯仰操作需要改变所有电机的转速，来完成改动作。 
 
 将混控逻辑从实际姿态控制器中分离出来可以大大提高复用性。 
 
-## Control Pipeline
+## 控制流程（Control Pipeline）
 
-A particular controller sends a particular normalized force or torque demand (scaled from -1..+1) to the mixer, which then sets individual actuators accordingly. The output driver (e.g. UART, UAVCAN or PWM) then scales it to the actuators native units, e.g. a PWM value of 1300.
+一个特定的控制器（如姿态控制器）发送特定的归一化（-1..+1）的命令到给混合（mixing）,然后混合后输出独立的PWM到执行器（电调，舵机等）.在经过输出驱动如（串口，UAVCAN，PWM）等将归一化的值再转回特性的值（如输出1300的PWM等）。
 
 {% mermaid %}
 graph LR;
-  att_ctrl[Attitude Controller] --> act_group0[Actuator Control Group 0]
-  gimbal_ctrl[Gimbal Controller] --> act_group2[Actuator Control Group 2]
-  act_group0 --> output_group5[Actuator 5]
-  act_group0 --> output_group6[Actuator 6]
-  act_group2[Actuator Control Group 2] --> output_group0[Actuator 5]
+  att_ctrl[姿态控制器] --> act_group0[第0组执行器]
+  gimbal_ctrl[云台控制器] --> act_group2[第2组执行器]
+  act_group0 --> output_group5[组内第5个执行器]
+  act_group0 --> output_group6[组内第6个执行器]
+  act_group2[第2组执行器] --> output_group0[组内第5个执行器]
 {% endmermaid %}
 
-## Control Groups
+## 控制组（Control Groups，也叫输入组）
 
-PX4 uses control groups (inputs) and output groups. Conceptionally they are very simple: A control group is e.g. `attitude`, for the core flight controls, or `gimbal` for payload. An output group is one physical bus, e.g. the first 8 PWM outputs for servos. Each of these groups has 8 normalized (-1..+1) command ports, which can be mapped and scaled through the mixer. A mixer defines how each of these 8 signals of the controls are connected to the 8 outputs.
+PX4 有输入组和输出组的概念.顾名思义：控制输入组（如：姿态），就是用于核心的飞行姿态控制，（如：云台）就是用于挂载控制. 一个输出组就是一个物理总线，如前8个PWM组成的总线用于舵机控制，组内带8个归一化（-1..+1）值,一个混合就是用于输入和输出连接方式（如:对于四轴来说,输入组有俯仰，翻滚，偏航等，对于于向前打俯仰操作，就需要改变输出组中的4个电调的PWM输出值，前俩个降低转速，后两个增加转速，飞机就向前）。
 
-For a simple plane control 0 (roll) is connected straight to output 0 (aileron). For a multicopter things are a bit different: control 0 (roll) is connected to all four motors and combined with throttle.
+对于简单的固定翼来说，输入0（roll），就直接连接到输出的0（副翼）。对于多旋翼来说就不同了，输入0（roll）需要连接到所有的4个电机。
 
 #### Control Group #0 (Flight Control)
 
