@@ -1,14 +1,14 @@
-# 骁龙自动驾驶仪
+# 骁龙飞控
 
 官网英文原文地址：http://dev.px4.io/hardware-snapdragon.html
 
-骁龙Snapdragon Flight平台是高端的自动驾驶仪 / 机载计算机， 它的DSP 上 有QuRT 实时操作系统来运行 PX4 ，使用[DSPAL API](https://github.com/ATLFlight/dspal)兼容与 POSIX   。  与  [Pixhawk](../5_Autopilot-Hardware/pixhawk.md) 相比它添加了一个摄像头和 WiFi 及其高端的处理能力和不同的 IO 接口。
+骁龙Snapdragon Flight平台是高端的自动驾驶仪 / 机载计算机, 其板载的DSP跑QuRT实时操作系统和PX4飞控代码 ，使用[DSPAL API](https://github.com/ATLFlight/dspal)实现POSIX兼容与.与[Pixhawk](../5_Autopilot-Hardware/pixhawk.md) 相比,多添加了一个摄像头,WiFi及其更高端的处理能力和不同的IO接口。
 
-有关的骁龙平台飞行的更多信息在[Snapdragon-Flight-Details](https://www.intrinsyc.com/qualcomm-snapdragon-flight-details/)
+关于骁龙平台飞行的更多信息在[Snapdragon-Flight-Details](https://www.intrinsyc.com/qualcomm-snapdragon-flight-details/)
 
  ![hardware-snapdragon](../pictures/hardware\hardware-snapdragon.jpg)
 
-## 快速摘要
+## 摘要
 
 -                             片上系统: [骁龙 801](https://www.qualcomm.com/products/snapdragon/processors/801)
                                   - CPU: Quad-core 2.26 GHz Krait
@@ -16,36 +16,36 @@
                               - GPU: Qualcomm® Adreno™ 330 GPU
                               - RAM: 2GB LPDDR3 PoP @931 MHz
 -                             内存: 32GB eMMC Flash
-                                  - 录像: 索尼 IMX135 on Liteon Module 12P1BAD11
-                              - 4k@30fps 3840×2160 video capture to SD card with H.264 @ 100Mbits (1080p/60 with parallel FPV), 720p FPV
+                                  - 摄像头: 索尼 IMX135 on Liteon Module 12P1BAD11
+                              - 4k@30fps 3840×2160 视频流,H.264编码,100Mbits存储(SD卡)速度 (1080p/60并行FPV), 720p FPV
 -                             光流: Omnivision OV7251 on Sunny Module MD102A-200
                                   - 640x480 @ 30/60/90 fps
 -                             Wifi: Qualcomm® VIVE™ 1-stream 802.11n/ac with MU-MIMO † Integrated digital core
                                   - BT/WiFi: BT 4.0 and 2G/5G WiFi via QCA6234
                               - 802.11n, 2×2 MIMO with 2 uCOAX connectors on-board for connection to external antenna
--                             GPS: Telit Jupiter SE868 V2 module (使用外部UBLOX模块，建议由PX4代替)
-                                  - uCOAX 连接器用于连接到外部 GPS 车载贴片天线
+-                             GPS: Telit Jupiter SE868 V2 module (建议使用一个外部的UBLOX模块)
+                                  - uCOAX 连接器用于连接到外部 GPS
                               - CSR SiRFstarV @ 5Hz via UART
--                             加速度计 / 陀螺仪 /磁力计: Invensense公司的MPU-9250 9-轴传感器, 3x3mm QFN, 接在 SPI1
+-                             加速度计 / 陀螺仪 /磁力计: Invensense公司的MPU-9250 9-轴传感器, 3x3mmQFN封装, 接在 SPI1
                                   - 气压计: Bosch公司的 BMP280 气压传感器, 接在 I2C3
-                              - 电压: 5V直流电用外部2S-6S电池通过APM适配器调节至5V
-                              - 可购买: [Intrinsyc商店](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit)
+                              - 电压: 直流5V,通过APM电源模块降到5V,支持2~6S
+                             - 购买链接: [Intrinsyc商店](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit)
 
 ## 接口
 
 -     一个USB 3.0 高速口 (micro-A/B)
--     微型 SD 卡插槽
-      -万用接头 (PWB/GND/BLSP)
+-     SD 卡插槽
+      -云台接口 (PWB/GND/BLSP)
       - 电调接口 (2W UART)
       - I2C
       - 60针高速的Samtec QSH-030-01-L-D-A-K扩展连接器
         - 2x BLSP ([BAM 低速外设](http://www.inforcecomputing.com/public_docs/BLSPs_on_Inforce_6540_6501_Snapdragon_805.pdf))
 -     USB
 
-## 外置引线
+## 引脚接口
 
 <aside class="warning">
-尽管晓龙使用 DF13 连接器，外置引线还是有别于 Pixhawk。
+尽管晓龙使用 DF13 连接器,引脚还是有别于Pixhawk。
 </aside>
 
 ### WiFi
@@ -54,20 +54,24 @@
 
 ### 连接器
 
-串口的默认对应如下所示︰
+默认的串口引脚映射如下︰
 
 | 设备           | 描述                          |
 | ---------------- | ------------------------------------ |
-| ```/dev/tty-1``` | J15 (next to USB)                    |
-| ```/dev/tty-2``` | J13 (next to power module connector) |
-| ```/dev/tty-3``` | J12 (next to J13)                    |
-| ```/dev/tty-4``` | J9 (next to J15)                     |
+| ```/dev/tty-1``` | J15 (靠近USB)                        |
+| ```/dev/tty-2``` | J13 (靠近电源模块连接口) |
+| ```/dev/tty-3``` | J12 (靠近J13)                    |
+| ```/dev/tty-4``` | J9 (靠近J15)                     |
 
-为自定义的 UART 到 BAM 映射，创建一个名为"blsp.config"文件和执行命令adb push 把他下到 ```/usr/share/data/adsp```。例如，保留默认的映射，你"blsp.config"应该看起来像:
-tty-1 bam-9  
-tty-2 bam-8  
-tty-3 bam-6  
-tty-4 bam-2  
+若用户需要自定UART的引脚,可以通过创建一个名为"blsp.config"文件,并通过adb push命令上传到 ```/usr/share/data/adsp```.
+例如,"blsp.config"内容如下:
+
+tty-1 bam-9 2-wire 
+tty-2 bam-8 2-wire 
+tty-3 bam-6 2-wire 
+tty-4 bam-2 2-wire 
+
+该文件表明tty-1映射到串口9,即下方的J15连接器.必须确保每行以"2-wire"结尾,如果没有,将默认使用4线的UART,需要额外的CTS,RTS来做硬件流控制.如想使用硬件流控制,则如J9的两个I2C引脚可被配置为CTS,RTS.
 
 #### J9 / GPS
 
@@ -126,7 +130,7 @@ tty-4 bam-2
 
 ### UART to Pixracer / Pixfalcon 接线
 
-这个接口是用来利用Pixracer/ Pixfalcon作为I / O接口板。连接到`TELEM1`在 Pixfalcon和在`TELEM2`在Pixracer。
+这个接口是用来利用Pixracer/ Pixfalcon作为I / O接口板。Pixfalcon连接到`TELEM1`,Pixracer连接到 `TELEM2`。
 
 | Snapdragon J13 Pin | Signal      | Comment              | Pixfalcon / Pixracer Pin |
 | ------------------ | ----------- | -------------------- | ------------------------ |
