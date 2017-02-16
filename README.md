@@ -164,12 +164,16 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4.1-地面站                   |     范新强     |                               |
 | 4.2-编写应用程序                |    PONY     |                               |
 | 4.3-QGC的视频流               |    积土为山     |                               |
-| 4.4-光流和LiDAR-Lite         |    PONY     |                               |
-| 4.5-综合测试                  |  Innoecho   |                               |
-| 4.6-户外光流                  |   Fantasy   |                               |
-| 4.7-多旋翼PID调参              |   Fantasy   |                               |
-| 4.8-sdlog2                |   Fantasy   |                               |
-| 4.9-ecl EKF               |             |                               |
+| 4.4-远程的视频流               |          |                               |
+| 4.5-光流和LiDAR-Lite         |    PONY     |                               |
+| 4.6-综合测试                  |  Innoecho   |                               |
+| 4.7-户外光流                  |   Fantasy   |                               |
+| 4.8-多旋翼PID调参              |   Fantasy   |                               |
+| 4.9-sdlog2                |   Fantasy   |                               |
+| 4.10-ecl EKF               |   Fantasy   |                               |
+| 4.11-飞行前检查              |             |                               |
+| 4.12-数传              |             |                               |
+| 4.13-传感器热补偿              |             |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
 | 5.1-基本仿真                  |    积土为山     |                               |
 | 5.2-Gazebo仿真              |    积土为山     |                               |
@@ -242,11 +246,12 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 13.12-EKF2的Log文件回放        |             |                               |
 | 13.13-System-wide Replay  |             |                               |
 | 13.14-安装RealSense R200的驱动 |             |                               |
-| 13.15-设置云台控制              |   含笑~饮砒霜    |                               |
-| 13.16-切换状态估计器             |             |                               |
-| 13.17-Out of tree Modules |             |                               |
-| 13.18-ULog文件模式            |             |                               |
-| 13.19-Licenses            |             |                               |
+| 13.15-Parrot  Bebop  |             |                             |
+| 13.16-设置云台控制              |   含笑~饮砒霜    |                               |
+| 13.17-切换状态估计器             |             |                               |
+| 13.18-Out of tree Modules |             |                               |
+| 13.19-ULog文件模式            |             |                               |
+| 13.20-Licenses            |             |                               |
 | 14-软件更新                   |    - _ -    |        Software Update        |
 | 14.1-STM32 BootLoader     |   Fantasy   |                               |
 | 15-测试和持续集成                |             |        Testing and CI         |
