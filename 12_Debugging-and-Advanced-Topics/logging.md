@@ -2,9 +2,6 @@
 
 官网英文原文地址：http://dev.px4.io/advanced-logging.html
 
-
-# Logging
-
 This describes the new logger, `SYS_LOGGER` set to 1.
 
 The logger is able to log any ORB topic with all included fields. Everything
@@ -62,16 +59,16 @@ amount of dropouts:
 The following provides performance results for different SD cards.
 Tests were done on a Pixracer; the results are applicable to Pixhawk as well.
 
-| SD Card | Mean Seq. Write Speed [KB/s] | Max Write Time / Block (average) [ms] |
-| -- | -- | -- |
-| SanDisk Extreme U3 32GB | 461 | **15** |
-| Sandisk Ultra Class 10 8GB | 348 | 40 |
-| Sandisk Class 4 8GB | 212 | 60 |
-| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331 | 220 |
-| Lexar U1 (Class 10), 16GB High-Performance | 209 | 150 |
-| Sandisk Ultra PLUS Class 10 16GB | 196 | 500 |
-| Sandisk Pixtor Class 10 16GB | 334 | 250 |
-| Sandisk Extreme PLUS Class 10 32GB | 332 | 150 |
+| SD Card                                  | Mean Seq. Write Speed [KB/s] | Max Write Time / Block (average) [ms] |
+| ---------------------------------------- | ---------------------------- | ------------------------------------- |
+| SanDisk Extreme U3 32GB                  | 461                          | **15**                                |
+| Sandisk Ultra Class 10 8GB               | 348                          | 40                                    |
+| Sandisk Class 4 8GB                      | 212                          | 60                                    |
+| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331                          | 220                                   |
+| Lexar U1 (Class 10), 16GB High-Performance | 209                          | 150                                   |
+| Sandisk Ultra PLUS Class 10 16GB         | 196                          | 500                                   |
+| Sandisk Pixtor Class 10 16GB             | 334                          | 250                                   |
+| Sandisk Extreme PLUS Class 10 32GB       | 332                          | 150                                   |
 
 More important than the mean write speed is the maximum write time per block (of
 4 KB). This defines the minimum buffer size: the larger this maximum, the larger
@@ -85,6 +82,55 @@ performance is usually different.
 
 You can test your own SD card with `sd_bench -r 50`, and report the results to
 https://github.com/PX4/Firmware/issues/4634.
+
+## Log Streaming
+The traditional and still fully supported way to do logging is using an SD card
+on the FMU. However there is an alternative, log streaming, which sends the
+same logging data via MAVLink. This method can be used for example in cases
+where the FMU does not have an SD card slot (eg. Intel Aero) or simply to avoid
+having to deal with SD cards. Both methods can be used independently and at the
+same time.
+
+The requirement is that the link provides at least ~50KB/s, so for example a
+WiFi link. And only one client can request log streaming at the same time. The
+connection does not need to be reliable, the protocol is designed to handle
+drops.
+
+There are different clients that support ulog streaming:
+- `mavlink_ulog_streaming.py` script in Firmware/Tools.
+- QGroundControl:
+![logg](../pictures/qgc_log_streaming.png)
+- [MAVGCL](https://github.com/ecmnet/MAVGCL)
+
+### Diagnostics
+- If log streaming does not start, make sure the `logger` is running (see
+  above), and inspect the console output while starting.
+- If it still does not work, make sure that Mavlink 2 is used. Enforce it by
+  setting `MAV_PROTO_VER` to 2.
+- Log streaming uses a maximum of 70% of the configured mavlink rate (`-r`
+  parameter). If more is needed, messages are dropped. The currently used
+  percentage can be inspected with `mavlink status` (1.8% is used in this
+  example):
+```
+instance #0:
+        GCS heartbeat:  160955 us ago
+        mavlink chan: #0
+        type:           GENERIC LINK OR RADIO
+        flow control:   OFF
+        rates:
+        tx: 95.781 kB/s
+        txerr: 0.000 kB/s
+        rx: 0.021 kB/s
+        rate mult: 1.000
+        ULog rate: 1.8% of max 70.0%
+        accepting commands: YES
+        MAVLink version: 2
+        transport protocol: UDP (14556)
+```
+  Also make sure `txerr` stays at 0. If this goes up, either the NuttX sending
+  buffer is too small, the physical link is saturated or the hardware is too
+  slow to handle the data.
+
 
 
 

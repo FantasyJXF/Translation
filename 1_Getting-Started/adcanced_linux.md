@@ -164,7 +164,7 @@ popd
 ```
 
 <aside class="note">
-如果使用Debian Linux，执行下列命令：
+**如果使用Debian Linux，执行下列命令：**
 </aside>
 
 <div class="host-code"></div>
@@ -174,7 +174,7 @@ sudo dpkg --add-architecture i386
 sudo apt-get update
 ```
 
-安装32位支持库（如果已经是运行在32位，那么可能会失败，则此步骤可以跳过）：
+安装32位支持库（如果已经是运行在32位，那么可能会失败，并且此步骤可以跳过）：
 
 <div class="host-code"></div>
 

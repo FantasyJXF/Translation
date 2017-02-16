@@ -117,6 +117,10 @@ make posix_sitl_default gazebo_tailsitter
 ```
 ![](/pictures/sim/gazebo_tailsitter.png)
 
+## Change World
+
+The current default world is the iris.wold located in the directory [worlds](https://github.com/PX4/sitl_gazebo/tree/367ab1bf55772c9e51f029f34c74d318833eac5b/worlds). The default surroundig in the iris.world uses a heightmap as ground. This ground can cause difficulty when using a distance sensor. If there are unexpected results with that heightmap, it is recommended to change the model in iris.model from uneven_ground to asphalt_plane.
+
 
 ## 起飞
 
@@ -164,12 +168,12 @@ pxh> commander takeoff
 除了现有的使用px4参数运行sitl\_run.sh来加载正确的模型的cmake 目标(target)之外，它还创建了一个名为px4\_<mode>的启动器目标(launcher targets)(这是原始sitl px4应用程序的thin wrapper)。 这个thin wrapper只是简单地嵌入应用程序参数，如当前工作目录和模型文件的路径。
 
 ### 如何使用
-  * 通过终端运行gazebo（或任何其他模拟器）服务器(server)和客户端(client)查看器：
+* 通过终端运行gazebo（或任何其他模拟器）服务器(server)和客户端(client)查看器：
 ```
 make posix_sitl_default gazebo_none_ide
 ```
-  * 在您的IDE中选择您要调试的px4_ <mode>目标（例如`px4_iris`）
-  * 直接从IDE启动调试会话(session)
+* 在您的IDE中选择您要调试的px4_ <mode>目标（例如`px4_iris`）
+* 直接从IDE启动调试会话(session)
 
 这种方法显着减少了调试周期时间，因为模拟器（例如Gazebo）总是在后台运行，并且您只用重新运行非常light的px4进程。
 

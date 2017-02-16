@@ -32,7 +32,7 @@ brew install homebrew/science/opencv
 
 ```sh
 sudo easy_install pip
-sudo pip install pyserial empy
+sudo pip install pyserial empy pandas jinja2
 ```
 
 ### Java for jMAVSim

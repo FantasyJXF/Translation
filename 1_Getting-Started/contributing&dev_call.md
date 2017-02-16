@@ -14,10 +14,43 @@
 
 所有的贡献必须在 [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)许可下进行,并且所有的代码在使用上不能提出任何的，进一步的限制。
 
+
+## Commits and Commit Messages
+
+Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
+
+```
+Component: Explain the change in one sentence. Fixes #1234
+
+Prepend the software component to the start of the summary
+line, either by the module name or a description of it.
+(e.g. "mc_att_ctrl" or "multicopter attitude controller").
+
+If the issue number is appended as <Fixes #1234>, Github
+will automatically close the issue when the commit is
+merged to the master branch.
+
+The body of the message can contain several paragraphs.
+Describe in detail what you changed. Link issues and flight
+logs either related to this fix or to the testing results
+of this commit.
+
+Describe the change and why you changed it, avoid to
+paraphrase the code change (Good: "Adds an additional
+safety check for vehicles with low quality GPS reception".
+Bad: "Add gps_reception_check() function").
+
+Reported-by: Name <email@px4.io>
+```
+
+**Use ```git commit -s``` to sign off on all of your commits.** This will add ```signed-off-by:``` with your name and email as the last line.
+
+This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
+
 ## 测试飞行结果
 
 飞行测试对于保证质量非常重要，请从microSD卡上传飞行日志到 [Log Muncher](http://logs.uaventure.com)，并在[论坛](http://groups.google.com/group/px4users)分享连接，附带有书面飞行报告。
-Test flights are important for quality assurance. Please upload the logs from the microSD card to [Log Muncher](http://logs.uaventure.com) and share the link on the [forum](http://groups.google.com/group/px4users) along with a verbal flight report.
+
 
 ## 论坛和聊天
 
