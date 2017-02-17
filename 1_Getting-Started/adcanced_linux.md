@@ -6,7 +6,7 @@
 Linux用户需要明确地允许JTAG编程适配器可以访问USB总线。
 
 <aside class="note">
-对于Archlinux：用```uucp```替换```plugdev```，然后执行下面命令。
+对于Archlinux：用`uucp`替换`plugdev`，然后执行下面命令。
 </aside>
 
 在sudo模式下执行ls命令以确保之后的命令可以成功执行：
