@@ -102,8 +102,7 @@ make posix gazebo_plane
 
 ```sh
 cd ~/src/Firmware
-make posix_sitl_default 
-gazebo_standard_vtol
+make posix_sitl_default gazebo_standard_vtol
 ```
 ![vtol](/pictures/sim/gazebo_standard_vtol.png)
 
