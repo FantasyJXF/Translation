@@ -141,11 +141,13 @@ Ready to fly.
 pxh>
 ```
 
-### QuRT / Snapdragon based boards
+### 高通/晓龙开发板
 
-#### Build it
+#### 编译
+下面的命令编译linux和DSP，两个可执行文件通过 [muORB]进行通信
 
-The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](../6_Middleware-and-Architecture/uorb_messaging.md).
+(../6_Middleware-and-Architecture/uorb_messaging.md).
+
 
 <div class="host-code"></div>
 
@@ -153,16 +155,15 @@ The commands below build the targets for the Linux and the DSP side. Both execut
 cd Firmware
 make eagle_default
 ```
-
-To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:
+为加载软件到设备上，需要连接USB接口，并确认板子启动。运行terminal窗口：
 
 <div class="host-code"></div>
 
 ```sh
 adb shell
 ```
+回到前一个terminal并上传程序
 
-Go back to previous terminal and upload:
 
 <div class="host-code"></div>
 
@@ -309,4 +310,3 @@ poster="../pictures/diagrams/macQt.PNG" data-setup='{"aspectRatio":"16:9"}'>
   </p>
 </video>
 {% endraw %}
-
