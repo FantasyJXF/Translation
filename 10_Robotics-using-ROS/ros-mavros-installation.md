@@ -15,7 +15,7 @@ MAVROS可以通过源文件或者二进制文件安装。推荐使用源文件�
 使用`apt-get`安装即可：
 
 ```sh
-$ sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras
+$ sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox
 ```
 
 ### 源文件安装
