@@ -23,22 +23,31 @@
 class MavlinkStreamCaTrajectory : public MavlinkStream
 {
 public:
-    const char *get_name() const
+	const char *get_name() const
 	{
 		return MavlinkStreamCaTrajectory::get_name_static();
 	}
+
 	static const char *get_name_static()
 	{
 		return "CA_TRAJECTORY";
 	}
-	uint8_t get_id()
+
+    static uint8_t get_id_static()
 	{
 		return MAVLINK_MSG_ID_CA_TRAJECTORY;
 	}
+
+    uint8_t get_id()
+    {
+        return get_id_static();
+    }
+
 	static MavlinkStream *new_instance(Mavlink *mavlink)
 	{
 		return new MavlinkStreamCaTrajectory(mavlink);
 	}
+
 	unsigned get_size()
 	{
 		return MAVLINK_MSG_ID_CA_TRAJECTORY_LEN + MAVLINK_NUM_NON_PAYLOAD_BYTES;
@@ -63,15 +72,16 @@ protected:
 		struct ca_trajectory_s _ca_trajectory;    //make sure ca_trajectory_s is the definition of your uorb topic
 
 		if (_sub->update(&_ca_traj_time, &_ca_trajectory)) {
-			mavlink_ca_trajectory_t _msg_ca_trajectory;  //make sure mavlink_ca_trajectory_t is the definition of your custom mavlink message 
-			
-			_msg_ca_trajectory.timestamp = _ca_trajectory.timestamp;
-			_msg_ca_trajectory.time_start_usec = _ca_trajectory.time_start_usec;
-			_msg_ca_trajectory.time_stop_usec  = _ca_trajectory.time_stop_usec;
-			_msg_ca_trajectory.coefficients =_ca_trajectory.coefficients;
-			_msg_ca_trajectory.seq_id = _ca_trajectory.seq_id;
-		
-			_mavlink->send_message(MAVLINK_MSG_ID_CA_TRAJECTORY, &_msg_ca_trajectory);
+
+			mavlink_ca_trajectory_t msg;//make sure mavlink_ca_trajectory_t is the definition of your custom mavlink message 
+
+           		msg.timestamp = _ca_trajectory.timestamp;
+            		msg.time_start_usec = _ca_trajectory.time_start_usec;
+            		msg.time_stop_usec  = _ca_trajectory.time_stop_usec;
+		    	msg.coefficients =_ca_trajectory.coefficients;
+            		msg.seq_id = _ca_trajectory.seq_id;
+
+            		mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &msg);
 		}
 	}
 };
