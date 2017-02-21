@@ -60,7 +60,7 @@ protected:
 
 	void send(const hrt_abstime t)
 	{
-		struct ca_traj_struct_s _ca_trajectory;    //make sure ca_traj_struct_s is the definition of your uorb topic
+		struct ca_trajectory_s _ca_trajectory;    //make sure ca_trajectory_s is the definition of your uorb topic
 
 		if (_sub->update(&_ca_traj_time, &_ca_trajectory)) {
 			mavlink_ca_trajectory_t _msg_ca_trajectory;  //make sure mavlink_ca_trajectory_t is the definition of your custom mavlink message 
@@ -121,7 +121,7 @@ MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
 	mavlink_ca_trajectory_t traj;
 	mavlink_msg_ca_trajectory_decode(msg, &traj);
 
-	struct ca_traj_struct_s f;
+	struct ca_trajectory_s f;
 	memset(&f, 0, sizeof(f));
 
 	f.timestamp = hrt_absolute_time();
