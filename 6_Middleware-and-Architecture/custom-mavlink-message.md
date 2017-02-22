@@ -75,13 +75,13 @@ protected:
 
 			mavlink_ca_trajectory_t msg;//make sure mavlink_ca_trajectory_t is the definition of your custom mavlink message 
 
-           		msg.timestamp = _ca_trajectory.timestamp;
-            		msg.time_start_usec = _ca_trajectory.time_start_usec;
-            		msg.time_stop_usec  = _ca_trajectory.time_stop_usec;
-		    	msg.coefficients =_ca_trajectory.coefficients;
-            		msg.seq_id = _ca_trajectory.seq_id;
+           	msg.timestamp = _ca_trajectory.timestamp;
+            msg.time_start_usec = _ca_trajectory.time_start_usec;
+            msg.time_stop_usec  = _ca_trajectory.time_stop_usec;
+		    msg.coefficients =_ca_trajectory.coefficients;
+            msg.seq_id = _ca_trajectory.seq_id;
 
-            		mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &msg);
+            mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &msg);
 		}
 	}
 };
@@ -96,7 +96,7 @@ nullptr
 };
 ```
 
-Then make sure to enable the stream, for example by adding the following line to the startup script (`-r` configures the streaming rate, `-u` identifies the mavlink channel on UDP port 14556):
+然后确保启用流，例如通过在启动脚本中添加以下行（`-r`配置流速率，`-u`标识UDP端口14556上的mavlink通道）：
 
 ```
 mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
