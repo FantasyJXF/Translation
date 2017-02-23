@@ -1,6 +1,6 @@
 # 创建自定义MAVLink消息
 
-官网英文原文地址：http://dev.px4.io/custom-mavlink-message.html
+官网英文原文地址：https://dev.px4.io/mavlink-messaging.html
 
 这篇教程是假设你已经在 `msg/ca_trajectory.msg` 有了一个[自定义uORB](../6_Middleware-and-Architecture/uorb_messaging.md) `ca_trajectory`
 消息，并且在 `mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h` 有了一个自定义mavlink
