@@ -169,4 +169,15 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 		...
  	}
 ```
+## 一般情况
+### 设置流速率
 
+有时，增加单个主题的流速率（例如，为例在QGC中检查）是有用的。这可以通过下面这行代码来实现
+```sh
+mavlink stream -u <port number> -s <mavlink topic name> -r <rate>
+```
+
+你可以通过```mavlink status```找到端口号，相应地将输出（在其他消息之间）```transport protocol: UDP (<port number>)```。例如你可能得到
+```sh
+mavlink stream -u 14556 -s OPTICAL_FLOW_RAD -r 300
+```
