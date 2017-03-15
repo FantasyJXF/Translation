@@ -230,10 +230,10 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
 | 12.1-I2C BUS              |    - _ -    |                               |
 | 12.1.1-SF1XX Lidar        |             |                               |
-| 12.2-UAVCAN               |             |                               |
-| 12.2.1-UAVCAN Bootloader  |             |                               |
-| 12.2.2-UAVCAN 固件升级        |             |                               |
-| 12.2.3-UAVCAN 配置          |             |                               |
+| 12.2-UAVCAN               |    |                               |
+| 12.2.1-UAVCAN Bootloader  |silence|                               |
+| 12.2.2-UAVCAN 固件升级     | silence  |                               |
+| 12.2.3-UAVCAN 配置          |silence  |                               |
 | 12.3-PWM / GPIO           |             |                               |
 | 12.4-UART                 |    - _ -    |                               |
 | 12.4.1-uLanding Radar     |             |                               |
