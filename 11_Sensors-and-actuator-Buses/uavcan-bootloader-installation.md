@@ -12,20 +12,19 @@
 
 对于STM32设备，PX4项目包含一个标准的UAVCAN引导程序The PX4 project includes a standard UAVCAN bootloader for STM32 devices.
 
-引导程序占用了flash内存的最开始8-16KB的位置，它们是设备上电后首先运行的代码。The bootloader occupies the first 8–16 KB of flash, and is the first code executed on power-up.通常，引导程序执行对设备的简单初始化，如：自动确定CAN总线的波特率， Typically, the bootloader performs low-level device initialization, automatically determines the CAN bus baud rate, acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.
+引导程序占用了flash内存的最开始8-16KB的位置，它们是设备上电后首先运行的代码。The bootloader occupies the first 8–16 KB of flash, and is the first code executed on power-up.通常，引导程序执行对设备的简单初始化，如：自动确定CAN总线的波特率， 担当UAVCAN动态ID节点客户端去获得唯一的 ID节点，Typically, the bootloader performs low-level device initialization, automatically determines the CAN bus baud rate, acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot在运行应用初始化之前要等待飞行控制器去确认.
 
-This process ensures that a UAVCAN device can recover from invalid or corrupted application firmware without user intervention, and also permits automatic firmware updates.
+这个引导程序能确保UAVCAN设备在无效或者错误固件时无需人为干扰，就可以自动恢复。同时允许固件自动升级。This process ensures that a UAVCAN device can recover from invalid or corrupted application firmware without user intervention, and also permits automatic firmware updates.
 
-## Prerequisites
+## 前提条件Prerequisites
 
-Installing or updating the UAVCAN bootloader requires:
+初始化或更新UAVCAN引导程序的前提条件Installing or updating the UAVCAN bootloader requires:
 
-- An SWD or JTAG interface (depending on device), for example the [BlackMagic Probe](http://www.blacksphere.co.nz/main/blackmagic) or the [ST-Link v2](http://www.st.com/internet/evalboard/product/251168.jsp);
-- An adapter cable to connect your SWD or JTAG interface to the UAVCAN device's debugging port;
+- An SWD or JTAG interface (depending on device), 一个SWD或者JTAG接口（取决于设备），比如说 [BlackMagic Probe](http://www.blacksphere.co.nz/main/blackmagic) 或 [ST-Link v2](http://www.st.com/internet/evalboard/product/251168.jsp);
+- 一条连接你SWD或ＪＴＡＧ接口与ＵＡＶＣＡＮ设备调试端口的适配线。An adapter cable to connect your SWD or JTAG interface to the UAVCAN device's debugging port;
 - A [supported ARM toolchain](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md).
 
-## Device Preparation
-
+## 设备的qiaDevice Preparation
 If you are unable to connect to your device using the instructions below, it's possible that firmware already on the device has disabled the MCU's debug pins. To recover from this, you will need to connect your interface's NRST or nSRST pin (pin 15 on the standard ARM 20-pin connector) to your MCU's NRST pin. Obtain your device schematics and PCB layout or contact the manufacturer for details.
 
 ## Installation
