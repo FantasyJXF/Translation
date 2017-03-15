@@ -119,11 +119,11 @@ load
 
 ## Erasing Flash with使用 SEGGER JLink 调试器擦除Flash
 
-As a recovery method it may be useful to erase flash to factory defaults such that the firmware is using the default parameters. Go to the directory of your SEGGER installation and launch JLinkExe, then run:
+擦除flash内存写入出厂默认值是一种有效的恢复的方法，这样固件使用默认参数。进入SEGGER初始化目录，运行JLinkExe程序，然后运行 As a recovery method it may be useful to erase flash to factory defaults such that the firmware is using the default parameters. Go to the directory of your SEGGER installation and launch JLinkExe, then run:
 
 ```
 device <name-of-device>
 erase
 ```
 
-Replace `<name-of-device>` with the name of the microcontroller, e.g. STM32F446RE for the Pixhawk ESC 1.6 or STM32F302K8 for the SV2470VC ESC.
+Replace 上文中`<name-of-device>` 代表微控制器的名称，比如Pixhawk ESC1.6的名称为STM32F446RE，SV2470VC ESC的名称为STM32F302K8 with the name of the microcontroller, e.g. STM32F446RE for the Pixhawk ESC 1.6 or STM32F302K8 for the SV2470VC ESC.
