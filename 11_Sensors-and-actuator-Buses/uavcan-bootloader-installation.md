@@ -24,24 +24,25 @@
 - 一条连接你SWD或ＪＴＡＧ接口与ＵＡＶＣＡＮ设备调试端口的适配线。An adapter cable to connect your SWD or JTAG interface to the UAVCAN device's debugging port;
 - A [supported ARM toolchain](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md).
 
-## 设备的qiaDevice Preparation
-If you are unable to connect to your device using the instructions below, it's possible that firmware already on the device has disabled the MCU's debug pins. To recover from this, you will need to connect your interface's NRST or nSRST pin (pin 15 on the standard ARM 20-pin connector) to your MCU's NRST pin. Obtain your device schematics and PCB layout or contact the manufacturer for details.
+## 设备的前提准备Device Preparation
 
-## Installation
+如果用以下的操作无法连接你的设备，有可能是因为设备上已存在的固件禁用了ＭＣＵ的调试引脚。为了恢复调试引脚，你需要将你设备的ＮＲＳＴ或nSRST引脚（通常为标准20引脚ARM连接器的15引脚）与你的MCU的NRST引脚连接。如果需要详细信息，可以通过查看你设备的原理图与PBC设计图或者直接联系制造商。If you are unable to connect to your device using the instructions below, it's possible that firmware already on the device has disabled the MCU's debug pins. To recover from this, you will need to connect your interface's NRST or nSRST pin (pin 15 on the standard ARM 20-pin connector) to your MCU's NRST pin. Obtain your device schematics and PCB layout or contact the manufacturer for details.
 
-After compiling or obtaining a bootloader image for your device (refer to device documentation for details), the bootloader must be copied to the beginning of the device's flash memory.
+## 初始化Installation
 
-The process for doing this depends on the SWD or JTAG interface used.
+你可以编译或直接从其他地方获取你设备引导程序的image文件（参考设备文档获取详细信息），再次之后，引导程序必须被写入设备flash存储区的起始位置。After compiling or obtaining a bootloader image for your device (refer to device documentation for details), the bootloader must be copied to the beginning of the device's flash memory.
+
+根据使用的是SWD接口或JTAG接口，初始化步骤有所不同。The process for doing this depends on the SWD or JTAG interface used.
 
 ## BlackMagic Probe
 
-Ensure your BlackMagic Probe [firmware is up to date](https://github.com/blacksphere/blackmagic/wiki/Hacking).
+Ensure your 确保你的BlackMagic Probe [固件版本已经更新至最新firmware is up to date](https://github.com/blacksphere/blackmagic/wiki/Hacking).
 
-Connect the probe to your UAVCAN device, and connect the probe to your computer.
+将你的UAVCAN设备与probe连接，并将你的电脑与probe连接。Connect the probe to your UAVCAN device, and connect the probe to your computer.
 
-Identify the probe's device name. This will typically be `/dev/ttyACM<x>` or `/dev/ttyUSB<x>`.
+确定你probe设备的名称，设备通常名称为Identify the probe's device name. This will typically be `/dev/ttyACM<x>` or `/dev/ttyUSB<x>`.
 
-Power up your UAVCAN device, and run:
+给你的UAVCAN设备供电，然后运行Power up your UAVCAN device, and run:
 
 <div class="host-code"></div>
 
@@ -49,7 +50,7 @@ Power up your UAVCAN device, and run:
 arm-none-eabi-gdb /path/to/your/bootloader/image.elf
 ```
 
-At the `gdb` prompt, run:
+At the当出现指示符 `gdb`后，运行 prompt, run:
 
 <div class="host-code"></div>
 
@@ -63,15 +64,15 @@ load
 run
 ```
 
-If `monitor swdp_scan` returns an error, ensure your wiring is correct, and that you have an up-to-date version of the BlackMagic firmware.
+如果 `monitor swdp_scan` 返回错误，请确保你的拼写正确并确保你的BlackMagic固件版本是最新的returns an error, ensure your wiring is correct, and that you have an up-to-date version of the BlackMagic firmware.
 
 ## ST-Link v2
 
-Ensure you have a recent version—at least 0.9.0—of [OpenOCD](http://openocd.org).
+Ensure you have a recent version—at least 0.9.0—of确保 [OpenOCD](http://openocd.org)的版本为最新，至少是0.9.0版本。
 
-Connect the ST-Link to your UAVCAN device, and connect the ST-Link to your computer.
+将你的UAVCAN设备与ST-Link连接，并将你的电脑与ST-Link连接。Connect the ST-Link to your UAVCAN device, and connect the ST-Link to your computer.
 
-Power up your UAVCAN device, and run:
+给你的UAVCAN设备供电，然后运行Power up your UAVCAN device, and run:
 
 <div class="host-code"></div>
 
@@ -80,7 +81,7 @@ openocd -f /path/to/your/openocd.cfg &
 arm-none-eabi-gdb /path/to/your/bootloader/image.elf
 ```
 
-At the `gdb` prompt, run:
+当出现指示符 `gdb`后，运行At the `gdb` prompt, run:
 
 <div class="host-code"></div>
 
@@ -92,23 +93,23 @@ load
 run
 ```
 
-## Segger J-Link Debugger
+## Segger J-Link 调试器Debugger
 
-Connect the JLink Debugger to your UAVCAN device, and connect the JLink Debugger to your computer.
+将你的UAVCAN设备与JLink连接，并将你的电脑与JLink连接。Connect the JLink Debugger to your UAVCAN device, and connect the JLink Debugger to your computer.
 
-Power up your UAVCAN device, and run:
+给你的UAVCAN设备供电，然后运行Power up your UAVCAN device, and run:
 
 <div class="host-code"></div>
 
 ```JLinkGDBServer -select USB=0 -device STM32F446RE -if SWD-DP -speed 20000 -vd```
 
-Open a second terminal, navigate to the directory that includes the px4esc_1_6-bootloader.elf for the esc and run:
+打开另一个terminal终端，定位到包含px4esc_1_6-bootloader.elf文件的目录，for the esc，然后运行Open a second terminal, navigate to the directory that includes the px4esc_1_6-bootloader.elf for the esc and run:
 
 <div class="host-code"></div>
 
 ```arm-none-eabi-gdb px4esc_1_6-bootloader.elf```
 
-At the `gdb` prompt, run:
+当出现指示符 `gdb`后，运行At the `gdb` prompt, run:
 
 <div class="host-code"></div>
 
@@ -116,7 +117,7 @@ At the `gdb` prompt, run:
 load
 ```
 
-## Erasing Flash with SEGGER JLink Debugger
+## Erasing Flash with使用 SEGGER JLink 调试器擦除Flash
 
 As a recovery method it may be useful to erase flash to factory defaults such that the firmware is using the default parameters. Go to the directory of your SEGGER installation and launch JLinkExe, then run:
 
