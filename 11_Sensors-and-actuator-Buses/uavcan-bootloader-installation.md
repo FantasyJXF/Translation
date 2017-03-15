@@ -1,17 +1,18 @@
 # UAVCAN 启动程序
+
 官网英文原文地址：http://dev.px4.io/uavcan-bootloader-installation.html
 
 # UAVCAN启动程序初始化
 
 <aside class="warning">
-无人机控制器局域网络（Unmanned Aerial Vehicle Controller Area Network，UAVCAN）UAVCAN devices typically ship with a bootloader pre-installed. 如果你不对UAVCAN设备进行开发，请不要试图去重复本章的任何操作。
+无人机控制器局域网络（Unmanned Aerial Vehicle Controller Area Network，UAVCAN）设备通常在出厂时就预安装了启动程序。 如果你不对UAVCAN设备进行开发，请不要试图去重复本章的任何操作。
 </aside>
 
 ## 概览
 
 对于STM32设备，PX4项目包含一个标准的UAVCAN启动程序。
 
-启动程序占用了flash内存的最开始8-16KB的位置，它是设备上电后首先运行的代码。通常，启动程序执行设备的简单初始化，如：自动确定CAN总线的波特率， 担当UAVCAN动态ID节点客户端去获得唯一的 ID节点，acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot在运行应用初始化之前要等待飞行控制器去确认.
+启动程序占用了flash内存的最开始8-16KB的位置，它是设备上电后首先运行的代码。通常，启动程序执行设备的简单初始化，如：自动确定CAN总线的波特率， 担当UAVCAN动态ID节点客户端去获得唯一的ID节点， and waits for confirmation from the flight controller before proceeding with application boot在运行应用初始化之前要等待飞行控制器确认。
 
 这个启动程序能确保，在UAVCAN设备固件无效或者错误时，无需人为干扰就可以自动恢复，此外还允许固件自动升级。
 
@@ -21,7 +22,7 @@
 
 - 一个SWD接口或者JTAG接口（取决于设备），比如说 [BlackMagic Probe](http://www.blacksphere.co.nz/main/blackmagic) 或 [ST-Link v2](http://www.st.com/internet/evalboard/product/251168.jsp);
 - 一条连接SWD接口或ＪＴＡＧ接口与ＵＡＶＣＡＮ设备调试端口的适配线;
-- A [supported ARM toolchain](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md).
+- [支持ARM的工具链supported ARM toolchain](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md).
 
 ## 设备的前提准备
 
