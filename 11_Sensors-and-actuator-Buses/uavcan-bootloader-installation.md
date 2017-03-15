@@ -1,8 +1,8 @@
-# UAVCAN Bootloader
+# 无人机 CAN总线 引导程序UAVCAN Bootloader
 
 官网英文原文地址：http://dev.px4.io/uavcan-bootloader-installation.html
 
-# UAVCAN Bootloader Installation
+# UAVCAN Bootloader Installation UAVCAN 引导程序的初始化
 
 <aside class="warning">
 UAVCAN devices typically ship with a bootloader pre-installed. Do not follow the instructions in this section unless you are developing UAVCAN devices.
