@@ -5,14 +5,14 @@
 # UAVCAN Bootloader Installation UAVCAN 引导程序的初始化
 
 <aside class="warning">
-UAVCAN devices typically ship with a bootloader pre-installed. Do not follow the instructions in this section unless you are developing UAVCAN devices.
+无人机控制器局域网络（Unmanned Aerial Vehicle Controller Area Network，UAVCAN）UAVCAN devices typically ship with a bootloader pre-installed. 如果你不对UAVCAN设备进行开发，请不要试图去重复本章的任何操作。Do not follow the instructions in this section unless you are developing UAVCAN devices.
 </aside>
 
 ## Overview
 
-The PX4 project includes a standard UAVCAN bootloader for STM32 devices.
+对于STM32设备，PX4项目包含一个标准的UAVCAN引导程序The PX4 project includes a standard UAVCAN bootloader for STM32 devices.
 
-The bootloader occupies the first 8–16 KB of flash, and is the first code executed on power-up. Typically, the bootloader performs low-level device initialization, automatically determines the CAN bus baud rate, acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.
+引导程序占用了flash内存的最开始8-16KB的位置，它们是设备上电后首先运行的代码。The bootloader occupies the first 8–16 KB of flash, and is the first code executed on power-up.通常，引导程序执行对设备的简单初始化，如：自动确定CAN总线的波特率， Typically, the bootloader performs low-level device initialization, automatically determines the CAN bus baud rate, acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.
 
 This process ensures that a UAVCAN device can recover from invalid or corrupted application firmware without user intervention, and also permits automatic firmware updates.
 
