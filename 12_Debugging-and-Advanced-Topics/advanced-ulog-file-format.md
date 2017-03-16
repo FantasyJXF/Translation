@@ -2,17 +2,15 @@
 
 官网英文原文地址：[http://dev.px4.io/advanced-ulog-file-format.html](http://dev.px4.io/advanced-ulog-file-format.html)
 
-ULog is the file format used for logging system data. The format is  
-self-describing, i.e. it contains the format and message types that are logged.
+Ulog是一种用来记录系统数据的日志格式。这种格式是自解释的，比如，他包含了日志的格式和消息类型。
 
-It can be used for logging device inputs (sensors, etc.), internal states (cpu
-load, attitude, etc.) and printf log messages.
+他可以用来记录设备的输入（传感器等），内部状态（CPU负载，姿态等）以及打印日志信息。
 
-The format uses Little Endian for all binary types.
+采用小端格式。（译注：低字节存储在低地址）
 
-## Data types
+## 数据类型
 
-The following binary types are used. They all correspond to the types in C:
+下面列举了使用的数据类型，他们都与C语言的类型相对应。
 
 | Type | Size in Bytes |
 | --- | --- |
@@ -24,13 +22,11 @@ The following binary types are used. They all correspond to the types in C:
 | double | 8 |
 | bool, char | 1 |
 
-Additionally all can be used as an array, eg. `float[5]`. In general all  
-strings \(`char[length]`\) do not contain a `'\0'` at the end. String comparisons  
-are case sensitive.
+此外所有类型都可以使用数组，比如`float[5]`。一般而言所有的字符串\(`char[length]`\)结尾都不包含 `'\0'`。字符串大小写敏感。
 
-## File structure
+## 文件结构
 
-The file consists of three sections:
+文件包含三个部分:
 
 ```
 ----------------------
@@ -42,9 +38,10 @@ The file consists of three sections:
 ----------------------
 ```
 
-### Header Section
+### 头部
 
-The header is a fixed-size section and has the following format \(16 bytes\):
+头部大小固定，格式如下\(16 bytes\):
+
 
 ```
 ----------------------------------------------------------------------
@@ -53,16 +50,14 @@ The header is a fixed-size section and has the following format \(16 bytes\):
 ----------------------------------------------------------------------
 ```
 
-Version is the file format version, currently 0. Timestamp is an  
-uint64\_t integer, denotes the start of the logging in microseconds.
 
-### Definitions Section
+Version是文件格式的版本，当前是0。时间戳是uint64\_t类型，用微秒表示记录开始的时间。
 
-Variable length section, contains version information, format definitions, and  
-\(initial\) parameter values.
+### 定义部分（Definitions Section）
 
-The Definitions and Data sections consist of a stream of messages. Each  
-starts with this header:
+长度可变，包含版本信息，格式定义以及\(初始\) 参数值。
+
+定义部分和数据部分由消息流组成，消息流以下面这样的头部开始：
 
 ```
 struct message_header_s {
@@ -71,12 +66,13 @@ struct message_header_s {
 };
 ```
 
-`msg_size` is the size of the message in bytes without the header  
-\(`hdr_size`= 3 bytes\). `msg_type` defines the content and is one of the  
-following:
+`msg_size` 消息去掉头部的字节数
+\(`hdr_size`= 3 bytes\). `msg_type`定义了内容，是下面可能的情况之一:
 
 * 'F': format definition for a single \(composite\) type that can be logged or
   used in another definition as a nested type.
+
+* 'F': 单一（混合）类型的格式定义，用于日志记录或者作为嵌套类型用在其他的定义中。
 
 ```
 struct message_format_s {
@@ -84,34 +80,27 @@ struct message_format_s {
     char format[header.msg_size-hdr_size];
 };
 ```
+  
+  `format`: 纯文本字符串，格式如下: `message_name:field0;field1;`可以有任意数量的field
+   \(至少 1\), 用 `;`隔开。
+   field 的格式: `type field_name` 或者数组形式 `type[array_length] field_name`\(只支持固定尺寸的数组\).
+   `type` 可以是基本的数据类型，也可以是另一种格式定义的`message_name` \(嵌套用法\).  
+   type可以在定义前使用。可以任意地嵌套，但是不要循环依赖。
 
-`format`: plain-text string with the following format: `message_name:field0;field1;`  
-  There can be an arbitrary amount of fields \(at least 1\), separated by `;`. A  
-  field has the format: `type field_name` or `type[array_length] field_name` for  
-  arrays \(only fixed size arrays are supported\). `type` is one of the basic  
-  binary types or a `message_name` of another format definition \(nested usage\).  
-  A type can be used before it's defined. There can be arbitrary nesting but no  
-  circular dependencies.
+有一些特殊的field:
+   
+* `timestamp`: 每个日志消息 \(`message_add_logged_s`\) 必须包含一个  
+  timestamp field \(不必是第一个\). 他的type可以是:  
+  `uint64_t` \(当前唯一被用到的\), `uint32_t`, `uint16_t` or  
+  `uint8_t`. 除了 `uint8_t` 的单位是毫秒，其他单位都是微秒 。
+  日志写入器必须确保记录日志消息足够频繁，能够检测环绕，一个日志读取器必须处理环绕
+  \（并且考虑到数据丢失\）. 拥有相同`msg_id`的消息序列的timestamp必须单调增加.
 
-Some field names are special:
-
-* `timestamp`: every logged message \(`message_add_logged_s`\) must include a  
-  timestamp field \(does not need to be the first field\). Its type can be:  
-  `uint64_t` \(currently the only one used\), `uint32_t`, `uint16_t` or  
-  `uint8_t`. The unit is always microseconds, except for `uint8_t` it's  
-  milliseconds. A log writer must make sure to log messages often enough to be  
-  able to detect wrap-arounds and a log reader must handle wrap-arounds \(and  
-  take into account dropouts\). The timestamp must always be monotonic  
-  increasing for a message serie with the same `msg_id`.
-
-* Padding: field names that start with `_padding` should not be displayed and  
-  their data must be ignored by a reader. These fields can be inserted by a  
-  writer to ensure correct alignment.
-
-  If the padding field is the last field, then this field will not be logged,  
-  to avoid writing unnecessary data. This means the `message_data_s.data`  
-  will be shorter by the size of the padding. However the padding is still  
-  needed when the message is used in a nested definition.
+* Padding: 以`_padding` 开头的field名称，不应该被显示，并且读取器应该忽略他们的数据should not be displayed and  
+  their data must be ignored by a reader. 写入器插入这些 fields 用来确保正确的对齐。
+  
+  如果 padding field 是最后一个field, 那么这个field不会被记录,这样就避免了写入不必要的数据
+  这使`message_data_s.data` 得以缩短 。然而当消息用于嵌套定义的时候依然需要padding
 
 * 'I': information message.
 
@@ -124,11 +113,10 @@ struct message_info_s {
 };
 ```
 
-`key` is a plain string, as in the format message, but consists of only a  
-  single field without ending `;`, eg. `float[3] myvalues`. `value` contains the  
-  data as described by `key`.
+`key` 是一个纯文本字符串, 只包含一个field，没有`;`结尾，例如  
+ `float[3] myvalues`. `value` 含有用`key`描述的数据。  
 
-Predefined information messages are:
+预定义的 information messages :
 
 | `key`                        | Description               | Example for value |
 | -----                        | -----------               | ----------------- |
@@ -146,25 +134,24 @@ Predefined information messages are:
 | char[value_len] replay       | File name of replayed log if in replay mode | "log001.ulg" |
 | int32_t time_ref_utc         | UTC Time offset in seconds |  -3600        |
 
-The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA
-  is major, BB is minor, CC is patch and TT is the type. Type is defined as
-  following: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta
+ `ver_sw_release` and `ver_os_release`的格式是: 0xAABBCCTT,  AA
+  是 major（主版本号）, BB 是 minor（次版本号）, CC 是 patch（补丁版本） and TT 是类型. 类型
+  定义如下: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta
   version, `>= 192`: RC version, `== 255`: release version.
-  So for example 0x010402ff translates into the release version v1.4.2.
+  例如 0x010402ff 转换成版本为 v1.4.2.
   
-* 'P': parameter message. Same format as `message_info_s`.
-  If a parameter dynamically changes during runtime, this message can also be
-  used in the Data section.
-  The data type is restricted to: `int32_t`, `float`.
+* 'P': 参数消息. 和`message_info_s`格式一样.
+  如果一个参数在运行时实时改变, 那这个消息也可以用在数据部分\(Data section\).
+  数据类型限制为: `int32_t`, `float`.
 
-This section ends before the start of the first `message_add_logged_s` message.
+这部分在第一个“message_add_logged_s”消息的开始之前结束。
 
-### Data Section
+### 数据部分（Data Section）
 
-The following messages belong to this section:
+下列消息属于这一部分:
 
-* 'A': subscribe a message by name and give it an id that is used in
-  `message_data_s`. This must come before the first corresponding
+* 'A': 订阅一个message，并且赋予它一个用于`message_data_s`的id.
+  This must come before the first corresponding
   `message_data_s`.
 
 ```
@@ -176,16 +163,12 @@ struct message_add_logged_s {
 };
 ```
 
-`multi_id`: the same message format can have multiple instances, given by  
-  `multi_id`. The default and first instance is 0.  
-  `msg_id`: unique id to match `message_data_s` data. The first use must set  
-  this to 0, then increase it. The same `msg_id` must not be used twice for  
-  different subscriptions, not even after unsubscribing.  
-  `message_name`: message name to subscribe to. Must match one of the  
-  `message_format_s` definitions.
+`multi_id`: 相同的消息格式可以通过`multi_id`赋予多个实例。默认的第一个实例为0。
+`msg_id`: 唯一的 id 用来匹配 `message_data_s` 数据.第一次用必须置0，然后增加\(The first use must set 
+this to 0, then increase it.\) 不同的订阅必须使用不同的id,甚至在取消订阅之后也不能使用相同的id
+`message_name`: 要订阅的消息名称. 必须与`message_format_s` 中的一个定义相匹配.
 
-* 'R': unsubscribe a message, to mark that it will not be logged anymore \(not
-  used currently\).
+* 'R': 取消订阅一个message,标记这个消息不再被记录 \(当前没有使用\).
 
 ```
 struct message_remove_logged_s {
@@ -194,7 +177,7 @@ struct message_remove_logged_s {
 };
 ```
 
-* 'D': contains logged data.
+* 'D': 包含记录的数据.
 
 ```
 struct message_data_s {
@@ -204,11 +187,10 @@ struct message_data_s {
 };
 ```
 
-`msg_id`: as defined by a `message_add_logged_s` message. `data` contains the  
-  logged binary message as defined by `message_format_s`. See above for special  
-  treatment of padding fields.
+`msg_id`: 被`message_add_logged_s`定义的 message. `data` 包含被 `message_format_s`定义的
+ 二进制消息. 关于padding特殊的处理机制查看上面.
 
-* 'L': Logged string message, i.e. printf output.
+* 'L': 记录的字符串消息, i.e. printf output.
 
 ```
 struct message_logging_s {
@@ -218,7 +200,7 @@ struct message_logging_s {
     char message[header.msg_size-hdr_size-9]
 };
 ```
-  `timestamp`: in microseconds, `log_level`: same as in the Linux kernel:
+  `timestamp`:微秒为单位, `log_level`: 与 Linux kernel 一样:
 
 | Name       | Level value  | Meaning                              |
 | ----       | -----------  | -------                              |
@@ -232,9 +214,9 @@ struct message_logging_s {
 | DEBUG      |      '7'     | Debug-level messages                 |
 
 
-* 'S': synchronization message so that a reader can recover from a corrupt
+* synchronization message so that a reader can recover from a corrupt
   message by search for the next sync message \(not used currently\).
-
+  'S': 同步消息，消息阅读器通过搜索下一个同步消息的方式从一个损坏的消息恢复。\(当前未使用\)
 ```
 struct message_sync_s {
     struct message_header_s header;
@@ -242,10 +224,10 @@ struct message_sync_s {
 };
 ```
 
-`sync_magic`: to be defined.
+`sync_magic`: 待定义\(to be defined\).
 
-* 'O': mark a dropout \(lost logging messages\) of a given duration in ms.
-  Dropouts can occur eg if the device is not fast enough.
+* 'O': 标记一个在以ms给定的时间段内的数据丢失 \(丢失日志消息\)。
+  比如设备不够快的时候就会发生消息丢失.
 
 ```
 struct message_dropout_s {
