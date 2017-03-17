@@ -2,9 +2,9 @@
 
 官网英文原文地址：http://dev.px4.io/uavcan-node-firmware.html
 
-## Vectorcontrol ESC Codebase (Pixhawk ESC 1.6 and S2740VC)
+## Vectorcontrol ESC 代码库 (Pixhawk ESC 1.6 and S2740VC)
 
-Download the ESC code:
+Download the ESC code下载ESC代码:
 
 <div class="host-code"></div>
 
@@ -13,9 +13,9 @@ git clone https://github.com/thiemar/vectorcontrol
 cd vectorcontrol
 ```
 
-### Flashing the UAVCAN Bootloader
+### Flashing UAVCAN启动程序the UAVCAN Bootloader
 
-Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed. To build the bootloader, run:
+通过UAVCAN更新固件之前,PIxhawk ESC 1.6 要求UAVCAN启动程序被刷新。为了生成启动程序，运行Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed. To build the bootloader, run:
 
 <div class="host-code"></div>
 
@@ -23,9 +23,9 @@ Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN boo
 make clean && BOARD=px4esc_1_6 make -j8
 ```
 
-After building, the bootloader image is located at `firmware/px4esc_1_6-bootloader.bin`, and the OpenOCD configuration is located at `openocd_px4esc_1_6.cfg`. Follow [these instructions](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md) to install the bootloader on the ESC.
+After building, the bootloader image is located at在生成启动程序之后，其image文件存放路径为 `firmware/px4esc_1_6-bootloader.bin`, and the OpenOCD configuration is located at OpenOCD的配置文档为 `openocd_px4esc_1_6.cfg`. Follow可以通过 [如下教程these instructions](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md) 初始化ESC的起始程序。to install the bootloader on the ESC.
 
-### Compiling the Main Binary
+### 编译Compiling the Main Binary
 
 <div class="host-code"></div>
 
