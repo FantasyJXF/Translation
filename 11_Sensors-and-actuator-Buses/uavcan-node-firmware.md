@@ -2,7 +2,7 @@
 
 官网英文原文地址：http://dev.px4.io/uavcan-node-firmware.html
 
-## 矢量控制电子调速器(ESC)代码库 (Pixhawk ESC 1.6 and S2740VC)
+## 电子调速器(ESC)矢量控制代码库 (Pixhawk ESC 1.6 and S2740VC)
 
 下载ESC代码:
 
@@ -13,7 +13,7 @@ git clone https://github.com/thiemar/vectorcontrol
 cd vectorcontrol
 ```
 
-### 刷新UAVCAN启动程序
+### 刷新UAVCAN启动引导程序
 
 PIxhawk ESC 1.6在通过UAVCAN设备更新固件之前, 首先要求刷新UAVCAN的启动引导程序。为了生成启动引导程序，运行：
 
@@ -47,7 +47,7 @@ cd sapog
 git submodule update --init --recursive
 ```
 
-### 刷新UAVCAN启动加载程序
+### 刷新UAVCAN启动引导程序
 
 Pixhawk ESC 1.4 在通过UAVCAN刷新固件之前，需要刷新UAVCAN的启动引导程序。编译生成启动引导程序的方法如下:
 
@@ -59,7 +59,7 @@ make clean && make -j8
 cd ..
 ```
 
-启动程序的image文件存放路径为 `bootloader/firmware/bootloader.bin`, OpenOCD的配置文档为`openocd.cfg`。可以通过 [此处教程](../11_Sensors-and-actuator-Buses/uavcan-bootloader-installation.md) 初始化ESC的起始程序。
+启动引导程序的image文件存放路径为 `bootloader/firmware/bootloader.bin`, OpenOCD的配置文档为`openocd.cfg`。可以通过 [此处教程](../11_Sensors-and-actuator-Buses/uavcan-bootloader-installation.md) 初始化ESC的起始引导程序。
 
 ### 编译主要的二进制（.bin）文件
 
@@ -75,12 +75,11 @@ make sapog.image
 ## Zubax GNSS
 
 请参考 [项目网页](https://github.com/Zubax/zubax_gnss) 去学习如何生成和刷新固件。
+Zubax GNSS 出厂时就带有支持UAVCAN的启动引导程序，因此其固件可以通过UAVCAN使用统一方式进行更新，具体更新方式如下所述。
 
-Zubax GNSS 出厂时就带有支持UAVCAN的启动引导程序，因此其固件可以通过UAVCAN的统一方式进行更新，具体更新方式如下所述。
+## Autopilot固件初始化
 
-## Autopilot固件初始化 Firmware Installation on the Autopilot
-
-UAVCAN节点的文档命名遵循约定的命名方式，这种命名方式允许Pixhawk更新网络内所有的UAVCAN设备，无需考虑是哪个制造商生产的。上述步骤产生的固件文件必须通过要复制到SD卡或PX4 ROMFS的正确的位置，以确保设备能够很好的更新。
+UAVCAN节点的文档命名遵循约定的命名方式，这种命名方式允许Pixhawk更新网络内所有的UAVCAN设备，无需考虑是哪个制造商生产的。上述步骤产生的固件文件必须要复制到SD卡或PX4 ROMFS的正确的位置，以确保设备能够很好的更新。
 
 固件image名称通常是:
 
