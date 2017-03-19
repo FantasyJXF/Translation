@@ -15,7 +15,7 @@ cd vectorcontrol
 
 ### Flashing 刷新UAVCAN启动程序the UAVCAN Bootloader
 
-PIxhawk ESC 1.6在通过UAVCAN设备更新固件之前, 要求UAVCAN首先刷新启动程序。为了生成启动程序，运行Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed. To build the bootloader, run:
+PIxhawk ESC 1.6在通过UAVCAN设备更新固件之前, 首先要求刷新UAVCAN启动程序。为了生成启动程序，运行：Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed. To build the bootloader, run:
 
 <div class="host-code"></div>
 
@@ -23,7 +23,7 @@ PIxhawk ESC 1.6在通过UAVCAN设备更新固件之前, 要求UAVCAN首先刷新
 make clean && BOARD=px4esc_1_6 make -j8
 ```
 
-After building, the bootloader image is located at启动程序生成之后，其image文件存放路径为 `firmware/px4esc_1_6-bootloader.bin`, and the OpenOCD configuration is located at OpenOCD的配置文档为 `openocd_px4esc_1_6.cfg`. Follow可以通过 [如下教程these instructions](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md) 初始化ESC的启动程序。to install the bootloader on the ESC.
+After building, the bootloader image is located at 启动程序生成之后，其image文件存放路径为 `firmware/px4esc_1_6-bootloader.bin`, and the OpenOCD configuration is located at OpenOCD的配置文档为 `openocd_px4esc_1_6.cfg`. Follow可以通过 [如下教程these instructions](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md) 初始化ESC的启动程序。to install the bootloader on the ESC.
 
 ### 编译主要的二进制（.bin）文件Compiling the Main Binary
 
@@ -94,7 +94,7 @@ UAVCAN节点的文档命名遵循约定的命名方式，这种命名方式允�
 
  e.g. ```s2740vc-v1-1.0.68e34de6.bin```
 
-基于ROMFS的更新遵循以下的模型，The ROMFS-based updater follows that pattern, but prepends the file name with ```_``` so you add the firmware in:
+基于ROMFS的更新遵循以下的模型，但是文件名中包含```_```前缀，因此我们添加的固件在The ROMFS-based updater follows that pattern, but prepends the file name with ```_``` so you add the firmware in:
 
   ```/etc/uavcan/fw/<device name>/<hw version major>.<hw version minor>/_<hw name>-<sw version major>.<sw version minor>.<git hash>.bin```
 
