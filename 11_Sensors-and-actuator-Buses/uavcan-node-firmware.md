@@ -2,9 +2,9 @@
 
 官网英文原文地址：http://dev.px4.io/uavcan-node-firmware.html
 
-## Vectorcontrol矢量控制电子调速器 ESC 代码库 (Pixhawk ESC 1.6 and S2740VC)
+## 矢量控制电子调速器(ESC)代码库 (Pixhawk ESC 1.6 and S2740VC)
 
-Download the ESC code下载ESC代码:
+下载ESC代码:
 
 <div class="host-code"></div>
 
@@ -13,9 +13,9 @@ git clone https://github.com/thiemar/vectorcontrol
 cd vectorcontrol
 ```
 
-### Flashing 刷新UAVCAN启动程序the UAVCAN Bootloader
+### 刷新UAVCAN启动程序
 
-PIxhawk ESC 1.6在通过UAVCAN设备更新固件之前, 首先要求刷新UAVCAN启动程序。为了生成启动程序，运行：Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed. To build the bootloader, run:
+PIxhawk ESC 1.6在通过UAVCAN设备更新固件之前, 首先要求刷新UAVCAN的启动引导程序。为了生成启动引导程序，运行：
 
 <div class="host-code"></div>
 
@@ -23,7 +23,7 @@ PIxhawk ESC 1.6在通过UAVCAN设备更新固件之前, 首先要求刷新UAVCAN
 make clean && BOARD=px4esc_1_6 make -j8
 ```
 
-After building, the bootloader image is located at 启动程序生成之后，其image文件存放路径为 `firmware/px4esc_1_6-bootloader.bin`, and the OpenOCD configuration is located at OpenOCD的配置文档为 `openocd_px4esc_1_6.cfg`. Follow可以通过 [如下教程these instructions](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md) 初始化ESC的启动程序。to install the bootloader on the ESC.
+启动引导程序生成之后，其image文件存放路径为 `firmware/px4esc_1_6-bootloader.bin`, OpenOCD的配置文档为 `openocd_px4esc_1_6.cfg`。可以通过 [如下教程](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md) 初始化ESC的启动程序。
 
 ### 编译主要的二进制（.bin）文件Compiling the Main Binary
 
@@ -33,11 +33,11 @@ After building, the bootloader image is located at 启动程序生成之后，�
 BOARD=s2740vc_1_0 make && BOARD=px4esc_1_6 make
 ```
 
-这将会生成两个UAVCAN的固件，它们都支持ESCs。This will build the UAVCAN node firmware for both supported ESCs.  它们固件image文件存放路径为 The firmware images will be located at `com.thiemar.s2740vc-v1-1.0-1.0.<git hash>.bin` 和`org.pixhawk.px4esc-v1-1.6-1.0.<git hash>.binn`.
+这将会生成两个UAVCAN的节点固件，它们都支持ESCs。它们固件image文件存放路径为`com.thiemar.s2740vc-v1-1.0-1.0.<git hash>.bin` 和`org.pixhawk.px4esc-v1-1.6-1.0.<git hash>.binn`。
 
-## Sapog 代码库Codebase (Pixhawk ESC 1.4)
+## Sapog 代码库 (Pixhawk ESC 1.4)
 
-Download the Sapog codebase 下载Sapog代码库:
+下载Sapog代码库:
 
 <div class="host-code"></div>
 
@@ -49,7 +49,7 @@ git submodule update --init --recursive
 
 ### 刷新UAVCAN启动程序 Flashing the UAVCAN Bootloader
 
-Pixhawk ESC 1.4 在通过UAVCAN刷新固件之前，需要UAVCAN已经刷新启动程序。启动程序的编译生成方法如下 Before updating firmware via UAVCAN, the Pixhawk ESC 1.4 requires the UAVCAN bootloader be flashed. The bootloader can be built as follows:
+Pixhawk ESC 1.4 在通过UAVCAN刷新固件之前，需要UAVCAN已经刷新启动引导程序。启动程序的编译生成方法如下 Before updating firmware via UAVCAN, the Pixhawk ESC 1.4 requires the UAVCAN bootloader be flashed. The bootloader can be built as follows:
 
 <div class="host-code"></div>
 
