@@ -121,25 +121,26 @@ EKF仅使用IMU的数据进行状态预测。IMU的数据不会用作EKF推导�
 * The federated architecture \(combined attitude and position/velocity estimation\) means that attitude estimation benefits from all sensor measurements. This should provide the potential for improved attitude estimation if tuned correctly.
 * 联合架构（将姿态和位置/速度估计结合起来）意味着姿态估计会受益于所有传感器测量。 如果适当调节，这将提供改进姿态估计的潜力。
 
-## How do I check the EKF performance?
+## 我需要如何检查EKF的执行效果？
 
-EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the .ulog file format. To use the .ulog format, set the SYS\_LOGGER parameter to 1.
+在飞行过程中，EKF 的输出（outputs）, 状态（states） 以及状态数据（status data）会发布到许多uORB话题（Topic）中，这些话题会存储到SD卡中。
+下面的介绍假设数据已经以.ulog文件的形式被记录，为了使用.ulog格式，需要将 SYS\_LOGGER 参数置1。
 
-The .ulog format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
+.ulog格式文件可以在python中使用[PX4 pyulog library](https://github.com/PX4/pyulog)来进行分析。
 
-Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg)and [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
+大部分 EKF 数据都在.ulog文件中的 [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg)和 [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) 这两个uORB消息里面。
 
-### Output Data
+### Output Data（输出数据）
 
-* Attitude output data is found in the [vehicle_attitude](https://github.com/PX4/Firmware/blob/master/msg/vehicle_attitude.msg) message.
-* Local position output data is found in the [vehicle_local_position](https://github.com/PX4/Firmware/blob/master/msg/vehicle_local_position.msg)message.
-* Control loop feedback data is found in the the [control_state](https://github.com/PX4/Firmware/blob/master/msg/control_state.msg) message.
-* Global \(WGS-84\) output data is found in the [vehicle_global_position](https://github.com/PX4/Firmware/blob/master/msg/vehicle_global_position.msg) message.
-* Wind velocity output data is found in the [wind_estimate](https://github.com/PX4/Firmware/blob/master/msg/wind_estimate.msg) message.
+* Attitude output data is found in the [vehicle_attitude](https://github.com/PX4/Firmware/blob/master/msg/vehicle_attitude.msg) message.（姿态数据）
+* Local position output data is found in the [vehicle_local_position](https://github.com/PX4/Firmware/blob/master/msg/vehicle_local_position.msg)message.（位置数据）
+* Control loop feedback data is found in the the [control_state](https://github.com/PX4/Firmware/blob/master/msg/control_state.msg) message.（控制环反馈数据）
+* Global \(WGS-84\) output data is found in the [vehicle_global_position](https://github.com/PX4/Firmware/blob/master/msg/vehicle_global_position.msg) message.（全球位置数据）
+* Wind velocity output data is found in the [wind_estimate](https://github.com/PX4/Firmware/blob/master/msg/wind_estimate.msg) message.（风速数据）
 
-### States
+### States（状态）
 
-Refer to states\[32\] in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg). The index map for states\[32\] is as follows:
+查看[estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg)中的states\[32\]。状态的索引如下：
 
 * \[0 ... 3\] Quaternions
 * \[4 ... 6\] Velocity NED \(m/s\)
@@ -151,9 +152,9 @@ Refer to states\[32\] in [estimator_status](https://github.com/PX4/Firmware/blob
 * \[22 ... 23\] Wind velocity NE \(m/s\)
 * \[24 ... 32\] Not Used
 
-### State Variances
+### State Variances（状态的变化量）
 
-Refer to covariances\[28\] in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg). The index map for covariances\[28\] is as follows:
+查看[estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg)中的covariances\[28\] 。变量的索引如下：
 
 * \[0 ... 3\] Quaternions
 * \[4 ... 6\] Velocity NED \(m/s\)^2
@@ -189,7 +190,7 @@ Refer to covariances\[28\] in [estimator_status](https://github.com/PX4/Firmware
 * Optical flow XY \(rad/sec\)^2 : Refer to flow\_innov\_var in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
 * Height above ground \(m^2\) : Refer to hagl\_innov\_var in [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
 
-### Output Complementary Filter
+### Output Complementary Filter（输出互补滤波器）
 
 The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to output\_tracking\_error\[3\] in the ekf2\_innovations message. The index map is as follows:
 
