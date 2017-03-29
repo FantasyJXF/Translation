@@ -21,7 +21,7 @@ graph LR;
   act_group2[第2组执行器] --> output_group0[组内第5个执行器]
 {% endmermaid %}
 
-## 控制组（Control Groups，也叫输入组）
+## 控制组（Control Groups）
 
 PX4 有输入组和输出组的概念.顾名思义：控制输入组（如：姿态），就是用于核心的飞行姿态控制，（如：云台）就是用于挂载控制. 一个输出组就是一个物理总线，如前8个PWM组成的总线用于舵机控制，组内带8个归一化（-1..+1）值,一个混合就是用于输入和输出连接方式（如:对于四轴来说,输入组有俯仰，翻滚，偏航等，对于于向前打俯仰操作，就需要改变输出组中的4个电调的PWM输出值，前俩个降低转速，后两个增加转速，飞机就向前）。
 
@@ -108,9 +108,9 @@ These groups are NOT mixer inputs, but serve as meta-channels to feed fixed wing
 * 6: reserved / aux2
 * 7: reserved / aux3
 
-## Mapping
+## 映射 
 
-Since there are multiple control groups (like flight controls, payload, etc.) and multiple output groups (first 8 PWM outpus, UAVCAN, etc.), one control group can send command to multiple output groups.
+因为存在许多控制组（例如飞行控制组，载荷组等）和许多输出组（例如基本8路PWM输出组，UAVCAN组等），所以一个控制组可以向多个输出组发送指令。
 
 {% mermaid %}
 graph TD;
@@ -119,22 +119,13 @@ graph TD;
   actuator_group_1-->output_group_0
 {% endmermaid %}
 
+
 ## 关键概念 
 
 PX4使用控制组（输入）和输出组。从概念上来说他们非常简单：对核心飞行控制来说，控制组是'姿态'，对载荷来说，则是'云台'。输出组则是一条物理总线，例如用于舵机的基本8路PWM输出。每个组有8个标准化的指令端口，这些端口可以通过混控映射和缩放。混控器定义了8路控制信号如何与8路输出信号相联系。 
 
 对简单的固定翼而言：control0（滚转）与output0（升降舵）直接相连。对多旋翼而言则不同：control0（滚转）与油门混合后与所有的电机相连。 
 
-## 映射 
-
-因为存在许多控制组（例如飞行控制组，载荷组等）和许多输出组（例如基本8路PWM输出组，UAVCAN组等），所以一个控制组可以向多个输出组发送指令。
-
-{% mermaid %}
-graph TD;
-  actuator_group_0-->output_group_0
-  actuator_group_0-->output_group_1
-  actuator_group_1-->output_group_0
-{% endmermaid %}
 
 ## PX4混控器定义 
 

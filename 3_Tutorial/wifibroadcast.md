@@ -1,4 +1,7 @@
 # Long-distance video streaming in QGroundControl
+
+官网英文原文教程:https://dev.px4.io/wifibroadcast.html
+
 This page shows how to set up a a companion computer (Odroid C1 or C0) with a camera (Logitech C920) such that the video stream is transferred via the Odroid C1 to a network computer and displayed in the application QGroundControl that runs on this computer. This setup uses WiFi in unconnected (broadcast) mode.
 
 The whole hardware setup consists of the following parts:
@@ -113,9 +116,9 @@ A: Wifibrodcast use FEC (forward error correction) which can recover 4 lost pack
 Q: I have a lot of frame drops and messages ``XX packets lost``. What is this?
 
 A: This is can be due to:
-   1. Signal power is too low. Use high-power card or annennas with more gain. Use directed antenna on RX side. Use additional RX card for diversity (add wlan2, wlan3, ... to rx program)
-   2. Signal power is too high. Especially if you use 30dBm TX indoors. Try to reduce TX power (for example hack CRDA database inside kernel and make
-         several regions with power limit 10dBm and 20dBm).
+1.    Signal power is too low. Use high-power card or annennas with more gain. Use directed antenna on RX side. Use additional RX card for diversity (add wlan2, wlan3, ... to rx program)
+2.    Signal power is too high. Especially if you use 30dBm TX indoors. Try to reduce TX power (for example hack CRDA database inside kernel and make
+            several regions with power limit 10dBm and 20dBm).
       3. Interference with other WiFi. Try to change WIFI channel and/or WIFI band. CAUTION: Don't use band where you RC TX operates on! Or setup RTL properly to avoid model loss.
          You can increase FEC block size (by default it is 8/12 (8 data blocks and 4 fec blocks), but it will also increase latency. Use additional RX card for diversity (add wlan2, wlan3, ... to rx program)
 

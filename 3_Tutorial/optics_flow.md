@@ -1,20 +1,31 @@
-# 户外光流
+# 光流
 
 ---
 官网英文原文地址：http://dev.px4.io/optical-flow-outdoors.html
 
-本页面向您介绍如何设置PX4Flow用于位置估计以及户外自主飞行。LIDAR(激光雷达)的使用并非必要，但其的确会提升性能。
+Optical Flow uses a downward facing camera and a downward facing distance sensor for position estimation. Optical Flow based navigation is supported by all three estimators: EKF2, LPE and INAV (see below).
 
 
-## 选择LPE（Local Position Estimator）估计器
----
 
-唯一被测试的可以与基于户外自主飞行的光流共同作用的估计器就是LPE。
 
-使用 `SYS_MC_EST_GROUP = 1` 参数来选择估计器然后重启飞控板。
+## 设置
+
+
+As mentioned above, an Optical Flow setup requires a downward facing camera which publishes to the [`OPTICAL_FLOW_RAD` topic](http://mavlink.org/messages/common#OPTICAL_FLOW_RAD) and a distance sensor (preferably a LiDAR) publishing messages to the [`DISANCE_SENSOR` topic](http://mavlink.org/messages/common#DISTANCE_SENSOR).
+
+The output of the flow has to be as follows
+
+| Moving direction of the MAV | Integrated flow |
+| -- | -- |
+| Forwards | + Y |
+| Backwards | - Y |
+| Right | - X |
+| Left | + X |
+
+And for pure rotations, the integraded_xgyro and integraded_x (respectively integraded_ygyro and integraded_y) have to be the same.
 
 ## 硬件
----
+
 ![flow](../pictures/px4flow/px4flow_offset.png)
 
 *图 1: 装配坐标系（相对于下面的参数）*
@@ -46,7 +57,12 @@ PX4Flow必须指向地面，可以使用Pixhawk上的I2C接口进行连接。为
 
 
 ## 相机聚焦
----
+
+#### PX4Flow
+The easiest way to calculate the optical flow is to use the PX4Flow board. In order to use the PX4Flow board, just connect it with I2C. The recommended way of mounting it is with the Sonar side facing forwards (see image). In this configuration the parameter `SENS_FLOW_ROT` should be 270 degrees (which is the default). Make sure the the PX4Flow board is well dampened.
+
+![fmlow](../pictures/px4flow/px4flowalignwithpixhawk.jpg)
+
 
 为了保证好的光流质量，将PX4Flow上的的相机聚焦到一个理想的飞行高度是十分重要的。要让相机聚焦，首先准备一个带有文字的物体（例如，一本书），然后将PX4Flow插入到USB中，最后运行QGroundControl。在设置菜单下，选择PX4Flow，你会看到一个相机的拍摄得到的图片。通过拧动相机的固定螺母来放松或收紧镜头找到相机的焦点的方法进行聚焦。
 

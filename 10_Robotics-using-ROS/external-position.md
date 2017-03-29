@@ -12,11 +12,22 @@
 
 默认发送这些消息的应用是ROS-Mavlink接口MAVROS，当然，也可以直接使用纯C/C++代码或者MAVLink()库来发送它们。
 
-## 使能外部位姿输入
+## LPE Tuning for Vision or Mocap
 
-需要设置两个参数（从QGroundControl或者NSH shell）来使能或者禁用视觉/运动捕捉。
+### 使能外部位姿输入
+
+需要设置几个参数（从QGroundControl或者NSH shell）来使能或者禁用视觉/运动捕捉。
 
 
 > 设置系统参数```CBRK_NO_VISION```为0来使能视觉位置估计。 
 
 > 设置系统参数```ATT_EXT_HDG_M```为1或者2来使能外部朝向估计。设置为1使用视觉，设置为2使用运动捕捉。
+
+#### Disabling barometer fusion
+If a highly accurate altitude is already available from vision or mocap information, it may be useful to disable the baro correction in LPE to reduce drift on the Z axis.
+
+There is a bit field for this in the parameter `LPE_FUSION`, which you can set from QGroundControl. Just uncheck "fuse baro".
+
+#### Tuning noise parameters
+
+If your vision or mocap data is highly accurate, and you just want the estimator to track it tightly, you should reduce the standard deviation parameters, `LPE_VIS_XY` and `LPE_VIS_Z` (for vision) or `LPE_VIC_P` (for motion capture). Reducing them will cause the estimator to trust the incoming pose estimate more. You may need to set them lower than the allowed minimum and force-save.

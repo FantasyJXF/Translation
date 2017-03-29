@@ -87,6 +87,7 @@ make posix gazebo_iris_opt_flow
 ### 3DR Solo
 
 ```sh
+cd ~/src/Firmware
 make posix gazebo_solo
 ```
 ![solo](/pictures/sim/gazebo_solo.png)
@@ -94,6 +95,7 @@ make posix gazebo_solo
 ### 标准飞机
 
 ```sh
+cd ~/src/Firmware
 make posix gazebo_plane
 ```
 ![plane](/pictures/sim/gazebo_plane.png)

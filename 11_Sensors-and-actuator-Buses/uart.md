@@ -16,7 +16,9 @@ To do so add the following line to the cmake config file which corresponds to th
 drivers/ulanding
 ```
 
-All config files are located \[here.\]\([https://github.com/PX4/Firmware/tree/master/cmake/configs\](https://github.com/PX4/Firmware/tree/master/cmake/configs\)\)
+All config files are located [here](https://github.com/PX4/Firmware/tree/master/cmake/configs).
+
+
 
 ##  Start the driver
 

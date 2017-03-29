@@ -1,6 +1,10 @@
-# 创建自定义MAVLink消息
+# MAVLink消息
 
 官网英文原文地址：https://dev.px4.io/mavlink-messaging.html
+
+所有消息的概述可以在[这里](http://mavlink.org/messages/common)找到.
+
+## 创建自定义MAVLink消息
 
 这篇教程是假设你已经在 `msg/ca_trajectory.msg` 有了一个[自定义uORB](../6_Middleware-and-Architecture/uorb_messaging.md) `ca_trajectory`
 消息，并且在 `mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h` 有了一个自定义mavlink
@@ -8,7 +12,7 @@
 
 
 
-# 发送自定义MAVLink消息
+## 发送自定义MAVLink消息
 
 
 这部分介绍如何使用一个自定义uORB消息并且作为mavlink消息发送。
@@ -102,7 +106,7 @@ nullptr
 mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
 ```
 
-# 接收自定义MAVLink消息
+## 接收自定义MAVLink消息
 
 这部分解释如何通过mavlink接收消息并将其发布到uORB。
 
@@ -169,7 +173,9 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 		...
  	}
 ```
+
 ## 一般情况
+
 ### 设置流速率
 
 有时，增加单个主题的流速率（例如，为例在QGC中检查）是有用的。这可以通过下面这行代码来实现
@@ -177,7 +183,7 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 mavlink stream -u <port number> -s <mavlink topic name> -r <rate>
 ```
 
-你可以通过```mavlink status```找到端口号，相应地将输出（在其他消息之间）```transport protocol: UDP (<port number>)```。例如你可能得到
+你可以通过`mavlink status`找到端口号，相应地将输出（在其他消息之间）`transport protocol: UDP (<port number>)`。例如你可能得到
 ```sh
 mavlink stream -u 14556 -s OPTICAL_FLOW_RAD -r 300
 ```

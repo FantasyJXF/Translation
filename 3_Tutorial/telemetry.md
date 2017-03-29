@@ -1,4 +1,7 @@
 # Telemetry
+
+官网英文原文地址：https://dev.px4.io/telemetry.html
+
 Telemetry can be used to communicate with QGroundControl and is very useful especially for tuning for example as parameters can be changed without plugging in a cable each time.
 
 ## 3DR WIFI Telemetry

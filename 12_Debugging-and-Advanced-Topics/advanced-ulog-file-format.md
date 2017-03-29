@@ -12,15 +12,15 @@ Ulog是一种用来记录系统数据的日志格式。这种格式是自解释�
 
 下面列举了使用的数据类型，他们都与C语言的类型相对应。
 
-| Type | Size in Bytes |
-| --- | --- |
-| int8\_t,  uint8\_t | 1 |
-| int16\_t, uint16\_t | 2 |
-| int32\_t, uint32\_t | 4 |
-| int64\_t, uint64\_t | 8 |
-| float | 4 |
-| double | 8 |
-| bool, char | 1 |
+| Type                | Size in Bytes |
+| ------------------- | ------------- |
+| int8\_t,  uint8\_t  | 1             |
+| int16\_t, uint16\_t | 2             |
+| int32\_t, uint32\_t | 4             |
+| int64\_t, uint64\_t | 8             |
+| float               | 4             |
+| double              | 8             |
+| bool, char          | 1             |
 
 此外所有类型都可以使用数组，比如`float[5]`。一般而言所有的字符串\(`char[length]`\)结尾都不包含 `'\0'`。字符串大小写敏感。
 
@@ -80,7 +80,7 @@ struct message_format_s {
     char format[header.msg_size-hdr_size];
 };
 ```
-  
+
   `format`: 纯文本字符串，格式如下: `message_name:field0;field1;`可以有任意数量的field
    \(至少 1\), 用 `;`隔开。
    field 的格式: `type field_name` 或者数组形式 `type[array_length] field_name`\(只支持固定尺寸的数组\).
@@ -88,19 +88,19 @@ struct message_format_s {
    type可以在定义前使用。可以任意地嵌套，但是不要循环依赖。
 
 有一些特殊的field:
-   
+
 * `timestamp`: 每个日志消息 \(`message_add_logged_s`\) 必须包含一个  
-  timestamp field \(不必是第一个\). 他的type可以是:  
-  `uint64_t` \(当前唯一被用到的\), `uint32_t`, `uint16_t` or  
-  `uint8_t`. 除了 `uint8_t` 的单位是毫秒，其他单位都是微秒 。
-  日志写入器必须确保记录日志消息足够频繁，能够检测环绕，一个日志读取器必须处理环绕
-  \（并且考虑到数据丢失\）. 拥有相同`msg_id`的消息序列的timestamp必须单调增加.
+    timestamp field \(不必是第一个\). 他的type可以是:  
+    `uint64_t` \(当前唯一被用到的\), `uint32_t`, `uint16_t` or  
+    `uint8_t`. 除了 `uint8_t` 的单位是毫秒，其他单位都是微秒 。
+    日志写入器必须确保记录日志消息足够频繁，能够检测环绕，一个日志读取器必须处理环绕
+    \（并且考虑到数据丢失\）. 拥有相同`msg_id`的消息序列的timestamp必须单调增加.
 
 * Padding: 以`_padding` 开头的field名称，不应该被显示，并且读取器应该忽略他们的数据should not be displayed and  
-  their data must be ignored by a reader. 写入器插入这些 fields 用来确保正确的对齐。
-  
+    their data must be ignored by a reader. 写入器插入这些 fields 用来确保正确的对齐。
+
   如果 padding field 是最后一个field, 那么这个field不会被记录,这样就避免了写入不必要的数据
-  这使`message_data_s.data` 得以缩短 。然而当消息用于嵌套定义的时候依然需要padding
+    这使`message_data_s.data` 得以缩短 。然而当消息用于嵌套定义的时候依然需要padding
 
 * 'I': information message.
 
@@ -118,33 +118,37 @@ struct message_info_s {
 
 预定义的 information messages :
 
-| `key`                        | Description               | Example for value |
-| -----                        | -----------               | ----------------- |
-| char[value_len] sys_name     | Name of the system        |  "PX4"            |
-| char[value_len] ver_hw       | Hardware version          |  "PX4FMU_V4"      |
-| char[value_len] ver_sw       | Software version (git tag)|  "7f65e01"        |
-| uint32_t ver_sw_release      | Software version (see below)|  0x010401ff     |
-| char[value_len] sys_os_name  | Operating System Name     |  "Linux"          |
-| char[value_len] sys_os_ver   | OS version (git tag)      |  "9f82919"        |
-| uint32_t ver_os_release      | OS version (see below)    |  0x010401ff       |
-| char[value_len] sys_toolchain| Toolchain Name            |  "GNU GCC"        |
-| char[value_len] sys_toolchain_ver| Toolchain Version     |  "6.2.1"          |
-| char[value_len] sys_mcu      | Chip name and revision    |  "STM32F42x, rev A"|
-| char[value_len] sys_uuid     | Unique identifier for vehicle (eg. MCU ID) |  "392a93e32fa3"...|
-| char[value_len] replay       | File name of replayed log if in replay mode | "log001.ulg" |
-| int32_t time_ref_utc         | UTC Time offset in seconds |  -3600        |
+| `key`                             | Description                              | Example for value  |
+| --------------------------------- | ---------------------------------------- | ------------------ |
+| char[value_len] sys_name          | Name of the system                       | "PX4"              |
+| char[value_len] ver_hw            | Hardware version                         | "PX4FMU_V4"        |
+| char[value_len] ver_sw            | Software version (git tag)               | "7f65e01"          |
+| uint32_t ver_sw_release           | Software version (see below)             | 0x010401ff         |
+| char[value_len] sys_os_name       | Operating System Name                    | "Linux"            |
+| char[value_len] sys_os_ver        | OS version (git tag)                     | "9f82919"          |
+| uint32_t ver_os_release           | OS version (see below)                   | 0x010401ff         |
+| char[value_len] sys_toolchain     | Toolchain Name                           | "GNU GCC"          |
+| char[value_len] sys_toolchain_ver | Toolchain Version                        | "6.2.1"            |
+| char[value_len] sys_mcu           | Chip name and revision                   | "STM32F42x, rev A" |
+| char[value_len] sys_uuid          | Unique identifier for vehicle (eg. MCU ID) | "392a93e32fa3"...  |
+| char[value_len] replay            | File name of replayed log if in replay mode | "log001.ulg"       |
+| int32_t time_ref_utc              | UTC Time offset in seconds               | -3600              |
 
- `ver_sw_release` and `ver_os_release`的格式是: 0xAABBCCTT,  AA
+ `ver_sw_release`和`ver_os_release`的格式是: 0xAABBCCTT,  AA
   是 major（主版本号）, BB 是 minor（次版本号）, CC 是 patch（补丁版本） and TT 是类型. 类型
   定义如下: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta
   version, `>= 192`: RC version, `== 255`: release version.
   例如 0x010402ff 转换成版本为 v1.4.2.
-  
-* 'P': 参数消息. 和`message_info_s`格式一样.
-  如果一个参数在运行时实时改变, 那这个消息也可以用在数据部分\(Data section\).
-  数据类型限制为: `int32_t`, `float`.
 
-这部分在第一个“message_add_logged_s”消息的开始之前结束。
+This message can also be used in the Data section (this is however the preferred section).
+
+* 'P': 参数消息. 和`message_info_s`格式一样.
+    如果一个参数在运行时实时改变, 那这个消息也可以用在数据部分\(Data section\).
+    数据类型限制为: `int32_t`, `float`.
+
+This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
+
+
 
 ### 数据部分（Data Section）
 
@@ -202,21 +206,21 @@ struct message_logging_s {
 ```
   `timestamp`:微秒为单位, `log_level`: 与 Linux kernel 一样:
 
-| Name       | Level value  | Meaning                              |
-| ----       | -----------  | -------                              |
-| EMERG      |      '0'     | System is unusable                   |
-| ALERT      |      '1'     | Action must be taken immediately     |
-| CRIT       |      '2'     | Critical conditions                  |
-| ERR        |      '3'     | Error conditions                     |
-| WARNING    |      '4'     | Warning conditions                   |
-| NOTICE     |      '5'     | Normal but significant condition     |
-| INFO       |      '6'     | Informational                        |
-| DEBUG      |      '7'     | Debug-level messages                 |
+| Name    | Level value | Meaning                          |
+| ------- | ----------- | -------------------------------- |
+| EMERG   | '0'         | System is unusable               |
+| ALERT   | '1'         | Action must be taken immediately |
+| CRIT    | '2'         | Critical conditions              |
+| ERR     | '3'         | Error conditions                 |
+| WARNING | '4'         | Warning conditions               |
+| NOTICE  | '5'         | Normal but significant condition |
+| INFO    | '6'         | Informational                    |
+| DEBUG   | '7'         | Debug-level messages             |
 
 
 * synchronization message so that a reader can recover from a corrupt
   message by search for the next sync message \(not used currently\).
-  'S': 同步消息，消息阅读器通过搜索下一个同步消息的方式从一个损坏的消息恢复。\(当前未使用\)
+    'S': 同步消息，消息阅读器通过搜索下一个同步消息的方式从一个损坏的消息恢复。\(当前未使用\)
 ```
 struct message_sync_s {
     struct message_header_s header;
@@ -227,7 +231,7 @@ struct message_sync_s {
 `sync_magic`: 待定义\(to be defined\).
 
 * 'O': 标记一个在以ms给定的时间段内的数据丢失 \(丢失日志消息\)。
-  比如设备不够快的时候就会发生消息丢失.
+    比如设备不够快的时候就会发生消息丢失.
 
 ```
 struct message_dropout_s {
@@ -236,5 +240,9 @@ struct message_dropout_s {
 };
 ```
 
+* 'I': information message. See above.
+
+
+* 'P': parameter message. See above.
 
 

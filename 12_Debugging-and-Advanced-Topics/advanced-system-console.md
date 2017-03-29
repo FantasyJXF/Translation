@@ -87,7 +87,7 @@ sudo apt-get install screen
 ```bash
 screen /dev/ttyXXX BAUDRATE 8N1
 ```
-注意上面的/dve/ttyXXX BAUDRATE 8N1要替换为自己系统的正确串口和硬件波特率（如果是lunux和pxhawk，加上编者上面的正确串口`/dev/ttyUSB0 `，这条语句应该修改为 `screen /dev/ttyUSB0 57600 8N1`）。正确输入上述命令后，终端会切换为console，如果没有切换为console或切换后输入没有反应，则插拔一下USB连接线或者串口连接线。重新输入`screen /dev/ttyUSB0 57600 8N1`，然后输入enter,出现nsh> 说明打开控制台成功。
+注意上面的/dve/ttyXXX BAUDRATE 8N1要替换为自己系统的正确串口和硬件波特率（如果是lunux和pxhawk，加上编者上面的正确串口`/dev/ttyUSB0 `，这条语句应该修改为 `screen /dev/ttyUSB0 57600 8N1`）。正确输入上述命令后，终端会切换为console，如果没有切换为console或切换后输入没有反应，则插拔一下USB连接线或者串口连接线。重新输入`screen /dev/ttyUSB0 57600 8N1`，然后输入enter,出现`nsh>` 说明打开控制台成功。
 
 ### Windows: PuTTY
 
@@ -108,7 +108,11 @@ nsh> ls
 nsh> free
 ```
 ## MAVLink Shell
- 对于基于NuttX的系统（Pixhawk，Pixracer，...），NSH控制台也可以通过mavlink访问。它通过串行链路或WiFi（UDP / TCP）来工作。确保QGC没有运行，然后启动shell使用如下命令`./Tools/mavlink_shell.py /dev/ttyACM0`（使用-h获得所有可用参数的描述）。
+ 对于基于NuttX的系统（Pixhawk，Pixracer，...），NSH控制台也可以通过mavlink访问。它通过串行链路或WiFi（UDP / TCP）来工作。
+
+Make sure that QGC is not running, then start the shell with e.g.`./Tools/mavlink_shell.py /dev/ttyACM0` (in the Firmware source). Use `-h` to get a description of all available arguments. You may first have to install the dependencies with `sudo pip install pymavlink pyserial`.
+
+
 
 # Snapdragon DSP Console
 

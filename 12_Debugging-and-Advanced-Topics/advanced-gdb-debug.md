@@ -31,46 +31,45 @@ Stack usage is calculated with stack coloring and thus is not the current usage,
 
 ### Heap allocations
 Dynamic heap allocations can be traced on POSIX in SITL with [gperftools](https://github.com/gperftools/gperftools).
-Once installed, it can be used with:
-  * Run jmavsim: `./Tools/jmavsim_run.sh`
-  * Then:
 
+#### Install Instructions
+##### Ubuntu:
+```bash
+sudo apt-get install google-perftools libgoogle-perftools-dev
+```
+
+#### Start heap profiling
+
+First of all, build the firmware as follows:
+```bash
+make posix_sitl_default
+```
+Start jmavsim: `./Tools/jmavsim_run.sh`
+
+In another terminal, type:
 ```bash
 cd build_posix_sitl_default/tmp
 export HEAPPROFILE=/tmp/heapprofile.hprof
-env LD_PRELOAD=/lib64/libtcmalloc.so ../src/firmware/posix/px4 posix-configs/SITL/init/lpe/iris
+export HEAP_PROFILE_TIME_INTERVAL=30
+```
+
+Enter this depending on your system:
+##### Fedora:
+```bash
+env LD_PRELOAD=/lib64/libtcmalloc.so ../src/firmware/posix/px4 ../../posix-configs/SITL/init/lpe/iris
 pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
+```
+
+##### Ubuntu:
+```bash
+env LD_PRELOAD=/usr/lib/libtcmalloc.so ../src/firmware/posix/px4 ../../posix-configs/SITL/init/lpe/iris
+google-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
 ```
 
 It will generate a pdf with a graph of the heap allocations.
 The numbers in the graph will all be zero, because they are in MB. Just look at the percentages instead. They show the live memory (of the node and the subtree), meaning the memory that was still in use at the end.
 
-If it does not generate heap dumps while running the `px4` app you might need to change the settings of the profiler. On some systems it is necessary to set an interval time when to write the dumps:
-
-```
-# Specify interval in seconds
-export HEAP_PROFILE_TIME_INTERVAL=10
-```
-
-See the [gperftools docs](http://htmlpreview.github.io/?https://github.com/gperftools/gperftools/blob/master/doc/heapprofile.html) for more information.
-
-## Sending MAVLink debug key / value pairs
-
-The code for this tutorial is available here:
-
-  * [Debug Tutorial Code](https://github.com/PX4/Firmware/blob/master/src/examples/px4_mavlink_debug/px4_mavlink_debug.c)
-  * [Enable the tutorial app](https://github.com/PX4/Firmware/tree/master/cmake/configs) by uncommenting / enabling the mavlink debug app in the config of your board
-
-All required to set up a debug publication is this code snippet. First add the header file:
-
-<div class="host-code"></div>
-
-```C
-#include <uORB/uORB.h>
-#include <uORB/topics/debug_key_value.h>
-```
-
-Then advertise the debug value topic (one advertisement for different published names is sufficient). Put this in front of your main loop:
+See the [gperftools docs](https://htmlpreview.github.io/?https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.html) for more information.
 
 
 ## Debugging Hard Faults in NuttX
@@ -135,7 +134,7 @@ To decode the hardfault, load the *exact* binary into the debugger:
 arm-none-eabi-gdb build_px4fmu-v2_default/src/firmware/nuttx/firmware_nuttx
 ```
 
-Then in the GDB prompt, start with the last instructions in R8, with the first address in flash (recognizable because it starts with `0x080`, the first is `0x0808439f`). The execution is left to right. So one of the last steps before the hard fault was when ```mavlink_log.c``` tried to publish something, 
+Then in the GDB prompt, start with the last instructions in R8, with the first address in flash (recognizable because it starts with `0x080`, the first is `0x0808439f`). The execution is left to right. So one of the last steps before the hard fault was when ```mavlink_log.c``` tried to publish something,
 
 <div class="host-code"></div>
 

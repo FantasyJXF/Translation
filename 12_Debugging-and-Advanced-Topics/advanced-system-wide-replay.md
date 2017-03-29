@@ -16,7 +16,7 @@ topics. For system-wide replay, this consists of all hardware input: sensors, RC
 input, mavlink commands and file system.
 
 All identified topics need to be logged at full rate (see
-[logging](../12_Debugging-and-Advanced-Topics/logging.md)). For `ekf2` this is already the case with the
+[logging](advanced-logging.md)). For `ekf2` this is already the case with the
 default set of logged topics.
 
 It is important that all replayed topics contain only a single absolute
@@ -41,7 +41,7 @@ make posix_sitl_default
   replay, the build system knows through the `replay` environment variable that
   it's in replay mode.
 - Add ORB publisher rules file in
-  `build_posix_sitl_default_replay/src/firmware/posix/rootfs/orb_publisher.rules`.
+  `build_posix_sitl_default_replay/tmp/rootfs/orb_publisher.rules`.
   This file defines which module is allowed to publish which messages. It has
   the following format:
 ```
@@ -66,7 +66,7 @@ ignore_others: true
   to be disabled for replay.
 
 - Optional: setup parameter overrides in the file
-  `build_posix_sitl_default_replay/src/firmware/posix/rootfs/replay_params.txt`.
+  `build_posix_sitl_default_replay/tmp/rootfs/replay_params.txt`.
   This file should contain a list of `<param_name> <value>`, like:
 ```
 EKF2_GB_NOISE 0.001
@@ -106,6 +106,43 @@ unset replay
 - A message that has a timestamp of 0 will be considered invalid and not be
   replayed.
 
+## EKF2 Replay
+
+This is a specialization of the system-wide replay for fast EKF2 replay. It will
+automatically create the ORB publisher rules and works as following:
+
+* Optionally set`SDLOG_MODE` to 1 to start logging from boot
+* Record the log
+* To replay:
+
+```
+export replay_mode=ekf2
+export replay=<abs_path_to_log.ulg>
+make posix none
+```
+
+You can stop it after there's an output like:
+
+```
+INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
+```
+
+The parameters can be adjusted as well. They can be extracted from the log with
+\(install pyulog with `sudo pip install pyulog` first\):
+
+```
+ulog_params -i $replay -d ' ' | grep -e '^EKF2' > build_posix_sitl_default_replay/tmp/rootfs/replay_params.txt
+```
+Then edit the parameters in the file as needed and restart the replay process
+with `make posix none`. This will create a new log file.
+
+The location of the generated log is printed with a message like this:
+
+```
+INFO  [logger] Opened log file: rootfs/fs/microsd/log/2017-03-01/13_30_51_replayed.ulg
+```
+
+When finished, use `unset replay; unset replay_mode` to exit the replay mode.
 
 ## Behind the Scenes
 

@@ -13,7 +13,7 @@
 
 > **Important**: make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
 
-### 使用设置
+### 访问设置
 此树莓派镜像已经事先设置好了SSH。用户名：pi 和密码：raspberry。你可以直接通过网络去连接你的树莓派2（以太网已经启动并且默认自动分配IP）和可以配置使用wifi。在这篇文档中，我们采取默认的用户名和密码登入树莓派系统。
 
 设置你的树莓派加入你的本地wifi网络（使你的树莓派连接你的wifi），关于如何设置请参考这篇
@@ -24,6 +24,10 @@
 ```sh
 ssh pi@<IP-ADDRESS>
 ```
+
+### Expand the Filesystem
+
+After installing the OS and connecting to it, make sure to [expand the Filesystem](https://www.raspberrypi.org/documentation/configuration/raspi-config.md),so there is enough space on the SD Card.
 
 ### 改变树莓派主机名
 为了避免与同一网络上的其他树莓派有冲突，我们建议你改变默认主机名为明显的名字。我们使用px4autopilot作为我们的主机名。通过ssh连接pi并执行指令。
@@ -163,18 +167,18 @@ rm hello.txt
 
 ### 本地构建 (可选)
 
-如果你想你也可以直接在树莓派上进行PX4的构建。这就是本地构建目标。
+You can run PX4 builds directly on the Pi if you desire. This is the native build. The other option is to run builds on a development computer which cross-compiles for the Pi, and pushes the PX4 executable binary directly to the Pi. This is the cross-compiler build, and the recommended one for developers due to speed of deployment and ease of use.
 
-其他方法就是通过交叉编译的方式在一台开发主机上为树莓派运行构建可执行目标，然后直接发送PX4可执行二进制文件到树莓派上。推荐使用交叉编译的方法, 因为它可以以加快开发和容易开发。对于使用交叉编译环境，你就可以跳过这一步。
+For cross-compiling setups, you can skip this step.
 
-这下面的安装脚本可以自动的在Pi上更新PX4的本地开发环境。在树莓派上运行这些命令。
+The steps below will setup the build system on the Pi to that required by PX4. Run these commands on the Pi itself!
 
 ```sh
-git clone https://github.com/pixhawk/rpi_toolchain.git
-cd rpi_toolchain
-chmod +x install_native.sh
-./install_native.sh
+sudo apt-get update
+sudo apt-get install cmake python-empy
 ```
+
+Then clone the Firmware directly onto the Pi.
 
 ### Building the code
 

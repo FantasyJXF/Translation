@@ -94,39 +94,44 @@ make posix_rpi2_release # for cross-compiler build
 The "mainapp" executable file is in the directory build_posix_rpi2_release/src/firmware/posix.
 Copy it over to the RPi (replace YOUR_PI with the IP or hostname of your RPi, [instructions how to access your RPi](../5_Autopilot-Hardware/raspeberry_pi2.md#developer-quick-start))
 
-```sh
-scp build_posix_rpi2_release/src/firmware/posix/mainapp pi@YOUR_PI:/home/pi/
-```
-
-And run it with :
-<div class="host-code"></div>
+Then set the IP (or hostname) of your RPi using:
 
 ```sh
-./mainapp
+export AUTOPILOT_HOST=192.168.X.X
 ```
 
-If you're building *directly* on the Pi, you will want the native build target (posix_pi2_default).
-
-<div class="host-code"></div>
+And upload it with:
 
 ```sh
 cd Firmware
-make posix_rpi2_default # for native build
+make posix_rpi_cross upload # for cross-compiler build
 ```
 
-The "mainapp" executable file is in the directory build_posix_rpi2_default/src/firmware/posix.
-Run it directly with :
-<div class="host-code"></div>
+Then, connect over ssh and run it with (as root):
 
 ```sh
-./build_posix_rpi2_default/src/firmware/posix/mainapp
+sudo ./px4 px4.config
 ```
 
-A successful build followed by executing mainapp will give you this :
+#### Native build
+
+If you're building *directly* on the Pi, you will want the native build target (posix_rpi_native).
 
 ```sh
-[init] shell id: 1996021760
-[init] task name: mainapp
+cd Firmware
+make posix_rpi_native # for native build
+```
+
+The "px4" executable file is in the directory build_posix_rpi_native/src/firmware/posix.
+Run it directly with:
+
+```sh
+sudo ./build_posix_rpi_native/src/firmware/posix/px4 ./posix-configs/rpi/px4.config
+```
+
+A successful build followed by executing px4 will give you something like this:
+
+```sh
 
 ______  __   __    ___
 | ___ \ \ \ / /   /   |
@@ -135,19 +140,105 @@ ______  __   __    ___
 | |     / /^\ \ \___  |
 \_|     \/   \/     |_/
 
-Ready to fly.
+px4 starting.
 
 
 pxh>
+```
+
+#### Autostart
+To autostart px4, add the following to the file `/etc/rc.local` (adjust it
+accordingly if you use native build), right before the `exit 0` line:
+```
+cd /home/pi && ./px4 -d px4.config > px4.log
+```
+
+
+### Parrot Bebop
+
+Support for the Bebop is really early stage and should be used very carefully.
+
+#### Build it
+```sh
+cd Firmware
+make posix_bebop_default
+```
+
+Turn on your Bebop and connect your host machine with the Bebop's wifi. Then, press the power button
+four times to enable ADB and to start the telnet daemon.
+
+```sh
+make posix_bebop_default upload
+```
+
+This will upload the PX4 mainapp into /usr/bin and create the file /home/root/parameters if not already
+present. In addition, we need the Bebop's mixer file and the px4.config. Currently, both files have
+to be copied manually using the following commands.
+```sh
+adb connect 192.168.42.1:9050
+adb push ROMFS/px4fmu_common/mixers/bebop.main.mix /home/root
+adb push posix-configs/bebop/px4.config /home/root
+adb disconnect
+```
+
+#### Run it
+Connect to the Bebop's wifi and press the power button four times. Next,
+connect with the Bebop via telnet or adb shell and run the commands bellow.
+
+```sh
+telnet 192.168.42.1
+```
+
+Kill the Bebop's proprietary driver with
+```sh
+kk
+```
+and start the PX4 mainapp with:
+```sh
+px4 /home/root/px4.config
+```
+
+In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. Both,
+the Bebop and the joystick should be recognized. Follow the instructions to calibrate the sensors
+and setup your joystick device.
+
+#### Autostart
+
+To auto-start PX4 on the Bebop at boot, modify the init script `/etc/init.d/rcS_mode_default`. Comment the following line:
+```
+DragonStarter.sh -out2null &
+```
+Replace it with:
+```
+px4 -d /home/root/px4.config > /home/root/px4.log
+```
+
+Enable adb server by pressing the power button 4 times and connect to adb server as described before:
+```sh
+adb connect 192.168.42.1:9050
+```
+Re-mount the system partition as writeable:
+```sh
+adb shell mount -o remount,rw /
+```
+In order to avoid editing the file manually, you can use this one : https://gist.github.com/mhkabir/b0433f0651f006e3c7ac4e1cbd83f1e8
+
+Save the original one and push this one to the Bebop
+```sh
+adb shell cp /etc/init.d/rcS_mode_default /etc/init.d/rcS_mode_default_backup
+adb push rcS_mode_default /etc/init.d/
+```
+Sync and reboot:
+```sh
+adb shell sync
+adb shell reboot
 ```
 
 ### QuRT / Snapdragon based boards
 
 #### Build it
 
-The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](../6_Middleware-and-Architecture/uorb_messaging.md).
-
-<div class="host-code"></div>
+The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](advanced-uorb.md).
 
 ```sh
 cd Firmware
@@ -156,29 +247,21 @@ make eagle_default
 
 To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:
 
-<div class="host-code"></div>
-
 ```sh
 adb shell
 ```
 
 Go back to previous terminal and upload:
 
-<div class="host-code"></div>
-
 ```sh
 make eagle_default upload
 ```
 
-
->Note that this will also copy (and overwrite) the two config files [mainapp.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config) and [px4.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config) to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.
-
+Note that this will also copy (and overwrite) the two config files [mainapp.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config) and [px4.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config) to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.
 
 The mixer currently needs to be copied manually:
 
-<div class="host-code"></div>
-
-```
+```sh
 adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 ```
 
@@ -186,24 +269,24 @@ adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 
 Run the DSP debug monitor:
 
-<div class="host-code"></div>
-
 ```sh
-${HEXAGON_SDK_ROOT}/tools/mini-dm/Linux_Debug/mini-dm
+${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
 ```
 
-Go back to ADB shell and run mainapp:
+Note: alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+
+Go back to ADB shell and run px4:
 
 ```sh
 cd /home/linaro
-./mainapp mainapp.config
+./px4 mainapp.config
 ```
 
-Note that the mainapp will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the mainapp auto-start after boot.
+Note that the px4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the px4 auto-start after boot.
 
-#### Auto-start mainapp
+#### Autostart
 
-To run the mainapp as soon as the Snapdragon has booted, you can add the startup to `rc.local`:
+To run the px4 as soon as the Snapdragon has booted, you can add the startup to `rc.local`:
 
 Either edit the file `/etc/rc.local` directly on the Snapdragon:
 
@@ -222,24 +305,25 @@ adb push rc.local /etc/rc.local
 
 For the auto-start, add the following line before `exit 0`:
 
-```
-(cd /home/linaro && ./mainapp mainapp.config > mainapp.log)
+```sh
+(cd /home/linaro && ./px4 mainapp.config > mainapp.log)
 
 exit 0
 ```
 
 Make sure that the `rc.local` is executable:
 
-```
+```sh
 adb shell
 chmod +x /etc/rc.local
 ```
 
 Then reboot the Snapdragon:
 
-```
+```sh
 adb reboot
 ```
+
 
 ##图形IDE界面下编译
 PX4 支持Qt Creator, Eclipse 和Sublime Text三种集成式开发环境。  Qt Creator是最友好的开发环境，所以被是唯一官方支持的IDE。除非资深的Eclipse 或Sublime开发者，否则一般不推荐使用Eclipse或Sublime进行二次开发。硬件底层开发可以在 [Eclipse project](https://github.com/PX4/Firmware/blob/master/.project) 和 a [Sublime project](https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project) 找到源码。
