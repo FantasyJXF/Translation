@@ -229,8 +229,8 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 11.6-Gazebo Octomap       |  Innoecho   |                               |
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
 | 12.1-I2C BUS              |    - _ -    |                               |
-| 12.1.1-SF1XX Lidar        |             |                               |
-| 12.2-UAVCAN               |             |                               |
+| 12.1.1-SF1XX Lidar        |   arctory   |                               |
+| 12.2-UAVCAN               |      川      |                               |
 | 12.2.1-UAVCAN Bootloader  |   silence   |                               |
 | 12.2.2-UAVCAN 固件升级        |   silence   |                               |
 | 12.2.3-UAVCAN 配置          |   silence   |                               |
