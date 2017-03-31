@@ -170,21 +170,22 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 4.1-地面站                   |     范新强     |                               |
 | 4.2-编写应用程序                |    PONY     |                               |
 | 4.3-QGC的视频流               |    积土为山     |                               |
-| 4.4-远程的视频流               |          |                               |
-| 4.5-光流和LiDAR-Lite         |    PONY     |                               |
+| 4.4-远距离视频流                |             |                               |
+| 4.5-光流                    |    PONY     |                               |
 | 4.6-综合测试                  |  Innoecho   |                               |
-| 4.7-户外光流                  |   Fantasy   |                               |
-| 4.8-多旋翼PID调参              |   Fantasy   |                               |
-| 4.9-sdlog2                |   Fantasy   |                               |
-| 4.10-ecl EKF               |   Fantasy   |                               |
-| 4.11-飞行前检查              |             |                               |
-| 4.12-数传              |             |                               |
-| 4.13-传感器热补偿              |             |                               |
+| 4.7-多旋翼PID调参              |   Fantasy   |                               |
+| 4.8-sdlog2                |   Fantasy   |                               |
+| 4.9-ecl EKF               |   Fantasy   |                               |
+| 4.10-飞行前检查                |             |                               |
+| 4.11-数传                   |             |                               |
+| 4.12-传感器热补偿               |             |                               |
+| 4.13-着陆检测                 |    冷酷到底     |                               |
 | 5-仿真                      |    - _ -    |          Simulation           |
 | 5.1-基本仿真                  |    积土为山     |                               |
 | 5.2-Gazebo仿真              |    积土为山     |                               |
 | 5.3-硬件在环仿真                |  Innoecho   |                               |
 | 5.4-连接ROS                 |  Innoecho   |                               |
+| 5.4-AirSim仿真              |             |                               |
 | 6-自驾仪的硬件                  |    - _ -    |      Autopilot Hardware       |
 | 6.1-Crazyfile 2.0         |   Fantasy   |                               |
 | 6.2-Intel Aero            |             |                               |
@@ -193,10 +194,9 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 6.5-Pixracer              |     景略      |                               |
 | 6.6-树莓派Pi 2               |     誓言      |                               |
 | 6.7-骁龙                    |     誓言      |                               |
-| 6.7.1-光流                  |   Fantasy   |                               |
+| 6.7.1-相机和光流               |   Fantasy   |                               |
 | 6.7.2-高级骁龙                |             |                               |
 | 6.7.2.1-获取I/O数据           |             |                               |
-| 6.7.2.1-相机和光流             |             |                               |
 | 7-中间件及架构                  |    - _ -    |  Middleware and Architecture  |
 | 7.1-uORB                  |    彩虹小羊     |                               |
 | 7.2-自定义MAVlink消息          |    彩虹小羊     |                               |
@@ -230,10 +230,11 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 12-传感器和执行机构总线             |    - _ -    |   Sensor and Actuator Buses   |
 | 12.1-I2C BUS              |    - _ -    |                               |
 | 12.1.1-SF1XX Lidar        |             |                               |
-| 12.2-UAVCAN               |    |                               |
-| 12.2.1-UAVCAN Bootloader  |silence|                               |
-| 12.2.2-UAVCAN 固件升级     | silence  |                               |
-| 12.2.3-UAVCAN 配置          |silence  |                               |
+| 12.2-UAVCAN               |             |                               |
+| 12.2.1-UAVCAN Bootloader  |   silence   |                               |
+| 12.2.2-UAVCAN 固件升级        |   silence   |                               |
+| 12.2.3-UAVCAN 配置          |   silence   |                               |
+| 12.2.4-UAVCAN的各种笔记        |             |                               |
 | 12.3-PWM / GPIO           |             |                               |
 | 12.4-UART                 |    - _ -    |                               |
 | 12.4.1-uLanding Radar     |             |                               |
@@ -245,22 +246,24 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 13.5-自驾仪调试                |             |                               |
 | 13.6-仿真调试                 |             |                               |
 | 13.7-发送调试的值               |             |                               |
-| 13.8-室内 / 假 GPS           |             |                               |
-| 13.9-相机触发器                |   含笑~饮砒霜    |                               |
-| 13.10-Logging             |     老四      |                               |
-| 13.11-飞行日志分析              |   Fantasy   |                               |
-| 13.12-EKF2的Log文件回放        |             |                               |
-| 13.13-System-wide Replay  |             |                               |
-| 13.14-安装RealSense R200的驱动 |             |                               |
-| 13.15-Parrot  Bebop  |             |                             |
-| 13.16-设置云台控制              |   含笑~饮砒霜    |                               |
-| 13.17-切换状态估计器             |             |                               |
-| 13.18-Out of tree Modules |             |                               |
-| 13.19-ULog文件模式            |             |                               |
-| 13.20-Licenses            |             |                               |
+| 13.8-Profiling            |             |                               |
+| 13.9-室内 / 假 GPS           |             |                               |
+| 13.10-相机触发器               |   含笑~饮砒霜    |                               |
+| 13.11-Logging             |     老四      |                               |
+| 13.12-飞行日志分析              |   Fantasy   |                               |
+| 13.13-EKF2的Log文件回放        |             |                               |
+| 13.14-System-wide Replay  |             |                               |
+| 13.15-安装RealSense R200的驱动 |             |                               |
+| 13.16-Parrot  Bebop       |             |                               |
+| 13.17-设置云台控制              |   含笑~饮砒霜    |                               |
+| 13.18-切换状态估计器             |             |                               |
+| 13.19-Out of tree Modules |             |                               |
+| 13.20-ULog文件模式            |             |                               |
+| 13.21-Licenses            |             |                               |
 | 14-软件更新                   |    - _ -    |        Software Update        |
 | 14.1-STM32 BootLoader     |   Fantasy   |                               |
 | 15-测试和持续集成                |             |        Testing and CI         |
 | 15.1-Docker 容器            |             |                               |
 | 15.2-持续集成                 |             |                               |
 | 15.2.1-Jenkins持续集成环境      |             |                               |
+

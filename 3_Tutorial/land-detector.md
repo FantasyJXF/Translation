@@ -1,23 +1,37 @@
-# Land Detector Configuration
+# 着陆探测器配置
 
 官网英文原文地址：https://dev.px4.io/land-detector.html
 
-The land detector is a dynamic vehicle model representing key vehicle states such as landed and ground contact.
+着陆探测器是一个表示关键飞行器状态的动态飞行器模型，比如着陆和地面接触。
 
-## Multicopter Land Detector Configuration
+## 多旋翼着陆探测器配置
 
-The complete set of parameters is available in the QGroundControl parameter editor under the `LNDMC` prefix. The key parameters that might differ per airframe are these:
 
-* `LNDMC_MAN_DWNTHR` - the threshold \(in percent, default is 15%\) for how much manual throttle is allowed to be considering the state as landed. Systems with very high thrust-to-weight ratios like racers might need a lower setting here \(e.g. 8%\).
-* `MPC_THR_HOVER` - the hover throttle of the system \(in percent, default is 50%\). It is important to set this correctly as it does not only make the altitude control more accurate, but also ensures correct land detection. A racer or a big camera drone without payload mounted might need a much lower setting \(e.g. 35%\).
-* `LNDMC_POS_UPTHR` - throttle level to trigger takeoff \(in percent, default is 65%\). If the pilot raises above this threshold the system will attempt to take off. This value should be greater than the hover throttle.
+完整的参数集可以在QGroundControl地面站的参数编辑器中找到，以`LNDMC`为前缀。每个机身可能不同的关键参数有：
 
-## Fixed Wing Land Detector Configuration
+* `LNDMC_MAN_DWNTHR` - 阈值（以百分比表示，默认值15%）手动油门的多少要考虑到落地状态。 具有非常高的推力重量比的系统如竞赛手可能需要较低的设置（例如8％）。
 
-The complete set of parameters is available under the `LNDFW` prefix. These two user parameters are sometimes worth tuning:
+  ​
 
-* `LNDFW_AIRSPD_MAX` - the maximum airspeed allowed for the system still to be considered landed. The default of 8 m/s is a reliable tradeoff between airspeed sensing accuracy and triggering fast enough. Better airspeed sensors should allow lower values of this parameter.
-* `LNDFW_VELI_MAX` - the maximum velocity for the system to be still considered landed. This parameter can be adjusted to ensure a sooner or later land detection on throwing the airframe for hand-launches.
+* `MPC_THR_HOVER` - 系统的悬停油门（以百分比表示，默认为50％）。 重要的是正确设置，因为它不仅使高度控制更准确，而且确保正确的着陆检测。 无负载安装的竞赛手或大型航拍无人机可能需要低得多的设置（例如35％）。
+
+  ​
+
+* `LNDMC_POS_UPTHR` - 油门水平触发起飞（以百分比表示，默认为65％）。 如果飞手升高超过该阈值，系统将试图起飞。 该值应大于悬停油门。
+
+  ​
+
+
+## 固定翼着陆探测器配置
+
+可用以`LNDFW`为前缀的完整参数集。下列两个用户参数有时需要进行调整：
+
+* `LNDFW_AIRSPD_MAX` - 降落时仍然要考虑系统允许的最大空速。 默认的8 m / s是空速感测精度和足够快的触发之间可靠的折衷。 更好的空速传感器应允许较低的参数值。
+
+* `LNDFW_VELI_MAX` - 降落时仍然要考虑系统的最大速度。 可以调整此参数，以确保在投掷机身时进行手动启动的着陆检测。
+
+  ​
+
 
 
 
