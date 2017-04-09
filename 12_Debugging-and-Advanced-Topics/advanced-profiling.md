@@ -57,20 +57,27 @@ PMSP使用GDB收集堆栈踪迹。目前使用的是 `arm-none-eabi-gdb` ,未来
 The script was developed as an ad-hoc solution, so it has some issues.
 Please watch out for them while using it:
 
+这个脚本是临时的解决方案，所以仍然存在一些问题。当使用这个脚本的时候当心那些问题：
+
 * If GDB is malfunctioning, the script may fail to detect that, and continue running.
   In this case, obviously, no usable stacks will be produced.
   In order to avoid that, the user should periodically check the file `/tmp/pmpn-gdberr.log`,
   which contains the stderr output of the most recent invocation of GDB.
   In the future the script should be modified to invoke GDB in quiet mode, where it will indicate
   issues via its exit code.
+  
+* 如果GDB出故障，脚本可能不会检测到故障，仍然会继续运行下去。这种情况下显然不能产生可用的堆栈信息。为了避免这种情况，用户需要时不时地查看 `/tmp/pmpn-gdberr.log`文件，在里面包含着最近一次对GDB调用的stderr输出。在将来脚本会改为以安静模式调用，会通过exit code来指示问题。
 
 * Sometimes GDB just stucks forever while sampling the stack trace.
   During this failure, the target will be halted indefinitely.
   The solution is to manually abort the script and re-launch it again with the `--append` option.
   In the future the script should be modified to enforce a timeout for every GDB invocation.
+  
+* 有时GDB会在采样堆栈踪迹的时候卡死。这时候目标（译注：可能指的是目标板）会一直暂停。解决办法是手动退出脚本，再用`--append` 选项重新运行脚本。将来，脚本会给每个GDB调用强制设置一个timeout。
 
 * Multithreaded environments are not supported.
   This does not affect single core embedded targets, since they always execute in one thread,
   but this limitation makes the profiler incompatible with many other applications.
   In the future the stack folder should be modified to support multiple stack traces per sample.
 
+* 不支持多线程环境。这不影响单核嵌入式目标，因为他们总是以单线程执行，但这种限制会使得分析器不能兼容许多其他的应用。在将来，会修改堆栈文件夹（stack folder译注：翻译存疑，stack folder可能指的是 相同堆栈踪迹的合并操作）以使每次采样支持多堆栈踪迹。
