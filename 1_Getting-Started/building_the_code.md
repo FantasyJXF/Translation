@@ -80,56 +80,56 @@ Rebooting.
 [100%] Built target upload
 ```
 
-### Raspberry Pi 2 boards
+### Raspberry Pi 2 开发板
 
-The command below builds the target for Raspbian (posix_pi2_release).
 
-<div class="host-code"></div>
+以下命令编译生成Raspbian（posix_pi2_release）版本的固件。
+
 
 ```sh
 cd Firmware
 make posix_rpi2_release # for cross-compiler build
 ```
 
-The "mainapp" executable file is in the directory build_posix_rpi2_release/src/firmware/posix.
-Copy it over to the RPi (replace YOUR_PI with the IP or hostname of your RPi, [instructions how to access your RPi](../5_Autopilot-Hardware/raspeberry_pi2.md#developer-quick-start))
+"mainapp"可执行文件位于目录build_posix_rpi2_release/src/firmware/posix下。 将其复制到RPi（用你的RPi的IP或主机名替换YOUR_PI，关于如何访问你的RPi，查看[介绍](../5_Autopilot-Hardware/raspeberry_pi2.md#developer-quick-start))
 
-Then set the IP (or hostname) of your RPi using:
+然后使用以下命令设置你的RPi的IP（或主机名）：
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-And upload it with:
+并上传：
 
 ```sh
 cd Firmware
 make posix_rpi_cross upload # for cross-compiler build
 ```
 
-Then, connect over ssh and run it with (as root):
+然后，通过ssh连接并运行它（以root权限）：
 
 ```sh
 sudo ./px4 px4.config
 ```
 
-#### Native build
+#### 本地构建
 
-If you're building *directly* on the Pi, you will want the native build target (posix_rpi_native).
+
+如果你要直接在Pi上编译，则需要在本地编译固件（posix_rpi_native）。
 
 ```sh
 cd Firmware
 make posix_rpi_native # for native build
 ```
 
-The "px4" executable file is in the directory build_posix_rpi_native/src/firmware/posix.
-Run it directly with:
+“px4”可执行文件位于目录build_posix_rpi_native/src/firmware/posix中。直接运行：
+
 
 ```sh
 sudo ./build_posix_rpi_native/src/firmware/posix/px4 ./posix-configs/rpi/px4.config
 ```
 
-A successful build followed by executing px4 will give you something like this:
+px4成功执行的情况如下：
 
 ```sh
 
@@ -146,9 +146,10 @@ px4 starting.
 pxh>
 ```
 
-#### Autostart
-To autostart px4, add the following to the file `/etc/rc.local` (adjust it
-accordingly if you use native build), right before the `exit 0` line:
+#### 自启动
+
+要自动启动px4，在`exit 0`之前，请将以下内容添加到文件`/etc/rc.local`中（如果使用本机构建，请相应调整）：
+
 ```
 cd /home/pi && ./px4 -d px4.config > px4.log
 ```
@@ -156,24 +157,22 @@ cd /home/pi && ./px4 -d px4.config > px4.log
 
 ### Parrot Bebop
 
-Support for the Bebop is really early stage and should be used very carefully.
+支持的Bebop是非常早期的版本，使用前请特别注意。
 
-#### Build it
+#### 编译
 ```sh
 cd Firmware
 make posix_bebop_default
 ```
 
-Turn on your Bebop and connect your host machine with the Bebop's wifi. Then, press the power button
-four times to enable ADB and to start the telnet daemon.
+打开你的Bebop，通过Bebop的wifi连接你的主机。 然后，按下电源按钮四次以启用ADB并启动telnet守护程序。
 
 ```sh
 make posix_bebop_default upload
 ```
 
-This will upload the PX4 mainapp into /usr/bin and create the file /home/root/parameters if not already
-present. In addition, we need the Bebop's mixer file and the px4.config. Currently, both files have
-to be copied manually using the following commands.
+以上操作会将PX4 mainapp上传到/usr/bin并创建文件/home/root/parameters（如果尚未存在）。 此外，我们需要Bebop的mixer文件和px4.config。 当前这两个文件必须使用以下命令手动复制。
+
 ```sh
 adb connect 192.168.42.1:9050
 adb push ROMFS/px4fmu_common/mixers/bebop.main.mix /home/root
@@ -181,121 +180,133 @@ adb push posix-configs/bebop/px4.config /home/root
 adb disconnect
 ```
 
-#### Run it
-Connect to the Bebop's wifi and press the power button four times. Next,
-connect with the Bebop via telnet or adb shell and run the commands bellow.
+#### 运行
+
+连接Bebop的wifi，然后按电源按钮四次。 接下来，通过telnet或adb shell与Bebop连接，并运行以下命令。
 
 ```sh
 telnet 192.168.42.1
 ```
 
-Kill the Bebop's proprietary driver with
+通过以下命令关闭Bebop的所有驱动。
+
 ```sh
 kk
 ```
-and start the PX4 mainapp with:
+
+启动PX4 mainapp：
+
 ```sh
 px4 /home/root/px4.config
 ```
 
-In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. Both,
-the Bebop and the joystick should be recognized. Follow the instructions to calibrate the sensors
-and setup your joystick device.
+为了飞行Bebop，将操纵杆设备与主机连接并启动QGroundControl。 Bebop和操纵杆都应该被识别。按照说明校准传感器并设置操纵杆设备。
 
-#### Autostart
+#### 自启动
 
-To auto-start PX4 on the Bebop at boot, modify the init script `/etc/init.d/rcS_mode_default`. Comment the following line:
+
+要使启动时在Bebop上自动启动PX4，请修改init脚本`/etc/init.d/rcS_mode_default`。 添加下行：
+
 ```
 DragonStarter.sh -out2null &
 ```
-Replace it with:
+
+替换为：
+
 ```
 px4 -d /home/root/px4.config > /home/root/px4.log
 ```
 
-Enable adb server by pressing the power button 4 times and connect to adb server as described before:
+通过按电源按钮4次启用adb服务器，并按照上述方式连接到adb服务器：
+
+
 ```sh
 adb connect 192.168.42.1:9050
 ```
-Re-mount the system partition as writeable:
+
+将系统分区重新挂载为可写：
 ```sh
 adb shell mount -o remount,rw /
 ```
-In order to avoid editing the file manually, you can use this one : https://gist.github.com/mhkabir/b0433f0651f006e3c7ac4e1cbd83f1e8
+为了避免手动配置文件，可以使用下面链接： https://gist.github.com/mhkabir/b0433f0651f006e3c7ac4e1cbd83f1e8
 
-Save the original one and push this one to the Bebop
+保存原来的，并将其推送到Bebop
+
 ```sh
 adb shell cp /etc/init.d/rcS_mode_default /etc/init.d/rcS_mode_default_backup
 adb push rcS_mode_default /etc/init.d/
 ```
-Sync and reboot:
+
+同步并重启
 ```sh
 adb shell sync
 adb shell reboot
 ```
 
-### QuRT / Snapdragon based boards
+### 基于QuRT / Snapdragon的开发板
 
-#### Build it
+#### 编译
 
-The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](advanced-uorb.md).
+以下命令编译Linux和DSP端的固件。 两个可执行机构通过[muORB](advanced-uorb.md)进行通信。
 
 ```sh
 cd Firmware
 make eagle_default
 ```
 
-To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:
+要将SW加载到设备上，通过USB数据线进行连接，并确保设备已启动。 在新的终端窗口中运行：
 
 ```sh
 adb shell
 ```
 
-Go back to previous terminal and upload:
+返回上一个终端并上传：
 
 ```sh
 make eagle_default upload
 ```
 
-Note that this will also copy (and overwrite) the two config files [mainapp.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config) and [px4.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config) to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.
 
-The mixer currently needs to be copied manually:
+请注意，这也将复制（并覆盖）[mainapp.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config)和[px4.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config)这两个配置文件到设备。 如果你要直接编辑启动脚本，文件路径分别为/usr/share/data/adsp/px4.config和/home/linaro/mainapp.config。
+
+当前需要手动复制mixer
 
 ```sh
 adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 ```
 
-#### Run it
+#### 运行
 
-Run the DSP debug monitor:
+运行DSP调试监视器：
 
 ```sh
 ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
 ```
 
-Note: alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+注意：如果是在Mac上，你也可以使用[nano-dm](https://github.com/kevinmehall/nano-dm)。 
 
-Go back to ADB shell and run px4:
+回到ADB shell并运行px4：
+
 
 ```sh
 cd /home/linaro
 ./px4 mainapp.config
 ```
 
-Note that the px4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the px4 auto-start after boot.
+请注意，只要断开USB数据线（或者ssh会话断开连接），px4就会停止。 如果要飞行，你应该在启动后使px4自动启动。
 
-#### Autostart
+#### 自启动
 
-To run the px4 as soon as the Snapdragon has booted, you can add the startup to `rc.local`:
 
-Either edit the file `/etc/rc.local` directly on the Snapdragon:
+要在Snapdragon启动时一直运行px4，可以将启动添加到`rc.local`中： 或者直接编辑文件`/etc/rc.local`：
+
 
 ```sh
 adb shell
 vim /etc/rc.local
 ```
 
-Or copy the file to your computer, edit it locally, and copy it back:
+或将文件复制到你的电脑，在本地进行编辑，然后将其复制回来：
 
 ```sh
 adb pull /etc/rc.local
@@ -303,7 +314,7 @@ gedit rc.local
 adb push rc.local /etc/rc.local
 ```
 
-For the auto-start, add the following line before `exit 0`:
+对于自动启动，在 `exit 0`之前添加以下行：
 
 ```sh
 (cd /home/linaro && ./px4 mainapp.config > mainapp.log)
@@ -311,14 +322,14 @@ For the auto-start, add the following line before `exit 0`:
 exit 0
 ```
 
-Make sure that the `rc.local` is executable:
+确保`rc.local`是可执行的：
 
 ```sh
 adb shell
 chmod +x /etc/rc.local
 ```
 
-Then reboot the Snapdragon:
+然后重新启动Snapdragon：
 
 ```sh
 adb reboot
