@@ -153,11 +153,11 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 2-新手上路                    |    - _ -    |        Getting Started        |
 | 2.1-初始设置                  |      冰      |                               |
 | 2.2-安装工具链                 |      冰      |                               |
-| 2.2.1-MAC OS              |             |                               |
+| 2.2.1-MAC OS              |    nxajh    |                               |
 | 2.2.2-Linux               |      冰      |                               |
 | 2.2.2.1-高级Linux           |  Innoecho   |                               |
 | 2.2.3-Windows             |    风城少主     |                               |
-| 2.3-代码编译                  |      冰      |                               |
+| 2.3-代码编译                  |    KONG     |                               |
 | 2.4-合作开发                  |      冰      |                               |
 | 3-概念解读                    |    - _ -    |           Concepts            |
 | 3.1-飞行模式/操作               |   Fantasy   |                               |
@@ -166,7 +166,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 3.4-中间件                   |    猰貐·信     |                               |
 | 3.5-混控输出                  |  Innoecho   |                               |
 | 3.6-PWM限制状态机              |  Innoecho   |                               |
-| 4-教程                      |    - _ -    |           Tutorials           |
+| 4-教程                      |             |           Tutorials           |
 | 4.1-地面站                   |     范新强     |                               |
 | 4.2-编写应用程序                |    PONY     |                               |
 | 4.3-QGC的视频流               |    积土为山     |                               |
@@ -185,7 +185,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 5.2-Gazebo仿真              |    积土为山     |                               |
 | 5.3-硬件在环仿真                |  Innoecho   |                               |
 | 5.4-连接ROS                 |  Innoecho   |                               |
-| 5.4-AirSim仿真              |             |                               |
+| 5.4-AirSim仿真              |   Fantasy   |                               |
 | 6-自驾仪的硬件                  |    - _ -    |      Autopilot Hardware       |
 | 6.1-Crazyfile 2.0         |   Fantasy   |                               |
 | 6.2-Intel Aero            |             |                               |
@@ -233,23 +233,23 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 12.2-UAVCAN               |      川      |                               |
 | 12.2.1-UAVCAN Bootloader  |   silence   |                               |
 | 12.2.2-UAVCAN 固件升级        |   silence   |                               |
-| 12.2.3-UAVCAN 配置          |   silence   |                               |
-| 12.2.4-UAVCAN的各种笔记        |             |                               |
-| 12.3-PWM / GPIO           |             |                               |
+| 12.2.3-UAVCAN 配置          |      川      |                               |
+| 12.2.4-UAVCAN的各种笔记        |      川      |                               |
+| 12.3-PWM / GPIO           |     -_-     |                               |
 | 12.4-UART                 |    - _ -    |                               |
-| 12.4.1-uLanding Radar     |             |                               |
+| 12.4.1-uLanding Radar     |      川      |                               |
 | 13-调试以及高级主题               |    - _ -    | Debugging and Advanced Topics |
 | 13.1-FAQ                  |   如果你永无畏惧   |                               |
 | 13.2-系统控制台                |     why     |                               |
 | 13.3-系统启动                 |     why     |                               |
-| 13.4-参数 & 配置              |             |                               |
+| 13.4-参数 & 配置              |   Maoquan   |                               |
 | 13.5-自驾仪调试                |             |                               |
 | 13.6-仿真调试                 |             |                               |
-| 13.7-发送调试的值               |             |                               |
-| 13.8-Profiling            |             |                               |
+| 13.7-发送调试的值               | yidengfeiwu |                               |
+| 13.8-Profiling            | yidengfeiwu |                               |
 | 13.9-室内 / 假 GPS           |             |                               |
 | 13.10-相机触发器               |   含笑~饮砒霜    |                               |
-| 13.11-Logging             |     老四      |                               |
+| 13.11-Logging             |             |                               |
 | 13.12-飞行日志分析              |   Fantasy   |                               |
 | 13.13-EKF2的Log文件回放        |             |                               |
 | 13.14-System-wide Replay  |             |                               |
@@ -262,7 +262,7 @@ Git这个工具非常重要，且简单易学有意思，不妨掌握一下，�
 | 13.21-Licenses            |             |                               |
 | 14-软件更新                   |    - _ -    |        Software Update        |
 | 14.1-STM32 BootLoader     |   Fantasy   |                               |
-| 15-测试和持续集成                |             |        Testing and CI         |
+| 15-测试和持续集成                |    StDeY    |        Testing and CI         |
 | 15.1-Docker 容器            |             |                               |
 | 15.2-持续集成                 |             |                               |
 | 15.2.1-Jenkins持续集成环境      |             |                               |

@@ -17,7 +17,6 @@ cd vectorcontrol
 
 PIxhawk ESC 1.6在通过UAVCAN设备更新固件之前, 首先要求刷新UAVCAN的启动引导程序。为了生成启动引导程序，运行：
 
-<div class="host-code"></div>
 
 ```sh
 make clean && BOARD=px4esc_1_6 make -j8
@@ -26,8 +25,6 @@ make clean && BOARD=px4esc_1_6 make -j8
 启动引导程序生成之后，其image文件存放路径为 `firmware/px4esc_1_6-bootloader.bin`, OpenOCD的配置文档为 `openocd_px4esc_1_6.cfg`。可以通过 [如下教程](../11_Sensors-and-actuator-Buses/uavcan-node-enumeration.md) 初始化ESC的启动程序。
 
 ### 编译主要的二进制（.bin）文件Compiling the Main Binary
-
-<div class="host-code"></div>
 
 ```sh
 BOARD=s2740vc_1_0 make && BOARD=px4esc_1_6 make
@@ -39,8 +36,6 @@ BOARD=s2740vc_1_0 make && BOARD=px4esc_1_6 make
 
 下载Sapog代码库:
 
-<div class="host-code"></div>
-
 ```sh
 git clone https://github.com/PX4/sapog
 cd sapog
@@ -50,8 +45,6 @@ git submodule update --init --recursive
 ### 烧写UAVCAN启动引导程序
 
 在通过UAVCAN更新固件之前，ESC需要烧写UAVCAN引导加载程序。引导程序可以使用如下指令构建：
-
-<div class="host-code"></div>
 
 ```sh
 cd bootloader
@@ -63,20 +56,20 @@ cd ..
 
 ### 编译主要的二进制（.bin）文件
 
-<div class="host-code"></div>
-
 ```sh
 cd firmware
 make RELEASE=1 # RELEASE is optional; omit to build the debug version
 ```
 
-Beware, some newer version of GCC lead to segfaults during linking. Version 4.9 did work at the time of writing. The firmware image will be located at `firmware/build/io.px4.sapog-1.1-1.7.<xxxxxxxx>.application.bin`, where `<xxxxxxxx>` is an arbitrary sequence of numbers and letters. There are two hardware version of the Zubax Orel 20 (1.0 and 1.1). Make sure you copy the binary to the correct folder in the subsequent description. The ESC firmware will check the hardware version and works on both products.1
+注意：一些较新版本的GCC导致链接期间的segfaults报错，4.9版本目前测试可用。该固件映像将位于路径`firmware/build/io.px4.sapog-1.1-1.7.<xxxxxxxx>
+.application.bin`，其中`<xxxxxxxx>`是任意数字和字母序列。有两个版本的Zubax Orel 20硬件（1.0和1.1版本）。确保将执行程序复制到后续描述中的正确文件夹。ESC固件将检查硬件版本并在两个产品（Pixhawk ESC 1.4和Zubax Orel 20）上工作。
+
+
 
 
 ## Zubax GNSS
 
-请参考 [项目网页](https://github.com/Zubax/zubax_gnss) 去学习如何生成和刷新固件。
-Zubax GNSS 出厂时就带有支持UAVCAN的启动引导程序，因此其固件可以通过UAVCAN使用统一方式进行更新，具体更新方式如下所述。
+请参考 [项目网页](https://github.com/Zubax/zubax_gnss) 去学习如何生成和刷新固件。Zubax GNSS 出厂时就带有支持UAVCAN的启动引导程序，因此其固件可以通过UAVCAN使用统一方式进行更新，具体更新方式如下所述。
 
 ## Autopilot的固件安装
 
@@ -88,7 +81,7 @@ UAVCAN节点的文档命名遵循约定的命名方式，这种命名方式允�
   <uavcan name>-<hw version major>.<hw version minor>-<sw version major>.<sw version minor>.<version hash>.bin
   ```
 
-  e.g. 
+例如：
   ```
   com.thiemar.s2740vc-v1-1.0-1.0.68e34de6.bin
   ```
@@ -99,7 +92,7 @@ UAVCAN节点的文档命名遵循约定的命名方式，这种命名方式允�
 
 ```
 
- e.g. 
+例如
  ```
   s2740vc-v1-1.0.68e34de6.bin 
  /fs/microsd/fw/io.px4.sapog/1.1/sapog-1.7.87c7bc0.bin
@@ -125,9 +118,9 @@ UAVCAN节点的文档命名遵循约定的命名方式，这种命名方式允�
 
 ### 开始固件升级过程
 
-<aside class="note">
-当使用的是 [PX4飞行控制栈](../2_Concepts/flight_stack.md)时, 在‘电源配置’部分中启用UAVCAN，并在尝试升级UAVCAN固件之前要重启系统。
-</aside>
+
+当使用的是 [PX4飞行控制栈](../2_Concepts/flight_stack.md)时, 在`电源配置(Power Config)`部分中启用UAVCAN，并在尝试升级UAVCAN固件之前要重启系统。
+
 
 或者可以通过以下方式在NSH上手动启动UAVCAN固件升级进程：
 
