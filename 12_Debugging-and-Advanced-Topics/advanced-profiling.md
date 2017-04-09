@@ -4,10 +4,9 @@
 
 本节介绍如何通过分析来评估PX4系统的性能。
 
-Credits for the idea belong to
-[Mark Callaghan and Domas Mituzas](https://dom.as/2009/02/15/poor-mans-contention-profiling/).
+本节的想法源于[Mark Callaghan和Domas Mituzas](https://dom.as/2009/02/15/poor-mans-contention-profiling/).
 
-这个棒棒的主意是Mark Callaghan 和 Domas Mituzas的 。
+
 
 ## 方法
 
@@ -18,7 +17,7 @@ PMSP是一个shell脚本，它会定期中断固件的运行，并对当前堆�
 ## 执行
 
 
-脚本的位置在 `Debug/poor-mans-profiler.sh`。一旦开始运行，脚本会以指定的时间间隔运行指定数量的采样。收集的采样信息会存储在位于系统的临时文件夹(例如 `/tmp`)下的文本文件中。一旦采样结束，脚本会自动调用这个堆栈文件夹，输出信息会存储在临时文件夹下的相邻文件中。如果堆栈`folded`成功，脚本会调用 FlameGraph 脚本，并把结果保存在交互式的SVG文件中。请注意并不是所有的图片浏览器都支持交互式图片；推荐在网页浏览器中打开SVG结果。
+脚本的位置在 `Debug/poor-mans-profiler.sh`。一旦开始运行，脚本会以指定的时间间隔运行指定数量的采样。收集的采样信息会存储在位于系统的临时文件夹(例如 `/tmp`)下的文本文件中。一旦采样结束，脚本会自动调用这个堆栈文件夹，输出信息会存储在临时文件夹下的相邻文件中。如果堆栈`folded`成功，脚本会调用 FlameGraph（火焰图） 脚本，并把结果保存在交互式的SVG文件中。请注意并不是所有的图片浏览器都支持交互式图片；推荐在网页浏览器中打开SVG结果。
 
 FlameGraph脚本必须在 `PATH` 中，否则 PMSP 拒绝执行。
 
@@ -47,37 +46,20 @@ PMSP使用GDB收集堆栈踪迹。目前使用的是 `arm-none-eabi-gdb` ,未来
 
 下面是一个样例输出的截屏（并不是交互性的）
 
-![FlameGraph Example](flamegraph-example.png)
+![FlameGraph Example](../pictures/poster/flamegraph-example.png)
 
 
-在帧图上，水平方向表示堆栈帧，每个帧的宽度正比于它被采样的次数。反过来，函数最终被采样的次数正比于执行的持续时间频率。
+在火焰图上，水平方向表示堆栈帧，每个帧的宽度正比于它被采样的次数。反过来，函数最终被采样的次数正比于执行的持续时间频率。
 
 ## 可能的问题
 
-The script was developed as an ad-hoc solution, so it has some issues.
-Please watch out for them while using it:
 
-这个脚本是临时的解决方案，所以仍然存在一些问题。当使用这个脚本的时候当心那些问题：
+该脚本是作为一种特殊解决方案开发的，所以仍然存在一些问题。使用它时请注意：
 
-* If GDB is malfunctioning, the script may fail to detect that, and continue running.
-  In this case, obviously, no usable stacks will be produced.
-  In order to avoid that, the user should periodically check the file `/tmp/pmpn-gdberr.log`,
-  which contains the stderr output of the most recent invocation of GDB.
-  In the future the script should be modified to invoke GDB in quiet mode, where it will indicate
-  issues via its exit code.
   
-* 如果GDB出故障，脚本可能不会检测到故障，仍然会继续运行下去。这种情况下显然不能产生可用的堆栈信息。为了避免这种情况，用户需要时不时地查看 `/tmp/pmpn-gdberr.log`文件，在里面包含着最近一次对GDB调用的stderr输出。在将来脚本会改为以安静模式调用，会通过exit code来指示问题。
+* 如果GDB发生故障，脚本可能无法检测到并继续运行。这种情况下显然不能产生可用的堆栈信息。为了避免这种情况，用户需要时不时地查看 `/tmp/pmpn-gdberr.log`文件，在里面包含着最近一次对GDB调用的stderr输出。在将来脚本会改为以安静模式调用，会通过exit code来指示问题。
 
-* Sometimes GDB just stucks forever while sampling the stack trace.
-  During this failure, the target will be halted indefinitely.
-  The solution is to manually abort the script and re-launch it again with the `--append` option.
-  In the future the script should be modified to enforce a timeout for every GDB invocation.
   
-* 有时GDB会在采样堆栈踪迹的时候卡死。这时候目标（译注：可能指的是目标板）会一直暂停。解决办法是手动退出脚本，再用`--append` 选项重新运行脚本。将来，脚本会给每个GDB调用强制设置一个timeout。
-
-* Multithreaded environments are not supported.
-  This does not affect single core embedded targets, since they always execute in one thread,
-  but this limitation makes the profiler incompatible with many other applications.
-  In the future the stack folder should be modified to support multiple stack traces per sample.
+* 有时GDB会在采样堆栈踪迹的时候卡死。这时候目标会一直暂停。解决办法是手动退出脚本，再用`--append` 选项重新运行脚本。将来，脚本会给每个GDB调用强制设置一个timeout。
 
 * 不支持多线程环境。这不影响单核嵌入式目标，因为他们总是以单线程执行，但这种限制会使得分析器不能兼容许多其他的应用。在将来，会修改堆栈文件夹（stack folder译注：翻译存疑，stack folder可能指的是 相同堆栈踪迹的合并操作）以使每次采样支持多堆栈踪迹。
