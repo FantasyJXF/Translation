@@ -5,7 +5,7 @@
 PX4的代码库使用一个轻量级的，统一的驱动抽象层：[DriverFramework](https://github.com/px4/DriverFramework). 
 POSIX和 [QuRT](https://en.wikipedia.org/wiki/Qualcomm_Hexagon)的驱动写入这个驱动框架当中。
 
-旧的NuttX驱动是基于[设备](https://github.com/PX4/Firmware/tree/master/src/drivers/device) 架构的，以后将会移植到驱动框架之中。
+> **Todo** 旧的NuttX驱动是基于[设备](https://github.com/PX4/Firmware/tree/master/src/drivers/device) 架构的，以后将会移植到驱动框架之中。
 
 
 ## 核心架构

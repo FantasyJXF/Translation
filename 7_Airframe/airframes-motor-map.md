@@ -3,9 +3,8 @@
 
 下面的电机映射指明'MAIN'输出口和电机的连接关系，同时也给出了螺旋桨的旋转方向。
 
-<aside class="tip">
-交换三相电机三根连接线的其中两根，就可以改变电机的旋转方向。
-</aside>
+> **提示：** 交换三相电机三根连接线的其中两根，就可以改变电机的旋转方向。
+
 
 ## 四旋翼X型布局
 
@@ -31,6 +30,4 @@
 
 ![Octorotor Plus Layout](../pictures/motor_map/octorotor_plus_assignment.png)
 
-<aside class="todo">
-支持三旋翼和共轴六旋翼，但是目前没有布局图
-</aside>
+> **Todo** 支持三旋翼和共轴六旋翼，但是目前没有布局图

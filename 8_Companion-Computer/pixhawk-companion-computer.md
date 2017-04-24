@@ -8,9 +8,8 @@
 
 参考下表，设置`SYS_COMPANION`参数（System参数组）
 
-<aside class="tip">
-变更参数后需要重启飞控使其生效。
-</aside>
+> **须知：** 变更参数后需要重启飞控使其生效。
+
 
 - `0`：禁用TELEM2上的MAVLink输出（默认）
 - `921600`：使能MAVLink输出，波特率：921600, 8N1（推荐）
@@ -29,9 +28,9 @@
 
 根据下面的说明连接串口。所有Pixhawk串口工作在3.3V，兼容5V。
 
-<aside class="caution">
-许多现代协同计算机在UART端口仅支持1.8V的电压，并且可能在3.3V下损坏。使用电压转换器。大多数时候，可以使用的硬件串口有特定的功能（modem or console），在使用之前，需要在Linux下重新配置它们。
-</aside>
+> ** 警告： ** 许多现代协同计算机在UART端口仅支持1.8V的电压，并且可能在3.3V下损坏。使用电压转换器。大多数时候，可以使用的硬件串口有特定的功能（modem or console），在使用之前，需要在Linux下重新配置它们。
+
+
 安全的做法是使用FTDI（USB转串口适配器），并按照下面说明连接它。这大多数时候都管用并且很容易设置。
 
 | TELEM2   |          | FTDI    |                         |
@@ -39,6 +38,8 @@
 |1         | +5V (red)|         | DO NOT CONNECT!         |
 |2         | Tx  (out)| 5       | FTDI RX (yellow) (in)   |
 |3         | Rx  (in) | 4       | FTDI TX (orange) (out)  |
-|4         | CTS (in) |6        | FTDI RTS (green) (out)  |
-|5         | RTS (out)|2        | FTDI CTS (brown) (in)   |
-|6         | GND      | 1       | FTDI GND (black)        |
+| 4    | CTS (in)  | 6    | FTDI RTS (green) (out) |
+| ---- | --------- | ---- | ---------------------- |
+|      |           |      |                        |
+| 5    | RTS (out) | 2    | FTDI CTS (brown) (in)  |
+| 6    | GND       | 1    | FTDI GND (black)       |

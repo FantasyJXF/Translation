@@ -46,7 +46,7 @@ print " GPS: %s" % vehicle.gps_0
 print " Alt: %s" % vehicle.location.global_relative_frame.alt
 ```
 
-## 完整的任务范例
+## 完整的任务示例
 
 下面的python脚本文件给出了使用DroneKit和PX4的完整任务范例。目前还不完全支持模式切换，因此我们发送自定义的模式切换指令。
 

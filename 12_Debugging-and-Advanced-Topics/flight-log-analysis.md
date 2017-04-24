@@ -6,7 +6,7 @@
 
 ## [Log Muncher](http://logs.uaventure.com/)
 
-> 注意： Log Muncher只可以被用来查看先前`.px4log`格式的日志\`
+> **注意：** Log Muncher只可以被用来查看先前`.px4log`格式的日志。
 
 ### 上传
 
@@ -90,7 +90,6 @@ conda install -c https://conda.anaconda.org/dronecrew px4tools
 
 * 要求用户懂python
 
-* 目前要求用户在使用之前将log文件转化为csv文件
-
+* 目前需要使用sdlog2_dump.py或px4tools嵌入的px42csv程序将日志文件转换为csv才能使用
 
 

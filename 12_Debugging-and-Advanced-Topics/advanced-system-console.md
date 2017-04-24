@@ -58,7 +58,7 @@
 
 ![connectors](../pictures/console/console_connector.jpg)
 
-完整的布线如下。
+完整的连线如下。
 
 ![debug](../pictures/console/console_debug.jpg)
 

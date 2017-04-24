@@ -1,4 +1,4 @@
-# Send Debug String / Float Pairs
+# 发送调试的字符串/浮点数对
 
 官网英文原文地址：http://dev.px4.io/advanced-debug-values.html
 
@@ -42,7 +42,7 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 
 <aside class="caution">
 
-多个调试消息必须在它们各自的发布之间有足够的时间以供Mavlink处理它们。这意味着代码必须在发布多个调试消息之间等待，或者在每个函数调用迭代上交替消息（or alternate the messages on each function call iteration）。
+多个调试消息必须在它们各自的发布之间有足够的时间以供Mavlink处理它们。这意味着代码必须在发布多个调试消息之间等待，或者在每个函数调用迭代上交替消息。
 
 </aside>
 

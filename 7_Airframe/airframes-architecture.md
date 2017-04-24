@@ -1,4 +1,4 @@
-# 机型综述
+# 机型概述
 
 官网英文原文地址：http://dev.px4.io/airframes-architecture.html
 

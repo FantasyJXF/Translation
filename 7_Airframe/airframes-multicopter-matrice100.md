@@ -34,15 +34,15 @@ poster="http://image84.360doc.com/DownloadImg/2015/04/1617/52474470_2.jpg" data-
 
 ![No Top Deck](../pictures/airframes/multicopter/matrice100/NoTopDeck.jpg)
 
-| 输出    | 频率   | 作动器            |
-| ------ | ------ | ---------------- |
-| MAIN1  | 400 Hz | 右前方，逆时针     |
-| MAIN2  | 400 Hz | 左后方，逆时针     |
-| MAIN3  | 400 Hz | 左前方，顺时针     |
-| MAIN4  | 400 Hz | 右后方，顺时针     |
-| AUX1   | 50 Hz  | RC AUX1          |
-| AUX2   | 50 Hz  | RC AUX2          |
-| AUX3   | 50 Hz  | RC AUX3          |
+| 输出    | 频率     | 执行器     |
+| ----- | ------ | ------- |
+| MAIN1 | 400 Hz | 右前方，逆时针 |
+| MAIN2 | 400 Hz | 左后方，逆时针 |
+| MAIN3 | 400 Hz | 左前方，顺时针 |
+| MAIN4 | 400 Hz | 右后方，顺时针 |
+| AUX1  | 50 Hz  | RC AUX1 |
+| AUX2  | 50 Hz  | RC AUX2 |
+| AUX3  | 50 Hz  | RC AUX3 |
 
 ## 参数
 
