@@ -58,7 +58,7 @@ This commit guide is based on best practices for the Linux Kernel and other [pro
 * [Gitter](https://gitter.im/PX4/Firmware?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 * [PX4 Users Forum](http://groups.google.com/group/px4users)
 
-## 每周开发电话
+##  每周开发者电话会议
 
 PX4团队在每周同时进行电话联系（通过[Mumble](http://mumble.info) client\)客户端连接）。
 
