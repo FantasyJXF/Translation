@@ -41,7 +41,8 @@
     * **所有系统类型：**飞机按照地面控制台（GCS）发送的程序指令运动。如果没有接收到指令，飞机会在当前位置悬停。
 
 
-* **外部控制** **OFFBOARD**在这个模式下，飞机的位置，速度或者姿态的参考\/目标\/设定值由另一台通过串行线路与MAVLink连接的电脑提供。这些外部的设定值可以由MAVROS或者Dronekit这种应用程序接口提供。
+* **外部控制** **OFFBOARD**在这个模式下，飞机的位置，速度或者姿态的参考\/目标\/设定值由另一台通过串行线路与MAVLink连接的电脑提供。这些外部的设定值可以由 [MAVROS](https://github.com/mavlink/mavros)或者[Dronekit](http://dronekit.io)这种应用程序接口提供。
+
   ## 飞行模式评估图
 
   ![commander_flow_diagram](../pictures/diagrams\commander_flow_diagram.png)

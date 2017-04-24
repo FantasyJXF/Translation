@@ -32,7 +32,7 @@ git submodule update --recursive
 打开你本地硬盘克隆的软件仓库的`Firmware/src/examples/`文件夹，查看里面的文件。
 
 
-## 第二步：创建小型应用程序
+## 第二步：最小的应用
 
 
 在`Firmware/src/examples/px4_simple_app`下，创建一个新的C语言文件`px4_simple_app.c`。(该文件已存在，你可以直接删掉它，来完全自主编辑学习。)
