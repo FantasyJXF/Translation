@@ -4,26 +4,26 @@
 
 Docker containers are available that contain the complete PX4 development toolchain including Gazebo and ROS simulation:
 
-* **px4io/px4-dev**: toolchain including simulation
-* **px4io/px4-dev-ros**: toolchain including simulation and ROS \(incl. MAVROS\)
+  * **px4io/px4-dev**: toolchain including simulation
+  * **px4io/px4-dev-ros**: toolchain including simulation and ROS (incl. MAVROS)
+  
+Pull one of the tagged images if you're after a container that just works, for instance `px4io/px4-dev-ros:v1.0`, the `latest` container is usually changing a lot.
 
-Pull one of the tagged images if you're after a container that just works, for instance\`px4io/px4-dev-ros:v1.0\`, the\`latest\`container is usually changing a lot.
+Dockerfiles and README can be found here: https://github.com/PX4/containers/tree/master/docker/px4-dev
 
-Dockerfiles and README can be found here: [https://github.com/PX4/containers/tree/master/docker/px4-dev](https://github.com/PX4/containers/tree/master/docker/px4-dev)
-
-They are build automatically on Docker Hub: [https://hub.docker.com/u/px4io/](https://hub.docker.com/u/px4io/)
+They are build automatically on Docker Hub: https://hub.docker.com/u/px4io/
 
 ## Prerequisites
 
-Install Docker from here [https://docs.docker.com/installation/](https://docs.docker.com/installation/), preferably use one of the Docker-maintained package repositories to get the latest version.
+Install Docker from here https://docs.docker.com/installation/, preferably use one of the Docker-maintained package repositories to get the latest version.
 
 Containers are currently only supported on Linux. If you don't have Linux you can run the container inside a virtual machine, see further down for more information. Do not use `boot2docker` with the default Linux image because it contains no X-Server.
 
 ## Use the Docker container
 
-The following will run the Docker container including support for X forwarding which makes the simulation GUI available from inside the container. It also maps the directory `<local_src>` from your computer to `<container_src>` inside the container. Please see the Docker docs for more information on volume and network port mapping.
+The following will run the Docker container including support for X forwarding which makes the simulation GUI available from inside the container. It also maps the directory `<local_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect QGC. Please see the Docker docs for more information on volume and network port mapping.
 
-With the `-–privileged` option it will automatically have access to the devices on your host \(e.g. a joystick and GPU\). If you connect/disconnect a device you have to restart the container.
+With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
 
 ```sh
 # enable access to xhost from the container
@@ -33,6 +33,7 @@ docker run -it --privileged \
     -v <local_src>:<container_src>:rw \
     -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
     -e DISPLAY=:0 \
+    -p 14556:14556/udp \
     --name=container_name px4io/px4-dev bash
 ```
 
@@ -43,6 +44,24 @@ cd <container_src>
 make posix_sitl_default gazebo
 ```
 
+### Graphics driver issues
+
+It's possible that running Gazebo will result in a similar error message like the following:
+
+```sh
+libGL error: failed to load driver: swrast
+```
+
+In that case the native graphics driver for your host system must be installed. Download the right driver and install it inside the container. For Nvidia drivers the following command should be used (otherwise the installer will see the loaded modules from the host and refuse to proceed):
+
+```sh
+./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
+```
+
+More information on this can be found here: http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/
+
+### Re-enter the container
+
 If you exit the container, your changes are left in this container. The above “docker run” command can only be used to create a new container. To get back into this container simply do:
 
 ```sh
@@ -52,7 +71,7 @@ sudo docker start container_name
 sudo docker exec -it container_name bash
 ```
 
-If you need multiple shells connected to the container, just open a new shell and execute that last command again.
+If you need multiple shells connected to the container, just open a new shell and execute that last command again. 
 
 ## Virtual machine support
 
@@ -60,7 +79,7 @@ Any recent Linux distribution should work.
 
 The following configuration is tested:
 
-* OS X with VMWare Fusion and Ubuntu 14.04 \(Docker container with GUI support on Parallels make the X-Server crash\).
+  * OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
 
 **Memory**
 
@@ -95,5 +114,4 @@ docker ps
 
 ## Legacy
 
-The ROS multiplatform containers are not maintained anymore: [https://github.com/PX4/containers/tree/master/docker/ros-indigo](https://github.com/PX4/containers/tree/master/docker/ros-indigo)
-
+The ROS multiplatform containers are not maintained anymore: https://github.com/PX4/containers/tree/master/docker/ros-indigo
