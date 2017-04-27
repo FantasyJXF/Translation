@@ -2,6 +2,10 @@
 
 官网英文原文地址：http://dev.px4.io/external-position.html
 
+> **知悉：** Before following the instructions below, ensure that your autopilot has a firmware version with the LPE modules enabled. The LPE version of the PX4 firmware can be found inside the zip file of the latest PX4 release or it can be built from source using a build command such as `make px4fmu-v2_lpe`. See [Building the Code](../setup/building_px4.md) for more details.
+
+
+
 本文旨在使用除GPS之外的位置数据源构建一个基于PX4的系统，例如像VICON、Optitrack之类的运动捕捉系统和像[ROVIO](https://github.com/ethz-asl/rovio)、[SVO](https://github.com/uzh-rpg/rpg_svo)或者[PTAM](https://github.com/ethz-asl/ethzasl_ptam)之类的基于视觉的估计系统。
 
 位置估计既可以来源于板载计算机，也可以来源于外部系统（例如：VICON）。这些数据用于更新机体相对于本地坐标系的位置估计。来自于视觉或者运动捕捉系统的朝向信息也可以被适当整合进姿态估计器中。

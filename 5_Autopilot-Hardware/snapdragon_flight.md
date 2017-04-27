@@ -10,35 +10,35 @@
 
 ## 摘要
 
--                             片上系统: [骁龙 801](https://www.qualcomm.com/products/snapdragon/processors/801)
+-    片上系统: [骁龙 801](https://www.qualcomm.com/products/snapdragon/processors/801)
                                   - CPU: Quad-core 2.26 GHz Krait
                               - DSP: Hexagon DSP (QDSP6 V5A) – 801 MHz+256KL2 (运行飞控代码)
                               - GPU: Qualcomm® Adreno™ 330 GPU
                               - RAM: 2GB LPDDR3 PoP @931 MHz
--                             内存: 32GB eMMC Flash
-                                  - 摄像头: 索尼 IMX135 on Liteon Module 12P1BAD11
-                              - 4k@30fps 3840×2160 视频流,H.264编码,100Mbits存储(SD卡)速度 (1080p/60并行FPV), 720p FPV
--                             光流: Omnivision OV7251 on Sunny Module MD102A-200
+-    内存: 32GB eMMC Flash
+                                  - 摄像头: 索尼 IMX135 on Liteon Module 12P1BAD11
+                              - 4k@30fps 3840×2160 视频流,H.264编码,100Mbits存储(SD卡)速度 (1080p/60并行FPV), 720p FPV
+-    光流: Omnivision OV7251 on Sunny Module MD102A-200
                                   - 640x480 @ 30/60/90 fps
--                             Wifi: Qualcomm® VIVE™ 1-stream 802.11n/ac with MU-MIMO † Integrated digital core
+-    Wifi: Qualcomm® VIVE™ 1-stream 802.11n/ac with MU-MIMO † Integrated digital core
                                   - BT/WiFi: BT 4.0 and 2G/5G WiFi via QCA6234
                               - 802.11n, 2×2 MIMO with 2 uCOAX connectors on-board for connection to external antenna
--                             GPS: Telit Jupiter SE868 V2 module (建议使用一个外部的UBLOX模块)
+-    GPS: Telit Jupiter SE868 V2 module (建议使用一个外部的UBLOX模块)
                                   - uCOAX 连接器用于连接到外部 GPS
                               - CSR SiRFstarV @ 5Hz via UART
--                             加速度计 / 陀螺仪 /磁力计: Invensense公司的MPU-9250 9-轴传感器, 3x3mmQFN封装, 接在 SPI1
+-    加速度计 / 陀螺仪 /磁力计: Invensense公司的MPU-9250 9-轴传感器, 3x3mmQFN封装, 接在 SPI1
                                   - 气压计: Bosch公司的 BMP280 气压传感器, 接在 I2C3
-                              - 电压: 直流5V,通过APM电源模块降到5V,支持2~6S
-                             - 购买链接: [Intrinsyc商店](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit)
+                              - 电压: 直流5V,通过APM电源模块降到5V,支持2~6S
+                             - 购买链接: [Intrinsyc商店](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit)
 
 ## 接口
 
 -     一个USB 3.0 高速口 (micro-A/B)
 -     SD 卡插槽
-      -云台接口 (PWB/GND/BLSP)
-      - 电调接口 (2W UART)
-      - I2C
-      - 60针高速的Samtec QSH-030-01-L-D-A-K扩展连接器
+     -云台接口 (PWB/GND/BLSP)
+      -     电调接口 (2W UART)
+      -     I2C
+      -     60针高速的Samtec QSH-030-01-L-D-A-K扩展连接器
         - 2x BLSP ([BAM 低速外设](http://www.inforcecomputing.com/public_docs/BLSPs_on_Inforce_6540_6501_Snapdragon_805.pdf))
 -     USB
 
@@ -56,12 +56,12 @@
 
 默认的串口引脚映射如下︰
 
-| 设备           | 描述                          |
-| ---------------- | ------------------------------------ |
-| ```/dev/tty-1``` | J15 (靠近USB)                        |
+| 设备               | 描述              |
+| ---------------- | --------------- |
+| ```/dev/tty-1``` | J15 (靠近USB)     |
 | ```/dev/tty-2``` | J13 (靠近电源模块连接口) |
-| ```/dev/tty-3``` | J12 (靠近J13)                    |
-| ```/dev/tty-4``` | J9 (靠近J15)                     |
+| ```/dev/tty-3``` | J12 (靠近J13)     |
+| ```/dev/tty-4``` | J9 (靠近J15)      |
 
 若用户需要自定UART的引脚,可以通过创建一个名为"blsp.config"文件,并通过adb push命令上传到 ```/usr/share/data/adsp```.
 例如,"blsp.config"内容如下:

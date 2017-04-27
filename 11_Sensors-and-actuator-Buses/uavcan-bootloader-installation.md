@@ -1,12 +1,12 @@
-# UAVCAN 启动程序
+# 安装UAVCAN启动程序
 
 官网英文原文地址：http://dev.px4.io/uavcan-bootloader-installation.html
 
-# UAVCAN启动程序初始化
 
-<aside class="warning">
-无人机控制器局域网络（Unmanned Aerial Vehicle Controller Area Network，UAVCAN）设备通常在出厂时就预安装了启动程序。 如果你不对UAVCAN设备进行开发，请不要试图去重复本章的任何操作。
-</aside>
+
+> **警告：** 无人机控制器局域网络（Unmanned Aerial Vehicle Controller Area Network，UAVCAN）设备通常在出厂时就预安装了启动程序。 如果你不对UAVCAN设备进行开发，请不要试图去重复本章的任何操作。
+
+
 
 ## 概览
 
