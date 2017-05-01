@@ -2,15 +2,11 @@
 PX4中文维基
 --- 
 
-**敬启者：**
+<font color = red size = 6>PX4中文维基现已与PX4开发者官网https://dev.px4.io/合并</font>
 
-PX4开发者中文官网，翻译自http://dev.px4.io/
-
-欢迎志同道合的伙伴共同努力。
+<font color = red size = 6>今后的中文维护将只会在官网进行，望各位继续支持，为汉化多多提出宝贵意见</font>
 
 ---
-
-**与官网相同，与官网不同**，<font color=#DC143C>**我们更全面**</font>。
 
 PX4中文维基由PX4开发者兼爱好者志愿翻译。
 
