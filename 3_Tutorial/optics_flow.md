@@ -3,8 +3,7 @@
 ---
 官网英文原文地址：http://dev.px4.io/optical-flow-outdoors.html
 
-Optical Flow uses a downward facing camera and a downward facing distance sensor for position estimation. Optical Flow based navigation is supported by all three estimators: EKF2, LPE and INAV (see below).
-
+光流使用一个向下的摄像头和一个向下的距离传感器来进行位置估计。EKF2, LPE 和 INAV三个估计器都支持光流（如下所示）。
 
 
 
