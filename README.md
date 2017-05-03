@@ -4,7 +4,7 @@
 --- 
 
 
-<font color = red size = 6> PX4中文维基现已与PX4开发者官网[dev.px4.io](dev.px4.io)合并 </font>
+<font color = red size = 6> PX4中文维基现已与PX4开发者官网dev.px4.io合并 </font>
 
 
 ---
